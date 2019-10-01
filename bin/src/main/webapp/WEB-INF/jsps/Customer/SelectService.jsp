@@ -73,8 +73,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <c:url var="logoutUrl" value="/logout"/>
-						 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-user-times"></i> Logout
+                        </a>
                     </li>
                 </ul>
             </div>

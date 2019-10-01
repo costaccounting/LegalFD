@@ -69,8 +69,12 @@
               <i class="fas fa-user-times"></i> Logout
               -->
         <c:url var="logoutUrl" value="/logout"/>
-		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
+		<form action="${logoutUrl}" method="post" class="form-inline">
+		<input type="Submit" value="LogOut" id="logOut">
+		</form>
+		
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -137,9 +141,9 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Role</th>
-                  <th>User Edit</th>
-                  <th>User Details</th>
-                  <th>Delete User</th>
+                  <th> </th>
+                  <th> </th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -150,11 +154,7 @@
 						<td>${Users.firstName}</td>
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
-						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fas fa-angle-double-right"></i> Edit User
-		                    </a>
-	                  	</td>	
+							
 						<td>
 		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
 		                      <i class="fas fa-angle-double-right"></i> Details

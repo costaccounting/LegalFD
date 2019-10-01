@@ -17,7 +17,7 @@
     crossorigin="anonymous">
   
   
-<title>Admin Page</title> 	
+<title>Lawyer Page</title> 	
 
 </head>
 <body>
@@ -40,8 +40,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
+          <!-- 
             <c:url var = "url" value = "/register"></c:url>
             <a href= "${url}" class="nav-link active">Dashboard</a>
+           -->
           </li>
 
           <li class="nav-item px-2">
@@ -54,6 +56,7 @@
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fas fa-user"></i> Welcome ${firstName}
+           
             </a>
             <div class="dropdown-menu">
               <a href="profile.html" class="dropdown-item">
@@ -69,8 +72,12 @@
               <i class="fas fa-user-times"></i> Logout
               -->
         <c:url var="logoutUrl" value="/logout"/>
-		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
+		<form action="${logoutUrl}" method="post" class="form-inline">
+		<input type="Submit" value="LogOut" id="logOut">
+		</form>
+		
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -82,7 +89,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-users"></i>All Users</h1>
+            <i class="fas fa-users"></i>List of Users</h1>
         </div>
       </div>
     </div>
@@ -137,36 +144,33 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Role</th>
-                  <th>User Edit</th>
-                  <th>User Details</th>
-                  <th>Delete User</th>
+                  <th> </th>
+                  <th> </th>
+                  
                 </tr>
               </thead>
               <tbody>
               
-              	<c:forEach var="Users" items="${allData}">
+              	<c:forEach var="Users" items="${allDataForLawyer}">
 					<tr>
 						<td>${Users.email}</td>
 						<td>${Users.firstName}</td>
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
 						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fas fa-angle-double-right"></i> Edit User
-		                    </a>
-	                  	</td>	
-						<td>
 		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
 		                      <i class="fas fa-angle-double-right"></i> Details
 		                    </a>
 	                  	</td>
-	                  	<td>
+	                   
+	                  		<td>
 			               	
 						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
 						          <i class="fas fa-trash"></i> Delete User
 						       </a>
 	       					
 	                  	</td>
+	                  	
 					</tr>
 				</c:forEach>
               

@@ -50,8 +50,7 @@ public class HomeController {
 	public String goLogOut(Model model) {
 			
 		model.addAttribute("logOutMess", "Thanks for using our services. See you again soon.");
-		model.addAttribute("register", new RegisterUser());
-		
+		model.addAttribute("registerUser", new RegisterUser());
 		
 		return "index";
 	}
