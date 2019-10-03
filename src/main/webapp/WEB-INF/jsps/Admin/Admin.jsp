@@ -155,12 +155,12 @@
 						<td>${Users.role}</td>
 						<td>
 		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="glyphicon glyphicon-pencil"></i> Edit User
+		                      <i class="fa fa-pencil"></i> Edit User
 		                    </a>
 	                  	</td>	
 						<td>
 		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="glyphicon glyphicon-list-alt"></i> Details
+		                      <i class="fa fa-bars"></i> Details
 		                    </a>
 	                  	</td>
 	                  	<td>
