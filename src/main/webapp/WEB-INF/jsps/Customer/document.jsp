@@ -14,6 +14,13 @@
     <title>Client Document</title>
 </head>
 <body>
+
+<div>
+	<p type="hidden" name ="email" value="${Useremail}"/>
+	<p type="hidden" name ="password" value="${UserPassword}"/>		
+</div>
+
+<!-- 
  <button class="open-button" onclick="openForm()">Chat</button>
 
     <div class="chat-popup" id="myForm">
@@ -37,6 +44,9 @@
             document.getElementById("myForm").style.display = "none";
         }
     </script>
+    
+     -->
+    
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
         <div class="container">
             <a href="clientService.html" class="navbar-brand">LegalFD</a>
@@ -57,7 +67,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown mr-3">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fas fa-user"></i> Welcome User
+                            <i class="fas fa-user"></i> Welcome ${firstName}
                         </a>
                         <div class="dropdown-menu">
                             <a href="profile.html" class="dropdown-item">
@@ -69,10 +79,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <i class="fas fa-user-times"></i> Logout
-                        </a>
-                    </li>
+       					<c:url var="logoutUrl" value="/logout"/>
+		 				<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+         			 </li>
                 </ul>
             </div>
         </div>
@@ -110,12 +119,15 @@
                         <div class="container">
             <div class="col-md-4">
                 <div class="card text-center bg-primary text-white mb-3">
+                    
                     <div class="card-body">
                         <h3>Book of Authority</h3>
                         <h4 class="display-4">
                             <i class="fab fa-readme"></i>
                         </h4>
-                        <a href="payment.html" class="btn btn-outline-light btn-sm">Request</a>
+                        
+                        <c:url var="MainPage" value="/MainPage/${Useremail}/${UserPassword}/"/>
+		 				<a href="${MainPage}" class="btn btn-outline-light btn-sm">Request</a>
                     </div>
                 </div>
 
@@ -125,7 +137,8 @@
                         <h4 class="display-4">
                             <i class="fab fa-wpforms"></i>
                         </h4>
-                        <a href="payment.html" class="btn btn-outline-light btn-sm">Request</a>
+                       <c:url var="MainPage" value="/MainPage/${Useremail}/${UserPassword}"/>
+		 				<a href="${MainPage}" class="btn btn-outline-light btn-sm">Request</a>
                     </div>
                 </div>
             </div>

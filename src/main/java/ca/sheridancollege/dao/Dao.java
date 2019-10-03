@@ -42,6 +42,19 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
+	public boolean userExist(String email)
+	{
+		if (getEmail(email).get(0)!=null)
+		{
+			return false;
+		}
+		else {
+			return true;
+		}
+		
+	}
+	
+//-----------------------------------------------------------******************************------------------------------------	
 	
 	public List<String> getRole(String email, String password){
 		Session session = sessionFactory.openSession();
@@ -51,6 +64,24 @@ public class Dao {
 		Query query = session.createQuery("select role from RegisterUser where email =:email and password =:password");
 		query.setParameter("email", email);
 		query.setParameter("password", password);
+		
+		List<String> register = (List<String>) query.getResultList();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return register;
+	}
+
+//-----------------------------------------------------------******************************------------------------------------	
+	
+	public List<String> getPassword(String email){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		
+		Query query = session.createQuery("select password from RegisterUser where email =:email");
+		query.setParameter("email", email);
 		
 		List<String> register = (List<String>) query.getResultList();
 		

@@ -30,7 +30,7 @@ public class RegisterUser {
 	
 	//@NotNull(message=":Password Cannot be NULL")
 	//@NotBlank(message="Password Text Field Cannot be EMPTY")
-	@Pattern(message="Password should be Alpha-Numeric", regexp = "^[A-Z][a-z][a-z][a-z][0-9][0-9]$")
+	//@Pattern(message="Password should be Alpha-Numeric", regexp = "^[A-Z][a-z][a-z][a-z][0-9][0-9]$")
 	private String password;
 	
 	private String role= "Client";
@@ -42,6 +42,6 @@ public class RegisterUser {
 		this.lastName = lastName;
 		this.password = password;
 	}
-	
+
 	
 }

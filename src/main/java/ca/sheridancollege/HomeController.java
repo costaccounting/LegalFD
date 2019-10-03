@@ -85,7 +85,9 @@ public class HomeController {
 	@RequestMapping("/register1")
 	public String goRegister(Model model, @ModelAttribute RegisterUser registerUser) {
 		
-		
+			String email = registerUser.getEmail();
+			
+			
 			if(dao.addUser(registerUser)==true) {
 				model.addAttribute("message", "You have Successfully Created your Account");
 				model.addAttribute("successMessage", "Please Login in with your credentials");
@@ -97,15 +99,13 @@ public class HomeController {
 			}
 			else
 			{
-				model.addAttribute("message", "Your Account was not created. Please try again");
-				// Error Message
-				model.addAttribute("mess", dao.validateUser(registerUser));
+				model.addAttribute("mess", "Un-expected Error. Please Try Again");
 				model.addAttribute("register", registerUser); 
 				// Stores the form inputed data and return back to register form
 				
 				return "index";	
+			}
 			
-			}// End of UserName Check
 		
 	}// end of method
 
@@ -140,9 +140,10 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("email", email );
+				model.addAttribute("Useremail", email );
+				model.addAttribute("UserPassword", password );
 				
-				return "Customer/SelectService";
+				return "Customer/Customer";
 			}
 			else if((dao.getRole(email, password).get(0)).equals("Lawyer"))
 			{
@@ -208,13 +209,15 @@ public class HomeController {
 	
 	
 	
-//-----------------********		NAVIGATION TO DETAILS & EDIT PAGE		********---------------------------------
+//-----------------********		NAVIGATION TO DETAILS 	********---------------------------------
 	@RequestMapping("/details/{email}/{Useremail}/{UserPassword}")
 	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
 	
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		
 		
 		model.addAttribute("email", email);
-		model.addAttribute("firstName", dao.getFirstName(Useremail));
 		model.addAttribute("Useremail", Useremail);
 		model.addAttribute("UserPassword", UserPassword);
 		
@@ -222,16 +225,47 @@ public class HomeController {
 	}
 	
 	
-	
-	@RequestMapping(value = "/delete/{email}")	
-	public String delete(Model model, @PathVariable String email) {
+//-----------------********		NAVIGATION TO Edit User & UPDATE Function 	********---------------------------------
+		@RequestMapping("/edit/{email}/{Useremail}/{UserPassword}")
+		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
 		
-		dao.deleteUser(email);
-		System.out.println("It deleted the account");
-		return "index";
-	}
-	
-	
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			model.addAttribute("firstName", firstNameStore);
+			
+			String fName = dao.getFirstName(email).get(0);
+			String lName = dao.getLastName(email).get(0);
+			
+			
+			model.addAttribute("email", email);
+			model.addAttribute("firstName",fName);
+			model.addAttribute("lastName", lName);
+			
+			model.addAttribute("Useremail", Useremail);
+			model.addAttribute("UserPassword", UserPassword);
+			
+			return "edit";
+		}
+		/*
+		@RequestMapping("/editUser")
+		public String goEditUser(Model model, @RequestAttribute sessionEmail, @RequestAttribute sessionPassword, @RequestParam email,@RequestParam firstName, @RequestParam lastName, @RequestParam role) {
+		
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			model.addAttribute("firstName", firstNameStore);
+			
+			String fName = dao.getFirstName(email).get(0);
+			String lName = dao.getLastName(email).get(0);
+			
+			
+			model.addAttribute("email", email);
+			model.addAttribute("firstName",fName);
+			model.addAttribute("lastName", lName);
+			
+			model.addAttribute("Useremail", Useremail);
+			model.addAttribute("UserPassword", UserPassword);
+			
+			return "edit";
+		}
+		*/
 //-----------------****************---------------------------------
 
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}/{UserPassword}")	
@@ -246,31 +280,78 @@ public class HomeController {
 		model.addAttribute("UserPassword", UserPassword);
 		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
-		
+		model.addAttribute("confirmationMessage", "User Deleted Successfully");
 		return "Admin/Admin";
 	}
 	
-//-----------------****************---------------------------------
-
-
+//-----------------******** Testing New Client Side UI ********---------------------------------
 	
 	
+	@RequestMapping(value = "/ClientSide/{Useremail}/{UserPassword}")	
+	public String testingClientSide(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		model.addAttribute("UserPassword", UserPassword);
+		
+		return "Customer/Customer";
+	}
+	
+	
+//-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
+	
+	@RequestMapping("/document/{Useremail}/{UserPassword}")
+	public String goDocumentPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		model.addAttribute("UserPassword", UserPassword);
+		
+		
+		return "Customer/document";
+	}
+	
+	
+	@RequestMapping("/form/{Useremail}/{UserPassword}")
+	public String goFormPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		model.addAttribute("UserPassword", UserPassword);
+		
+		
+		return "Customer/form";
+	}
+	
+	
+//-----------------*******End OF New Customer Side UI*********---------------------------------
+
+//-----------------*******Processing Requests START *********---------------------------------
+
+	@RequestMapping(value = "/MainPage/{Useremail}/{UserPassword}")	
+	public String goMainPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam String documentValue) {
+		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		model.addAttribute("UserPassword", UserPassword);
+
+		model.addAttribute("requestMessage", "You have successfully Requested those Legal Document");
+		
+		return "Customer/Customer";
+	}
+	
+//-----------------*******Processing Requests STOP *********---------------------------------
+	
 //-----------------****************---------------------------------
 
-		@RequestMapping(value = "/deleteLawyer/{email}/{Useremail}/{UserPassword}")	
-		public String deleteLawyerSide(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
-			
-			dao.deleteUser(email);
-
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail );
-			model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
-			model.addAttribute("UserPassword", UserPassword);
-			
-			return "Lawyer/Lawyer";
-		}
 		
 	//-----------------****************---------------------------------
 			
