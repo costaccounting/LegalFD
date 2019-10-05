@@ -18,6 +18,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
+	
 <link rel="stylesheet" href="css/chat.css">
 <style type="text/css">
 
@@ -168,6 +169,7 @@ body {
 						</div>
 
 					</div>
+					<!-- 
 					<div class="text-right">
 
 						<button class="btn btn-outline-success" type="submit">Submit</button>
@@ -175,10 +177,13 @@ body {
 
 					</div>
 				</div>
+				 -->
 			</div>
+		</div>
 		</div>
 	</section>
 
+<!-- 
 	<div class="container">
 		<div id="accordion">
 			<div class="card">
@@ -615,7 +620,222 @@ body {
 			</div>
 		</div>
 	</div>
+ -->
+ 
+  <form action="/legalDocumentFormMulti/${Useremail}/${UserPassword}">
+ 			
+ 			<!-- ********** Submit Form Button  ********** -->
+			  <input type="submit" value="Request Forms">
+	
+ 			
+ <fieldset>
+ 	<div>
+ 	<table>
+	 	<tr>
+		    <th><input type="radio" name="legalFormType" value="Divorce (simple/joint)" checked></th>
+		    <th><label>Divorce (Simple/Joint)</label></th>
+	  		<th>CAD $60</th>
+	  	</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 8A-Application15" checked></td>
+  			<td>Form 8A-Application</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		 <tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 10-Answer15" ></td>
+  			<td>Form 10-Answer</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 10A-Reply15" ></td>
+  			<td>Form 10A-Reply</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 6B-Affidavit of Service15" ></td>
+  			<td>Form 6B-Affidavit of Service</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form  36-Affidavit for Divorce15" ></td>
+  			<td>Form  36-Affidavit for Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 25A-Divorce Order15" ></td>
+  			<td>Form 25A-Divorce Order</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36B-Certificate of Divorce15" ></td>
+  			<td>Form 36B-Certificate of Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+ 	</table>
+	</div>	
+</fieldset>
 
+							<!-- 1st End -->
+
+
+
+<fieldset>
+ 	<div>
+ 	<table>
+	 	<tr>
+		    <th><input type="radio" name="legalFormType" value="Divorce Application" ></th>
+		    <th><label>Divorce Application</label></th>
+	  		<th>CAD $60</th>
+	  	</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 8A-Application15" ></td>
+  			<td>Form 8A-Application</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		 <tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 10A-Application15" ></td>
+  			<td>Form 10-Answer</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 6B-Application15" ></td>
+  			<td>Form 10A-Reply</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 6B-Affidavit of Service</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form  36-Affidavit for Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 25A-Divorce Order</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 36B-Certificate of Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+ 	</table>
+	</div>	
+</fieldset>
+
+<fieldset>
+ 	<div>
+ 	<table>
+	 	<tr>
+		    <th><input type="radio" name="legalFormType" value="Divorce (simple/joint)" ></th>
+		    <th><label>Divorce (Simple/Joint)</label></th>
+	  		<th>CAD $60</th>
+	  	</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 8A-Application15" ></td>
+  			<td>Form 8A-Application</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		 <tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 10A-Application15" ></td>
+  			<td>Form 10-Answer</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 6B-Application15" ></td>
+  			<td>Form 10A-Reply</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 6B-Affidavit of Service</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form  36-Affidavit for Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 25A-Divorce Order</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 36B-Certificate of Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+ 	</table>
+	</div>	
+</fieldset>
+
+<fieldset>
+ 	<div>
+ 	<table>
+	 	<tr>
+		    <th><input type="radio" name="legalFormType" value="Divorce (simple/joint)" ></th>
+		    <th><label>Divorce (Simple/Joint)</label></th>
+	  		<th>CAD $60</th>
+	  	</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 8A-Application15" ></td>
+  			<td>Form 8A-Application</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		 <tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 10A-Application15" ></td>
+  			<td>Form 10-Answer</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 6B-Application15" ></td>
+  			<td>Form 10A-Reply</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 6B-Affidavit of Service</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form  36-Affidavit for Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 25A-Divorce Order</td>
+  			<td>CAD $15</td>
+  		</tr>
+  		<tr>
+  			<td><input type="checkbox" name="legalForm" value="Form 36-Application15" ></td>
+  			<td>Form 36B-Certificate of Divorce</td>
+  			<td>CAD $15</td>
+  		</tr>
+ 	</table>
+	</div>	
+</fieldset>
+
+
+
+<br>
+<!-- ************************************************************************************************************ -->
+
+
+  		<!-- ********** Submit Form Button  ********** -->
+	  <input type="submit" value="Request Forms">
+	
+
+    <p type="hidden" name="email" value="${Useremail}" />
+	<p type="hidden" name="password" value="${UserPassword}" />
+				 
+</form>
+  
+ 
 	<button class="open-button" onclick="openForm()">Chat</button>
 
 	<div class="chat-popup" id="myForm">

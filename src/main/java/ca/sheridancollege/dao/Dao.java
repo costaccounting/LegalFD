@@ -40,6 +40,20 @@ public class Dao {
 			return false;
 		}	
 	}
+
+//-----------------------------------------------------------******************************------------------------------------	
+	
+	public void addPayment(Payment payment)
+	{
+		
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			session.save(payment);
+			
+			session.getTransaction().commit();
+			session.close();	
+	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
 	public boolean userExist(String email)
