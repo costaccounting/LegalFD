@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,9 +83,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-       					<c:url var="logoutUrl" value="/logout"/>
-		 				<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-         			 </li>
+       		<c:url var="logoutUrl" value="/logout"/>
+		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+          </li>
                 </ul>
             </div>
         </div>
