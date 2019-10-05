@@ -205,8 +205,6 @@ public class HomeController {
 			}
 			
 		}
-
-	
 	
 	
 //-----------------********		NAVIGATION TO DETAILS 	********---------------------------------
@@ -232,6 +230,8 @@ public class HomeController {
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			
+			RegisterUser reg = dao.getUser(email); 
+			/*
 			String fName = dao.getFirstName(email).get(0);
 			String lName = dao.getLastName(email).get(0);
 			
@@ -239,33 +239,69 @@ public class HomeController {
 			model.addAttribute("email", email);
 			model.addAttribute("firstName",fName);
 			model.addAttribute("lastName", lName);
+			*/
 			
+			model.addAttribute("userInfo", reg);
 			model.addAttribute("Useremail", Useremail);
 			model.addAttribute("UserPassword", UserPassword);
 			
+			
 			return "edit";
 		}
-		/*
-		@RequestMapping("/editUser")
-		public String goEditUser(Model model, @RequestAttribute sessionEmail, @RequestAttribute sessionPassword, @RequestParam email,@RequestParam firstName, @RequestParam lastName, @RequestParam role) {
 		
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			model.addAttribute("firstName", firstNameStore);
+		
+		@RequestMapping("/editUser/{sessionEmail}/{sessionPassword}/{userEmail}")
+		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String sessionPassword, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
+		
+			String adminEmail = sessionEmail.trim();
+			String adminPassword = sessionPassword.trim();
 			
-			String fName = dao.getFirstName(email).get(0);
-			String lName = dao.getLastName(email).get(0);
+			String formEmail = userEmail.trim();
+			String formFirstName = userFirstName.trim();
+			String formLastName = userLastName.trim();
+			String formRole = role.trim();
 			
 			
-			model.addAttribute("email", email);
-			model.addAttribute("firstName",fName);
-			model.addAttribute("lastName", lName);
+			RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
 			
-			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
+			dao.editUser(formEmail, reg);
 			
-			return "edit";
+			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
+			
+			if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Admin"))
+			{
+				String firstNameStore = dao.getFirstName(adminEmail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", adminEmail);
+				model.addAttribute("UserPassword", adminPassword);
+				
+				model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
+				model.addAttribute("user", new RegisterUser());
+				
+				return "Admin/Admin";
+			}
+			else if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Lawyer"))
+			{
+				String firstNameStore = dao.getFirstName(adminEmail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", adminEmail );
+				model.addAttribute("UserPassword", adminPassword);
+				
+				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
+				
+				return "Lawyer/Lawyer";
+			}
+			else {
+				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
+			
 		}
-		*/
+		
 //-----------------****************---------------------------------
 
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}/{UserPassword}")	

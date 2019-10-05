@@ -201,7 +201,35 @@ public class Dao {
 			session.close();
 		}
 		
-		
+//-----------------------------------------------------------******************************------------------------------------	
+				public RegisterUser getUser(String email) {
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					RegisterUser register = (RegisterUser)session.get(RegisterUser.class, email);
+					
+					session.getTransaction().commit();
+					session.close();
+					
+					return register;
+				}
+				
+//-----------------------------------------------------------******************************------------------------------------	
+				public void editUser(String email, RegisterUser reg) {
+					//String firstName, String lastName, String role
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					RegisterUser registredUser = (RegisterUser) session.get(RegisterUser.class, email);
+					
+					registredUser.setFirstName(reg.getFirstName());
+					registredUser.setLastName(reg.getLastName());
+					registredUser.setRole(reg.getRole());
+					
+					session.getTransaction().commit();
+					session.close();
+				}
+				
 //-----------------------------------------------------------******************************------------------------------------	
 		
 		public List<String> validateUser(RegisterUser reg) {

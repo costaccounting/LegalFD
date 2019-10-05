@@ -41,7 +41,7 @@
         <ul class="navbar-nav">
           <li class="nav-item px-2">
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link active">Dashboard</a>
+            <a href= "" class="nav-link active">Dashboard</a>
           </li>
 
           <li class="nav-item px-2">
@@ -109,6 +109,7 @@
   	<div class="alert alert-success">
   		<p>${confirmationMessage}</p>
 	</div>
+	</section>
 <!--
     <div class="container">
       <div class="row">
@@ -180,7 +181,6 @@
       </div>
     </div>
   </section>
-
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

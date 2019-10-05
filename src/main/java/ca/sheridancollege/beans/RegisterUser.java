@@ -35,13 +35,11 @@ public class RegisterUser {
 	
 	private String role= "Client";
 
-	public RegisterUser(String email, String firstName, String lastName, String password) {
+	public RegisterUser(String firstName, String lastName, String role) {
 		super();
-		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.password = password;
+		this.role = role;
 	}
 
-	
 }

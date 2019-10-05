@@ -48,7 +48,7 @@
 
           <li class="nav-item px-2">
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link">Users</a>
+            <a href= "" class="nav-link">Users</a>
           </li>
         </ul>
 
@@ -109,6 +109,10 @@
 
 
   <section id="actions" class="py-4 mb-4 bg-light">
+  <div class="alert alert-success">
+  		<p>${confirmationMessage}</p>
+	</div>
+	</section>
 <!--
     <div class="container">
       <div class="row">

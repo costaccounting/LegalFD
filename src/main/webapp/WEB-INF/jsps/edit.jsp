@@ -85,18 +85,14 @@
             <i class="fas fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>
+        <!-- 
         <div class="col-md-3">
           <a href="dashboard.html" class="btn btn-success btn-block">
             <i class="fas fa-check"></i> Save Changes
           </a>
         </div>
-        <!-- 
-        <div class="col-md-3">
-          <a href="dashboard.html" class="btn btn-danger btn-block">
-            <i class="fas fa-trash"></i> Delete User
-          </a>
-        </div>
          -->
+        
       </div>
     </div>
   </section>
@@ -125,11 +121,12 @@
               </form>
                 
              -->
+             <!-- 
                	<form action="/editUser">
 	
-					User Email: <input type="text" name="email" value="${email }" disabled><br>
-					First Name: <input type="text" name="firstName" value="${ firstName}"> <br>
-					Last Name: <input type="text" name="lastName" value="${ lastName}"> <br>
+					User Email: <input type="text" name="userEmail" value="${email }" disabled><br>
+					First Name: <input type="text" name="userFirstName" value="${ firstName}"> <br>
+					Last Name: <input type="text" name="userLastName" value="${ lastName}"> <br>
 					
 					<label>Role</label>
 					<select name="role">
@@ -140,7 +137,25 @@
 					<br>
 				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
 				</form>
-				
+				-->
+				<form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
+					<!-- 
+					<p type="hidden" name ="sessionEmail" value="${Useremail}"/>
+					<p type="hidden" name ="sessionPassword" value="${UserPassword}"/>	
+					-->
+					User Email: <input type="text" name="userEmail" value="${userInfo.email}" disabled><br>
+					First Name: <input type="text" name="userFirstName" value="${ userInfo.firstName}"> <br>
+					Last Name: <input type="text" name="userLastName" value="${ userInfo.lastName}"> <br>
+					
+					<label>Role</label>
+					<select name="role">
+					  <option value="Client" selected>Client</option>
+					  <option value="Lawyer">Lawyer</option>
+					  <option value="Admin">**Admin**</option>
+					</select>
+					<br>
+				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
+				</form>
                 
             </div>
           </div>
