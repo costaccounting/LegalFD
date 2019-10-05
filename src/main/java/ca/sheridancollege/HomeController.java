@@ -425,6 +425,9 @@ public class HomeController {
 				dao.addPayment(new Payment(Useremail, testDoc, testPrice, formType));
 			}
 			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
@@ -433,12 +436,48 @@ public class HomeController {
 
 			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
 			
-			return "Customer/Customer";
+			return "Customer/Payment";
 	}
-//-----------------*******  *********---------------------------------
 	
+	@RequestMapping("/paymentPage/{Useremail}/{UserPassword}")
+	public String goViewCart(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
+			
+			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			model.addAttribute("UserPassword", UserPassword);
+
+			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
+			
+			return "Customer/Payment";
+	}
+//-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
-//-----------------*********  *******---------------------------------
+	@RequestMapping("/pay/{id}/{Useremail}/{UserPassword}")
+	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @PathVariable int id) {
+			
+			dao.deleteOrderById(id);
+		
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			model.addAttribute("UserPassword", UserPassword);
+			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
+			model.addAttribute("requestMessage", "You have successfully Deleted that order");
+			
+			return "Customer/Payment";
+	}
+	
+//-----------------********* Redirect Third Party Pay START *******---------------------------------
 
 		
 	//-----------------****************---------------------------------

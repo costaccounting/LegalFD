@@ -243,9 +243,41 @@ public class Dao {
 					session.getTransaction().commit();
 					session.close();
 				}
-				
+	
 //-----------------------------------------------------------******************************------------------------------------	
-		
+				
+				public List<Payment> getPaymentInfo(String email)
+				{
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					List<Payment> pay;
+					
+					Query query = session.createQuery("from Payment where userEmail =:email");
+					query.setParameter("email", email);
+					
+					pay= query.getResultList();
+					
+					session.getTransaction().commit();
+					session.close();
+					
+					return pay;
+				}
+	
+//-----------------------------------------------------------******************************------------------------------------	
+				public void deleteOrderById(int id){
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					Payment pay = (Payment) session.get(Payment.class, id);
+					session.delete(pay);
+					
+					session.getTransaction().commit();
+					session.close();
+				}
+				
+				
+				
 		public List<String> validateUser(RegisterUser reg) {
 			List<String> err = new ArrayList<String>();
 			
