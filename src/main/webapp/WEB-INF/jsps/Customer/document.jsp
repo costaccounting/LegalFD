@@ -130,7 +130,7 @@
                             <i class="fab fa-readme"></i>
                         </h4>
                         
-                        <c:url var="MainPage" value="/MainPage/${Useremail}/${UserPassword}/"/>
+                        <c:url var="MainPage" value="/MainPage/${Useremail}/${UserPassword}"/>
 		 				<a href="${MainPage}" class="btn btn-outline-light btn-sm">Request</a>
                     </div>
                 </div>
