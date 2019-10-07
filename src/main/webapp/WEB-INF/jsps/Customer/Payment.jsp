@@ -108,6 +108,7 @@
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
+                  <th>ID</th> 
                   <th>Document Category</th>
                   <th>Form Type</th>
                   <th>Amount</th>
@@ -118,17 +119,18 @@
               
               	<c:forEach var="pay" items="${paymentData}">
 					<tr>
-						<p type="hidden" name ="id" value="${pay.id}"/>
-	
+						<td>${pay.id}</td>		
 						<td>${pay.documentType}</td>
 						<td>${pay.formType}</td>
 						<td>${pay.documentAmount}</td>
+						
 						<td>
 			               	
-						       <a href="<c:url value="/deletePayment/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
+						       <a href="<c:url value="/deletePayment/${Useremail}/${UserPassword}/${pay.id}"/>" class="btn btn-danger">
 						          <i class="fas fa-trash"></i> Delete Order
 						       </a>
 	       			  	</td>
+	       			  	 
 					</tr>
 				</c:forEach>
               
@@ -138,11 +140,14 @@
             <form action="/pay/${pay.id}/${Useremail}/${UserPassword}">
             
             	<input type="radio" name="paymentMethod" value="PayPal" checked> Pay Pal
+            	<br>
             	<input type="radio" name="paymentMethod" value="Debit"> Debit Card
+            	<br>
             	<input type="radio" name="paymentMethod" value="Credit Card"> Credit Card
-            	
+            	<br>
             	
             <input type="submit" value="Pay Amount">
+            <br>
             </form>
           </div>
         </div>

@@ -326,6 +326,24 @@ public class HomeController {
 	}
 //-----------------******* Delete User START *********---------------------------------
 	
+	@RequestMapping(value = "/deletePayment/{Useremail}/{UserPassword}/{id}")	
+	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail, @PathVariable String UserPassword) {
+		
+		dao.deleteOrderById(id);
+
+		List<Payment> pay = dao.getPaymentInfo(Useremail);
+		model.addAttribute("paymentData", pay);
+		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		model.addAttribute("UserPassword", UserPassword);
+
+		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
+		
+		return "Customer/Payment";
+	}
 
 //-----------------******** Testing New Client Side UI ********---------------------------------
 	@RequestMapping(value = "/ClientSide/{Useremail}/{UserPassword}")	
@@ -440,7 +458,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}/{UserPassword}")
-	public String goViewCart(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
+	public String goViewCart(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
 			
 			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
@@ -452,7 +470,7 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			model.addAttribute("UserPassword", UserPassword);
 
-			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
+			//model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
 			
 			return "Customer/Payment";
 	}
