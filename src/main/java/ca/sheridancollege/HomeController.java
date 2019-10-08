@@ -95,6 +95,14 @@ public class HomeController {
 				 
 				model.addAttribute("registerUser", new RegisterUser());
 				// Empty the field in form and sends it to register page
+				
+				//create a folder for the user
+				FileDao fileDao = new FileDao();
+				if(fileDao.createFolder(registerUser))
+					System.out.println("folder created");
+				else
+					System.out.println("folder not created");
+				
 				return "index";	
 			}
 			else
