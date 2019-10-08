@@ -58,9 +58,9 @@
             </div>
           </li>
           <li class="nav-item">
-            <a href="index.html" class="nav-link">
-              <i class="fas fa-user-times"></i> Logout
-            </a>
+       		<c:url var="logoutUrl" value="/logout"/>
+		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+          </li>
           </li>
         </ul>
       </div>
@@ -71,70 +71,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>Editing User Info</h1>
+          <h1>Uploading Documents for Users </h1>
         </div>
       </div>
     </div>
   </header>
-
-  <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="<c:url value="/dashboard/${Useremail}/${UserPassword} }"/>" class="btn btn-light btn-block">
-            <i class="fas fa-arrow-left"></i> Back To Dashboard
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="dashboard.html" class="btn btn-success btn-block">
-            <i class="fas fa-check"></i> Save Changes
-          </a>
-        </div>
-        <!-- 
-        <div class="col-md-3">
-          <a href="dashboard.html" class="btn btn-danger btn-block">
-            <i class="fas fa-trash"></i> Delete User
-          </a>
-        </div>
-         -->
-      </div>
-    </div>
-  </section>
-
-  <!-- DETAILS -->
-  <section id="details">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h4>Edit User</h4>
-            </div>
-            <div class="card-body">
-              
-             
-             <form>
-                <div class="form-group">
-                  <label for="title">Name</label>
-                  <input type="text" class="form-control" >
-                </div>
-                <div class="form-group">
-                  <label for="title">Email</label>
-                  <input type="text" class="form-control">
-                </div>
-             
-                
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-
 
   
 

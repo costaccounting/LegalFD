@@ -48,7 +48,7 @@
 
           <li class="nav-item px-2">
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link">Users</a>
+            <a href= "" class="nav-link">Users</a>
           </li>
         </ul>
 
@@ -71,12 +71,8 @@
             <!-- <a href="index.html" class="nav-link">
               <i class="fas fa-user-times"></i> Logout
               -->
-        <c:url var="logoutUrl" value="/logout"/>
-		<form action="${logoutUrl}" method="post" class="form-inline">
-		<input type="Submit" value="LogOut" id="logOut">
-		</form>
-		
-            </a>
+       <c:url var="logoutUrl" value="/logout"/>
+		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
           </li>
         </ul>
       </div>
@@ -113,6 +109,10 @@
 
 
   <section id="actions" class="py-4 mb-4 bg-light">
+  <div class="alert alert-success">
+  		<p>${confirmationMessage}</p>
+	</div>
+	</section>
 <!--
     <div class="container">
       <div class="row">
@@ -144,8 +144,8 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Role</th>
-                  <th> </th>
-                  <th> </th>
+                  <th>Edit User</th>
+                  <th>User Details</th>
                   
                 </tr>
               </thead>
@@ -158,11 +158,16 @@
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
 						<td>
-		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fas fa-angle-double-right"></i> Details
+		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
+		                      <i class="glyphicon glyphicon-pencil"></i> Edit User
 		                    </a>
 	                  	</td>
-	                   
+						<td>
+		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
+		                      <i class="glyphicon glyphicon-list-alt"></i> Details
+		                    </a>
+	                  	</td>
+	                   <!-- 
 	                  		<td>
 			               	
 						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
@@ -170,7 +175,7 @@
 						       </a>
 	       					
 	                  	</td>
-	                  	
+	                  	 -->
 					</tr>
 				</c:forEach>
               

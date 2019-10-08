@@ -15,9 +15,25 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+  <!-- 
+  <style>
   
+	a:link, a:visited {
+	  background-color: #f44336;
+	  color: white;
+	  padding: 14px 25px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	}
+	
+	a:hover, a:active {
+	  background-color: red;
+	}
   
-<title>Admin Page</title> 	
+  </style>
+   -->
+<title>Customer Page</title> 	
 
 </head>
 <body>
@@ -30,18 +46,20 @@
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-    <!-- 
+    
       <c:url var = "url" value = "/admin"></c:url>
-            <a href= "${url}" class="navbar-brand">LegalFD</a>
-       -->
+            <a href= "" class="navbar-brand">LegalFD</a>
+       
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
+          <!-- 
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "" class="nav-link active">Dashboard</a>
+            <a href= "${url}" class="nav-link active">Dashboard</a>
+           -->
           </li>
 
           <li class="nav-item px-2">
@@ -54,6 +72,7 @@
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fas fa-user"></i> Welcome ${firstName}
+           
             </a>
             <div class="dropdown-menu">
               <a href="profile.html" class="dropdown-item">
@@ -65,12 +84,13 @@
             </div>
           </li>
           <li class="nav-item">
-            <!-- <a href="index.html" class="nav-link">
-              <i class="fas fa-user-times"></i> Logout
-              -->
-        <c:url var="logoutUrl" value="/logout"/>
-		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
+       		<c:url var="logoutUrl" value="/logout"/>
+		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+          </li>
+          <li class="nav-item">
+       		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
+		 		<a href= "${payment}" class="nav-link active">View Cart</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -82,106 +102,46 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-users"></i>All Users</h1>
+            <i class="fas fa-users" style="align: center;"></i>List of Services</h1>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- SEARCH -->
-  <section id="search" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Users...">
-            <div class="input-group-append">
-              <button class="btn btn-warning">Search</button>
+<br>
+<br>
+<br>
+  		<div class="col">
+       		
+       		<div class="alert alert-success">
+  				<p>${requestMessage}</p>
+			</div>
+       
+            <div class="card text-center bg-success text-white mb-3">
+                <div class="card-body">
+                    <h3>Legal Documents</h3>
+                    <h4 class="display-4">
+                        <i class="fas fa-folder"></i> 
+                    </h4>
+                	    <c:url var="document" value="/document/${Useremail}/${UserPassword}"/>
+		 				<a href= "${document}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Document</a>
+          
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  <section id="actions" class="py-4 mb-4 bg-light">
-  	<div class="alert alert-success">
-  		<p>${confirmationMessage}</p>
-	</div>
-	</section>
-<!--
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-3">
-          <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
-            <i class="fas fa-plus"></i> Add User
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  --> 
-  <!-- USERS -->
-  <section id="users">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h4>All Users</h4>
+            <div class="card text-center bg-warning text-white mb-3">
+                <div class="card-body">
+                    <h3>Legal Forms</h3>
+                    <h4 class="display-4">
+                        <i class="fas fa-file-alt"></i> 
+                    </h4>
+            	        <c:url var="form" value="/form/${Useremail}/${UserPassword}"/>
+		 				<a href= "${form}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Form</a>
+          
+                </div>
             </div>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Email</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Role</th>
-                  <th>User Edit</th>
-                  <th>User Details</th>
-                  <th>Delete User</th>
-                </tr>
-              </thead>
-              <tbody>
-              
-              	<c:forEach var="Users" items="${allData}">
-					<tr>
-						<td>${Users.email}</td>
-						<td>${Users.firstName}</td>
-						<td>${Users.lastName}</td>
-						<td>${Users.role}</td>
-						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fa fa-pencil"></i> Edit User
-		                    </a>
-	                  	</td>	
-						<td>
-		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fa fa-bars"></i> Details
-		                    </a>
-	                  	</td>
-	                  	<td>
-			               	
-						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
-						          <i class="fas fa-trash"></i> Delete User
-						       </a>
-	       					
-	                  	</td>
-					</tr>
-				</c:forEach>
-              
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+        
+    	</div>
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>

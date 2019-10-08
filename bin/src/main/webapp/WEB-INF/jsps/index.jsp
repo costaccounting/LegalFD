@@ -102,9 +102,15 @@
                   
                   <input type="submit" value="Sign In" class="btn btn-outline-light btn-block">
                 <br><br>
+                
                 <p align="center" style="color:red; font-size: 1.5em;">${loginMess}</p>
                 <p align="center" style="color:green; font-size: 1.5em;">${logOutMess}</p>
                 
+                <p align="center" style="color:red; font-size: 1em;">${message}</p>
+				<p align="center" style="color:green; font-size: 1em;">${successMessage}</p>
+		
+				<p align="center" style="color:red; font-size: 1.5em;">${mess}</p>
+		
 	  			<br><br>
                 </form>
                 
