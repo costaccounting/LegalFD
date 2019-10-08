@@ -155,8 +155,9 @@
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
 						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fa fa-pencil"></i> Edit User
+		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-warning">
+		                      <i class="fas fa-pencil-alt"></i> Edit User
+		      
 		                    </a>
 	                  	</td>	
 						<td>
