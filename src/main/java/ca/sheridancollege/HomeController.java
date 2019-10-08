@@ -14,6 +14,7 @@ import ca.sheridancollege.dao.*;
 public class HomeController {
 
 	Dao dao = new Dao();
+	FileDao fileDao = new FileDao();
 	
 	
 // ****  Navigation between Pages  ***
@@ -77,6 +78,17 @@ public class HomeController {
 			return "Customer/SelectService";
 	}
 	
+	@RequestMapping("/files")
+	public String goLegalDocument(Model model, @ModelAttribute String location) {
+			if(location.equals(null) || location.equals("")){
+				location = "";
+			}
+			
+			model.addAttribute("filelist", fileDao.getFileList(location));
+			
+			return "Admin/Files";
+	}
+	
 // ****  Navigation between Pages 	**END**   ***
 	
 	
@@ -97,7 +109,6 @@ public class HomeController {
 				// Empty the field in form and sends it to register page
 				
 				//create a folder for the user
-				FileDao fileDao = new FileDao();
 				if(fileDao.createFolder(registerUser))
 					System.out.println("folder created");
 				else
