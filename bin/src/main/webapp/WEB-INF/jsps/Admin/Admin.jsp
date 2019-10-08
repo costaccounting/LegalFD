@@ -41,7 +41,7 @@
         <ul class="navbar-nav">
           <li class="nav-item px-2">
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "" class="nav-link active">Dashboard</a>
+            <a href= "${url}" class="nav-link active">Dashboard</a>
           </li>
 
           <li class="nav-item px-2">
@@ -69,8 +69,12 @@
               <i class="fas fa-user-times"></i> Logout
               -->
         <c:url var="logoutUrl" value="/logout"/>
-		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
+		<form action="${logoutUrl}" method="post" class="form-inline">
+		<input type="Submit" value="LogOut" id="logOut">
+		</form>
+		
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -106,10 +110,6 @@
 
 
   <section id="actions" class="py-4 mb-4 bg-light">
-  	<div class="alert alert-success">
-  		<p>${confirmationMessage}</p>
-	</div>
-	</section>
 <!--
     <div class="container">
       <div class="row">
@@ -141,9 +141,9 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Role</th>
-                  <th>User Edit</th>
-                  <th>User Details</th>
-                  <th>Delete User</th>
+                  <th> </th>
+                  <th> </th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -154,14 +154,10 @@
 						<td>${Users.firstName}</td>
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
-						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fa fa-pencil"></i> Edit User
-		                    </a>
-	                  	</td>	
+							
 						<td>
 		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="fa fa-bars"></i> Details
+		                      <i class="fas fa-angle-double-right"></i> Details
 		                    </a>
 	                  	</td>
 	                  	<td>
@@ -181,6 +177,7 @@
       </div>
     </div>
   </section>
+
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

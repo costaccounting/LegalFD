@@ -27,7 +27,6 @@
 
 		<!-- Name the annotated Entity classes -->
 		<mapping class="ca.sheridancollege.beans.RegisterUser" />
-		<mapping class="ca.sheridancollege.beans.Payment" />
 
 
 	</session-factory>
