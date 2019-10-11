@@ -155,19 +155,19 @@
 						<td>${Users.lastName}</td>
 						<td>${Users.role}</td>
 						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-warning">
+		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-warning ">
 		                      <i class="fas fa-pencil-alt"></i> Edit User
 		      
 		                    </a>
 	                  	</td>	
 						<td>
-		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
+		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-info">
 		                      <i class="fa fa-bars"></i> Details
 		                    </a>
 	                  	</td>
 	                  	<td>
 			               	
-						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
+						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-danger">
 						          <i class="fas fa-trash"></i> Delete User
 						       </a>
 	       					
