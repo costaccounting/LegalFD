@@ -1,8 +1,15 @@
 package ca.sheridancollege;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.*;
 import java.util.*;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -79,15 +86,17 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/files")
-	public String goLegalDocument(Model model, @ModelAttribute String location) {
+	public String goFilesDir(Model model, @ModelAttribute String location) {
 			if(location.equals(null) || location.equals("")){
 				location = "";
 			}
 			
-			model.addAttribute("filelist", fileDao.getFileList(location));
+			List<File> filelist = fileDao.getFileList(location);
+			model.addAttribute("filelist", filelist);
 			
 			return "Admin/Files";
 	}
+	
 	
 // ****  Navigation between Pages 	**END**   ***
 	
@@ -517,7 +526,29 @@ public class HomeController {
 //-----------------********* Redirect Third Party Pay START *******---------------------------------
 
 		
-	//-----------------****************---------------------------------
+	//-----------------File View and Add---------------------------------
+	
+	@RequestMapping(value = "/files/{folder_name}", method = RequestMethod.GET)
+	public String getFolder(
+			Model model,
+			@PathVariable("folder_name") String folderName, 	
+			HttpServletResponse response) 	
+	{
+		Set<String> dirSet = null;;
+		FileDao fileDao= new FileDao();
+		try {
+			dirSet = fileDao.listFilesUsingFileWalkAndVisitor(
+					fileDao.getDirPath( folderName )
+					);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("dirSet", dirSet);
+		return  "Admin/Files";
+			
+	  
+	}
 			
 //-----------------****************---------------------------------
 
