@@ -101,6 +101,30 @@ public class HomeController {
 // ****  Navigation between Pages 	**END**   ***
 	
 	
+	// ***** Navigation with sidebars
+	
+	
+	
+	@RequestMapping(value = "documents", method = RequestMethod.GET)
+	public String document(Model model, @ModelAttribute RegisterUser user) {
+
+		return "Customer/document";
+	}
+	@RequestMapping(value = "forms", method = RequestMethod.GET)
+	public String form(Model model, @ModelAttribute RegisterUser user) {
+
+		return "Customer/form";
+	}
+	@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
+	public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
+
+		return "Customer/uploadDocument";
+	}
+	
+	
+	// ***** Navigation with sidebars ends
+
+	
 //-----------------********		REGISTER   START	********---------------------------------
 	
 	@RequestMapping("/register1")
