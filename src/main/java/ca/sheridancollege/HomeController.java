@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.*;
 import java.util.*;
 
@@ -13,6 +16,8 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ca.sheridancollege.beans.*;
 import ca.sheridancollege.dao.*;
@@ -544,11 +549,52 @@ public class HomeController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		model.addAttribute("presentDirectory", folderName);
+		
 		model.addAttribute("dirSet", dirSet);
 		return  "Admin/Files";
 			
 	  
 	}
+	@PostMapping("/upload/{folder_name}") // //new annotation since 4.3
+    public String singleFileUpload(
+    		Model model,
+    		@RequestParam("file") MultipartFile file,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        // Get the file and save it somewhere
+		FileDao fileDao = new FileDao();
+		String dir = fileDao.getDirPath( folderName );
+		fileDao.addFile(file, dir);
+
+		model.addAttribute("message",
+		        "You successfully uploaded '" + file.getOriginalFilename() + "'");
+		
+		// showing the list of file in the folder
+		
+		Set<String> dirSet = null;;
+		try {
+			dirSet = fileDao.listFilesUsingFileWalkAndVisitor(
+					fileDao.getDirPath( folderName )
+					);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("presentDirectory", folderName);
+		
+		model.addAttribute("dirSet", dirSet);
+
+        return "Admin/Files";
+    }
 			
 //-----------------****************---------------------------------
 
