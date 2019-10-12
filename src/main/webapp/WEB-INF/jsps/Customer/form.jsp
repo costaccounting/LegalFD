@@ -512,27 +512,27 @@ body {
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 15C-Consent Motion to Change15">
 									Form 15C-Consent Motion to Change<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 15D-Consent Motion to Change Child Support15">
 									Form 15D-Consent Motion to Change Child Support<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13-Financial Statement15">
 									Form 13-Financial Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 6B-Affidavit of Service15">
 									Form 6B-Affidavit of Service<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25-Order (General)15">
 									Form 25-Order (General)<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -544,10 +544,9 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse5"
+						<input type="radio" name="legalFormType" value="Notice of Motion (Regular and/or Contempt)"> <a href="#collapse5"
 							data-parent="#accordion" data-toggle="collapse"
-							style="color: #000"> Notice of Motion (Regular and/or
-							Contempt) </a>
+							style="color: #000"> Notice of Motion (Regular and/or Contempt) </a>
 					</h5>
 				</div>
 
@@ -560,42 +559,42 @@ body {
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14-Notice of Motion15">
 									Form 14-Notice of Motion<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 31-Notice of Contempt Motion15">
 									Form 31-Notice of Contempt Motion<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14A-Affidavit15">
 									Form 14A-Affidavit<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14B-Motion Form15">
 									Form 14B-Motion Form<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14C-Confirmation15">
 									Form 14C-Confirmation<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14D-Order on Motion without Notice15">
 									Form 14D-Order on Motion without Notice<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25-Order (General)15">
 									Form 25-Order (General)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 6B-Affidavit of Service15">
 									Form 6B-Affidavit of Service<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -607,7 +606,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse6"
+						<input type="radio" name="legalFormType" value="Conferences"> <a href="#collapse6"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Conferences </a>
 					</h5>
@@ -622,37 +621,37 @@ body {
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 17-Conference Notice15">
 									Form 17-Conference Notice<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 17A-Case Conference Brief15">
 									Form 17A-Case Conference Brief<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 17 C-Settlement Conference Brief15">
 									Form 17 C-Settlement Conference Brief<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 17E-Trial Management Conference Brief15">
 									Form 17E-Trial Management Conference Brief<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
-									Form 00-Trial Scheduling Endorsement Form)<br></td>
+								<td><input type="checkbox" name="legalForm" value="Form 00-Trial Scheduling (Endorsement Form)15">
+									Form 00-Trial Scheduling (Endorsement Form)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14C-Confirmation15">
 									Form 14C-Confirmation<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 6B-Affidavit of Service15">
 									Form 6B-Affidavit of Service<br></td>
 								<td>$ 15.55</td>
 							</tr>
