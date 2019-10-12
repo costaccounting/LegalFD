@@ -22,7 +22,7 @@ public class HomeController {
 	FileDao fileDao = new FileDao();
 	
 	
-// ****  Navigation between Pages  ***
+// ****  Navigation between Pages START ***
 	
 	@RequestMapping("/")
 	public String goHome(Model model) {
@@ -96,7 +96,7 @@ public class HomeController {
 	}
 	
 	
-// ****  Navigation between Pages 	**END**   ***
+// ****  Navigation between Pages 	END ***
 	
 	
 //-----------------********		REGISTER   START	********---------------------------------
@@ -136,6 +136,7 @@ public class HomeController {
 	}// end of method
 
 //-----------------********		REGISTER   END	********---------------------------------
+	
 	
 //-----------------********		LOGIN	START	********---------------------------------
 	
@@ -194,6 +195,7 @@ public class HomeController {
 		
 	}
 //-----------------********		LOGIN	END		********---------------------------------
+	
 	
 //-----------------********		Admin or Lawyer	Dashboard START		********---------------------------------
 	
@@ -451,10 +453,10 @@ public class HomeController {
 //	}
 	
 //-----------------*******Legal Form STOP*********---------------------------------
-	@RequestMapping("/legalDocumentFormMulti/{Useremail}/{UserPassword}")
-	public String goLegalForm(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
+	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
+	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
 			
-			System.out.println("Test --> "+legalForm);
+			//System.out.println("Test --> "+legalForm);
 			for(int i=0; i <= legalForm.size()-1; i++)
 			{
 				String testForm = legalForm.get(i);
@@ -476,7 +478,7 @@ public class HomeController {
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
+			
 
 			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
 			
