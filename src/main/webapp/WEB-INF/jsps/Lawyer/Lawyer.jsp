@@ -22,10 +22,7 @@
 </head>
 <body>
 
-<div>
-	<p type="hidden" name ="email" value="${Useremail}"/>
-	<p type="hidden" name ="password" value="${UserPassword}"/>		
-</div>
+<div type="hidden" name="email" value="${Useremail}"></div>
 
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">

@@ -1,9 +1,7 @@
+
 package ca.sheridancollege;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.*;
 import java.util.*;
 
@@ -24,7 +22,7 @@ public class HomeController {
 	FileDao fileDao = new FileDao();
 	
 	
-// ****  Navigation between Pages  ***
+// ****  Navigation between Pages START ***
 	
 	@RequestMapping("/")
 	public String goHome(Model model) {
@@ -98,7 +96,7 @@ public class HomeController {
 	}
 	
 	
-// ****  Navigation between Pages 	**END**   ***
+// ****  Navigation between Pages 	END ***
 	
 	
 //-----------------********		REGISTER   START	********---------------------------------
@@ -139,6 +137,7 @@ public class HomeController {
 
 //-----------------********		REGISTER   END	********---------------------------------
 	
+	
 //-----------------********		LOGIN	START	********---------------------------------
 	
 	@RequestMapping("/login")
@@ -152,7 +151,7 @@ public class HomeController {
 			return "index";
 		}
 		else {
-			if((dao.getRole(email, password).get(0)).equals("Admin"))
+			if((dao.getRole(email).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -163,7 +162,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(email, password).get(0)).equals("Client"))
+			else if((dao.getRole(email).get(0)).equals("Client"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -173,7 +172,7 @@ public class HomeController {
 				
 				return "Customer/Customer";
 			}
-			else if((dao.getRole(email, password).get(0)).equals("Lawyer"))
+			else if((dao.getRole(email).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -197,13 +196,14 @@ public class HomeController {
 	}
 //-----------------********		LOGIN	END		********---------------------------------
 	
+	
 //-----------------********		Admin or Lawyer	Dashboard START		********---------------------------------
 	
 	@RequestMapping("/dashboard/{Useremail}/{UserPassword}")
 	public String goDashbaord(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
 		
 		
-			if((dao.getRole(Useremail, UserPassword).get(0)).equals("Admin"))
+			if((dao.getRole(Useremail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
@@ -216,7 +216,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(Useremail, UserPassword).get(0)).equals("Lawyer"))
+			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
@@ -300,7 +300,7 @@ public class HomeController {
 			
 			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
 			
-			if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Admin"))
+			if((dao.getRole(adminEmail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(adminEmail).get(0);
 				
@@ -313,7 +313,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Lawyer"))
+			else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(adminEmail).get(0);
 				
@@ -453,10 +453,10 @@ public class HomeController {
 //	}
 	
 //-----------------*******Legal Form STOP*********---------------------------------
-	@RequestMapping("/legalDocumentFormMulti/{Useremail}/{UserPassword}")
-	public String goLegalForm(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
+	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
+	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
 			
-			System.out.println("Test --> "+legalForm);
+			//System.out.println("Test --> "+legalForm);
 			for(int i=0; i <= legalForm.size()-1; i++)
 			{
 				String testForm = legalForm.get(i);
@@ -478,7 +478,7 @@ public class HomeController {
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
+			
 
 			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
 			
@@ -554,5 +554,8 @@ public class HomeController {
 
 //-----------------****************---------------------------------
 			
-			
+
 }
+	
+	
+	
