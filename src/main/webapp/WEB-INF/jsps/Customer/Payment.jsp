@@ -22,10 +22,7 @@
 </head>
 <body>
 
-<div>
-	<p type="hidden" name ="email" value="${Useremail}"/>
-	<p type="hidden" name ="password" value="${UserPassword}"/>		
-</div>
+<div type="hidden" name="email" value="${Useremail}"></div>
 
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
@@ -126,7 +123,7 @@
 						
 						<td>
 			               	
-						       <a href="<c:url value="/deletePayment/${Useremail}/${UserPassword}/${pay.id}"/>" class="btn btn-danger">
+						       <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
 						          <i class="fas fa-trash"></i> Delete Order
 						       </a>
 	       			  	</td>
@@ -137,7 +134,7 @@
               </tbody>
             </table>
             
-            <form action="/pay/${pay.id}/${Useremail}/${UserPassword}">
+            <form action="/pay/${pay.id}/${Useremail}">
             
             	<input type="radio" name="paymentMethod" value="PayPal" checked> Pay Pal
             	<br>

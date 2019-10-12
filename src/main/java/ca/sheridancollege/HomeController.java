@@ -356,8 +356,8 @@ public class HomeController {
 	}
 //-----------------******* Delete User START *********---------------------------------
 	
-	@RequestMapping(value = "/deletePayment/{Useremail}/{UserPassword}/{id}")	
-	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping(value = "/deletePayment/{Useremail}/{id}")	
+	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail) {
 		
 		dao.deleteOrderById(id);
 
@@ -368,8 +368,7 @@ public class HomeController {
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
-
+		
 		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
 		
 		return "Customer/Payment";
