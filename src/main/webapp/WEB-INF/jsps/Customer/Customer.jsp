@@ -38,23 +38,23 @@
 </head>
 <body>
 
-<div>
-	<p type="hidden" name ="email" value="${Useremail}"/>
-	<p type="hidden" name ="password" value="${UserPassword}"/>		
-</div>
+
+	<div type="hidden" name ="email" value="${Useremail}"></div>
+	<div type="hidden" name ="password" value="${UserPassword}"/></div>	
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
     
       <c:url var = "url" value = "/admin"></c:url>
-            <a href= "" class="navbar-brand">LegalFD</a>
+            <h1><b>LegalFD</b></h1>
        
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
+        <%-- <ul class="navbar-nav">
           <li class="nav-item px-2">
           <!-- 
             <c:url var = "url" value = "/register"></c:url>
@@ -66,7 +66,7 @@
             <c:url var = "url" value = "/register"></c:url>
             <a href= "${url}" class="nav-link">Users</a>
           </li>
-        </ul>
+        </ul> --%>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown mr-3">
@@ -85,11 +85,11 @@
           </li>
           <li class="nav-item">
        		<c:url var="logoutUrl" value="/logout"/>
-		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+		 		<a href= "${logoutUrl}" class="nav-link ">Log Out</a>
           </li>
           <li class="nav-item">
        		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
-		 		<a href= "${payment}" class="nav-link active">View Cart</a>
+		 		<a href= "${payment}" class="nav-link ">View Cart</a>
           </li>
         </ul>
       </div>
@@ -97,12 +97,12 @@
   </nav>
 
   <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-warning text-white">
+  <header id="main-header" class="bg-info text-white">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <h1>
-            <i class="fas fa-users" style="align: center;"></i>List of Services</h1>
+        <div class="col-md-9">
+          <h2>
+            <i class="fas fa-users" style="align: center;"></i> List of Services</h2>
         </div>
       </div>
     </div>
@@ -113,9 +113,9 @@
 <br>
   		<div class="col">
        		
-       		<div class="alert alert-success">
+       		<%-- <div class="alert alert-success">
   				<p>${requestMessage}</p>
-			</div>
+			</div> --%>
        
             <div class="card text-center bg-success text-white mb-3">
                 <div class="card-body">
