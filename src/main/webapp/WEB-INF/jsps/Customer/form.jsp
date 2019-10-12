@@ -405,7 +405,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType" value=""> <a href="#collapse3"
+						<input type="radio" name="legalFormType" value="Application (General)"> <a href="#collapse3"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Application (General) </a>
 					</h5>
@@ -420,57 +420,57 @@ body {
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 8A-Application15">
 									Form 8A-Application<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 10-Answer15">
 									Form 10-Answer<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 10A-Reply15">
 									Form 10A-Reply<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 6B-Affidavit of Service15">
 									Form 6B-Affidavit of Service<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25-Order (General)15">
 									Form 25-Order (General)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 35.1-Affidavit in Support of Custody and Access15">
 									Form 35.1-Affidavit in Support of Custody and Access<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13-Financial Statement (Support only)15">
 									Form 13-Financial Statement (Support only)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13.1-Financial Statement (Support and Property)15">
 									Form 13.1-Financial Statement (Support and Property)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13A-Certificate of Financial Disclosure15">
 									Form 13A-Certificate of Financial Disclosure<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13B-Net Family Property Statement15">
 									Form 13B-Net Family Property Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13C-Comparison of Net Family Property Statements15">
 									Form 13C-Comparison of Net Family Property Statements<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -482,7 +482,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse4"
+						<input type="radio" name="legalFormType" value="Motion to Change"> <a href="#collapse4"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Motion to Change </a>
 					</h5>
@@ -497,17 +497,17 @@ body {
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 15-Motion to Change15">
 									Form 15-Motion to Change<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 15A-Change Information Form15">
 									Form 15A-Change Information Form<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 15B-Response to Motion to Change15">
 									Form 15B-Response to Motion to Change<br></td>
 								<td>$ 15.55</td>
 							</tr>
