@@ -122,8 +122,7 @@
 						<td>${pay.documentAmount}</td>
 						
 						<td>
-			               	
-						       <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
+			               	   <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
 						          <i class="fas fa-trash"></i> Delete Order
 						       </a>
 	       			  	</td>
