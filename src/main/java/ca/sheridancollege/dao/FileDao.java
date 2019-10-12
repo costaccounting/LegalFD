@@ -13,8 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import ca.sheridancollege.beans.Payment;
 import ca.sheridancollege.beans.RegisterUser;
 import lombok.AllArgsConstructor;
@@ -82,20 +80,6 @@ public class FileDao {
 	    });
 	    return fileList;
 	}
-	public boolean addFile(MultipartFile file, String dir) {
-		if(file.isEmpty()) return false;
-		try {
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get(dir + File.separator+ file.getOriginalFilename());
-			Files.write(path, bytes);
-			return true;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
 	
 
 }

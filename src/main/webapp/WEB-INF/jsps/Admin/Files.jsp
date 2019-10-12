@@ -37,14 +37,6 @@ fileeee
     </tr>
 </c:forEach>
 
-
-<form method="POST" action="/upload/<c:out value="${presentDirectory}" />" enctype="multipart/form-data">
-    <input type="file" name="file" /><br/><br/>
-    <input type="submit" value="Submit" />
-</form>
-<div c:if="${message}">
-    <h2 c:text="${message}"/>
-</div>
 </table>
 </body>
 </html>
