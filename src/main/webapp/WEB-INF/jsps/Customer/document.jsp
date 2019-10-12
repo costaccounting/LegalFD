@@ -229,10 +229,10 @@ body {
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
-					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link"> <i
-							class="fas fa-user-times"></i> Logout
-					</a></li>
+					<li class="nav-item">
+			        <c:url var="logoutUrl" value="/logout"/>
+					 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+				  	</li>
 				</ul>
 			</div>
 		</div>

@@ -134,35 +134,14 @@ body {
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
-					<li class="nav-item"><a href="index.html" class="nav-link">
-							<i class="fas fa-user-times"></i> Logout
-					</a></li>
+					<li class="nav-item">
+			        <c:url var="logoutUrl" value="/logout"/>
+					 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+				  	</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
-
-
-
-
-	<!-- HEADER -->
-	<!-- <header id="main-header" class="py-2 bg-primary text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>
-                        <i class="fas fa-balance-scale"></i> Services</h1>
-                </div>
-            </div>
-        </div>
-    </header> -->
-
-
-
-
-
-
 
 
 	<!-- ACTIONS -->
@@ -185,32 +164,7 @@ body {
 
 	</section>
 
-	<!-- ACTIONS -->
-
-	<!-- <div class="col">
-       
-            <div class="card text-center bg-success text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Documents</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-folder"></i> 
-                    </h4>
-                    <a href="document.html" class="btn btn-outline-light btn-sm">Request</a>
-                </div>
-            </div>
-
-            <div class="card text-center bg-warning text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Forms</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-file-alt"></i> 
-                    </h4>
-                    <a href="form.html" class="btn btn-outline-light btn-sm">Request</a>
-                </div>
-            </div>
-        
-    </div>
-    </div> -->
+	
 	<form action="/legalDocumentFormMulti/${Useremail}/${UserPassword}">
 
 		<div class="container" id="newContainer">
@@ -240,7 +194,7 @@ body {
 									<th>Price</th>
 								</tr>
 								<tr>
-									<td><input type="checkbox" name="form" value="divorce">
+									<td><input type="checkbox" name="form" value="Form 8A-Application15.55">
 										Form 8A-Application<br></td>
 									<td>$ 15.55</td>
 								</tr>

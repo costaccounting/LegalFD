@@ -70,14 +70,14 @@ public class Dao {
 	
 //-----------------------------------------------------------******************************------------------------------------	
 	
-	public List<String> getRole(String email, String password){
+	public List<String> getRole(String email){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
 		
-		Query query = session.createQuery("select role from RegisterUser where email =:email and password =:password");
+		Query query = session.createQuery("select role from RegisterUser where email =:email");
 		query.setParameter("email", email);
-		query.setParameter("password", password);
+		
 		
 		List<String> register = (List<String>) query.getResultList();
 		

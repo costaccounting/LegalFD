@@ -1,9 +1,6 @@
 package ca.sheridancollege;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.*;
 import java.util.*;
 
@@ -152,7 +149,7 @@ public class HomeController {
 			return "index";
 		}
 		else {
-			if((dao.getRole(email, password).get(0)).equals("Admin"))
+			if((dao.getRole(email).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -163,7 +160,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(email, password).get(0)).equals("Client"))
+			else if((dao.getRole(email).get(0)).equals("Client"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -173,7 +170,7 @@ public class HomeController {
 				
 				return "Customer/Customer";
 			}
-			else if((dao.getRole(email, password).get(0)).equals("Lawyer"))
+			else if((dao.getRole(email).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -203,7 +200,7 @@ public class HomeController {
 	public String goDashbaord(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
 		
 		
-			if((dao.getRole(Useremail, UserPassword).get(0)).equals("Admin"))
+			if((dao.getRole(Useremail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
@@ -216,7 +213,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(Useremail, UserPassword).get(0)).equals("Lawyer"))
+			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
@@ -300,7 +297,7 @@ public class HomeController {
 			
 			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
 			
-			if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Admin"))
+			if((dao.getRole(adminEmail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(adminEmail).get(0);
 				
@@ -313,7 +310,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(adminEmail, adminPassword).get(0)).equals("Lawyer"))
+			else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(adminEmail).get(0);
 				
