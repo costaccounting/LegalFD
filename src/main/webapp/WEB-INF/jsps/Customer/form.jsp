@@ -666,7 +666,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse7"
+						<input type="radio" name="legalFormType" value="Enforcement"> <a href="#collapse7"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Enforcement </a>
 					</h5>
@@ -773,7 +773,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse8"
+						<input type="radio" name="legalFormType" value="Child and Youth Family Services Act"> <a href="#collapse8"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Child and Youth Family Services Act </a>
 					</h5>
@@ -846,7 +846,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse9"
+						<input type="radio" name="legalFormType" value="Interjurisdictional Support Orders"> <a href="#collapse9"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Interjurisdictional Support Orders </a>
 					</h5>
@@ -943,7 +943,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse10"
+						<input type="radio" name="legalFormType" value="Adoption"> <a href="#collapse10"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Adoption </a>
 					</h5>
@@ -1066,7 +1066,7 @@ body {
 			<div class="card">
 				<div class="card-header">
 					<h5>
-						<input type="radio" name="legalFormType"> <a href="#collapse11"
+						<input type="radio" name="legalFormType" value="Miscellaneous Forms"> <a href="#collapse11"
 							data-parent="#accordion" data-toggle="collapse"
 							style="color: #000"> Miscellaneous Forms </a>
 					</h5>
