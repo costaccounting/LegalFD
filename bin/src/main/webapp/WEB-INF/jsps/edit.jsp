@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   
-  <title>Details About User</title>
+  <title>Edit Details for User</title>
 </head>
 
 <body>
 
 <div>
-	<p type="hidden" name ="email" value="${Useremail}"/>
-	<p type="hidden" name ="password" value="${UserPassword}"/>		
+	<p type="hidden" name ="sessionEmail" value="${Useremail}"/>
+	<p type="hidden" name ="sessionPassword" value="${UserPassword}"/>		
 </div>
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
@@ -61,7 +61,6 @@
        		<c:url var="logoutUrl" value="/logout"/>
 		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
           </li>
-          </li>
         </ul>
       </div>
     </div>
@@ -71,11 +70,102 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>Uploading Documents for Users </h1>
+          <h1>Editing User Info</h1>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- ACTIONS -->
+  <section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="<c:url value="/dashboard/${Useremail}/${UserPassword} "/>" class="btn btn-light btn-block">
+            <i class="fas fa-arrow-left"></i> Back To Dashboard
+          </a>
+        </div>
+        <!-- 
+        <div class="col-md-3">
+          <a href="dashboard.html" class="btn btn-success btn-block">
+            <i class="fas fa-check"></i> Save Changes
+          </a>
+        </div>
+         -->
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section id="details">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h4>Edit User</h4>
+            </div>
+            <div class="card-body">
+              
+             <!-- 
+             <form >
+                <div class="form-group">
+                  <label for="title">Name</label>
+                  <input type="text" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <label for="title">Email</label>
+                  <input type="text" class="form-control">
+                </div>
+              </form>
+                
+             -->
+             <!-- 
+               	<form action="/editUser">
+	
+					User Email: <input type="text" name="userEmail" value="${email }" disabled><br>
+					First Name: <input type="text" name="userFirstName" value="${ firstName}"> <br>
+					Last Name: <input type="text" name="userLastName" value="${ lastName}"> <br>
+					
+					<label>Role</label>
+					<select name="role">
+					  <option value="Client" selected>Client</option>
+					  <option value="Lawyer">Lawyer</option>
+					  <option value="Admin">**Admin**</option>
+					</select>
+					<br>
+				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
+				</form>
+				-->
+				<form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
+					<!-- 
+					<p type="hidden" name ="sessionEmail" value="${Useremail}"/>
+					<p type="hidden" name ="sessionPassword" value="${UserPassword}"/>	
+					-->
+					User Email: <input type="text" name="userEmail" value="${userInfo.email}" disabled><br>
+					First Name: <input type="text" name="userFirstName" value="${ userInfo.firstName}"> <br>
+					Last Name: <input type="text" name="userLastName" value="${ userInfo.lastName}"> <br>
+					
+					<label>Role</label>
+					<select name="role">
+					  <option value="Client" selected>Client</option>
+					  <option value="Lawyer">Lawyer</option>
+					  <option value="Admin">**Admin**</option>
+					</select>
+					<br>
+				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
+				</form>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
 
   
 

@@ -94,16 +94,16 @@
                  <form action="/register1" method="get" modelAttribute="registerUser">
 	  		  
                    		  <div class="form-group">
-	                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Email">
+	                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required>
 	                      </div>
 		                  <div class="form-group">
-		                    <input type="text" name="firstName" class="form-control form-control-lg" placeholder="First Name">
+		                    <input type="text" name="firstName" class="form-control form-control-lg" placeholder="First Name" required>
 		                  </div>
 		                  <div class="form-group">
-		                    <input type="text" name="lastName" class="form-control form-control-lg" placeholder="Last Name">
+		                    <input type="text" name="lastName" class="form-control form-control-lg" placeholder="Last Name" required>
 		                  </div>
 		                  <div class="form-group">
-		                    <input type="text" name="password" class="form-control form-control-lg" placeholder="Password">
+		                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
 		                  </div>
                   
                   <input type="submit" value="Sign Up" class="btn btn-outline-light btn-block">

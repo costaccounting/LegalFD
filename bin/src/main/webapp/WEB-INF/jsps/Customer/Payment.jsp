@@ -17,7 +17,7 @@
     crossorigin="anonymous">
   
   
-<title>Lawyer Page</title> 	
+<title>Payment Page</title> 	
 
 </head>
 <body>
@@ -37,15 +37,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-          <!-- 
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link active">Dashboard</a>
-           -->
+            <a href= "" class="nav-link active">Payment</a>
           </li>
 
           <li class="nav-item px-2">
             <c:url var = "url" value = "/register"></c:url>
-            <a href= "" class="nav-link">Users</a>
+            <a href= "${url}" class="nav-link">Users</a>
           </li>
         </ul>
 
@@ -53,7 +51,6 @@
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fas fa-user"></i> Welcome ${firstName}
-           
             </a>
             <div class="dropdown-menu">
               <a href="profile.html" class="dropdown-item">
@@ -68,9 +65,9 @@
             <!-- <a href="index.html" class="nav-link">
               <i class="fas fa-user-times"></i> Logout
               -->
-       <c:url var="logoutUrl" value="/logout"/>
+        <c:url var="logoutUrl" value="/logout"/>
 		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-          </li>
+		  </li>
         </ul>
       </div>
     </div>
@@ -82,49 +79,20 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-users"></i>List of Users</h1>
+            <i class="fas fa-users"></i>All Users</h1>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- SEARCH -->
-  <section id="search" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Users...">
-            <div class="input-group-append">
-              <button class="btn btn-warning">Search</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
   <section id="actions" class="py-4 mb-4 bg-light">
-  <div class="alert alert-success">
-  		<p>${confirmationMessage}</p>
+  	<div class="alert alert-success">
+  		<p>${requestMessage}</p>
 	</div>
 	</section>
-<!--
-    <div class="container">
-      <div class="row">
 
-        <div class="col-md-3">
-          <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
-            <i class="fas fa-plus"></i> Add User
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  --> 
   <!-- USERS -->
   <section id="users">
     <div class="container">
@@ -132,58 +100,56 @@
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h4>All Users</h4>
+              <h4>List of Documents Requested by ${firstName}</h4>
             </div>
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                  <th>Email</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Role</th>
-                  <th>Edit User</th>
-                  <th>User Details</th>
-                  
+                  <th>ID</th> 
+                  <th>Document Category</th>
+                  <th>Form Type</th>
+                  <th>Amount</th>
+                  <th>Delete Request</th>
                 </tr>
               </thead>
               <tbody>
               
-              	<c:forEach var="Users" items="${allDataForLawyer}">
+              	<c:forEach var="pay" items="${paymentData}">
 					<tr>
-						<td>${Users.email}</td>
-						<td>${Users.firstName}</td>
-						<td>${Users.lastName}</td>
-						<td>${Users.role}</td>
+						<td>${pay.id}</td>		
+						<td>${pay.documentType}</td>
+						<td>${pay.formType}</td>
+						<td>${pay.documentAmount}</td>
+						
 						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="glyphicon glyphicon-pencil"></i> Edit User
-		                    </a>
-	                  	</td>
-						<td>
-		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-secondary">
-		                      <i class="glyphicon glyphicon-list-alt"></i> Details
-		                    </a>
-	                  	</td>
-	                   <!-- 
-	                  		<td>
-			               	
-						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
-						          <i class="fas fa-trash"></i> Delete User
+			               	   <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
+						          <i class="fas fa-trash"></i> Delete Order
 						       </a>
-	       					
-	                  	</td>
-	                  	 -->
+	       			  	</td>
+	       			  	 
 					</tr>
 				</c:forEach>
               
               </tbody>
             </table>
+            
+            <form action="/pay/${pay.id}/${Useremail}">
+            
+            	<input type="radio" name="paymentMethod" value="PayPal" checked> Pay Pal
+            	<br>
+            	<input type="radio" name="paymentMethod" value="Debit"> Debit Card
+            	<br>
+            	<input type="radio" name="paymentMethod" value="Credit Card"> Credit Card
+            	<br>
+            	
+            <input type="submit" value="Pay Amount">
+            <br>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </section>
-
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
