@@ -39,7 +39,8 @@
             <a href= "${url}" class="nav-link">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a href="#explore-head-section" class="nav-link">About</a>
+          <c:url var="sh" value="/about" />
+            <a href=${sh } class="nav-link">About</a>
           </li>
          
         </ul>
