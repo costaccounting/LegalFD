@@ -6,7 +6,7 @@ body{
   font-family: sans-serif;
 }
 .img{
-  background: url(pic.jpg);
+  background: url(../img/pic.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   opacity:initial ;
