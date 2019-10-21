@@ -18,6 +18,19 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <title>Main Page - Legal FD</title>
+  <style>
+  #signInUp{
+  margin-left: 380px;
+  }
+  #cardBody{
+  background-color: mediumslateblue;
+  opacity: 0.8;
+  }
+  .navbar {
+  border-bottom: #7b68ee 3px solid;
+  opacity: 0.8;
+}
+  </style>
 </head>
 
 
@@ -32,7 +45,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       
+      
+      
+      
+        
+        
       <div class="collapse navbar-collapse" id="navbarCollapse">
+      
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           	<c:url var = "url" value = "/register"></c:url>
@@ -51,6 +70,9 @@
   <!-- HOME SECTION -->
   <header id="home-section">
     <div class="dark-overlay">
+     <%-- <div class="alert alert-success" style="margin-left: 325px">
+            <b>${logOutMess} </b>
+        </div> --%>
       <div class="home-inner container">
         <div class="row">
          <!-- 
@@ -87,8 +109,10 @@
             </div>
           </div>
  -->
-          <div class="col-lg-4">
-            <div class="card bg-primary text-center card-form">
+
+          <div class="col-lg-4"  id="signInUp">
+        
+            <div class="card text-center card-form" id="cardBody">
               <div class="card-body">
                 <h3>Sign In</h3>
                 <br>
@@ -104,7 +128,7 @@
                   <input type="submit" value="Sign In" class="btn btn-outline-light btn-block">
                 <br><br>
                 
-                <p align="center" style="color:red; font-size: 1.5em;">${loginMess}</p>
+              <p align="center" style="color:red; font-size: 1.5em;">${loginMess}</p>
                 <p align="center" style="color:green; font-size: 1.5em;">${logOutMess}</p>
                 
                 <p align="center" style="color:red; font-size: 1em;">${message}</p>
@@ -112,7 +136,7 @@
 		
 				<p align="center" style="color:red; font-size: 1.5em;">${mess}</p>
 		
-	  			<br><br>
+	  			 <br><br>
                 </form>
                 
               </div>
