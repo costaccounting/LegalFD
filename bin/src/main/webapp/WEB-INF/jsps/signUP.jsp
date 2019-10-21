@@ -17,6 +17,20 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
  <title>Register your Account</title>
+ 
+   <style>
+  #signInUp{
+  margin-left: 380px;
+  }
+  #cardBody{
+  background-color: mediumslateblue;
+  opacity: 0.8;
+  }
+  .navbar {
+  border-bottom: #7b68ee 3px solid;
+  opacity: 0.8;
+}
+  </style>
 
 </head>
 
@@ -52,41 +66,41 @@
     <div class="dark-overlay">
       <div class="home-inner container">
         <div class="row">
-          <div class="col-lg-8 d-none d-lg-block">
-            <h1 class="display-4">
+          <!-- <div class="col-lg-8 d-none d-lg-block"> -->
+          <!--   <h1 class="display-4">
               <strong>Register </strong> 
               <strong>Today</strong>
             </h1>
             <div class="d-flex">
               <div class="p-4 align-self-start">
-                <!-- <i class="fas fa-check fa-2x"></i> -->
+                <i class="fas fa-check fa-2x"></i>
               </div>
-              <!-- <div class="p-4 align-self-end">
+              <div class="p-4 align-self-end">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div> -->
+              </div>
             </div>
 
             <div class="d-flex">
               <div class="p-4 align-self-start">
-                <!-- <i class="fas fa-check fa-2x"></i> -->
+                <i class="fas fa-check fa-2x"></i>
               </div>
-              <!-- <div class="p-4 align-self-end">
+              <div class="p-4 align-self-end">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div> -->
+              </div>
             </div>
 
             <div class="d-flex">
               <div class="p-4 align-self-start">
-                <!-- <i class="fas fa-check fa-2x"></i> -->
+                <i class="fas fa-check fa-2x"></i>
               </div>
-              <!-- <div class="p-4 align-self-end">
+              <div class="p-4 align-self-end">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div> -->
+              </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-lg-4">
-            <div class="card bg-primary text-center card-form">
+          <div class="col-lg-4" id="signInUp">
+            <div class="card text-center card-form" id="cardBody">
               <div class="card-body">
                 <h3>Sign Up</h3>
                 <br>
