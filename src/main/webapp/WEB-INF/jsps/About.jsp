@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +11,11 @@
 <body>
 
 
-  <div class="navbar">
-    <div class="logo">
-      LEDAL FD
-    </div>
-    <a href="#home" class="active">Home</a>
-    <a href="signin.html">Sign In</a>
-  </div>
+	<div class="navbar">
+		<div class="logo">LEDAL FD</div>
+		<a href="#home" class="active">Home</a> <a href="signin.html">Sign
+	</div>
 
-<div class="img">
   <div class="main">
     <h1>Welcome to Legal FD</h1>
     <p>Get help with your Legal Document/Forms</p>
