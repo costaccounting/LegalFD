@@ -25,5 +25,4 @@ public class ChildExpenses {
 	private String extraCurricular;
 	private String others;
 	
-	
 }

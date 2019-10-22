@@ -53,18 +53,99 @@
 		 		<a href= "${logoutUrl}" class="nav-link ">Log Out</a>
           </li>
           <li class="nav-item">
-       		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
+       		<c:url var="payment" value="/paymentPage/${Useremail}"/>
 		 		<a href= "${payment}" class="nav-link ">View Cart</a>
           </li>  
         </ul>
       	</div>
     	</div>
   	</nav>
+  	<div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+            <i class="fas fa-arrow-left"></i> Back To Dashboard
+          </a>
+        </div>
+      </div>
+     </div>
+  	
 <br>
 <br>
 <br>
   		<div class="col">
-       		
+	       	<section id="actions" class="py-4 mb-4 bg-light">
+			  	<div class="alert alert-success">
+			  		<p>${confirmationMessage}</p>
+				</div>
+			</section>
+       	<fieldset>
+       	<legend>	Client Information 		</legend>  
+		<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Medical/Dental/Orthodontic:
+					</td>
+					<td>
+						<form:input path="medical"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Private School/Tutoring/Educational Expenses:
+					</td>
+					<td>
+						<form:input path="educational"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Post-secondary Educational Expenses:
+					</td>
+					<td>
+						<form:input path="postEducational"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Daycare/Child Care:
+					</td>
+					<td>
+						<form:input path="daycare"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Extracurricular Activities:
+					</td>
+					<td>
+						<form:input path="extraCurricular"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Other Expenses:
+					</td>
+					<td>
+						<form:input path="others"/>
+					</td>
+				</tr>
+				
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>					
+										
+												
+														
+																
+																		
        		
         	
     	</div>

@@ -23,8 +23,7 @@
 
 
 	<div type="hidden" name ="email" value="${Useremail}"></div>
-	<div type="hidden" name ="password" value="${UserPassword}"/></div>	
-
+	
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -57,7 +56,7 @@
 		 		<a href= "${logoutUrl}" class="nav-link ">Log Out</a>
           </li>
           <li class="nav-item">
-       		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
+       		<c:url var="payment" value="/paymentPage/${Useremail}"/>
 		 		<a href= "${payment}" class="nav-link ">View Cart</a>
           </li>
           <li class="nav-item">
@@ -95,7 +94,7 @@
                     <h4 class="display-4">
                         <i class="fas fa-folder"></i> 
                     </h4>
-                	    <c:url var="document" value="/document/${Useremail}/${UserPassword}"/>
+                	    <c:url var="document" value="/document/${Useremail}"/>
 		 				<a href= "${document}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Document</a>
           
                 </div>
@@ -107,7 +106,7 @@
                     <h4 class="display-4">
                         <i class="fas fa-file-alt"></i> 
                     </h4>
-            	        <c:url var="form" value="/form/${Useremail}/${UserPassword}"/>
+            	        <c:url var="form" value="/form/${Useremail}"/>
 		 				<a href= "${form}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Form</a>
           
                 </div>

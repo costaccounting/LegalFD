@@ -22,7 +22,7 @@ public class HomeController {
 
 	Dao dao = new Dao();
 	FileDao fileDao = new FileDao();
-	
+	GeneralFormDao generalDao = new GeneralFormDao();
 	
 // ****  Navigation between Pages START ***
 	
@@ -364,47 +364,42 @@ public class HomeController {
 		return "Customer/Payment";
 	}
 
-//-----------------********  New Client Side UI -- START********---------------------------------
+//-----------------********   Client Dashboard Side UI -- START********---------------------------------
 	
-	@RequestMapping(value = "/ClientSide/{Useremail}/{UserPassword}")	
-	public String testingClientSide(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping(value = "/ClientSide/{Useremail}")	
+	public String testingClientSide(Model model, @PathVariable String Useremail) {
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
 		
 		return "Customer/Customer";
 	}
 	
-//-----------------********  New Client Side UI -- END********---------------------------------
+//-----------------********   Client Side UI -- END********---------------------------------
 	
 //-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
 	
-	@RequestMapping("/document/{Useremail}/{UserPassword}")
-	public String goDocumentPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping("/document/{Useremail}")
+	public String goDocumentPage(Model model, @PathVariable String Useremail) {
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
-		
 		
 		return "Customer/document";
 	}
 	
 	
-	@RequestMapping("/form/{Useremail}/{UserPassword}")
-	public String goFormPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping("/form/{Useremail}")
+	public String goFormPage(Model model, @PathVariable String Useremail) {
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
-		
 		
 		return "Customer/form";
 	}
@@ -445,8 +440,8 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
-	@RequestMapping("/paymentPage/{Useremail}/{UserPassword}")
-	public String goViewCart(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping("/paymentPage/{Useremail}")
+	public String goViewCart(Model model, @PathVariable String Useremail) {
 			
 			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
@@ -456,16 +451,15 @@ public class HomeController {
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
-
+			
 			//model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
 			
 			return "Customer/Payment";
 	}
 //-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
-	@RequestMapping("/pay/{id}/{Useremail}/{UserPassword}")
-	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @PathVariable int id) {
+	@RequestMapping("/pay/{id}/{Useremail}")
+	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable int id) {
 			
 			dao.deleteOrderById(id);
 		
@@ -473,7 +467,6 @@ public class HomeController {
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
 			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
@@ -492,15 +485,14 @@ public class HomeController {
 	@RequestMapping("/generalApplication/{Useremail}")	
 	public String goGeneralApplication(Model model, @PathVariable String Useremail) {
 	
-		model.addAttribute("childExpenses", new ChildExpenses());
-		model.addAttribute("children", new Children());
-		model.addAttribute("clientInfo", new ClientInfo());
-		model.addAttribute("martialInfo", new MartialInfo());
-		model.addAttribute("matrimonialHome", new MatrimonialHome());
-		model.addAttribute("spouseInfo", new SpouseInfo());
-		
-		
-		
+		// Regular Code to send to General Application sos that Forms will work properly
+		model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+		model.addAttribute("children", (generalDao.getChildren(Useremail)));
+		model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+		model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+		model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+		model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+		// Needed in order to work with general application form
 		
 		// Regular Customer JSP EL tags needed code
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -513,26 +505,174 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/saveApplicationForm/{Useremail}")	
-	public String goSavePerson(Model model, @PathVariable String Useremail) {
-//		synchronized (Person.class) {
-//			dao.getList().add(person);
-//		}
+// First Class Saving Data to DAO method	
+	@RequestMapping("/childExpense/{Useremail}")	
+	public String goChildExpenses(Model model, @PathVariable String Useremail, @ModelAttribute ChildExpenses childExpenses) {
+		synchronized (ChildExpenses.class) {
+			generalDao.addChildExpenses(childExpenses);
+		}
 		
-		
-		
-		// Regular Customer JSP EL tags needed code
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		// Needed for Customer JSP EL tags
-		
-		return "Customer/Customer";
+				// Regular Code to send to General Application sos that Forms will work properly
+				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+				model.addAttribute("children", (generalDao.getChildren(Useremail)));
+				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+				model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+				model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+				model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+				// Needed in order to work with general application form
+				
+				// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
+				// Needed for Customer JSP EL tags
+				
+				return "Customer/Application";
 	}
+// First Class Saving Data to DAO method __ END
 	
+// Second Class Saving Data to DAO method	
+		@RequestMapping("/children/{Useremail}")	
+		public String goChildren(Model model, @PathVariable String Useremail, @ModelAttribute Children children) {
+			synchronized (Children.class) {
+				generalDao.addChildren(children);
+			}
+			
+					// Regular Code to send to General Application sos that Forms will work properly
+					model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+					model.addAttribute("children", (generalDao.getChildren(Useremail)));
+					model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+					model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+					model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+					model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+					// Needed in order to work with general application form
+					
+					// Regular Customer JSP EL tags needed code
+							String firstNameStore = dao.getFirstName(Useremail).get(0);
+							
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
+							model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
+					// Needed for Customer JSP EL tags
+					
+					return "Customer/Application";
+		}
+// Second Class Saving Data to DAO method __ END
 	
-	
+// Third Class Saving Data to DAO method	
+				@RequestMapping("/clientInfo/{Useremail}")	
+				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
+					synchronized (ClientInfo.class) {
+						generalDao.addClientInfo(clientInfo);
+					}
+					
+							// Regular Code to send to General Application sos that Forms will work properly
+							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+							model.addAttribute("children", (generalDao.getChildren(Useremail)));
+							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+							// Needed in order to work with general application form
+							
+							// Regular Customer JSP EL tags needed code
+									String firstNameStore = dao.getFirstName(Useremail).get(0);
+									
+									model.addAttribute("firstName", firstNameStore);
+									model.addAttribute("Useremail", Useremail);
+									model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
+							// Needed for Customer JSP EL tags
+							
+							return "Customer/Application";
+				}
+// Third Class Saving Data to DAO method __ END
+		
+// Fourth Class Saving Data to DAO method	
+				@RequestMapping("/martialInfo/{Useremail}")	
+				public String goMartialInfo(Model model, @PathVariable String Useremail, @ModelAttribute MartialInfo martialInfo) {
+					synchronized (MartialInfo.class) {
+						generalDao.addMartialInfo(martialInfo);
+					}
+					
+							// Regular Code to send to General Application sos that Forms will work properly
+							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+							model.addAttribute("children", (generalDao.getChildren(Useremail)));
+							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+							// Needed in order to work with general application form
+							
+							// Regular Customer JSP EL tags needed code
+									String firstNameStore = dao.getFirstName(Useremail).get(0);
+									
+									model.addAttribute("firstName", firstNameStore);
+									model.addAttribute("Useremail", Useremail);
+									model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
+							// Needed for Customer JSP EL tags
+							
+							return "Customer/Application";
+				}
+// Fourth Class Saving Data to DAO method __ END				
+
+// Fifth Class Saving Data to DAO method	
+				@RequestMapping("/matrimonialHome/{Useremail}")	
+				public String goMatrimonialHome(Model model, @PathVariable String Useremail, @ModelAttribute MatrimonialHome matrimonialHome) {
+					synchronized (MatrimonialHome.class) {
+						generalDao.addMatrimonialHome(matrimonialHome);
+					}
+					
+							// Regular Code to send to General Application sos that Forms will work properly
+							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+							model.addAttribute("children", (generalDao.getChildren(Useremail)));
+							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+							// Needed in order to work with general application form
+							
+							// Regular Customer JSP EL tags needed code
+									String firstNameStore = dao.getFirstName(Useremail).get(0);
+									
+									model.addAttribute("firstName", firstNameStore);
+									model.addAttribute("Useremail", Useremail);
+									model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
+							// Needed for Customer JSP EL tags
+							
+							return "Customer/Application";
+				}
+// Fifth Class Saving Data to DAO method __ END				
+				
+// Sixth Class Saving Data to DAO method	
+				@RequestMapping("/spouseInfo/{Useremail}")	
+				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
+					synchronized (SpouseInfo.class) {
+						generalDao.addSpouseInfo(spouseInfo);
+					}
+					
+							// Regular Code to send to General Application sos that Forms will work properly
+							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+							model.addAttribute("children", (generalDao.getChildren(Useremail)));
+							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
+							// Needed in order to work with general application form
+							
+							// Regular Customer JSP EL tags needed code
+									String firstNameStore = dao.getFirstName(Useremail).get(0);
+									
+									model.addAttribute("firstName", firstNameStore);
+									model.addAttribute("Useremail", Useremail);
+									model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
+							// Needed for Customer JSP EL tags
+							
+							return "Customer/Application";
+				}
+// Sixth Class Saving Data to DAO method __ END				
+				
 //-----------------********* General Registration Form  END *******---------------------------------
 
 	
