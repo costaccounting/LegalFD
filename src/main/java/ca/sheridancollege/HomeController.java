@@ -63,22 +63,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	
-	@RequestMapping("/LegalDoc")
-	public String goLegalDoc(Model model, @RequestParam String userNameStore) {
-		model.addAttribute("userNameStore", userNameStore );
-		
-		return "LegalDocument";
-	}
-	
-	
-	@RequestMapping("/LegalForm")
-	public String goLegalForm(Model model, @RequestParam String userNameStore) {
-		
-		return "legalForm";
-	}
-
-	
 	@RequestMapping("/legalDocumentForm")
 	public String goLegalDocument(Model model) {
 			
@@ -240,7 +224,8 @@ public class HomeController {
 //-----------------********		Admin or Lawyer	Dashboard STOP		********---------------------------------
 	
 	
-//-----------------********		NAVIGATION TO DETAILS 	********---------------------------------
+//-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
+	
 	@RequestMapping("/details/{email}/{Useremail}/{UserPassword}")
 	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
 	
@@ -254,9 +239,12 @@ public class HomeController {
 		
 		return "details";
 	}
+
+//-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
 	
 	
-//-----------------********		NAVIGATION TO Edit User & UPDATE Function 	********---------------------------------
+//-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
+		
 		@RequestMapping("/edit/{email}/{Useremail}/{UserPassword}")
 		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
 		
@@ -282,8 +270,8 @@ public class HomeController {
 			return "edit";
 		}
 		
-		
 //-----------------********		NAVIGATION TO Edit User & UPDATE Function 	STOP ********---------------------------------
+	
 		@RequestMapping("/editUser/{sessionEmail}/{sessionPassword}/{userEmail}")
 		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String sessionPassword, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
 		
@@ -338,6 +326,7 @@ public class HomeController {
 		
 //-----------------******* Edit User STOP *********---------------------------------
 
+		
 //-----------------******* Delete User START *********---------------------------------
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}/{UserPassword}")	
 	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
@@ -354,7 +343,8 @@ public class HomeController {
 		model.addAttribute("confirmationMessage", "User Deleted Successfully");
 		return "Admin/Admin";
 	}
-//-----------------******* Delete User START *********---------------------------------
+	
+//-----------------******* Delete User END *********---------------------------------
 	
 	@RequestMapping(value = "/deletePayment/{Useremail}/{id}")	
 	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail) {
@@ -419,39 +409,6 @@ public class HomeController {
 	
 //-----------------*******End OF New Customer Side UI*********---------------------------------
 
-//-----------------*******Processing Requests START *********---------------------------------
-
-//	@RequestMapping(value = "/MainPage/{Useremail}/{UserPassword}")	
-//	public String goMainPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam String documentValue) {
-//		
-//		String firstNameStore = dao.getFirstName(Useremail).get(0);
-//		
-//		model.addAttribute("firstName", firstNameStore);
-//		model.addAttribute("Useremail", Useremail);
-//		model.addAttribute("UserPassword", UserPassword);
-//
-//		model.addAttribute("requestMessage", "You have successfully Requested those Legal Document");
-//		
-//		return "Customer/Customer";
-//	}
-	
-//-----------------*******Processing Requests STOP *********---------------------------------
-	
-//-----------------******Legal Form START**********---------------------------------
-	
-//	@RequestMapping(value = "/legalDocumentFormMulti/{Useremail}/{UserPassword}")	
-//	public String goMainPage(Model model, @PathVariable String Useremail, @PathVariable String UserPassword, @RequestParam String documentValue) {
-//		
-//		String firstNameStore = dao.getFirstName(Useremail).get(0);
-//		
-//		model.addAttribute("firstName", firstNameStore);
-//		model.addAttribute("Useremail", Useremail);
-//		model.addAttribute("UserPassword", UserPassword);
-//
-//		model.addAttribute("requestMessage", "You have successfully Requested those Legal Document");
-//		
-//		return "Customer/Customer";
-//	}
 	
 //-----------------*******Legal Form STOP*********---------------------------------
 	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
