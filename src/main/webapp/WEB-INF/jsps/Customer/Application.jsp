@@ -55,32 +55,18 @@
           <li class="nav-item">
        		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
 		 		<a href= "${payment}" class="nav-link ">View Cart</a>
-          </li>
-          
+          </li>  
         </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HEADER -->
-  <header id="main-header" class="bg-info text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9">
-          <h2>
-            <i class="fas fa-users" style="align: center;"></i> List of Services</h2>
-        </div>
-      </div>
-    </div>
-  </header>
-
+      	</div>
+    	</div>
+  	</nav>
 <br>
 <br>
 <br>
   		<div class="col">
        		
        		
-        
+        	
     	</div>
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
