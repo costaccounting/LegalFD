@@ -364,7 +364,8 @@ public class HomeController {
 		return "Customer/Payment";
 	}
 
-//-----------------******** Testing New Client Side UI ********---------------------------------
+//-----------------********  New Client Side UI -- START********---------------------------------
+	
 	@RequestMapping(value = "/ClientSide/{Useremail}/{UserPassword}")	
 	public String testingClientSide(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
 		
@@ -377,6 +378,7 @@ public class HomeController {
 		return "Customer/Customer";
 	}
 	
+//-----------------********  New Client Side UI -- END********---------------------------------
 	
 //-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
 	
@@ -484,7 +486,7 @@ public class HomeController {
 //-----------------********* Redirect Third Party Pay START *******---------------------------------
 
 		
-	//-----------------File View and Add---------------------------------
+//-----------------File View and Add --	START---------------------------------
 	
 	@RequestMapping(value = "/files/{folder_name}", method = RequestMethod.GET)
 	public String getFolder(
@@ -550,12 +552,12 @@ public class HomeController {
     }
 
 			
-//-----------------****************---------------------------------
+//-----------------File View and Add --	END---------------------------------
 
 //-----------------****************---------------------------------
 			
 	
-	//-----------Sidebar Navigation start--------------
+//-----------Sidebar Navigation STart--------------
 	
 	@RequestMapping(value = "documents", method = RequestMethod.GET)
 	public String document(Model model, @ModelAttribute RegisterUser user) {
@@ -575,10 +577,8 @@ public class HomeController {
 		return "Customer/uploadDocument";
 	}
 	
-	
-
-	
-	//----------Sidebar Navigation end-------------
+		
+//----------Sidebar Navigation END-------------
 	
 	@RequestMapping(value = "about", method = RequestMethod.GET)
 	public String about(Model model, @ModelAttribute RegisterUser user) {
@@ -586,6 +586,11 @@ public class HomeController {
 		return "About";
 	}
 
+	
+	
+	
+	
+	
 }
 	
 	
