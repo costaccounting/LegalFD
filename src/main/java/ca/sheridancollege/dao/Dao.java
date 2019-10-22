@@ -1,8 +1,7 @@
 package ca.sheridancollege.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import ca.sheridancollege.beans.*;
+import java.util.*;
 
 import javax.persistence.*;
 import javax.persistence.Query;
@@ -15,7 +14,6 @@ import javax.validation.ValidatorFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 
-import ca.sheridancollege.beans.*;
 
 public class Dao {
 
@@ -56,14 +54,14 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
-	public boolean userExist(String email)
+	public String userExist(String email, String password)
 	{
 		if (getEmail(email).get(0)!=null)
 		{
-			return false;
+			return null;
 		}
 		else {
-			return true;
+			return "";
 		}
 		
 	}

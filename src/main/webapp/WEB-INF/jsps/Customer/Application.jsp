@@ -15,18 +15,14 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
- 
-<title>Customer Page</title> 	
-
+<title>Fill General Info</title>
 </head>
 <body>
+<div type="hidden" name ="email" value="${Useremail}"></div>
 
-
-	<div type="hidden" name ="email" value="${Useremail}"></div>
-	<div type="hidden" name ="password" value="${UserPassword}"/></div>	
-
-
-
+	<h1>General Information Application Form</h1>
+	
+	
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
     
@@ -60,9 +56,7 @@
        		<c:url var="payment" value="/paymentPage/${Useremail}/${UserPassword}"/>
 		 		<a href= "${payment}" class="nav-link ">View Cart</a>
           </li>
-          <li class="nav-item">
-		 		<a href= "/generalApplication/${Useremail}" class="nav-link ">General Application Form</a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -85,33 +79,7 @@
 <br>
   		<div class="col">
        		
-       		<%-- <div class="alert alert-success">
-  				<p>${requestMessage}</p>
-			</div> --%>
-       
-            <div class="card text-center bg-success text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Documents</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-folder"></i> 
-                    </h4>
-                	    <c:url var="document" value="/document/${Useremail}/${UserPassword}"/>
-		 				<a href= "${document}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Document</a>
-          
-                </div>
-            </div>
-
-            <div class="card text-center bg-warning text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Forms</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-file-alt"></i> 
-                    </h4>
-            	        <c:url var="form" value="/form/${Useremail}/${UserPassword}"/>
-		 				<a href= "${form}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Form</a>
-          
-                </div>
-            </div>
+       		
         
     	</div>
 

@@ -485,7 +485,67 @@ public class HomeController {
 	
 //-----------------********* Redirect Third Party Pay START *******---------------------------------
 
+	
+	
+//-----------------********* General Registration Form  START *******---------------------------------
+
+	@RequestMapping("/generalApplication/{Useremail}")	
+	public String goGeneralApplication(Model model, @PathVariable String Useremail) {
+	
+		model.addAttribute("childExpenses", new ChildExpenses());
+		model.addAttribute("children", new Children());
+		model.addAttribute("clientInfo", new ClientInfo());
+		model.addAttribute("martialInfo", new MartialInfo());
+		model.addAttribute("matrimonialHome", new MatrimonialHome());
+		model.addAttribute("spouseInfo", new SpouseInfo());
 		
+		
+		
+		
+		// Regular Customer JSP EL tags needed code
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+		// Needed for Customer JSP EL tags
+		
+		return "Customer/Application";
+	}
+	
+	
+	@RequestMapping("/saveApplicationForm/{Useremail}")	
+	public String goSavePerson(Model model, @PathVariable String Useremail) {
+//		synchronized (Person.class) {
+//			dao.getList().add(person);
+//		}
+		
+		
+		
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		// Needed for Customer JSP EL tags
+		
+		return "Customer/Customer";
+	}
+	
+	
+	
+//-----------------********* General Registration Form  END *******---------------------------------
+
+	
+	
+//----**** ABOVE this PARAS Code*******---------------------------------
+
+	
+	
+	
+	
+
+//----**** BELOW this PRODIP Code*******---------------------------------
+
 //-----------------File View and Add --	START---------------------------------
 	
 	@RequestMapping(value = "/files/{folder_name}", method = RequestMethod.GET)
@@ -554,9 +614,14 @@ public class HomeController {
 			
 //-----------------File View and Add --	END---------------------------------
 
-//-----------------****************---------------------------------
+//----**** ABOVE this PRODIP Code*******---------------------------------
 			
 	
+	
+	
+	
+//----**** BELOW this RIYA Code*******---------------------------------
+
 //-----------Sidebar Navigation STart--------------
 	
 	@RequestMapping(value = "documents", method = RequestMethod.GET)
@@ -577,7 +642,15 @@ public class HomeController {
 		return "Customer/uploadDocument";
 	}
 	
-		
+//----**** ABOVE this RIYA Code*******---------------------------------
+
+	
+	
+	
+	
+	
+//----**** BELOW this HEET Code*******---------------------------------
+
 //----------Sidebar Navigation END-------------
 	
 	@RequestMapping(value = "about", method = RequestMethod.GET)
@@ -586,6 +659,7 @@ public class HomeController {
 		return "About";
 	}
 
+//----**** ABOVE this HEET Code*******---------------------------------
 	
 	
 	
