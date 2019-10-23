@@ -144,7 +144,206 @@
 			</form:form>
 			</fieldset>					
 <!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
-												
+	<br>											
+	<br>
+<!-- ***************** ___Children Inforamtion Form -- START___ ******************** -->       	
+       	<fieldset>
+       	<legend>	Children Information 		</legend>  
+		<form:form action="/children/${Useremail}" method="get" modelAttribute="children">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Date of Birth
+					</th>
+					<th>
+						Living With
+					</th>
+					<th>
+						Grade/School
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName1"/>
+					</td>
+					<td>
+						<form:input path="dobChild1"/>
+					</td>
+					<td>
+						<form:input path="livingChild1"/>
+					</td>
+					<td>
+						<form:input path="gradeChild1"/>
+					</td>
+					<td>
+						<form:input path="schoolChild1"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName2"/>
+					</td>
+					<td>
+						<form:input path="dobChild2"/>
+					</td>
+					<td>
+						<form:input path="livingChild2"/>
+					</td>
+					<td>
+						<form:input path="gradeChild2"/>
+					</td>
+					<td>
+						<form:input path="schoolChild2"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName3"/>
+					</td>
+					<td>
+						<form:input path="dobChild3"/>
+					</td>
+					<td>
+						<form:input path="livingChild3"/>
+					</td>
+					<td>
+						<form:input path="gradeChild3"/>
+					</td>
+					<td>
+						<form:input path="schoolChild3"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName4"/>
+					</td>
+					<td>
+						<form:input path="dobChild4"/>
+					</td>
+					<td>
+						<form:input path="livingChild4"/>
+					</td>
+					<td>
+						<form:input path="gradeChild4"/>
+					</td>
+					<td>
+						<form:input path="schoolChild4"/>
+					</td>
+				</tr>
+				
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>					
+<!-- ***************** ___Children Inforamtion Form -- END___ ******************** -->										
+			<br>											
+	<br>
+<!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
+       	<fieldset>
+       	<legend>	Children Information 		</legend>  
+		<form:form action="/clientInfo/${Useremail}" method="get" modelAttribute="clientInfo">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Date of Birth
+					</th>
+					<th>
+						Living With
+					</th>
+					<th>
+						Grade/School
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName1"/>
+					</td>
+					<td>
+						<form:input path="dobChild1"/>
+					</td>
+					<td>
+						<form:input path="livingChild1"/>
+					</td>
+					<td>
+						<form:input path="gradeChild1"/>
+					</td>
+					<td>
+						<form:input path="schoolChild1"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName2"/>
+					</td>
+					<td>
+						<form:input path="dobChild2"/>
+					</td>
+					<td>
+						<form:input path="livingChild2"/>
+					</td>
+					<td>
+						<form:input path="gradeChild2"/>
+					</td>
+					<td>
+						<form:input path="schoolChild2"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName3"/>
+					</td>
+					<td>
+						<form:input path="dobChild3"/>
+					</td>
+					<td>
+						<form:input path="livingChild3"/>
+					</td>
+					<td>
+						<form:input path="gradeChild3"/>
+					</td>
+					<td>
+						<form:input path="schoolChild3"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form:input path="childName4"/>
+					</td>
+					<td>
+						<form:input path="dobChild4"/>
+					</td>
+					<td>
+						<form:input path="livingChild4"/>
+					</td>
+					<td>
+						<form:input path="gradeChild4"/>
+					</td>
+					<td>
+						<form:input path="schoolChild4"/>
+					</td>
+				</tr>
+				
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>					
+<!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
 														
 																
 																		
