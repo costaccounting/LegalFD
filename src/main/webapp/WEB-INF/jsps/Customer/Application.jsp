@@ -79,6 +79,8 @@
 			  		<p>${confirmationMessage}</p>
 				</div>
 			</section>
+       	
+<!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Client Information 		</legend>  
 		<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
@@ -141,7 +143,7 @@
 			<input type="submit" value="Add"/>
 			</form:form>
 			</fieldset>					
-										
+<!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
 												
 														
 																
