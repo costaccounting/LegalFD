@@ -170,6 +170,12 @@ body {
 	/* margin-top: 70px; */
 	
 }
+ #submit{
+              margin-left: 770px;
+              /* padding-bottom: 50px; */
+              position: absolute;
+              margin-top: 10px;
+            }
 </style>
 <title>Client Form</title>
 </head>
@@ -247,11 +253,12 @@ body {
 
 			<h2>
 				<i class="fas fa-folder"></i> Legal Forms
+				<input class="btn btn-info" type="submit" value="Submit" id="submit">
 			</h2>
 		</div>
 		<div id="accordion">
 		
-			<input type="submit" value="Request Form"></input>
+			
 		
 			<div class="card" id="cardForm">
 				<div class="card-header">
