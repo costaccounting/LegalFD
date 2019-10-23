@@ -156,7 +156,7 @@ public class HomeController {
 				model.addAttribute("Useremail", email );
 				model.addAttribute("UserPassword", password );
 				
-				return "Customer/Customer";
+				return "Customer/form";
 			}
 			else if((dao.getRole(email).get(0)).equals("Lawyer"))
 			{
