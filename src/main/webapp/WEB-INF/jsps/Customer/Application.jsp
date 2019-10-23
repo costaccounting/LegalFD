@@ -80,9 +80,9 @@
 				</div>
 			</section>
        	
-<!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
+<!-- ***************** ___Child Expenses Inforamtion Form -- START___ ******************** -->       	
        	<fieldset>
-       	<legend>	Client Information 		</legend>  
+       	<legend>	Child Expenses Information 		</legend>  
 		<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
 			<table>
 				<tr>
@@ -143,7 +143,7 @@
 			<input type="submit" value="Add"/>
 			</form:form>
 			</fieldset>					
-<!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
+<!-- ***************** ___Child Expenses Inforamtion Form -- END___ ******************** -->										
 	<br>											
 	<br>
 <!-- ***************** ___Children Inforamtion Form -- START___ ******************** -->       	
@@ -244,11 +244,11 @@
 			</form:form>
 			</fieldset>					
 <!-- ***************** ___Children Inforamtion Form -- END___ ******************** -->										
-			<br>											
+	<br>											
 	<br>
 <!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
        	<fieldset>
-       	<legend>	Children Information 		</legend>  
+       	<legend>	Client Information 		</legend>  
 		<form:form action="/clientInfo/${Useremail}" method="get" modelAttribute="clientInfo">
 			<table>
 				<tr>
@@ -257,88 +257,189 @@
 					</td>
 				</tr>
 				<tr>
-					<th>
-						Name
-					</th>
-					<th>
-						Date of Birth
-					</th>
-					<th>
-						Living With
-					</th>
-					<th>
-						Grade/School
-					</th>
-				</tr>
-				<tr>
 					<td>
-						<form:input path="childName1"/>
+						Full Legal Name:
 					</td>
 					<td>
-						<form:input path="dobChild1"/>
-					</td>
-					<td>
-						<form:input path="livingChild1"/>
-					</td>
-					<td>
-						<form:input path="gradeChild1"/>
-					</td>
-					<td>
-						<form:input path="schoolChild1"/>
+						<form:input path="fullLegalName"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName2"/>
+						
 					</td>
 					<td>
-						<form:input path="dobChild2"/>
-					</td>
-					<td>
-						<form:input path="livingChild2"/>
-					</td>
-					<td>
-						<form:input path="gradeChild2"/>
-					</td>
-					<td>
-						<form:input path="schoolChild2"/>
+						<form:input path="dateOfBirth"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName3"/>
+					
 					</td>
 					<td>
-						<form:input path="dobChild3"/>
-					</td>
-					<td>
-						<form:input path="livingChild3"/>
-					</td>
-					<td>
-						<form:input path="gradeChild3"/>
-					</td>
-					<td>
-						<form:input path="schoolChild3"/>
+						<form:input path="citizenship"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName4"/>
+					
 					</td>
 					<td>
-						<form:input path="dobChild4"/>
-					</td>
-					<td>
-						<form:input path="livingChild4"/>
-					</td>
-					<td>
-						<form:input path="gradeChild4"/>
-					</td>
-					<td>
-						<form:input path="schoolChild4"/>
+						<form:input path="placeOfBirth"/>
 					</td>
 				</tr>
-				
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="SIN"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="surnameBirth"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="surnameBeforeMarriage"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="currentHomeAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="sinceWhen"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="currentMailingAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="homeTel"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="workTel"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="cell"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="fax"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="email"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="divorcedBefore"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="place"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="date"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="jobTitle"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="currentEmployer"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="employerAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="annualIncome"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					
+					</td>
+					<td>
+						<form:input path="incomeOtherSource"/>
+					</td>
+				</tr>
 			</table>
 			<input type="submit" value="Add"/>
 			</form:form>
