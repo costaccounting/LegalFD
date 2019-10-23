@@ -15,17 +15,14 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
- 
-<title>Customer Page</title> 	
-
+<title>Fill General Info</title>
 </head>
 <body>
+<div type="hidden" name ="email" value="${Useremail}"></div>
 
-
-	<div type="hidden" name ="email" value="${Useremail}"></div>
+	<h1>General Information Application Form</h1>
 	
-
-
+	
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
     
@@ -58,60 +55,101 @@
           <li class="nav-item">
        		<c:url var="payment" value="/paymentPage/${Useremail}"/>
 		 		<a href= "${payment}" class="nav-link ">View Cart</a>
-          </li>
-          <li class="nav-item">
-		 		<a href= "/generalApplication/${Useremail}" class="nav-link ">General Application Form</a>
-          </li>
+          </li>  
         </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HEADER -->
-  <header id="main-header" class="bg-info text-white">
-    <div class="container">
+      	</div>
+    	</div>
+  	</nav>
+  	<div class="container">
       <div class="row">
-        <div class="col-md-9">
-          <h2>
-            <i class="fas fa-users" style="align: center;"></i> List of Services</h2>
+        <div class="col-md-3">
+          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+            <i class="fas fa-arrow-left"></i> Back To Dashboard
+          </a>
         </div>
       </div>
-    </div>
-  </header>
-
+     </div>
+  	
 <br>
 <br>
 <br>
   		<div class="col">
+	       	<section id="actions" class="py-4 mb-4 bg-light">
+			  	<div class="alert alert-success">
+			  		<p>${confirmationMessage}</p>
+				</div>
+			</section>
+       	
+<!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
+       	<fieldset>
+       	<legend>	Client Information 		</legend>  
+		<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Medical/Dental/Orthodontic:
+					</td>
+					<td>
+						<form:input path="medical"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Private School/Tutoring/Educational Expenses:
+					</td>
+					<td>
+						<form:input path="educational"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Post-secondary Educational Expenses:
+					</td>
+					<td>
+						<form:input path="postEducational"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Daycare/Child Care:
+					</td>
+					<td>
+						<form:input path="daycare"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Extracurricular Activities:
+					</td>
+					<td>
+						<form:input path="extraCurricular"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Other Expenses:
+					</td>
+					<td>
+						<form:input path="others"/>
+					</td>
+				</tr>
+				
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>					
+<!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
+												
+														
+																
+																		
        		
-       		<%-- <div class="alert alert-success">
-  				<p>${requestMessage}</p>
-			</div> --%>
-       
-            <div class="card text-center bg-success text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Documents</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-folder"></i> 
-                    </h4>
-                	    <c:url var="document" value="/document/${Useremail}"/>
-		 				<a href= "${document}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Document</a>
-          
-                </div>
-            </div>
-
-            <div class="card text-center bg-warning text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Forms</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-file-alt"></i> 
-                    </h4>
-            	        <c:url var="form" value="/form/${Useremail}"/>
-		 				<a href= "${form}" class="nav-link active" style="background-color: red; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Request Form</a>
-          
-                </div>
-            </div>
-        
+        	
     	</div>
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
