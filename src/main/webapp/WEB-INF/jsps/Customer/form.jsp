@@ -27,11 +27,12 @@
                
             /*    padding-bottom: 50px;  */
                position: absolute; 
-              margin-top: 10px;
+              
+              margin-left: 550px; 
             }
-            #submit1{
-            margin-left: 550px; 
-            }
+          #submit1{
+            margin-left: 300px; 
+            } 
 </style>
 <title>Client Form</title>
 </head>
@@ -1145,11 +1146,16 @@
 				</div>
 			</div>
 			<!-- <input type="submit" value="Request Form"></input> -->
+			
 			 
 		</div>
-		<input class="btn btn-info" type="submit" value="Submit" id="submit1">
+		
 	</div>
-	
+	<br>
+	<br>
+	<input class="btn btn-info" type="submit" value="Submit" id="submit1">
+	<br>
+	<br>
 	</form>
 	
 	<button class="open-button" onclick="openForm()">Chat</button>
