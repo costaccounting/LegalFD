@@ -42,7 +42,7 @@
 
 	<div type="hidden" name="email" value="${Useremail}"></div>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark  ">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container">
 			<a href="clientService.html" class="navbar-brand"><i
 				class="fas fa-balance-scale"> </i> LegalFD</a>
@@ -65,15 +65,19 @@
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="profile.html" class="dropdown-item"> <i
+							<a href="/generalApplication/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-user-circle"></i> Profile
 							</a> <a href="settings.html" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
 					<li class="nav-item">
+					<c:url var="payment" value="/paymentPage/${Useremail}"/>
+		 		<a href= "${payment}" class="nav-link "><i class="fa fa-shopping-cart">	</i></a>
+						</li>	
+					<li class="nav-item">
 			        <c:url var="logoutUrl" value="/logout"/>
-					 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
+					 <a href= "${logoutUrl}" class="nav-link ">Log Out</a>
 				  	</li>
 				</ul>
 			</div>

@@ -374,7 +374,7 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		return "Customer/Customer";
+		return "Customer/form";
 	}
 	
 //-----------------********   Client Side UI -- END********---------------------------------

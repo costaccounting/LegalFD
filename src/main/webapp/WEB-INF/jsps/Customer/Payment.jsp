@@ -17,84 +17,195 @@
     crossorigin="anonymous">
   
   
-<title>Payment Page</title> 	
+<title>Payment Page</title> 
+
+ <style>
+            body {
+              margin: 0;
+            }
+            
+            #newUl {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              width: 20%;
+              background-color: #f1f1f1;
+              position: fixed;
+              height: 100%;
+              overflow: auto;
+            }
+            
+            #newLi a {
+              display: block;
+              color: #000;
+              padding: 8px 16px;
+              text-decoration: none;
+              text-align: center;
+            }
+            
+            #newLi a.active {
+              background-color: #4CAF50;
+              color: white;
+            }
+            
+            #newLi a:hover:not(.active) {
+              background-color: #555;
+              color: white;
+            }
+
+            #navbarbrand{
+                display: block;
+                text-align: center;
+                color: white;
+                padding: 5px 16px;
+              text-decoration: none;
+             
+
+            }
+           
+            
+            #cardBody{
+                margin-bottom: 80px;
+                margin-top: 120px;
+                margin-left: 80px; 
+            }
+
+            .card-header{
+                background-color:  #555;
+                color: white;
+                
+                width: 1240px;
+                margin-top: 30px;
+                margin-left: 20px;
+                
+            }
+           
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+            table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 30px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:hover{background-color: #ddd;}
+
+th{
+    background-color:dimgrey;
+}
+            </style>	
 
 </head>
+
 <body>
 
 <div type="hidden" name="email" value="${Useremail}"></div>
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-    <div class="container">
-    <!-- 
-      <c:url var = "url" value = "/admin"></c:url>
-            <a href= "${url}" class="navbar-brand">LegalFD</a>
-       -->
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="nav-item px-2">
-            <c:url var = "url" value = "/register"></c:url>
-            <a href= "" class="nav-link active">Payment</a>
-          </li>
+  
 
-          <li class="nav-item px-2">
-            <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link">Users</a>
-          </li>
-        </ul>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container">
+			<a href="clientService.html" class="navbar-brand"><i
+				class="fas fa-balance-scale"> </i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					<li class="nav-item px-2"><a href="clientService.html"
+						class="nav-link active">Home</a></li>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome ${firstName}
-            </a>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <!-- <a href="index.html" class="nav-link">
-              <i class="fas fa-user-times"></i> Logout
-              -->
-        <c:url var="logoutUrl" value="/logout"/>
-		 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
 
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-warning text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-            <i class="fas fa-users"></i>All Users</h1>
-        </div>
-      </div>
-    </div>
-  </header>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							<a href="/generalApplication/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-user-circle"></i> Profile
+							</a> <a href="settings.html" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Settings
+							</a>
+						</div></li>
+					<li class="nav-item">
+					<c:url var="payment" value="/paymentPage/${Useremail}"/>
+		 		<a href= "${payment}" class="nav-link "><i class="fa fa-shopping-cart">	</i></a>
+						</li>	
+					<li class="nav-item">
+			        <c:url var="logoutUrl" value="/logout"/>
+					 <a href= "${logoutUrl}" class="nav-link ">Log Out</a>
+				  	</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-
+<%-- 
 
   <section id="actions" class="py-4 mb-4 bg-light">
   	<div class="alert alert-success">
   		<p>${requestMessage}</p>
 	</div>
 	</section>
+	 --%>
+	 <div class="card-header">
+                    
+                    <h2> Payment</h2>
+                </div>
+                
+                  <table>
+                <tr>
+                    <th>ID</th> 
+                    <th>Document Category</th>
+                    <th>Form Type</th>
+                    <th>Amount</th>
+                    <th>Delete Request</th>
+                  </tr>
+                  <c:forEach var="pay" items="${paymentData}">
+					<tr>
+						<td>${pay.id}</td>		
+						<td>${pay.documentType}</td>
+						<td>${pay.formType}</td>
+						<td>${pay.documentAmount}</td>
+						
+						<td>
+			               	   <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
+						          <i class="fas fa-trash"></i> Delete Order
+						       </a>
+	       			  	</td>
+	       			  	 
+					</tr>
+				</c:forEach>
+              
+              </table>
+                
 
   <!-- USERS -->
-  <section id="users">
+  <%-- <section id="users">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -133,7 +244,14 @@
               </tbody>
             </table>
             
-            <form action="/pay/${pay.id}/${Useremail}">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ --%>
+<form action="/pay/${pay.id}/${Useremail}">
             
             	<input type="radio" name="paymentMethod" value="PayPal" checked> Pay Pal
             	<br>
@@ -145,13 +263,6 @@
             <input type="submit" value="Pay Amount">
             <br>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
