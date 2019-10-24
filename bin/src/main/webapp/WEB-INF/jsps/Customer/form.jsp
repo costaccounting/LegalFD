@@ -19,9 +19,20 @@
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/customer.css">
+<!-- <link rel="stylesheet" href="css/customer.css"> -->
 
 <link rel="stylesheet" href="/css/file.css">
+<style>
+ #submit{
+               
+            /*    padding-bottom: 50px;  */
+               position: absolute; 
+              margin-top: 10px;
+            }
+            #submit1{
+            margin-left: 550px; 
+            }
+</style>
 <title>Client Form</title>
 </head>
 <body>
@@ -97,12 +108,13 @@
 		<div class="card-header" id="cardHeader">
 
 			<h2>
-				<i class="fas fa-folder"></i> Legal Forms
+				<i class="fas fa-file-alt"></i> Legal Forms
+				<input class="btn btn-info" type="submit" value="Submit" id="submit">
 			</h2>
 		</div>
 		<div id="accordion">
 		
-			<input type="submit" value="Request Form"></input>
+			
 		
 			<div class="card" id="cardForm">
 				<div class="card-header">
@@ -532,87 +544,87 @@
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 27-Request for Financial Statement">
 									Form 27-Request for Financial Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 27A-Request for Statement of Income">
 									Form 27A-Request for Statement of Income<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 27B-Statement of Income from Income Source">
 									Form 27B-Statement of Income from Income Source<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 27C-Appointment of Financial Examination">
 									Form 27C-Appointment of Financial Examination<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 28-Writ of Seizure and Sale">
 									Form 28-Writ of Seizure and Sale<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 28A-Request for Writ of Seizure and Sale">
 									Form 28A-Request for Writ of Seizure and Sale<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 28B-Statutory Declaration of Sheriff">
 									Form 28B-Statutory Declaration of Sheriff<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 28C-Writ of Temporary Seizure">
 									Form 28C-Writ of Temporary Seizure<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29-Request for Garnishment">
 									Form 29-Request for Garnishment<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29A-Notice of Garnishment (lump-sum debt)">
 									Form 29A-Notice of Garnishment (lump-sum debt)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29B-Notice of Garnishment (periodic debt)">
 									Form 29B-Notice of Garnishment (periodic debt)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29C-Notice to Co-Owner of Debt">
 									Form 29C-Notice to Co-Owner of Debt<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29E-Dispute Payor">
 									Form 29E-Dispute Payor<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29F-Dispute Garnishee">
 									Form 29F-Dispute Garnishee<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29G-Dispute (co-owner of debt)<">
 									Form 29G-Dispute (co-owner of debt)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29I-Notice to Stop Garnishment">
 									Form 29I-Notice to Stop Garnishment<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 29J-Statement to Garnishee Financial Institution Support">
 									Form 29J-Statement to Garnishee Financial Institution Support<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -638,54 +650,56 @@
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 8B-Application (Child Protection and Status Review)">
 									Form 8B-Application (Child Protection and Status Review)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 8B.1 (Status Review for Child in Extended Society Care)">
 									Form 8B.1 (Status Review for Child in Extended Society Care)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33B.1-Answer and Plan of Care (Parties other than CAS)">
 									Form 33B.1-Answer and Plan of Care (Parties other than CAS)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33C-Statement of Agreed Facts (Child Protection)">
 									Form 33C-Statement of Agreed Facts (Child Protection)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33D-Statement of Agreed Facts (Status Review)">
 									Form 33D-Statement of Agreed Facts (Status Review)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34L-Application for Openness Order">
 									Form 34L-Application for Openness Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34M-Consent to Openness Order under s.194 of the CYFSA,
+									2017">
 									Form 34M-Consent to Openness Order under s.194 of the CYFSA,
 									2017<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34m.1-Consent to Openness Order under s.196 or s.197 of
+									the CYFSA, 2017">
 									Form 34m.1-Consent to Openness Order under s.196 or s.197 of
 									the CYFSA, 2017<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 13B-Net Family Property Statement">
 									Form 13B-Net Family Property Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34N-Application to Change or Terminate Openness Order">
 									Form 34N-Application to Change or Terminate Openness Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -711,78 +725,78 @@
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form A-Support Application (support variation application)">
 									Form A-Support Application (support variation application)<br>
 								</td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form B-Identification Information">
 									Form B-Identification Information<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form C-Evidence of Parentage">
 									Form C-Evidence of Parentage<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form D-Statement to Support a Declaration of Biological Parent">
 									Form D-Statement to Support a Declaration of Biological Parent<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form E-Child Support Claim">
 									Form E-Child Support Claim<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form F-Request for Support Order">
 									Form F-Request for Support Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form G-Request for a child support order">
 									Form G-Request for a child support order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form H-Special Expense Claim">
 									Form H-Special Expense Claim<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form I-Request to Pay Child Support">
 									Form I-Request to Pay Child Support<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form J-Support for Claimant (Applicant)">
 									Form J-Support for Claimant (Applicant)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form K-Financial Statement">
 									Form K-Financial Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form l-Child Status and Financial Statement">
 									Form l-Child Status and Financial Statement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form M-Evidence to Support Variation of a Support Order">
 									Form M-Evidence to Support Variation of a Support Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form N-Respondent Answer to Application">
 									Form N-Respondent Answer to Application<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form O-Request for Enforcement">
 									Form O-Request for Enforcement<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -808,104 +822,106 @@
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D-Application (Adoption)">
 									Form 08D-Application (Adoption)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D-Application (Adoption)">
 									Form 08D-Application (Adoption)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D.1-Application (Dispense with Parent’s Consent to
+									adoption before placement)">
 									Form 08D.1-Application (Dispense with Parent’s Consent to
 									adoption before placement)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D.2-Notice of Intention to place Child(ren) for Adoption">
 									Form 08D.2-Notice of Intention to place Child(ren) for Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D.3-Notice of Intention to place First Nations, Inuk or
+									Metis Child for Adoption">
 									Form 08D.3-Notice of Intention to place First Nations, Inuk or
 									Metis Child for Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08D.4-Notice of Termination of access">
 									Form 08D.4-Notice of Termination of access<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25C-Adoption Order">
 									Form 25C-Adoption Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34-Child’s Consent to Adoption">
 									Form 34-Child’s Consent to Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34A-Affidavit of Parentage">
 									Form 34A-Affidavit of Parentage<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34B-Non-parent’s Consent to Adoption by Spouse">
 									Form 34B-Non-parent’s Consent to Adoption by Spouse<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34C-Director’s or Local Director’s statement on Adoption">
 									Form 34C-Director’s or Local Director’s statement on Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34D-Affidavit of Adoption Applicant(‘s)">
 									Form 34D-Affidavit of Adoption Applicant(‘s)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34E-Director’s Consent to Adoption">
 									Form 34E-Director’s Consent to Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34F-Parent’s or Custodian’s Consent to Adoption">
 									Form 34F-Parent’s or Custodian’s Consent to Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34G-Affidavit of Adoption Licensee or Society Employee">
 									Form 34G-Affidavit of Adoption Licensee or Society Employee<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34G.1-Affidavit of Society Employee for Adoption">
 									Form 34G.1-Affidavit of Society Employee for Adoption<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34H-Affidavit of Adopting Relative or Stepparent">
 									Form 34H-Affidavit of Adopting Relative or Stepparent<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34I-Parent’s Consent to Adoption by Spouse">
 									Form 34I-Parent’s Consent to Adoption by Spouse<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34J-Affidiavit of Execution and Independent Legal Advice">
 									Form 34J-Affidiavit of Execution and Independent Legal Advice<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 34K-Certificate of Clerk (Adoption)">
 									Form 34K-Certificate of Clerk (Adoption)<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -931,194 +947,196 @@
 								<th>Price</th>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 01-Application for Family Law Value">
 									Form 01-Application for Family Law Value<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 01-Support Deduction Order">
 									Form 01-Support Deduction Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 02-Joint Declaration of Period of Spousal Relationship">
 									Form 02-Joint Declaration of Period of Spousal Relationship<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 02-Support Deduction Order Information Form">
 									Form 02-Support Deduction Order Information Form<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 03-Contact person Authorization">
 									Form 03-Contact person Authorization<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 04-Notice of Change in Representation">
 									Form 04-Notice of Change in Representation<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 04-Notice of Change in Representation (Self Represented)">
 									Form 04-Notice of Change in Representation (Self Represented)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 05-Application to Transfer the Family Law Value">
 									Form 05-Application to Transfer the Family Law Value<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 06-Acknowledgement of Service">
 									Form 06-Acknowledgement of Service<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 06-Application to divide a Retired Member’s Pension">
 									Form 06-Application to divide a Retired Member’s Pension<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 06-Refraining Order">
 									Form 06-Refraining Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 07-No Division of Family Law Value-Pension">
 									Form 07-No Division of Family Law Value-Pension<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 08-Post Retirement Waiver of Joint and Assets Survivor
+									Pension">
 									Form 08-Post Retirement Waiver of Joint and Assets Survivor
 									Pension<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 12-Notice of Withdrawal">
 									Form 12-Notice of Withdrawal<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 14D-Order on Motion without Notice">
 									Form 14D-Order on Motion without Notice<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 20-Request for Information">
 									Form 20-Request for Information<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 20.1-Acknowledgement of Expert’s Duty">
 									Form 20.1-Acknowledgement of Expert’s Duty<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 22-Request to Admit">
 									Form 22-Request to Admit<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 22A-Response to Request to Admit">
 									Form 22A-Response to Request to Admit<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 23-Summons To Witness">
 									Form 23-Summons To Witness<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 23A-Summons To Witness outside Ontario">
 									Form 23A-Summons To Witness outside Ontario<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 23B-Order for Prisoner’s Attendance">
 									Form 23B-Order for Prisoner’s Attendance<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 23C-Affidavit for uncontested Trial">
 									Form 23C-Affidavit for uncontested Trial<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25B-Secure Treatment Order">
 									Form 25B-Secure Treatment Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25D-Order (uncontested Trial)">
 									Form 25D-Order (uncontested Trial)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25E-Notice Disputing Approval of Order">
 									Form 25E-Notice Disputing Approval of Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25F-Restraining Order">
 									Form 25F-Restraining Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25G-Restraining Order on motion without Notice">
 									Form 25G-Restraining Order on motion without Notice<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 25H-Order Terminating Restraining Order">
 									Form 25H-Order Terminating Restraining Order<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 26-Statement of Money Owed">
 									Form 26-Statement of Money Owed<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 26B-Affidavit for filing Domestic Contract">
 									Form 26B-Affidavit for filing Domestic Contract<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 32.1-Request and Enforce a Family Arbitration Award">
 									Form 32.1-Request and Enforce a Family Arbitration Award<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 32.1A-Dispute of Request for Enforcement">
 									Form 32.1A-Dispute of Request for Enforcement<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33-Information for Warrant to bring a Child to a place of
+									safety">
 									Form 33-Information for Warrant to bring a Child to a place of
 									safety<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33A-Warrant to bring child to a place of safety">
 									Form 33A-Warrant to bring child to a place of safety<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33B-Plan of Care (CAS)">
 									Form 33B-Plan of Care (CAS)<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33E-Child’s Consent to Secure Treatment">
 									Form 33E-Child’s Consent to Secure Treatment<br></td>
 								<td>$ 15.55</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="legalForm" value="divorce0">
+								<td><input type="checkbox" name="legalForm" value="Form 33F-Consent to Secure Treatment (person other than child)">
 									Form 33F-Consent to Secure Treatment (person other than child)<br></td>
 								<td>$ 15.55</td>
 							</tr>
@@ -1126,9 +1144,12 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit" value="Request Form"></input>
+			<!-- <input type="submit" value="Request Form"></input> -->
+			 
 		</div>
+		<input class="btn btn-info" type="submit" value="Submit" id="submit1">
 	</div>
+	
 	</form>
 	
 	<button class="open-button" onclick="openForm()">Chat</button>
