@@ -781,6 +781,13 @@ public class HomeController {
 
 		return "Customer/uploadDocument";
 	}
+	@RequestMapping(value = "homePage", method = RequestMethod.GET)
+	public String homePage(Model model, @ModelAttribute RegisterUser user) {
+
+		return "Customer/form";
+	}
+	
+	
 	
 //----**** ABOVE this RIYA Code*******---------------------------------
 

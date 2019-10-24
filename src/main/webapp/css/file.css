@@ -108,6 +108,7 @@ body {
 	color: white;
 	padding: 5px 16px;
 	text-decoration: none;
+	font-size: xx-large;
 }
 
 /* .navbar {
@@ -154,3 +155,5 @@ body {
              /*  position: absolute; */
               margin-top: 10px;
             }
+            
+            

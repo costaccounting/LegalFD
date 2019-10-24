@@ -33,6 +33,14 @@
           #submit1{
             margin-left: 300px; 
             } 
+            .navbar-brand{
+            font-size: xx-large;
+            margin-right: 30px;
+            }
+            #navContainer{
+            width: 2200px;
+            }
+            
 </style>
 <title>Client Form</title>
 </head>
@@ -43,7 +51,7 @@
 	<div type="hidden" name="email" value="${Useremail}"></div>
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container">
+		<div class="container" id="navContainer">
 			<a href="clientService.html" class="navbar-brand"><i
 				class="fas fa-balance-scale"> </i> LegalFD</a>
 			<button class="navbar-toggler" data-toggle="collapse"
@@ -52,7 +60,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<li class="nav-item px-2"><a href="clientService.html"
+				<c:url var="sh" value="/homePage" />
+					<li class="nav-item px-2"><a href=${sh }
 						class="nav-link active">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
@@ -60,6 +69,10 @@
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+					<c:url var="payment" value="/paymentPage/${Useremail}"/>
+		 		<a href= "${payment}" class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart</a>
+						</li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
@@ -71,10 +84,7 @@
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
-					<li class="nav-item">
-					<c:url var="payment" value="/paymentPage/${Useremail}"/>
-		 		<a href= "${payment}" class="nav-link "><i class="fa fa-shopping-cart">	</i></a>
-						</li>	
+					
 					<li class="nav-item">
 			        <c:url var="logoutUrl" value="/logout"/>
 					 <a href= "${logoutUrl}" class="nav-link ">Log Out</a>
