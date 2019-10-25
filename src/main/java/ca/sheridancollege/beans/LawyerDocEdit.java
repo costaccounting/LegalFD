@@ -22,6 +22,6 @@ public class LawyerDocEdit {
 	
 	private String docType;
 	private String formType;
-	private String price;
-	private boolean sale;
+	private double price;
+	private String sale;
 }
