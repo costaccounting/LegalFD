@@ -82,7 +82,60 @@ public class HomeController {
 	}
 	
 	
+	
 // ****  Navigation between Pages 	END ***
+	
+	
+	//----**** BELOW this RIYA Code*******---------------------------------
+
+	//-----------Sidebar Navigation STart--------------
+		
+		@RequestMapping(value = "documents", method = RequestMethod.GET)
+		public String document(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Customer/document";
+		}
+		
+		@RequestMapping(value = "forms", method = RequestMethod.GET)
+		public String forms(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Customer/form";
+		}
+		
+		@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
+		public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Customer/uploadDocument";
+		}
+		@RequestMapping(value = "homePage", method = RequestMethod.GET)
+		public String homePage(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Customer/form";
+		}
+		
+		
+		
+	//----**** ABOVE this RIYA Code*******---------------------------------
+
+		
+		
+		
+		
+		
+	//----**** BELOW this HEET Code*******---------------------------------
+
+	//----------Sidebar Navigation END-------------
+		
+		@RequestMapping(value = "about", method = RequestMethod.GET)
+		public String about(Model model, @ModelAttribute RegisterUser user) {
+
+			return "About";
+		}
+
+	//----**** ABOVE this HEET Code*******---------------------------------
+		
+		
+		
 	
 	
 //-----------------********		REGISTER   START	********---------------------------------
@@ -760,56 +813,7 @@ public class HomeController {
 	
 	
 	
-//----**** BELOW this RIYA Code*******---------------------------------
 
-//-----------Sidebar Navigation STart--------------
-	
-	@RequestMapping(value = "documents", method = RequestMethod.GET)
-	public String document(Model model, @ModelAttribute RegisterUser user) {
-
-		return "Customer/document";
-	}
-	
-	@RequestMapping(value = "forms", method = RequestMethod.GET)
-	public String forms(Model model, @ModelAttribute RegisterUser user) {
-
-		return "Customer/form";
-	}
-	
-	@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
-	public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
-
-		return "Customer/uploadDocument";
-	}
-	@RequestMapping(value = "homePage", method = RequestMethod.GET)
-	public String homePage(Model model, @ModelAttribute RegisterUser user) {
-
-		return "Customer/form";
-	}
-	
-	
-	
-//----**** ABOVE this RIYA Code*******---------------------------------
-
-	
-	
-	
-	
-	
-//----**** BELOW this HEET Code*******---------------------------------
-
-//----------Sidebar Navigation END-------------
-	
-	@RequestMapping(value = "about", method = RequestMethod.GET)
-	public String about(Model model, @ModelAttribute RegisterUser user) {
-
-		return "About";
-	}
-
-//----**** ABOVE this HEET Code*******---------------------------------
-	
-	
-	
 	
 	
 }
