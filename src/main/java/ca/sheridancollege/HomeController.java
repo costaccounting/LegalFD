@@ -113,18 +113,13 @@ public class HomeController {
 			return "Customer/form";
 		}
 		
-		
-		
-	//----**** ABOVE this RIYA Code*******---------------------------------
-
-		
+//----------Sidebar Navigation END-------------
+//----**** ABOVE this RIYA Code*******---------------------------------
 		
 		
 		
 		
-	//----**** BELOW this HEET Code*******---------------------------------
-
-	//----------Sidebar Navigation END-------------
+//----**** BELOW this HEET Code*******---------------------------------
 		
 		@RequestMapping(value = "about", method = RequestMethod.GET)
 		public String about(Model model, @ModelAttribute RegisterUser user) {
@@ -132,7 +127,7 @@ public class HomeController {
 			return "About";
 		}
 
-	//----**** ABOVE this HEET Code*******---------------------------------
+//----**** ABOVE this HEET Code*******---------------------------------
 		
 		
 		
