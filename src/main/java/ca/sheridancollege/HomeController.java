@@ -294,7 +294,23 @@ public class HomeController {
 	}
 
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
+
+//-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
 	
+		@RequestMapping("/docEdit/{Useremail}")
+		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
+		
+			
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Admin/DocumentEdit";
+		}
+
+//-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
+
 	
 //-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
 		
