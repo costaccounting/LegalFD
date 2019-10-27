@@ -18,7 +18,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="css/file.css">
 <title>Client Document</title>
 <style>
 body {
@@ -132,12 +132,7 @@ body {
 	text-decoration: none;
 }
 
-.navbar {
-	/* background-color: darkslategray; */
-	/* background-color:darkslateblue; */
-	/* background-color: dodgerblue; */
-	background-color: mediumslateblue;
-}
+
 
 #cardBody {
 	margin-bottom: 80px;
@@ -200,7 +195,7 @@ body {
 			document.getElementById("myForm").style.display = "none";
 		}
 	</script>
-	<nav class="navbar navbar-expand-lg navbar-dark  ">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container">
 			<a href="clientService.html" class="navbar-brand"><i
 				class="fas fa-balance-scale"> </i> LegalFD</a>
@@ -229,6 +224,10 @@ body {
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
+						<li class="nav-item">
+					<c:url var="payment" value="/paymentPage/${Useremail}"/>
+		 		<a href= "${payment}" class="nav-link "><i class="fa fa-shopping-cart">	</i></a>
+						</li>
 					<li class="nav-item">
 			        <c:url var="logoutUrl" value="/logout"/>
 					 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>

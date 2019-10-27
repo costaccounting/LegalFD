@@ -52,7 +52,7 @@
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
-			<a href="clientService.html" class="navbar-brand"><i
+			<a href="#" class="navbar-brand"><i
 				class="fas fa-balance-scale"> </i> LegalFD</a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
@@ -80,7 +80,7 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-user-circle"></i> Profile
-							</a> <a href="settings.html" class="dropdown-item"> <i
+							</a> <a href="#" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
