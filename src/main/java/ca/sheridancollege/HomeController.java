@@ -565,7 +565,7 @@ public class HomeController {
 				model.addAttribute("Useremail", Useremail);
 		// Needed for Customer JSP EL tags
 		
-		return "Customer/Application";
+		return "Customer/FormGeneralApplication/Application";
 	}
 	
 	
