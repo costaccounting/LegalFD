@@ -281,6 +281,17 @@
 <!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
 <br>
 <br>
-
+			<div class="pagination pagination-large">
+			  <ul>
+			   	   	<li class="disabled"><a href="#">&laquo;</a></li>
+    				<li class="active"><a href="#">Client Information</a></li>
+    				<li class="active"><a href="#">1</a></li>
+    				<li class="active"><a href="#">1</a></li>
+    				<li class="active"><a href="#">1</a></li>
+    				<li class="active"><a href="#">1</a></li>
+    				<li class="active"><a href="#">1</a></li>
+    				<li class="active"><a href="#">&laquo;</a></li>
+			  </ul>
+			</div>
 </body>
 </html>
