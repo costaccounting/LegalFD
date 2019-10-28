@@ -565,7 +565,10 @@ public class HomeController {
 				model.addAttribute("Useremail", Useremail);
 		// Needed for Customer JSP EL tags
 		
-		return "Customer/FormGeneralApplication/Application";
+		// 	For Backup if Needed in case of emergency	
+		//return "Customer/Application";
+				
+				return "Customer/GeneralApplication/ClientInfo";
 	}
 	
 	
@@ -593,7 +596,7 @@ public class HomeController {
 						model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
 				// Needed for Customer JSP EL tags
 				
-				return "Customer/Application";
+				return "Customer/GeneralApplication/ChildExpenses";
 	}
 // First Class Saving Data to DAO method __ END
 	
@@ -621,7 +624,7 @@ public class HomeController {
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
 					// Needed for Customer JSP EL tags
 					
-					return "Customer/Application";
+					return "Customer/GeneralApplication/Children";
 		}
 // Second Class Saving Data to DAO method __ END
 	
@@ -649,7 +652,7 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
 							// Needed for Customer JSP EL tags
 							
-							return "Customer/Application";
+							return "Customer/GeneralApplication/ClientInfo";
 				}
 // Third Class Saving Data to DAO method __ END
 		
@@ -677,7 +680,7 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
 							// Needed for Customer JSP EL tags
 							
-							return "Customer/Application";
+							return "Customer/GeneralApplication/MaritalInfo";
 				}
 // Fourth Class Saving Data to DAO method __ END				
 
@@ -705,7 +708,7 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
 							// Needed for Customer JSP EL tags
 							
-							return "Customer/Application";
+							return "Customer/GeneralApplication/MatrimonialHome";
 				}
 // Fifth Class Saving Data to DAO method __ END				
 				
@@ -733,7 +736,7 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
 							// Needed for Customer JSP EL tags
 							
-							return "Customer/Application";
+							return "Customer/GeneralApplication/SpouseInfo";
 				}
 // Sixth Class Saving Data to DAO method __ END				
 				
