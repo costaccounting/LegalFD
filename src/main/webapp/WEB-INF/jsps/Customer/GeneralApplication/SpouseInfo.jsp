@@ -199,7 +199,7 @@
 						Fax:
 					</td>
 					<td>
-						<form:input path="fax"/>
+						<form:input path="spouseFaxsl"/>
 					</td>
 				</tr>
 				<tr>

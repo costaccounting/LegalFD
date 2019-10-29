@@ -31,6 +31,7 @@ public class SpouseInfo {
 	private int spouseHomeTel;
 	private int spouseWorkTel;
 	private int spouseCell;
+	private String spouseFax;
 	private String spouseEmail;
 	private String spouseDivorcedStatus;
 	private String spouseDivorcePlace;

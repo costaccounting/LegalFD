@@ -82,7 +82,7 @@
 
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
-		<form:form action="/MatrimonialInfo/${Useremail}" method="get" modelAttribute="MatrimonialInfo">
+		<form:form action="/MatrimonialInfo/${Useremail}" method="get" modelAttribute="matrimonialInfo">
 			<table>
 				<tr>
 					<td>
