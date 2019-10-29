@@ -78,6 +78,7 @@
 			  		<p>${confirmationMessage}</p>
 				</div>
 			</section>
+<!-- ***************** ___Marimonial Home Information Form -- START___ ******************** -->										
 
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
@@ -129,6 +130,28 @@
 			</form:form>
 			</fieldset>
 
+<!-- ***************** ___Marimonial Home Information Form -- END___ ******************** -->										
+
+<br>
+<br>
+
+<!-- ***************** ___Navigation to Other Forms -- START___ ******************** -->										
+
+
+			<div aria-label="Page navigation example">
+			  <ul class="pagination">
+			   	   	<li ><a class="page-link" href="/martialInfo/${Useremail}">Prev</a></li>
+    				<li><a class="page-link" href="/clientInfo/${Useremail}">Client Information</a></li>
+    				<li><a class="page-link" href="/spouseInfo/${Useremail}">Spouse Information</a></li>
+    				<li><a class="page-link" href="/martialInfo/${Useremail}">Marital Information</a></li>
+    				<li><a class="page-link" href="/matrimonialHome/${Useremail}">Matrimonial Home</a></li>
+    				<li><a class="page-link" href="/children/${Useremail}">Children</a></li>
+    				<li><a class="page-link" href="/childExpense/${Useremail}">Children’s Expenses</a></li>
+    				<li ><a class="page-link" href="/children/${Useremail}">Next</a></li>
+			  </ul>
+			</div>
+			
+<!-- ***************** ___Navigation to Other Forms -- END___ ******************** -->										
 
 </body>
 </html>

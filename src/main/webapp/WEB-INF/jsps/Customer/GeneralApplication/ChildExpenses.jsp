@@ -80,7 +80,7 @@
 			</section>
 			
 			
-<!-- ***************** ___Child Expenses Inforamtion Form -- START___ ******************** -->       	
+<!-- ***************** ___Child Expenses Information Form -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Child Expenses Information 		</legend>  
 		<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
@@ -143,9 +143,28 @@
 			<input type="submit" value="Add"/>
 			</form:form>
 			</fieldset>					
-<!-- ***************** ___Child Expenses Inforamtion Form -- END___ ******************** -->										
-	<br>											
-	<br>
+<!-- ***************** ___Child Expenses Information Form -- END___ ******************** -->										
+<br>
+<br>
+
+<!-- ***************** ___Navigation to Other Forms -- START___ ******************** -->										
+
+
+			<div aria-label="Page navigation example">
+			  <ul class="pagination">
+			   	   	<li><a class="page-link" href="/children/${Useremail}">Prev</a></li>
+    				<li><a class="page-link" href="/clientInfo/${Useremail}">Client Information</a></li>
+    				<li><a class="page-link" href="/spouseInfo/${Useremail}">Spouse Information</a></li>
+    				<li><a class="page-link" href="/martialInfo/${Useremail}">Marital Information</a></li>
+    				<li><a class="page-link" href="/matrimonialHome/${Useremail}">Matrimonial Home</a></li>
+    				<li><a class="page-link" href="/children/${Useremail}">Children</a></li>
+    				<li><a class="page-link" href="/childExpense/${Useremail}">Children’s Expenses</a></li>
+    				<!--   <li ><a class="page-link" href="#">Next</a></li>  -->
+			  </ul>
+			</div>
+			
+<!-- ***************** ___Navigation to Other Forms -- END___ ******************** -->										
+
 
 </body>
 </html>

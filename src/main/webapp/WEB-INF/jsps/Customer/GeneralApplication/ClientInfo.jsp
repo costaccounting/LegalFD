@@ -80,7 +80,7 @@
 			</section>
 			
 			
-<!-- ***************** ___Client Inforamtion Form -- START___ ******************** -->       	
+<!-- ***************** ___Client Information Form -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Client Information 		</legend>  
 		<form:form action="/clientInfo/${Useremail}" method="get" modelAttribute="clientInfo">
@@ -278,20 +278,39 @@
 			<input type="submit" value="Add"/>
 			</form:form>
 			</fieldset>					
-<!-- ***************** ___Client Inforamtion Form -- END___ ******************** -->										
+<!-- ***************** ___Client Information Form -- END___ ******************** -->										
 <br>
 <br>
-			<div class="pagination pagination-large">
-			  <ul>
-			   	   	<li class="disabled"><a href="#">&laquo;</a></li>
-    				<li class="active"><a href="#">Client Information</a></li>
-    				<li class="active"><a href="#">1</a></li>
-    				<li class="active"><a href="#">1</a></li>
-    				<li class="active"><a href="#">1</a></li>
-    				<li class="active"><a href="#">1</a></li>
-    				<li class="active"><a href="#">1</a></li>
-    				<li class="active"><a href="#">&laquo;</a></li>
+
+<!-- 
+  <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+      --> 
+
+<!-- ***************** ___Navigation to Other Forms -- START___ ******************** -->										
+
+
+			<div aria-label="Page navigation example">
+			  <ul class="pagination">
+			   	   <!-- 	<li><a class="page-link" href="#">Prev</a></li>  -->
+    				<li><a class="page-link" href="/clientInfo/${Useremail}">Client Information</a></li>
+    				<li><a class="page-link" href="/spouseInfo/${Useremail}">Spouse Information</a></li>
+    				<li><a class="page-link" href="/martialInfo/${Useremail}">Marital Information</a></li>
+    				<li><a class="page-link" href="/matrimonialHome/${Useremail}">Matrimonial Home</a></li>
+    				<li><a class="page-link" href="/children/${Useremail}">Children</a></li>
+    				<li><a class="page-link" href="/childExpense/${Useremail}">Children’s Expenses</a></li>
+    				<li><a class="page-link" href="/spouseInfo/${Useremail}">Next</a></li>
 			  </ul>
 			</div>
+			
+<!-- ***************** ___Navigation to Other Forms -- END___ ******************** -->										
+			
 </body>
 </html>
