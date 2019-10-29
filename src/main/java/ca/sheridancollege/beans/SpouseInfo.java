@@ -37,6 +37,7 @@ public class SpouseInfo {
 	private String spouseDivorcePlace;
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private Date spouseDivorceDate;
+	private String spouseJobTitle;
 	private String spouseCurrentEmployer;
 	private String spouseEmployerAddress;
 	private double spouseAnnualIncome;

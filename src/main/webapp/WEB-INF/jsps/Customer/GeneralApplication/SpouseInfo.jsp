@@ -199,7 +199,7 @@
 						Fax:
 					</td>
 					<td>
-						<form:input path="spouseFaxsl"/>
+						<form:input path="spouseFax"/>
 					</td>
 				</tr>
 				<tr>
@@ -239,7 +239,7 @@
 						Job Title:
 					</td>
 					<td>
-						<form:input path="jobTitle"/>
+						<form:input path="spouseJobTitle"/>
 					</td>
 				</tr>
 				<tr>
