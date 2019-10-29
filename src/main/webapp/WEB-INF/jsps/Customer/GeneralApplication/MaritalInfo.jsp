@@ -78,5 +78,100 @@
 				</div>
 			</section>
 
+
+ 	<fieldset>
+       	<legend>	Marital Information 		</legend>  
+		<form:form action="/MaritalInfo/${Useremail}" method="get" modelAttribute="MaritalInfo">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Date of Marriage:
+					</td>
+					
+					<td>
+						<form:input path="marriageDate"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Date of Cohabitation:
+					</td>
+					
+					<td>
+						<form:input path="cohabitationDate"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Place of Marriage:
+					</td>
+					<td>
+						<form:input path="postEducational"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Date of Separation:
+					</td>
+					<td>
+						<form:input path="marriagePlace"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Have either you, your spouse,or children been in a court case before?(Yes/No):
+					</td>
+					<td>
+						<form:input path="separationDate"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Have you and your spouse made a written agreement dealing with any matter involved in this case?(Yes/No):
+					</td>
+					<td>
+						<form:input path="courtCase"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						If client or spouse is stay-at-home parent,please give relevant dates:
+					</td>
+					<td>
+						<form:input path="writtenAgreement"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Do you have any safety concerns for yourself of your children?(Yes/No):
+					</td>
+					<td>
+						<form:input path="safetyConcerns"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Have the police been called to the matrimonial home and does either spouse have a criminal record?(Yes/No):
+					</td>
+					<td>
+						<form:input path="spouseCriminalRecord"/>
+					</td>
+				</tr>
+				
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>
+
+
 </body>
 </html>

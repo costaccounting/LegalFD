@@ -95,108 +95,108 @@
 						Full Legal Name:
 					</td>
 					<td>
-						<form:input path="fullLegalName"/>
+						<form:input path="spouseName"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						
+						Date of Birth:
 					</td>
 					<td>
-						<form:input path="dateOfBirth"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="citizenship"/>
+						<form:input path="spouseDateOfBirth"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Citizenship:
 					</td>
 					<td>
-						<form:input path="placeOfBirth"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="SIN"/>
+						<form:input path="spouseCitizenship"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Place of Birth:
 					</td>
 					<td>
-						<form:input path="surnameBirth"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="surnameBeforeMarriage"/>
+						<form:input path="spousePlaceOfBirth"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						SIN: 
 					</td>
 					<td>
-						<form:input path="currentHomeAddress"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="sinceWhen"/>
+						<form:input path="spouseSIN"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Surname at Birth:
 					</td>
 					<td>
-						<form:input path="currentMailingAddress"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="homeTel"/>
+						<form:input path="spouseSurnameBirth"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+					`	Surname Before marriage:
 					</td>
 					<td>
-						<form:input path="workTel"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="cell"/>
+						<form:input path="spouseSurnameMarriage"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Current Home Address:
+					</td>
+					<td>
+						<form:input path="spouseCurrentAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Since When?
+					</td>
+					<td>
+						<form:input path="spouseSinceWhen"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Current Mailing Address:
+					</td>
+					<td>
+						<form:input path="spouseMailingAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Home Tel:
+					</td>
+					<td>
+						<form:input path="spouseHomeTel"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Work Tel:
+					</td>
+					<td>
+						<form:input path="spouseWorkTel"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Cell:
+					</td>
+					<td>
+						<form:input path="spouseCell"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Fax:
 					</td>
 					<td>
 						<form:input path="fax"/>
@@ -204,39 +204,39 @@
 				</tr>
 				<tr>
 					<td>
-					
+						Email:
 					</td>
 					<td>
-						<form:input path="email"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="divorcedBefore"/>
+						<form:input path="spouseEmail"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Divorced Before?
 					</td>
 					<td>
-						<form:input path="place"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="date"/>
+						<form:input path="spouseDivorcedStatus"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Place:
+					</td>
+					<td>
+						<form:input path="spouseDivorcePlace"/>
+					</td>
+				</tr>
+				<tr>
+					<td>	
+						Date:
+					</td>
+					<td>
+						<form:input path="spouseDivorceDate"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Job Title:
 					</td>
 					<td>
 						<form:input path="jobTitle"/>
@@ -244,34 +244,34 @@
 				</tr>
 				<tr>
 					<td>
-					
+						Current Employer:
 					</td>
 					<td>
-						<form:input path="currentEmployer"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
-					<td>
-						<form:input path="employerAddress"/>
+						<form:input path="spouseCurrentEmployer"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Current Employer Address:
 					</td>
 					<td>
-						<form:input path="annualIncome"/>
+						<form:input path="spouseEmployerAddress"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-					
+						Current Annual Income from Employment($):
 					</td>
 					<td>
-						<form:input path="incomeOtherSource"/>
+						<form:input path="spouseAnnualIncome"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Income from other sources:
+					</td>
+					<td>
+						<form:input path="spouseIncomeOtherSource"/>
 					</td>
 				</tr>
 			</table>

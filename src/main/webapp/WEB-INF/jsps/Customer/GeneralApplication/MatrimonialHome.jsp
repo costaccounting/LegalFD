@@ -79,5 +79,56 @@
 				</div>
 			</section>
 
+<fieldset>
+       	<legend>	Matrimonial Information 		</legend>  
+		<form:form action="/MatrimonialInfo/${Useremail}" method="get" modelAttribute="MatrimonialInfo">
+			<table>
+				<tr>
+					<td>
+						<form:hidden path="userEmail" value="${Useremail}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Address:
+					</td>
+					
+					<td>
+						<form:input path="firstAddress"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Name(s) on Title:
+					</td>
+					
+					<td>
+						<form:input path="firstTitle"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Value($):
+					</td>
+					<td>
+						<form:input path="firstValue"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Mortgage($):
+					</td>
+					<td>
+						<form:input path="firstMortgage"/>
+					</td>
+				</tr>
+							
+			</table>
+			<input type="submit" value="Add"/>
+			</form:form>
+			</fieldset>
+
+
 </body>
 </html>
