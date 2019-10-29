@@ -82,7 +82,7 @@
 
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
-		<form:form action="/matrimonialInfo/${Useremail}" method="get" modelAttribute="matrimonialInfo">
+		<form:form action="/matrimonialHome/${Useremail}" method="get" modelAttribute="matrimonialHome">
 			<table>
 				<tr>
 					<td>
@@ -195,14 +195,14 @@
 
 			<div aria-label="Page navigation example">
 			  <ul class="pagination">
-			   	   	<li ><a class="page-link" href="/martialInfo/${Useremail}">Prev</a></li>
+			   	   	<li ><a class="page-link" href="/navmartialInfo/${Useremail}">Prev</a></li>
     		<li><a class="page-link" href="/navclientInfo/${Useremail}">Client Information</a></li>
     				<li><a class="page-link" href="/navspouseInfo/${Useremail}">Spouse Information</a></li>
     				<li><a class="page-link" href="/navmartialInfo/${Useremail}">Marital Information</a></li>
     				<li><a class="page-link" href="/navmatrimonialHome/${Useremail}">Matrimonial Home</a></li>
     				<li><a class="page-link" href="/navchildren/${Useremail}">Children</a></li>
     				<li><a class="page-link" href="/navchildExpense/${Useremail}">Childrens Expenses</a></li>
-    				<li ><a class="page-link" href="/children/${Useremail}">Next</a></li>
+    				<li ><a class="page-link" href="/navchildren/${Useremail}">Next</a></li>
 			  </ul>
 			</div>
 			

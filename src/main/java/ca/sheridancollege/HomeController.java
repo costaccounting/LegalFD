@@ -126,7 +126,7 @@ public class HomeController {
 		
 		
 				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 				// Needed in order to work with general application form
 				
 				// Regular Customer JSP EL tags needed code
@@ -671,7 +671,7 @@ public class HomeController {
 		model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 		model.addAttribute("children", (generalDao.getChildren(Useremail)));
 		model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-		model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+		model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 		model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 		model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 		// Needed in order to work with general application form
@@ -701,7 +701,7 @@ public class HomeController {
 				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 				model.addAttribute("children", (generalDao.getChildren(Useremail)));
 				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-				model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 				model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 				model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 				// Needed in order to work with general application form
@@ -729,7 +729,7 @@ public class HomeController {
 					model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 					model.addAttribute("children", (generalDao.getChildren(Useremail)));
 					model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-					model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+					model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 					model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 					model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 					// Needed in order to work with general application form
@@ -757,7 +757,7 @@ public class HomeController {
 							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 							model.addAttribute("children", (generalDao.getChildren(Useremail)));
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
@@ -775,7 +775,7 @@ public class HomeController {
 // Third Class Saving Data to DAO method __ END
 		
 // Fourth Class Saving Data to DAO method	
-				@RequestMapping("/martialInfo/{Useremail}")	
+				@RequestMapping("/maritalInfo/{Useremail}")	
 				public String goMartialInfo(Model model, @PathVariable String Useremail, @ModelAttribute MartialInfo martialInfo) {
 					synchronized (MartialInfo.class) {
 						generalDao.addMartialInfo(martialInfo);
@@ -785,7 +785,7 @@ public class HomeController {
 							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 							model.addAttribute("children", (generalDao.getChildren(Useremail)));
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
@@ -813,7 +813,7 @@ public class HomeController {
 							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 							model.addAttribute("children", (generalDao.getChildren(Useremail)));
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
@@ -829,35 +829,7 @@ public class HomeController {
 							return "Customer/GeneralApplication/MatrimonialHome";
 				}
 // Fifth Class Saving Data to DAO method __ END				
-	/*			
-// Sixth Class Saving Data to DAO method	
-				@RequestMapping("/spouseInfo/{Useremail}")	
-				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
-					synchronized (SpouseInfo.class) {
-						generalDao.addSpouseInfo(spouseInfo);
-					}
-					
-							// Regular Code to send to General Application sos that Forms will work properly
-							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-							model.addAttribute("children", (generalDao.getChildren(Useremail)));
-							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
-							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
-							// Needed in order to work with general application form
-							
-							// Regular Customer JSP EL tags needed code
-									String firstNameStore = dao.getFirstName(Useremail).get(0);
-									
-									model.addAttribute("firstName", firstNameStore);
-									model.addAttribute("Useremail", Useremail);
-									model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
-							// Needed for Customer JSP EL tags
-							
-							return "Customer/GeneralApplication/SpouseInfo";
-				}
-// Sixth Class Saving Data to DAO method __ END		
-		*/		
+		
 				// Sixth Class Saving Data to DAO method	
 				@RequestMapping("/spouseInfo/{Useremail}")	
 				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
@@ -869,7 +841,7 @@ public class HomeController {
 							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 							model.addAttribute("children", (generalDao.getChildren(Useremail)));
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("martialInfo", (generalDao.getMartialInfo(Useremail)));
+							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form

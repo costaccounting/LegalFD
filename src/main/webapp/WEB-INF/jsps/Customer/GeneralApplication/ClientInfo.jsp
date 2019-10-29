@@ -302,7 +302,7 @@
 			   	   <!-- 	<li><a class="page-link" href="#">Prev</a></li>  -->
     				<li><a class="page-link" href="/navclientInfo/${Useremail}">Client Information</a></li>
     				<li><a class="page-link" href="/navspouseInfo/${Useremail}">Spouse Information</a></li>
-    				<li><a class="page-link" href="/navmartialInfo/${Useremail}">Marital Information</a></li>
+    				<li><a class="page-link" href="/navmaritalInfo/${Useremail}">Marital Information</a></li>
     				<li><a class="page-link" href="/navmatrimonialHome/${Useremail}">Matrimonial Home</a></li>
     				<li><a class="page-link" href="/navchildren/${Useremail}">Children</a></li>
     				<li><a class="page-link" href="/navchildExpense/${Useremail}">Childrens Expenses</a></li>
