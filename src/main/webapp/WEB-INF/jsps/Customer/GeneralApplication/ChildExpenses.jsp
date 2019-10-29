@@ -77,7 +77,14 @@
 			  	<div class="alert alert-success">
 			  		<p>${confirmationMessage}</p>
 				</div>
-			</section>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-striped active" role="progressbar"
+				  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+				    100% (Complete)
+				  </div>
+				</div>
+				</section>
+		</div>
 			
 			
 <!-- ***************** ___Child Expenses Information Form -- START___ ******************** -->       	

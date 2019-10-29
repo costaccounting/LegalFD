@@ -14,6 +14,11 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
 <title>Client Info</title>
 </head>
 <body>
@@ -77,7 +82,15 @@
 			  	<div class="alert alert-success">
 			  		<p>${confirmationMessage}</p>
 				</div>
-			</section>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-striped active" role="progressbar"
+				  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width:2.5%">
+				    0%
+				  </div>
+				</div>
+				</section>
+		</div>
+			
 			
 			
 <!-- ***************** ___Client Information Form -- START___ ******************** -->       	

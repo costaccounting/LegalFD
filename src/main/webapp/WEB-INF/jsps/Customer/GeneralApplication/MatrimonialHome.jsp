@@ -77,7 +77,14 @@
 			  	<div class="alert alert-success">
 			  		<p>${confirmationMessage}</p>
 				</div>
-			</section>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-striped active" role="progressbar"
+				  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+				    60%
+				  </div>
+				</div>
+				</section>
+		</div>
 <!-- ***************** ___Marimonial Home Information Form -- START___ ******************** -->										
 
 <fieldset>
