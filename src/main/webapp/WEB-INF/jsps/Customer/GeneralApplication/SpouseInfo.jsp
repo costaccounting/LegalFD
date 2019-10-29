@@ -82,7 +82,7 @@
 			
 <!-- ***************** ___Spouse Information -- START___ ******************** -->       	
        	<fieldset>
-       	<legend>	Client Information 		</legend>  
+       	<legend>	Spouse Information 		</legend>  
 		<form:form action="/spouseInfo/${Useremail}" method="get" modelAttribute="spouseInfo">
 			<table>
 				<tr>
@@ -293,7 +293,7 @@
     				<li><a class="page-link" href="/martialInfo/${Useremail}">Marital Information</a></li>
     				<li><a class="page-link" href="/matrimonialHome/${Useremail}">Matrimonial Home</a></li>
     				<li><a class="page-link" href="/children/${Useremail}">Children</a></li>
-    				<li><a class="page-link" href="/childExpense/${Useremail}">Children’s Expenses</a></li>
+    				<li><a class="page-link" href="/childExpense/${Useremail}">Childrens Expenses</a></li>
     				<li ><a class="page-link" href="/martialInfo/${Useremail}">Next</a></li>
 			  </ul>
 			</div>
