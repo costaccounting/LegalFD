@@ -82,7 +82,7 @@
 
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
-		<form:form action="/MatrimonialInfo/${Useremail}" method="get" modelAttribute="matrimonialInfo">
+		<form:form action="/matrimonialInfo/${Useremail}" method="get" modelAttribute="matrimonialInfo">
 			<table>
 				<tr>
 					<td>
@@ -122,6 +122,61 @@
 					</td>
 					<td>
 						<form:input path="firstMortgage"/>
+					</td>
+				</tr>
+				
+					<tr>
+					<td>
+						Address:
+					</td>
+					
+					<td>
+						<form:input path="secondAddress"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Name(s) on Title:
+					</td>
+					
+					<td>
+						<form:input path="secondTitle"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Value($):
+					</td>
+					<td>
+						<form:input path="secondValue"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Mortgage($):
+					</td>
+					<td>
+						<form:input path="secondMortgage"/>
+					</td>
+				</tr>
+				<br>
+				<legend>Excluded Property:</legend>
+				
+				<tr>
+					<td>
+						Received by client(during or after marriage):
+					</td>
+					<td>
+						<form:input path="excludePropertyClient"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Received by client's spouse(during or after marriage):
+					</td>
+					<td>
+						<form:input path="excludePropertySpouse"/>
 					</td>
 				</tr>
 							

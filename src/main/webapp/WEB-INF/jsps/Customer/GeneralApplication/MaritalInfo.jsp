@@ -82,7 +82,7 @@
 
  	<fieldset>
        	<legend>	Marital Information 		</legend>  
-		<form:form action="/MaritalInfo/${Useremail}" method="get" modelAttribute="maritalInfo">
+		<form:form action="/maritalInfo/${Useremail}" method="get" modelAttribute="maritalInfo">
 			<table>
 				<tr>
 					<td>
@@ -113,7 +113,7 @@
 						Place of Marriage:
 					</td>
 					<td>
-						<form:input path="postEducational"/>
+						<form:input path="marriagePlace"/>
 					</td>
 				</tr>
 				<tr>
@@ -121,7 +121,7 @@
 						Date of Separation:
 					</td>
 					<td>
-						<form:input path="marriagePlace"/>
+						<form:input path="separationDate"/>
 					</td>
 				</tr>
 				<tr>
@@ -129,7 +129,7 @@
 						Have either you, your spouse,or children been in a court case before?(Yes/No):
 					</td>
 					<td>
-						<form:input path="separationDate"/>
+						<form:input path="courtCase"/>
 					</td>
 				</tr>
 				<tr>
@@ -137,7 +137,7 @@
 						Have you and your spouse made a written agreement dealing with any matter involved in this case?(Yes/No):
 					</td>
 					<td>
-						<form:input path="courtCase"/>
+						<form:input path="writtenAgreement"/>
 					</td>
 				</tr>
 				
@@ -146,7 +146,7 @@
 						If client or spouse is stay-at-home parent,please give relevant dates:
 					</td>
 					<td>
-						<form:input path="writtenAgreement"/>
+						<form:input path="relevantDate"/>
 					</td>
 				</tr>
 				
