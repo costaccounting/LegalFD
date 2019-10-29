@@ -196,12 +196,12 @@
 			<div aria-label="Page navigation example">
 			  <ul class="pagination">
 			   	   	<li ><a class="page-link" href="/martialInfo/${Useremail}">Prev</a></li>
-    				<li><a class="page-link" href="/clientInfo/${Useremail}">Client Information</a></li>
-    				<li><a class="page-link" href="/spouseInfo/${Useremail}">Spouse Information</a></li>
-    				<li><a class="page-link" href="/martialInfo/${Useremail}">Marital Information</a></li>
-    				<li><a class="page-link" href="/matrimonialHome/${Useremail}">Matrimonial Home</a></li>
-    				<li><a class="page-link" href="/children/${Useremail}">Children</a></li>
-    				<li><a class="page-link" href="/childExpense/${Useremail}">Childrens Expenses</a></li>
+    		<li><a class="page-link" href="/navclientInfo/${Useremail}">Client Information</a></li>
+    				<li><a class="page-link" href="/navspouseInfo/${Useremail}">Spouse Information</a></li>
+    				<li><a class="page-link" href="/navmartialInfo/${Useremail}">Marital Information</a></li>
+    				<li><a class="page-link" href="/navmatrimonialHome/${Useremail}">Matrimonial Home</a></li>
+    				<li><a class="page-link" href="/navchildren/${Useremail}">Children</a></li>
+    				<li><a class="page-link" href="/navchildExpense/${Useremail}">Childrens Expenses</a></li>
     				<li ><a class="page-link" href="/children/${Useremail}">Next</a></li>
 			  </ul>
 			</div>
