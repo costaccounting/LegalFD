@@ -231,6 +231,13 @@ public class HomeController {
 
 			return "Customer/form";
 		}
+		@RequestMapping(value = "listUser", method = RequestMethod.GET)
+		public String userList(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Lawyer/Lawyer";
+		}
+		
+		
 		
 //----------Sidebar Navigation END-------------
 //----**** ABOVE this RIYA Code*******---------------------------------

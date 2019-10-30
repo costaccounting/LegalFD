@@ -161,7 +161,7 @@ th {
 						</div></li>
 					
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link ">Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link "><i class="fa fa-power-off"></i>Log Out</a></li>
 				</ul>
 			</div>
 		</div>

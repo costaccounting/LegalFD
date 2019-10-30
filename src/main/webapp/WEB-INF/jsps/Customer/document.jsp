@@ -168,6 +168,14 @@ body {
 #navContainer {
 	width: 2200px;
 }
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+#newLi a:hover:not(.active) {
+background-color:#555;
+color:white;
+}
 </style>
 </head>
 
@@ -237,7 +245,7 @@ body {
 						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link active">Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link active"><i class="fa fa-power-off"></i> Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -275,7 +283,7 @@ body {
 			</li>
 			<br>
 			<c:url var="sh" value="/documents" />
-			<li id="newLi"><a href=${sh }>Legal Documents</a></li>
+			<li id="newLi"><a class="active" href=${sh }>Legal Documents</a></li>
 			<c:url var="sh" value="/forms" />
 			<li id="newLi"><a href=${sh }>Legal Forms</a></li>
 			<c:url var="sh" value="/uploadDoc" />
