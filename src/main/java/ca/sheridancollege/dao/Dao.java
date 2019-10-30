@@ -225,7 +225,21 @@ public class Dao {
 					
 					return register;
 				}
-				
+			
+//-----------------------------------------------------------******************************------------------------------------	
+				/*public RegisterUser getDocPrice() {
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					List<LawyerDocEdit> price = List<LawyerDocEdit>session.get();
+					
+					session.getTransaction().commit();
+					session.close();
+					
+					return price;
+				}
+				*/
+			
 //-----------------------------------------------------------******************************------------------------------------	
 				public void editUser(String email, RegisterUser reg) {
 					//String firstName, String lastName, String role

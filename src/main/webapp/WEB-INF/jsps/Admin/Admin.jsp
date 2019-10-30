@@ -150,9 +150,7 @@
 			<br>
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href="#">Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
 			<li id="newLi"><a href="#">Upload Documents</a></li>
 
 		</ul>

@@ -653,7 +653,7 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
-//-----------------********* Redirect Third Party Pay START *******---------------------------------
+//-----------------********* Redirect Third Party Pay END*******---------------------------------
 
 	
 	
@@ -854,6 +854,27 @@ public class HomeController {
 // Sixth Class Saving Data to DAO method __ END		
 				
 //-----------------********* General Registration Form  END *******---------------------------------
+
+//-----------------******* Admin Editing Document and Form Price... START *********---------------------------------
+				
+				@RequestMapping("/editDocPrice/{Useremail}")
+				public String goAdminEditPrice(Model model, @PathVariable String Useremail) {
+					
+						
+					
+					
+					
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						// Needed for Customer JSP EL tags
+						
+						return "Customer/Payment";
+				}
+				
+//-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
 
 	
 	
