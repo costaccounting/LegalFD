@@ -236,6 +236,11 @@ public class HomeController {
 
 			return "Lawyer/Lawyer";
 		}
+		@RequestMapping(value = "uploadngDoc", method = RequestMethod.GET)
+		public String uploadingDoc(Model model, @ModelAttribute RegisterUser user) {
+
+			return "Lawyer/uploadingDoc";
+		}
 		
 		
 		

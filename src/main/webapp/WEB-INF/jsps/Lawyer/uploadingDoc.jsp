@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +17,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
-
-
-<title>Lawyer Page</title>
+<title>Upload Documents</title>
+</head>
 <style>
 .navbar-brand {
 	font-size: xx-large;
@@ -97,8 +94,6 @@
 	margin-top: 120px;
 }
 </style>
-
-</head>
 <body>
 
 	<div type="hidden" name="email" value="${Useremail}"></div>
@@ -155,7 +150,7 @@
 			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
 			<c:url var="sh" value="/listUser" />
 			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/uploadngDoc" />
+			<c:url var="sh" value="/listUser" />
 			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
 
 		</ul>
@@ -163,81 +158,40 @@
 
 	</section>
 
-	<div class="container" id="newContainer">
-		<div class="card-header" id="cardHeader">
+	<div  class="container" id="newContainer">
+            <div class="card-header" id="cardHeader">
+                    
+                    <h2><i class="fas fa-users"></i> Upload Documents </h2>
+                    
+                </div>
+                <div id="accordion">
 
-			<h2>
-				<i class="fas fa-users"></i> List of User
-			</h2>
-
-		</div>
-		<div id="accordion">
-
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control" id="myInput"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-info" id="myInput" onclick="myFunction()">Search</button>
-						</div>
-
-						<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
-					</div>
-				</div>
-			</div>
-
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<table class="table table-striped" id="myTable">
-						<thead class="thead-dark">
-							<tr>
-								<th>Email</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Role</th>
-								<th>Edit User</th>
-								<th>User Details</th>
-
-							</tr>
-						</thead>
-						<tbody>
-
-							<c:forEach var="Users" items="${allDataForLawyer}">
-								<tr>
-									<td>${Users.email}</td>
-									<td>${Users.firstName}</td>
-									<td>${Users.lastName}</td>
-									<td>${Users.role}</td>
-									<td><a
-										href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>"
-										class="btn btn-outline-success "> <i
-											class="fas fa-pencil-alt"></i> Edit User
-									</a></td>
-									<td><a
-										href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>"
-										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
-											Details
-									</a></td>
-									<!-- 
-                                            <td>
-                                           
-                                       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
-                                          <i class="fas fa-trash"></i> Delete User
-                                       </a>
-                                       
-                                          </td>
-                                           -->
-								</tr>
-							</c:forEach>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-
+                    <div class="card" id="cardForm">
+                        <div class="card-header">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search Users...">
+                          <div class="input-group-append">
+                            <button class="btn btn-warning">Search</button>
+                          </div>
+                        </div>
+                          </div>
+                      </div>
+                      <div class="card" id="cardForm">
+                          <div class="card-header" >
+                             
+                            <div style="display: flex">
+                                <c:forEach var="Users" items="${allDataForLawyer}">
+                          <a><img src="folder.png" alt="Workplace" width="70" height="70"  style="display: block">{Users.email}</a>
+                          
+                          </c:forEach>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        
+                          </div>
+        </div>
+                  
 
 	<script>
 		function myFunction() {
