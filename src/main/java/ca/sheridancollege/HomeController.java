@@ -209,17 +209,17 @@ public class HomeController {
 
 	//-----------Sidebar Navigation STart--------------
 		
-		@RequestMapping(value = "documents", method = RequestMethod.GET)
-		public String document(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/document";
-		}
-		
-		@RequestMapping(value = "forms", method = RequestMethod.GET)
-		public String forms(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/form";
-		}
+//		@RequestMapping(value = "documents", method = RequestMethod.GET)
+//		public String document(Model model, @ModelAttribute RegisterUser user) {
+//
+//			return "Customer/document";
+//		}
+//		
+//		@RequestMapping(value = "forms", method = RequestMethod.GET)
+//		public String forms(Model model, @ModelAttribute RegisterUser user) {
+//
+//			return "Customer/form";
+//		}
 		
 		@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
 		public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {

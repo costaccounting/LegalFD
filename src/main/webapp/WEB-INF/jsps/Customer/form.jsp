@@ -85,7 +85,7 @@
 				<h4>Services</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/documents" />
+			<c:url var="sh" value="/document/${Useremail }" />
 			<li id="newLi"><a href=${sh }>Legal Documents</a></li>
 			<c:url var="sh" value="/form/${Useremail}" />
 			<li id="newLi"><a class="active" href=${sh }>Legal Forms</a></li>
