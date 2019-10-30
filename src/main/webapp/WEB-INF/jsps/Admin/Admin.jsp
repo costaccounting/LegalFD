@@ -112,8 +112,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail }" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
@@ -151,9 +151,9 @@
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
+			<li id="newLi"><a href="#">Edit Document/Form Price</a></li>
 			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+			<li id="newLi"><a href="#">Upload Documents</a></li>
 
 		</ul>
 
