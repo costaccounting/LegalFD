@@ -73,34 +73,7 @@ body {
 	opacity: 1;
 }
 
-#newUl {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 20%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
-}
 
-#newLi a {
-	display: block;
-	color: #000;
-	padding: 8px 16px;
-	text-decoration: none;
-	text-align: center;
-}
-
-
-#navbarbrand {
-	display: block;
-	text-align: center;
-	color: white;
-	padding: 5px 16px;
-	text-decoration: none;
-	font-size: xx-large;
-}
 
 /* .navbar {
 	background-color: darkslategray;
@@ -139,3 +112,22 @@ body {
 	/* margin-top: 70px; */
 	
 }
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 550px;
+}
+
+#submit1 {
+	margin-left: 300px;
+}
+
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+
+#navContainer {
+	width: 2200px;
+}
+

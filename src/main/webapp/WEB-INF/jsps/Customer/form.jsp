@@ -22,34 +22,9 @@
 <!-- <link rel="stylesheet" href="css/customer.css"> -->
 
 <link rel="stylesheet" href="css/file.css">
+<link rel="stylesheet" href="css/navigation.css">
 <style>
-#submit {
-	/*    padding-bottom: 50px;  */
-	position: absolute;
-	margin-left: 550px;
-}
 
-#submit1 {
-	margin-left: 300px;
-}
-
-.navbar-brand {
-	font-size: xx-large;
-	margin-right: 30px;
-}
-
-#navContainer {
-	width: 2200px;
-}
-
-#newLi a.active {
-	background-color: #555;
-	color: white;
-}
-#newLi a:hover:not(.active) {
-background-color:#555;
-color:white;
-}
 </style>
 <title>Client Form</title>
 </head>
