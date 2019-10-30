@@ -112,7 +112,7 @@ color:white;
 			<br>
 			<c:url var="sh" value="/documents" />
 			<li id="newLi"><a href=${sh }>Legal Documents</a></li>
-			<c:url var="sh" value="/forms" />
+			<c:url var="sh" value="/form/${Useremail}" />
 			<li id="newLi"><a class="active" href=${sh }>Legal Forms</a></li>
 			<c:url var="sh" value="/uploadDoc" />
 			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
