@@ -92,7 +92,7 @@
 	margin-top: 120px;
 }
 #buttons{
-    margin-left: 500px;
+    margin-left: 530px;
 }
 </style>
 </head>

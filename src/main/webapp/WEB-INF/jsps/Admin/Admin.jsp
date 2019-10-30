@@ -20,176 +20,258 @@
 <title>Admin Page</title> 	
 
 </head>
+<style>
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+
+#navContainer {
+	width: 2200px;
+}
+
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+
+#newLi a:hover {
+	background-color: #555;
+	color: white;
+}
+
+#newUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#newLi a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#navbarbrand {
+	display: block;
+	text-align: center;
+	color: white;
+	padding: 5px 16px;
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+#cardBody {
+	margin-bottom: 80px;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+
+#newContainer {
+	background-color: lightgray;
+	padding: 1px;
+	margin-left: 300px;
+	width: 70%;
+	height: 70%;
+	opacity: 0.8;
+	border-radius: 15px;
+}
+
+#cardHeader {
+	background-color: #555;
+	color: white;
+	width: 100%;
+}
+
+#card2 {
+	margin-left: 180px;
+	margin-top: 120px;
+}
+</style>
 <body>
 
-<div type="hidden" name="email" value="${Useremail}"></div>
+<body>
+
+	<div type="hidden" name="email" value="${Useremail}"></div>
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-    <div class="container">
-    <!-- 
-      <c:url var = "url" value = "/admin"></c:url>
-            <a href= "${url}" class="navbar-brand">LegalFD</a>
-       -->
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="nav-item px-2">
-            <c:url var = "url" value = "/register"></c:url>
-            <a href= "" class="nav-link active">Dashboard</a>
-          </li>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					<c:url var="sh" value="/homePage" />
+					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
 
-          <li class="nav-item px-2">
-            <c:url var = "url" value = "/register"></c:url>
-            <a href= "${url}" class="nav-link">Users</a>
-          </li>
-        </ul>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome ${firstName}
-            </a>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </div>
-          </li>
-          <li class="nav-item">
-	        <c:url var="logoutUrl" value="/logout"/>
-			 <a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-		  </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+				<ul class="navbar-nav ml-auto">
 
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-warning text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-            <i class="fas fa-users"></i>All Users</h1>
-        </div>
-      </div>
-    </div>
-  </header>
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							<a href="/generalApplication/${Useremail}" class="dropdown-item">
+								<i class="fas fa-user-circle"></i> Profile
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
+							</a>
+						</div></li>
 
-  <!-- SEARCH -->
-  <section id="search" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Users...">
-            <div class="input-group-append">
-              <button class="btn btn-warning">Search</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 
-  <section id="actions" class="py-4 mb-4 bg-light">
-  	<div class="alert alert-success">
-  		<p>${confirmationMessage}</p>
-	</div>
+	<section id="actions" class="py-4 ml-2 bg-light">
+
+		<ul id="newUl">
+			<li id="navbarbrand" class="bg-dark">
+				<h4>Dashboard</h4>
+			</li>
+			<br>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+
+		</ul>
+
+
 	</section>
-<!--
-    <div class="container">
-      <div class="row">
 
-        <div class="col-md-3">
-          <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
-            <i class="fas fa-plus"></i> Add User
-          </a>
-        </div>
+	<div class="container" id="newContainer">
+		<div class="card-header" id="cardHeader">
 
-      </div>
-    </div>
-  </section>
+			<h2>
+				<i class="fas fa-users"></i> List of User
+			</h2>
 
-  --> 
-  <!-- USERS -->
-  <section id="users">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h4>All Users</h4>
-            </div>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Email</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Role</th>
-                  <th>User Edit</th>
-                  <th>User Details</th>
-                  <th>Delete User</th>
-                </tr>
-              </thead>
-              <tbody>
-              
-              	<c:forEach var="Users" items="${allData}">
-					<tr>
-						<td>${Users.email}</td>
-						<td>${Users.firstName}</td>
-						<td>${Users.lastName}</td>
-						<td>${Users.role}</td>
-						<td>
-		                    <a href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-warning ">
-		                      <i class="fas fa-pencil-alt"></i> Edit User
-		      
-		                    </a>
-	                  	</td>	
-						<td>
-		                    <a href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-info">
-		                      <i class="fa fa-bars"></i> Details
-		                    </a>
-	                  	</td>
-	                  	<td>
+		</div>
+		<div id="accordion">
+
+			<div class="card" id="cardForm">
+				<div class="card-header">
+					<div class="input-group">
+						<input type="text" class="form-control" id="myInput"
+							placeholder="Search Users...">
+						<div class="input-group-append">
+							<button class="btn btn-info" id="myInput" onclick="myFunction()">Search</button>
+						</div>
+
+						<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="card" id="cardForm">
+				<div class="card-header">
+					<table class="table table-striped" id="myTable">
+						<thead class="thead-dark">
+							<tr>
+								<th>Email</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Role</th>
+								<th>Edit User</th>
+								<th>User Details</th>
+								<th>Delete User</th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<c:forEach var="Users" items="${allData}">
+								<tr>
+									<td>${Users.email}</td>
+									<td>${Users.firstName}</td>
+									<td>${Users.lastName}</td>
+									<td>${Users.role}</td>
+									<td><a
+										href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>"
+										class="btn btn-outline-success "> <i
+											class="fas fa-pencil-alt"></i> Edit User
+									</a></td>
+									<td><a
+										href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>"
+										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
+											Details
+									</a></td>
+									<td>
 			               	
-						       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-danger">
-						          <i class="fas fa-trash"></i> Delete User
-						       </a>
-	       					
-	                  	</td>
-					</tr>
-				</c:forEach>
-              
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                                            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-outline-dark">
+                                               <i class="fas fa-trash"></i> Delete User
+                                            </a>
+                                            
+                                       </td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 
 
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-  </script>
-
+	<script>
+		// Get the current year for the copyright
+		$('#year').text(new Date().getFullYear());
+	</script>
 </body>
 </html>
