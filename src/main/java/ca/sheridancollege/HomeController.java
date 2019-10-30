@@ -363,8 +363,8 @@ public class HomeController {
 	
 //-----------------********		Admin or Lawyer	Dashboard START		********---------------------------------
 	
-	@RequestMapping("/dashboard/{Useremail}/{UserPassword}")
-	public String goDashbaord(Model model, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping("/dashboard/{Useremail}")
+	public String goDashbaord(Model model, @PathVariable String Useremail) {
 		
 		
 			if((dao.getRole(Useremail).get(0)).equals("Admin"))
@@ -373,7 +373,7 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-				model.addAttribute("UserPassword", UserPassword);
+				
 				
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
@@ -387,7 +387,7 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
-				model.addAttribute("UserPassword", UserPassword);
+				
 				
 				return "Lawyer/Lawyer";
 			}
@@ -404,8 +404,8 @@ public class HomeController {
 	
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
 	
-	@RequestMapping("/details/{email}/{Useremail}/{UserPassword}")
-	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping("/details/{email}/{Useremail}")
+	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail) {
 	
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
@@ -413,7 +413,7 @@ public class HomeController {
 		
 		model.addAttribute("email", email);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
+		
 		
 		return "details";
 	}
@@ -439,26 +439,17 @@ public class HomeController {
 	
 //-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
 		
-		@RequestMapping("/edit/{email}/{Useremail}/{UserPassword}")
-		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
+		@RequestMapping("/edit/{email}/{Useremail}")
+		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			
 			RegisterUser reg = dao.getUser(email); 
-			/*
-			String fName = dao.getFirstName(email).get(0);
-			String lName = dao.getLastName(email).get(0);
 			
-			
-			model.addAttribute("email", email);
-			model.addAttribute("firstName",fName);
-			model.addAttribute("lastName", lName);
-			*/
 			
 			model.addAttribute("userInfo", reg);
 			model.addAttribute("Useremail", Useremail);
-			model.addAttribute("UserPassword", UserPassword);
 			
 			
 			return "edit";

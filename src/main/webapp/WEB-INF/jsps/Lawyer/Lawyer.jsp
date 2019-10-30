@@ -151,8 +151,8 @@
 				<h4>Dashboard</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
+			
+			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<c:url var="sh" value="/listUser" />
 			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
 			<c:url var="sh" value="/uploadngDoc" />
@@ -210,24 +210,16 @@
 									<td>${Users.lastName}</td>
 									<td>${Users.role}</td>
 									<td><a
-										href="<c:url value="/edit/${Users.email}/${Useremail}/${UserPassword}"/>"
+										href="<c:url value="/edit/${Users.email}/${Useremail}"/>"
 										class="btn btn-outline-success "> <i
 											class="fas fa-pencil-alt"></i> Edit User
 									</a></td>
 									<td><a
-										href="<c:url value="/details/${Users.email}/${Useremail}/${UserPassword}"/>"
+										href="<c:url value="/details/${Users.email}/${Useremail}"/>"
 										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
 											Details
 									</a></td>
-									<!-- 
-                                            <td>
-                                           
-                                       <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}/${UserPassword}"/>" class="btn btn-danger">
-                                          <i class="fas fa-trash"></i> Delete User
-                                       </a>
-                                       
-                                          </td>
-                                           -->
+									
 								</tr>
 							</c:forEach>
 
