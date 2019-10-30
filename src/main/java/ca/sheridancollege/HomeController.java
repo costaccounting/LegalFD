@@ -630,7 +630,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
-	public String goViewCart(Model model, @PathVariable String Useremail) {
+	public String goViewCart(Model model, @RequestParam String Useremail) {
 			
 			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);

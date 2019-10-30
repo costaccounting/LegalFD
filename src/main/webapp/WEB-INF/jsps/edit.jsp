@@ -17,155 +17,208 @@
     crossorigin="anonymous">
   
   <title>Edit Details for User</title>
+  <style>
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+
+#navContainer {
+	width: 2200px;
+}
+
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+
+#newLi a:hover {
+	background-color: #555;
+	color: white;
+}
+
+#newUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#newLi a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#navbarbrand {
+	display: block;
+	text-align: center;
+	color: white;
+	padding: 5px 16px;
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+#cardBody {
+	margin-bottom: 80px;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+
+#newContainer {
+	background-color: lightgray;
+	padding: 1px;
+	margin-left: 300px;
+	width: 70%;
+	height: 70%;
+	opacity: 0.8;
+	border-radius: 15px;
+}
+
+#cardHeader {
+	background-color: #555;
+	color: white;
+	width: 100%;
+}
+
+#card2 {
+	margin-left: 180px;
+	margin-top: 120px;
+}
+#buttons{
+    margin-left: 500px;
+}
+</style>
 </head>
 
 <body>
 
-<div>
-	<p type="hidden" name ="sessionEmail" value="${Useremail}"/>
-	<p type="hidden" name ="sessionPassword" value="${UserPassword}"/>		
-</div>
+<div type="hidden" name="email" value="${Useremail}"></div>
+<div type="hidden" name="password" value="${UserPassword}"></div>
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-    <div class="container">
-      <a href="dashboard.html" class="navbar-brand">LegalFD</a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="nav-item px-2">
-            <a href="dashboard.html" class="nav-link active">Dashboard</a>
-          </li>
-          
-          <li class="nav-item px-2">
-            <a href="users.html" class="nav-link">Users</a>
-          </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					<c:url var="sh" value="/homePage" />
+					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome ${firstName}
-            </a>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </div>
-          </li>
-          <li class="nav-item">
-       		<c:url var="logoutUrl" value="/logout"/>
-		 		<a href= "${logoutUrl}" class="nav-link active">Log Out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>Editing User Info</h1>
-        </div>
-      </div>
-    </div>
-  </header>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
 
-  <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="<c:url value="/dashboard/${Useremail}/${UserPassword} "/>" class="btn btn-light btn-block">
-            <i class="fas fa-arrow-left"></i> Back To Dashboard
-          </a>
-        </div>
-        <!-- 
-        <div class="col-md-3">
-          <a href="dashboard.html" class="btn btn-success btn-block">
-            <i class="fas fa-check"></i> Save Changes
-          </a>
-        </div>
-         -->
-        
-      </div>
-    </div>
-  </section>
+				<ul class="navbar-nav ml-auto">
 
-  <!-- DETAILS -->
-  <section id="details">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h4>Edit User</h4>
-            </div>
-            <div class="card-body">
-              
-             <!-- 
-             <form >
-                <div class="form-group">
-                  <label for="title">Name</label>
-                  <input type="text" class="form-control" >
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							<a href="/generalApplication/${Useremail}" class="dropdown-item">
+								<i class="fas fa-user-circle"></i> Profile
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
+							</a>
+						</div></li>
+
+					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<section id="actions" class="py-4 ml-2 bg-light">
+
+		<ul id="newUl">
+			<li id="navbarbrand" class="bg-dark">
+				<h4>Dashboard</h4>
+			</li>
+			<br>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+
+		</ul>
+
+
+	</section>
+<div  class="container" id="newContainer">
+            <div class="card-header" id="cardHeader">
+                    
+                    <h2><i class="fas fa-pencil-alt"></i> Edit User</h2>
+                    
+                    
                 </div>
-                <div class="form-group">
-                  <label for="title">Email</label>
-                  <input type="text" class="form-control">
+                <div id="accordion">
+
+                    <div class="card" id="cardForm">
+                        <div class="card-header">
+                        <!-- <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search Users...">
+                          <div class="input-group-append">
+                            <button class="btn btn-warning">Search</button>
+                          </div>
+                        </div> -->
+                        <form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
+                            <div class="form-group">
+                                <label for="name">User Email:</label>
+                                <input class="form-control" type="text" name="userEmail" value="${userInfo.email}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">First Name:</label>
+                                <input class="form-control" type="text" name="userFirstName" value="${ userInfo.firstName}">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Last Name:</label>
+                                <input class="form-control" type="text" name="userLastName" value="${ userInfo.lastName}">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Role:</label>
+                                <select class="form-control" name="role">
+                                    <option>Client</option>
+                                    <option>Lawyer</option>
+                                    <option>Admin **</option>
+                                </select><br>
+                            </div>
+                             <div id="buttons">
+                        <a href=" <c:url value="/dashboard/${Useremail}/${UserPassword} "/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+                    
+                    <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">
                 </div>
-              </form>
+                    </form>
+                   
+                  </div>
+                  
                 
-             -->
-             <!-- 
-               	<form action="/editUser">
-	
-					User Email: <input type="text" name="userEmail" value="${email }" disabled><br>
-					First Name: <input type="text" name="userFirstName" value="${ firstName}"> <br>
-					Last Name: <input type="text" name="userLastName" value="${ lastName}"> <br>
-					
-					<label>Role</label>
-					<select name="role">
-					  <option value="Client" selected>Client</option>
-					  <option value="Lawyer">Lawyer</option>
-					  <option value="Admin">**Admin**</option>
-					</select>
-					<br>
-				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
-				</form>
-				-->
-				<form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
-					<!-- 
-					<p type="hidden" name ="sessionEmail" value="${Useremail}"/>
-					<p type="hidden" name ="sessionPassword" value="${UserPassword}"/>	
-					-->
-					User Email: <input type="text" name="userEmail" value="${userInfo.email}" disabled><br>
-					First Name: <input type="text" name="userFirstName" value="${ userInfo.firstName}"> <br>
-					Last Name: <input type="text" name="userLastName" value="${ userInfo.lastName}"> <br>
-					
-					<label>Role</label>
-					<select name="role">
-					  <option value="Client" selected>Client</option>
-					  <option value="Lawyer">Lawyer</option>
-					  <option value="Admin">**Admin**</option>
-					</select>
-					<br>
-				<input class="btn btn-success btn-block" type="submit" value="Save Changes" />
-				</form>
+                </div>
+                      
+                     
+                         
+           </div>           
+                            
+                      
+                              
+                 
                 
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  
-
 
   
 

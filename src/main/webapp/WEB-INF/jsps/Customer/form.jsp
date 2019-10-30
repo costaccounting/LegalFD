@@ -78,7 +78,7 @@ color:white;
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><c:url var="payment"
-							value="/paymentPage/${Useremail}" /> <a href="${payment}"
+							value="/paymentPage/${Useremail }" /> <a href="${payment}"
 						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
