@@ -98,12 +98,7 @@ body {
 
 
 
-/* .navbar {
-	background-color: darkslategray;
-	background-color:darkslateblue;
-	background-color: dodgerblue;
-	background-color: mediumslateblue;
-} */
+
 #cardBody {
 	margin-bottom: 80px;
 	margin-top: 120px;
