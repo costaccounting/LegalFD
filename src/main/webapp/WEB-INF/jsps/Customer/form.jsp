@@ -113,6 +113,7 @@ body {
 	height: 70%;
 	opacity: 0.8;
 	border-radius: 15px;
+	
 }
 
 #cardHeader {
@@ -1487,6 +1488,7 @@ color:white;
 		function closeForm() {
 			document.getElementById("myForm").style.display = "none";
 		}
+		
 	</script>
 
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
