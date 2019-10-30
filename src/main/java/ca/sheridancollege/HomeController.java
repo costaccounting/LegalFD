@@ -506,8 +506,8 @@ public class HomeController {
 
 		
 //-----------------******* Delete User START *********---------------------------------
-	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}/{UserPassword}")	
-	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail, @PathVariable String UserPassword) {
+	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	
+	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail) {
 		
 		dao.deleteUser(email);
 
@@ -515,7 +515,6 @@ public class HomeController {
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		model.addAttribute("UserPassword", UserPassword);
 		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 		model.addAttribute("confirmationMessage", "User Deleted Successfully");
