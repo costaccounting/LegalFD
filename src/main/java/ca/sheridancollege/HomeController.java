@@ -63,11 +63,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/legalDocumentForm")
-	public String goLegalDocument(Model model) {
-			
-			return "Customer/SelectService";
-	}
 	
 	@RequestMapping("/files")
 	public String goFilesDir(Model model, @ModelAttribute String location) {
@@ -197,8 +192,6 @@ public class HomeController {
 				
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
-	
-	
 	
 	
 	
