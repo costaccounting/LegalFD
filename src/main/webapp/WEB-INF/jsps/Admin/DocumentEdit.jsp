@@ -87,8 +87,8 @@
 
 							<c:forEach var="list" items="${listOfAllForms}">
 								<tr>
-									<td><input class="form-control" type="label" name="docType" value="${list.docType}" ></td>
-									<td><input class="form-control" type="label" name="formType" value="${list.formType}" ></td>
+									<td><input class="form-control" type="text" name="docType" value="${list.docType}" disabled></td>
+									<td><input class="form-control" type="text" name="formType" value="${list.formType}" disabled></td>
 									<td><input class="form-control" type="text" name="price" value="${list.price} "></td>
 									<td>
 										<select class="form-control" name="role">
