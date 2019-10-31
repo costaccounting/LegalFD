@@ -80,17 +80,19 @@
 								<th>Form Name</th>
 								<th>Price</th>
 								<th>Sale</th>
+								<th>Edit Price</th>
 							</tr>
 						</thead>
 						<tbody>
 
 							<c:forEach var="list" items="${listOfAllForms}">
 								<tr>
-									<td>${list.docType}</td>
-									<td>${list.formType}</td>
-									<td>${list.price}</td>
+									<td><input class="form-control" type="text" name="docType" value="${list.docType}" disabled></td>
+									<td><input class="form-control" type="text" name="formType" value="${list.formType}" disabled></td>
+									<td><input class="form-control" type="text" name="price" value="$${list.price}"></td>
 									<td>
-										<select class="form-control" name="role" value="${list.sale}">
+										<select class="form-control" name="role">
+                                    		<option>${list.sale}</option>
                                     		<option>Yes</option>
                                     		<option>No</option>
                                 		</select>
@@ -98,7 +100,7 @@
 									<td><a
 										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
 										class="btn btn-outline-success "> 
-											<i class="fas fa-pencil-alt"></i> Edit/Update Form
+											<i class="fas fa-pencil-alt"></i> Edit Form
 										</a>
 									</td>
 								</tr>

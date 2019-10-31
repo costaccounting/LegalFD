@@ -192,7 +192,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">Role:</label>
-                                <select class="form-control" name="role" value="${userInfo.role}">
+                                <select class="form-control" name="role">
                                     <option>Client</option>
                                     <option>Lawyer</option>
                                     <option>** Admin **</option>
