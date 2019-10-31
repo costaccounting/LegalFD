@@ -21,7 +21,6 @@ import ca.sheridancollege.dao.*;
 public class HomeController {
 
 	Dao dao = new Dao();
-	FileDao fileDao = new FileDao();
 	GeneralFormDao generalDao = new GeneralFormDao();
 	
 // ****  Navigation between Pages START ***
@@ -895,19 +894,13 @@ public class HomeController {
 			@PathVariable("folder_name") String folderName, 	
 			HttpServletResponse response) 	
 	{
-		Set<String> dirSet = null;;
-		FileDao fileDao= new FileDao();
-		try {
-			dirSet = fileDao.listFilesUsingFileWalkAndVisitor(
-					fileDao.getDirPath( folderName )
-					);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+		model.addAttribute("filelist", filelist);
+		
 		model.addAttribute("presentDirectory", folderName);
 		
-		model.addAttribute("dirSet", dirSet);
 		return  "Admin/Files";
 			
 	  
@@ -927,30 +920,64 @@ public class HomeController {
         }
 
         // Get the file and save it somewhere
-		FileDao fileDao = new FileDao();
-		String dir = fileDao.getDirPath( folderName );
-		fileDao.addFile(file, dir);
+		String dir = dao.getDirPath( folderName );
+		dao.addFile(file, dir);
 
 		model.addAttribute("message",
 		        "You successfully uploaded '" + file.getOriginalFilename() + "'");
 		
 		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 		
-		Set<String> dirSet = null;;
-		try {
-			dirSet = fileDao.listFilesUsingFileWalkAndVisitor(
-					fileDao.getDirPath( folderName )
-					);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
 		
-		model.addAttribute("dirSet", dirSet);
-
+		
         return "Admin/Files";
     }
+	@RequestMapping(value = "/download", method = RequestMethod.POST )
+	public void FileSystemResource (
+			
+			Model model,
+			HttpServletRequest request,
+            HttpServletResponse response,
+            @RequestHeader String referer,
+			@RequestParam("filename") String filename,
+    		@RequestParam("foldername") String dirname
+    		
+    		) 
+    				throws IOException 
+	{
+		// to prevent hotlinking a file
+		if(referer != null && !referer.isEmpty()) {
+            //do nothing
+            //or send error
+        }
+        //If user is not authorized - he should be thrown out from here itself
+         
+        //Authorized user will download the file
+		String dataDirectory = dao.getDirPath(dirname) ;
+        Path file = Paths.get(dataDirectory, filename);
+        if (Files.exists(file))
+        {
+            response.addHeader("Content-Disposition", "attachment; filename="+filename);
+            try
+            {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+                
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } 
+        else {
+        	
+        }
+		
+		
+	}
 
 			
 //-----------------File View and Add --	END---------------------------------
