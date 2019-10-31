@@ -236,18 +236,22 @@ public class Dao {
 				}
 			
 //-----------------------------------------------------------******************************------------------------------------	
-				/*public RegisterUser getDocPrice() {
+				public List<LawyerDocEdit> getDocPrice() {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					List<LawyerDocEdit> price = List<LawyerDocEdit>session.get();
+					List<LawyerDocEdit> docPrice;
+					
+					Query query = session.createQuery("from LawyerDocEdit");
+					docPrice= query.getResultList();
+					
 					
 					session.getTransaction().commit();
 					session.close();
 					
-					return price;
+					return docPrice;
 				}
-				*/
+				
 			
 //-----------------------------------------------------------******************************------------------------------------	
 				public void editUser(String email, RegisterUser reg) {
