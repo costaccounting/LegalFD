@@ -2,9 +2,13 @@
 package ca.sheridancollege;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.*;
 import java.util.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -69,7 +73,7 @@ public class HomeController {
 				location = "";
 			}
 			
-			List<File> filelist = fileDao.getFileList(location);
+			List<File> filelist = dao.getFileList(location);
 			model.addAttribute("filelist", filelist);
 			
 			return "Admin/Files";
@@ -272,7 +276,7 @@ public class HomeController {
 				// Empty the field in form and sends it to register page
 				
 				//create a folder for the user
-				if(fileDao.createFolder(registerUser))
+				if(dao.createFolder(registerUser))
 					System.out.println("folder created");
 				else
 					System.out.println("folder not created");
