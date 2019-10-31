@@ -67,7 +67,7 @@ public class HomeController {
 	@RequestMapping("/files")
 	public String goFilesDir(Model model, @ModelAttribute String location) {
 			if(location.equals(null) || location.equals("")){
-				location = "";
+				location = dao.getProjectFolder();
 			}
 			
 			List<File> filelist = dao.getFileList(location);
