@@ -89,9 +89,14 @@
 									<td>${list.docType}</td>
 									<td>${list.formType}</td>
 									<td>${list.price}</td>
-									<td>${list.sale}</td>
+									<td>
+										<select class="form-control" name="role" value="${list.sale}">
+                                    		<option>Yes</option>
+                                    		<option>No</option>
+                                		</select>
+									</td>
 									<td><a
-										href="<c:url value="/editForm/${list.id}"/>"
+										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
 										class="btn btn-outline-success "> 
 											<i class="fas fa-pencil-alt"></i> Edit/Update Form
 										</a>

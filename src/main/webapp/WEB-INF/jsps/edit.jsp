@@ -184,18 +184,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="name">First Name:</label>
-                                <input class="form-control" type="text" name="userFirstName" value="${ userInfo.firstName}">
+                                <input class="form-control" type="text" name="userFirstName" value="${userInfo.firstName}">
                             </div>
                             <div class="form-group">
                                 <label for="name">Last Name:</label>
-                                <input class="form-control" type="text" name="userLastName" value="${ userInfo.lastName}">
+                                <input class="form-control" type="text" name="userLastName" value="${userInfo.lastName}">
                             </div>
                             <div class="form-group">
                                 <label for="gender">Role:</label>
-                                <select class="form-control" name="role">
+                                <select class="form-control" name="role" value="${userInfo.role}">
                                     <option>Client</option>
                                     <option>Lawyer</option>
-                                    <option>Admin **</option>
+                                    <option>** Admin **</option>
                                 </select><br>
                             </div>
                              <div id="buttons">
