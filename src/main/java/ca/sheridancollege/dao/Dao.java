@@ -2,8 +2,9 @@ package ca.sheridancollege.dao;
 
 import ca.sheridancollege.beans.*;
 import java.util.*;
-
-	import java.nio.file.Files;		
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;		
 import java.nio.file.Path;		
 import java.nio.file.Paths;
 
@@ -63,7 +64,7 @@ public class Dao {
 	
 //-----------------------------------------------------------******************************------------------------------------	
 	public boolean userExist(String email)			
-	{			{
+	{			
 		if (getEmail(email).get(0)!=null)				
 		{				
 			return false;					
