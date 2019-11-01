@@ -101,7 +101,7 @@
                                 		</select>
 									</td>
 									<td>
-									<input class="btn btn-outline-success" type="submit" value="<i class="fas fa-pencil-alt"></i> Edit " />
+									<input class="btn btn-outline-success" type="submit" value="Edit" />
 									</form>
 									
 								<!-- 	<a
