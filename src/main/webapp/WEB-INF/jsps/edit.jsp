@@ -171,12 +171,7 @@
 
                     <div class="card" id="cardForm">
                         <div class="card-header">
-                        <!-- <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search Users...">
-                          <div class="input-group-append">
-                            <button class="btn btn-warning">Search</button>
-                          </div>
-                        </div> -->
+                        
                         <form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
                             <div class="form-group">
                                 <label for="name">User Email:</label>

@@ -301,6 +301,23 @@ public class Dao {
 					session.close();
 				}
 				
+//-----------------------------------------------------------******************************------------------------------------	
+				public boolean editFormPrice(int id, double price, String sale){
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					Query query = session.createQuery("UPDATE LawyerDocEdit SET price =:price ,sale =:sale WHERE id =:id");
+					query.setParameter("price", price);
+					query.setParameter("sale", sale);
+					query.setParameter("id", id);
+					
+					
+					session.getTransaction().commit();
+					session.close();
+					
+					return true;
+				}
+//-----------------------------------------------------------******************************------------------------------------	
 				
 				
 		public List<String> validateUser(RegisterUser reg) {

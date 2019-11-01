@@ -87,21 +87,29 @@
 
 							<c:forEach var="list" items="${listOfAllForms}">
 								<tr>
-									<td><input class="form-control" type="text" name="docType" value="${list.docType}" disabled></td>
-									<td><input class="form-control" type="text" name="formType" value="${list.formType}" disabled></td>
-									<td><input class="form-control" type="text" name="price" value="${list.price} "></td>
+									<td>${list.docType}</td>
+									<td>${list.formType}</td>
 									<td>
-										<select class="form-control" name="role">
-                                    		<option>${list.sale}</option>
-                                    		<option>Yes</option>
+									<form action="/editForm">
+									<input class="form-control" type="hidden" name="id" value="${list.id}">
+									<input class="form-control" type="text" name="price" value="${list.price}" style="width: 70px;">
+									</td>
+									<td>
+										<select class="form-control" name="sale">
                                     		<option>No</option>
+                                    		<option>Yes</option>
                                 		</select>
 									</td>
-									<td><a
+									<td>
+									<input class="btn btn-outline-success" type="submit" value="<i class="fas fa-pencil-alt"></i> Edit " />
+									</form>
+									
+								<!-- 	<a
 										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
-										class="btn btn-outline-success "> 
-											<i class="fas fa-pencil-alt"></i> Edit Form
+										class="btn btn-outline-success"> 
+											<i class="fas fa-pencil-alt"></i> Edit
 										</a>
+										 -->
 									</td>
 								</tr>
 							</c:forEach>
