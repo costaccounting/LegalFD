@@ -18,26 +18,26 @@ public class ClientInfo {
 	private String userEmail;
 	
 	private String fullLegalName;
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private Date dateOfBirth;
+//	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private String dateOfBirth;
 	private String citizenship;
 	private String placeOfBirth;
-	private int SIN;
+	private String SIN;
 	private String surnameBirth;
 	private String surnameBeforeMarriage;
 	private String currentHomeAddress;
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private Date sinceWhen;
+//	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private String sinceWhen;
 	private String currentMailingAddress;
-	private int homeTel;
-	private int workTel;
-	private int cell;
-	private int fax;
+	private String homeTel;
+	private String workTel;
+	private String cell;
+	private String fax;
 	private String email;
 	private String divorcedBefore;
 	private String place;
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private Date date;
+	//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private String date;
 	private String jobTitle;
 	private String currentEmployer;
 	private String employerAddress;

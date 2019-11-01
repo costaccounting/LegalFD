@@ -200,19 +200,7 @@ public class HomeController {
 	
 //----**** BELOW this RIYA Code*******---------------------------------
 
-	//-----------Sidebar Navigation STart--------------
-		
-//		@RequestMapping(value = "documents", method = RequestMethod.GET)
-//		public String document(Model model, @ModelAttribute RegisterUser user) {
-//
-//			return "Customer/document";
-//		}
-//		
-//		@RequestMapping(value = "forms", method = RequestMethod.GET)
-//		public String forms(Model model, @ModelAttribute RegisterUser user) {
-//
-//			return "Customer/form";
-//		}
+	
 		
 		@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
 		public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
@@ -766,9 +754,9 @@ public class HomeController {
 // Third Class Saving Data to DAO method	
 				@RequestMapping("/clientInfo/{Useremail}")	
 				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
-					synchronized (ClientInfo.class) {
+					//synchronized (ClientInfo.class) {
 						generalDao.addClientInfo(clientInfo);
-					}
+					//}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
