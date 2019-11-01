@@ -349,7 +349,20 @@ public class Dao {
 				e.printStackTrace();		
 			}		
 			return false;		
+		}	
+	public boolean createFolder(String useremail) {		
+		String path = getUsersHomeDir() + File.separator + location_string + File.separator + useremail ;		
+				
+	    try {		
+			if (new File(path).mkdirs()) {		
+			    return true;		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
 		}		
+		return false;		
+	}
 		private static String getUsersHomeDir() {		
 		    String users_home = System.getProperty("user.home");		
 		    return users_home.replace("\\", "/"); // to support all platforms.		

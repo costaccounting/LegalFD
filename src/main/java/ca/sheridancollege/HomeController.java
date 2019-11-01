@@ -396,7 +396,8 @@ public class HomeController {
 	
 	
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
-	
+// prodip edit 	
+
 	@RequestMapping("/details/{email}/{Useremail}")
 	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail) {
 	
@@ -407,8 +408,19 @@ public class HomeController {
 		model.addAttribute("email", email);
 		model.addAttribute("Useremail", Useremail);
 		
+		List<File> filelist;
+		try {
+			filelist = dao.getFileList(dao.getDirPath(email));
+		} catch (Exception e) {
+			dao.createFolder (email)  ;
+			filelist = dao.getFileList(dao.getDirPath(email));
+		}
 		
-		return "details";
+		model.addAttribute("filelist", filelist);
+		
+		model.addAttribute("presentDirectory", email);
+		
+		return  "Admin/Files";
 	}
 
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
@@ -1056,6 +1068,24 @@ public class HomeController {
 			
 //-----------------File View and Add --	END---------------------------------
 
+	
+	@RequestMapping(value = "/uploadDoc/{useremail}" , method = RequestMethod.GET)
+	public String goUploadDocumentClent(Model model, @PathVariable String useremail)  {
+	
+		List<File> filelist = dao.getFileList(dao.getDirPath(useremail));
+		
+		model.addAttribute("filelist", filelist);
+		
+		model.addAttribute("presentDirectory", useremail);
+		// Required code for JSP
+		String firstNameStore = dao.getFirstName(useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", useremail);
+		
+		
+		return "Customer/uploadDocument";
+	}
+	
 //----**** ABOVE this PRODIP Code*******---------------------------------
 			
 	
