@@ -38,16 +38,17 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
     <div class="container">
      <c:url var = "url1" value = "/signIn"></c:url>
-      <a href="${url1 }" class="navbar-brand">LegalFD</a>
+      <a href="${url1 }" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i>LegalFD</a>
      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+     <!--      <li class="nav-item">
             <c:url var = "url2" value = "/signIn"></c:url>
       		<a href="${url2 }" class="navbar-brand">LegalFD</a>
-    	  </li>
+    	  </li> -->
     	  <li class="nav-item">
             <c:url var = "url3" value = "/signIn"></c:url>
       		<a href="${url3 }" class="nav-link">Sign In</a>

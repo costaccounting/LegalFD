@@ -39,7 +39,7 @@
     <div class="container">
     
     <c:url var = "url1" value = "/"></c:url>
-      <a href="${url1}" class="navbar-brand">LegalFD</a>
+      <a href="${url1}" class="navbar-brand"><i class="fas fa-balance-scale"></i>LegalFD</a>
      
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
