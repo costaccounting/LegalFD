@@ -18,7 +18,7 @@
 <title>Fill General Info</title>
 </head>
 <body>
-<div type="hidden" name ="email" value="${Useremail}"></div>
+<div type="hidden" name ="Useremail" value="${Useremail}"></div>
 
 	<h1>General Information Application Form</h1>
 	
@@ -71,9 +71,47 @@
 <br>
 <br>
   														
-       		
+       		<div class="card" id="cardForm">
+				<div class="card-header">
+					<table class="table table-striped" id="myTable">
+						<thead class="thead-dark">
+							<tr>
+								<th>Document Type</th>
+								<th>Form Name</th>
+								<th>Price</th>
+								<th>Sale</th>
+								<th>Edit Price</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<c:forEach var="list" items="${listOfAllForms}">
+								<tr>
+									<td><input class="form-control" type="text" name="docType" value="${list.docType}" disabled></td>
+									<td><input class="form-control" type="text" name="formType" value="${list.formType}" disabled></td>
+									<td><input class="form-control" type="text" name="price" value="${list.price} "></td>
+									<td>
+										<select class="form-control" name="role">
+                                    		<option>${list.sale}</option>
+                                    		<option>Yes</option>
+                                    		<option>No</option>
+                                		</select>
+									</td>
+									<td><a
+										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
+										class="btn btn-outline-success "> 
+											<i class="fas fa-pencil-alt"></i> Edit Form
+										</a>
+									</td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
         	
-    	</div>
+    	
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
