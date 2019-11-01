@@ -172,7 +172,7 @@
                     <div class="card" id="cardForm">
                         <div class="card-header">
                         
-                        <form action="/editUser/${Useremail}/${UserPassword}/${userInfo.email}">
+                        <form action="/editUser/${Useremail}/${userInfo.email}">
                             <div class="form-group">
                                 <label for="name">User Email:</label>
                                 <input class="form-control" type="text" name="userEmail" value="${userInfo.email}" disabled>

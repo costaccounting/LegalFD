@@ -450,12 +450,11 @@ public class HomeController {
 		
 //-----------------********		NAVIGATION TO Edit User & UPDATE Function 	STOP ********---------------------------------
 	
-		@RequestMapping("/editUser/{sessionEmail}/{sessionPassword}/{userEmail}")
-		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String sessionPassword, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
+		@RequestMapping("/editUser/{sessionEmail}/{userEmail}")
+		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
 		
 			String adminEmail = sessionEmail.trim();
-			String adminPassword = sessionPassword.trim();
-			
+						
 			String formEmail = userEmail.trim();
 			String formFirstName = userFirstName.trim();
 			String formLastName = userLastName.trim();
@@ -474,7 +473,6 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", adminEmail);
-				model.addAttribute("UserPassword", adminPassword);
 				
 				model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
 				model.addAttribute("user", new RegisterUser());
@@ -487,7 +485,6 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", adminEmail );
-				model.addAttribute("UserPassword", adminPassword);
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
 				

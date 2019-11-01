@@ -83,7 +83,7 @@
 				</div>
 				<div class="progress">
 				  <div class="progress-bar progress-bar-striped active" role="progressbar"
-				  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+				  aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:100%">
 				    100% (Complete)
 				  </div>
 				</div>
