@@ -125,27 +125,25 @@ th {
 
 
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container">
-			<a href="clientService.html" class="navbar-brand"><i
-				class="fas fa-balance-scale"> </i> LegalFD</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-				<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh }
-						class="nav-link active">Home</a></li>
+					<c:url var="sh" value="/homePage" />
+					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><c:url var="payment"
-							value="/paymentPage/${Useremail }" /> <a href="${payment}"
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
 						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
@@ -155,27 +153,37 @@ th {
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="settings.html" class="dropdown-item"> <i
-								class="fas fa-cog"></i> Settings
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
 							</a>
 						</div></li>
-					
+
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link "><i class="fa fa-power-off"></i>Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<%-- 
 
+			<div class="container">
+		      <div class="row">
+		        <div class="col-md-3">
+		          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+		            <i class="fas fa-arrow-left"></i> Back To Dashboard
+		          </a>
+		        </div>
+		      </div>
+		     </div>
+	 
+<!-- 
   <section id="actions" class="py-4 mb-4 bg-light">
   	<div class="alert alert-success">
   		<p>${requestMessage}</p>
 	</div>
 	</section>
-	 --%>
-	
+	 -->
 	<div class="card-header">
 
 		<h2>Payment</h2>

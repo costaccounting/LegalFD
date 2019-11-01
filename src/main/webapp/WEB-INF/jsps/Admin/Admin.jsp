@@ -113,7 +113,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
 					
-					<li class="nav-item px-2"><a href="/dashboard/${Useremail }" class="nav-link ">Home</a></li>
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>

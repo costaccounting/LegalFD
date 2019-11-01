@@ -60,7 +60,7 @@
   	<div class="container">
       <div class="row">
         <div class="col-md-3">
-          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+          <a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light btn-block">
             <i class="fas fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>

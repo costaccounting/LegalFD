@@ -13,6 +13,8 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <title>Marital Info</title>
 </head>
 <body>
@@ -189,14 +191,14 @@
 
 			<div aria-label="Page navigation example">
 			  <ul class="pagination">
-			   	   	<li ><a class="page-link" href="/navspouseInfo/${Useremail}">Prev</a></li>
+			   	   	<li ><a class="page-link" href="/navspouseInfo/${Useremail}">&lt;&lt; Prev</a></li>
     			<li><a class="page-link" href="/navclientInfo/${Useremail}">Client Information</a></li>
     				<li><a class="page-link" href="/navspouseInfo/${Useremail}">Spouse Information</a></li>
     				<li><a class="page-link" href="/navmaritalInfo/${Useremail}">Marital Information</a></li>
     				<li><a class="page-link" href="/navmatrimonialHome/${Useremail}">Matrimonial Home</a></li>
     				<li><a class="page-link" href="/navchildren/${Useremail}">Children</a></li>
     				<li><a class="page-link" href="/navchildExpense/${Useremail}">Childrens Expenses</a></li>
-    				<li ><a class="page-link" href="/navmatrimonialHome/${Useremail}">Next</a></li>
+    				<li ><a class="page-link" href="/navmatrimonialHome/${Useremail}">Next &gt;&gt;</a></li>
 			  </ul>
 			</div>
 			

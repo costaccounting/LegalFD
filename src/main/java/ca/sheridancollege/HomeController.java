@@ -546,12 +546,22 @@ public class HomeController {
 	@RequestMapping(value = "/ClientSide/{Useremail}")	
 	public String testingClientSide(Model model, @PathVariable String Useremail) {
 		
+		if((dao.getRole(Useremail).get(0)).equals("Client")) {
+		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
 		return "Customer/form";
+		}
+		else {
+			model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+			
+		}
 	}
 	
 //-----------------********   Client Side UI -- END********---------------------------------
@@ -618,7 +628,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
-	public String goViewCart(Model model, @RequestParam String Useremail) {
+	public String goViewCart(Model model, @PathVariable String Useremail) {
 			
 			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
@@ -629,7 +639,7 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			//model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
+			
 			
 			return "Customer/Payment";
 	}

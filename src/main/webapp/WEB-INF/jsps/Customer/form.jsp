@@ -214,8 +214,7 @@ color:white;
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><c:url var="payment"
-							value="/paymentPage/${Useremail }" /> <a href="${payment}"
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
 						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
@@ -259,7 +258,13 @@ color:white;
 
 	</section>
 
-
+<!-- 
+		<section id="actions" class="py-4 mb-4 bg-light">
+		  	<div class="alert alert-success">
+		  		<p>${requestMessage}</p>
+			</div>
+		</section>
+	 -->
 	<form action="/legalDocumentFormMulti/${Useremail}">
 
 

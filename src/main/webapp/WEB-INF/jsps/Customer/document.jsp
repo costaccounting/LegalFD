@@ -251,29 +251,6 @@ color:white;
 		</div>
 	</nav>
 
-
-
-
-
-	<!-- HEADER -->
-	<!-- <header id="main-header" class="py-2 bg-primary text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>
-                        <i class="fas fa-balance-scale"></i> Services</h1>
-                </div>
-            </div>
-        </div>
-    </header> -->
-
-
-
-
-
-
-
-
 	<!-- ACTIONS -->
 	<section id="actions" class="py-4 ml-2 bg-light">
 
@@ -294,33 +271,6 @@ color:white;
 
 	</section>
 
-	<!-- ACTIONS -->
-
-	<!-- <div class="col">
-       
-            <div class="card text-center bg-success text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Documents</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-folder"></i> 
-                    </h4>
-                    <a href="document.html" class="btn btn-outline-light btn-sm">Request</a>
-                </div>
-            </div>
-
-            <div class="card text-center bg-warning text-white mb-3">
-                <div class="card-body">
-                    <h3>Legal Forms</h3>
-                    <h4 class="display-4">
-                        <i class="fas fa-file-alt"></i> 
-                    </h4>
-                    <a href="form.html" class="btn btn-outline-light btn-sm">Request</a>
-                </div>
-            </div>
-        
-    </div>
-    </div> -->
-
 	<div class="container" id="newContainer">
 		<div class="card-header">
 
@@ -333,8 +283,7 @@ color:white;
 				<div class="card-body">
 					<h4 class="card-title">Book of Authority</h4>
 					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Illo, quas.</p>
+					<p class="card-text"> Description About it</p>
 					<c:url var="MainPage"
 						value="/MainPage/${Useremail}/${UserPassword}" />
 					<a class="btn btn-outline-info" href="${MainPage}">Request</a>
@@ -344,8 +293,7 @@ color:white;
 				<div class="card-body">
 					<h4 class="card-title">Factum</h4>
 					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Illo, quas.</p>
+					<p class="card-text">Description About it</p>
 					<c:url var="MainPage"
 						value="/MainPage/${Useremail}/${UserPassword}" />
 					<a class="btn btn-outline-info" href="${MainPage}">Request</a>
