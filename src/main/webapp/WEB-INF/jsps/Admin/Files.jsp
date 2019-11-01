@@ -162,7 +162,7 @@
 					type="submit" value="Submit" />
 			</form>
 			<hr>
-			<br /> message
+			<br /> 
 			<div c:if="${message}">
 				<h2 c:text="${message}" />
 			</div>
