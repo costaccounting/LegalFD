@@ -15,49 +15,60 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-<title>Fill General Info</title>
+<title>Edit Form/Document</title>
 </head>
 <body>
 <div type="hidden" name ="Useremail" value="${Useremail}"></div>
 
-	<h1>General Information Application Form</h1>
+		
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
+
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
+							</a>
+						</div></li>
+
+					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	
-	
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-    
-      <c:url var = "url" value = "/admin"></c:url>
-            <h1><b>LegalFD</b></h1>
-       
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome ${firstName}
-           
-            </a>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </div>
-          </li>
-          <li class="nav-item">
-       		<c:url var="logoutUrl" value="/logout"/>
-		 		<a href= "${logoutUrl}" class="nav-link ">Log Out</a>
-          </li>
-          
-        </ul>
-      	</div>
-    	</div>
-  	</nav>
-  	<div class="container">
+	<div class="card-header" id="cardHeader">
+
+			<h2>
+				 General Information Application Form Edit
+			</h2>
+
+		</div>
+		<br>
+		
+		<div class="container">
       <div class="row">
         <div class="col-md-3">
           <a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light btn-block">
