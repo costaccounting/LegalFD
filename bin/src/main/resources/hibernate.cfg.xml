@@ -34,6 +34,8 @@
 		<mapping class="ca.sheridancollege.beans.MartialInfo" />
 		<mapping class="ca.sheridancollege.beans.MatrimonialHome" />
 		<mapping class="ca.sheridancollege.beans.Children" />
+		<mapping class="ca.sheridancollege.beans.LawyerDocEdit" />
+		<mapping class="ca.sheridancollege.beans.ClientFile" />
 		
 	</session-factory>
 </hibernate-configuration>

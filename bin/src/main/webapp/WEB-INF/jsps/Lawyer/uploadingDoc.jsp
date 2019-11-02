@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="UTF-8"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +17,86 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="../../../css/fileupload.css">
-
 <title>Upload Documents</title>
 </head>
+<style>
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+
+#navContainer {
+	width: 2200px;
+}
+
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+
+#newLi a:hover {
+	background-color: #555;
+	color: white;
+}
+
+#newUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#newLi a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#navbarbrand {
+	display: block;
+	text-align: center;
+	color: white;
+	padding: 5px 16px;
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+#cardBody {
+	margin-bottom: 80px;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+
+#newContainer {
+	background-color: lightgray;
+	padding: 1px;
+	margin-left: 300px;
+	width: 70%;
+	height: 70%;
+	opacity: 0.8;
+	border-radius: 15px;
+}
+
+#cardHeader {
+	background-color: #555;
+	color: white;
+	width: 100%;
+}
+
+#card2 {
+	margin-left: 180px;
+	margin-top: 120px;
+}
+</style>
 <body>
+
+	<div type="hidden" name="email" value="${Useremail}"></div>
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -62,115 +137,61 @@
 			</div>
 		</div>
 	</nav>
+
+
 	<section id="actions" class="py-4 ml-2 bg-light">
 
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
-				<h4>Services</h4>
+				<h4>Dashboard</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/document/${Useremail}" />
-			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
-			<c:url var="sh" value="/form/${Useremail}" />
-			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
-			<c:url var="sh" value="/uploadDoc/${Useremail}" />
-			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
+			<c:url var="sh" value="/listUser" />
+			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
 
 		</ul>
 
 
 	</section>
 
-	<div class="container" id="newContainer">
-		<div class="card-header" id="cardHeader">
+	<div  class="container" id="newContainer">
+            <div class="card-header" id="cardHeader">
+                    
+                    <h2><i class="fas fa-users"></i> Upload Documents </h2>
+                    
+                </div>
+                <div id="accordion">
 
-			<h2>
-				<i class="fas fa-users"></i> Upload Documents
-			</h2>
-
-		</div>
-		<div id="accordion">
-
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-warning">Search</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" id="cardForm">
-				<div class="card-header">
-
-					<div style="display: flex">
-						<c:forEach var="Users" items="${allDataForLawyer}">
-							<a><img src="folder.png" alt="Workplace" width="70"
-								height="70" style="display: block">{Users.email}</a>
-
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		<div>
-			<h2>Directory : ${presentDirectory}</h2>
-			<table class="table table-dark">
-				<tr>
-					<th>Name</th>
-					<th>Action</th>
-					<th>Uploaded By</th>
-					<th>Upload Date</th>
-				</tr>
-				<c:forEach items="${filelist}" var="file">
-					<tr>
-						<c:if test="${file.isDirectory()}">
-							<c:url var="fileURL" value="files/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
-							<td><a href="<c:out value="${fileURL}"/>">Next</a></td>
-
-						</c:if>
-						<c:if test="${file.isFile()}">
-							<c:url var="fileURL"
-								value="download/${presentDirectory}/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
-							<td>
-								<form method="POST" action="/download">
-									<input type="hidden" name="filename" value="${file.getName()}" />
-									<input type="hidden" name="foldername"
-										value="${presentDirectory}" /> <input type="submit"
-										value="Download file" class="btn btn-link" />
-								</form>
-						</c:if>
-						</td>
-						<td></td>
-						<td></td>
-					</tr>
-				</c:forEach>
-			</table>
-			<span class="border-top my-3"></span>
-			<h2>Add file</h2>
-			<form method="POST"
-				action="/upload/<c:out value= "${presentDirectory}" />"
-				enctype="multipart/form-data">
-				<input type="file" name="file" type="button" class="btn btn-primary btn-lg"/><br /> <br /> <input
-					type="submit" value="Submit" />
-			</form>
-			<hr>
-			<br /> message
-			<div c:if="${message}">
-				<h2 c:text="${message}" />
-			</div>
-		</div>
-	</div>
-
-
+                    <div class="card" id="cardForm">
+                        <div class="card-header">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search Users...">
+                          <div class="input-group-append">
+                            <button class="btn btn-warning">Search</button>
+                          </div>
+                        </div>
+                          </div>
+                      </div>
+                      <div class="card" id="cardForm">
+                          <div class="card-header" >
+                             
+                            <div style="display: flex">
+                                <c:forEach var="Users" items="${allDataForLawyer}">
+                          <a><img src="folder.png" alt="Workplace" width="70" height="70"  style="display: block">{Users.email}</a>
+                          
+                          </c:forEach>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        
+                          </div>
+        </div>
+                  
 
 	<script>
 		function myFunction() {

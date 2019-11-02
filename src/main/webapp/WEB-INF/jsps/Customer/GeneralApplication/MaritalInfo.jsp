@@ -16,6 +16,9 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="css/CustomerPortal.css"> 
+  
 <title>Marital Info</title>
 </head>
 <body>
@@ -24,43 +27,46 @@
 	<h1>General Information Application Form</h1>
 	
 	
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-    
-      <c:url var = "url" value = "/admin"></c:url>
-            <h1><b>LegalFD</b></h1>
-       
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome ${firstName}
-           
-            </a>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </div>
-          </li>
-          <li class="nav-item">
-       		<c:url var="logoutUrl" value="/logout"/>
-		 		<a href= "${logoutUrl}" class="nav-link ">Log Out</a>
-          </li>
-          <li class="nav-item">
-       		<c:url var="payment" value="/paymentPage/${Useremail}"/>
-		 		<a href= "${payment}" class="nav-link ">View Cart</a>
-          </li>  
-        </ul>
-      	</div>
-    	</div>
-  	</nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					
+					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
+
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
+						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
+					</a></li>
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							<a href="/generalApplication/${Useremail}" class="dropdown-item">
+								<i class="fas fa-user-circle"></i> Profile
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
+							</a>
+						</div></li>
+
+					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
   	<div class="container">
       <div class="row">
         <div class="col-md-3">

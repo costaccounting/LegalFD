@@ -39,7 +39,7 @@
     <div class="container">
     
     <c:url var = "url1" value = "/"></c:url>
-      <a href="${url1}" class="navbar-brand">LegalFD</a>
+      <a href="${url1}" class="navbar-brand"><i class="fas fa-balance-scale"></i>LegalFD</a>
      
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -70,46 +70,10 @@
   <!-- HOME SECTION -->
   <header id="home-section">
     <div class="dark-overlay">
-     <%-- <div class="alert alert-success" style="margin-left: 325px">
-            <b>${logOutMess} </b>
-        </div> --%>
+     
       <div class="home-inner container">
         <div class="row">
-         <!-- 
-          <div class="col-lg-8 d-none d-lg-block">
-            <h1 class="display-4">
-              <strong></strong> 
-              <strong></strong>
-            </h1>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-          </div>
- -->
-
+         
           <div class="col-lg-4"  id="signInUp">
         
             <div class="card text-center card-form" id="cardBody">
@@ -181,56 +145,4 @@
     });
   </script>
 </body>
-
-<!-- 
-<body>
-<!-- *** This Page is Main Page (1st) *** --
-
-
-<div>
-<!-- *** This is LOGIN Section *** --
-
-	<form action="/login">
-	  
-	  Email:<br>
-	  <input type="text" name="email" placeholder="Sam@Wilson.com">
-	  <br> 
-	  
-	  Password:<br>
-	  <input type="password" name="password" placeholder="Sam123">
-	  <br>
-	  
-	  <input type="submit" value="Login">
-	  <br>
-	  
-	  <p align="center" style="color:red; font-size: 1.5em;">${loginMess}</p>
-	  <br><br>
-	  
-  	</form> 
-<!-- *** This is LOGIN Section *** --
-
-<!-- *** This is REGISTER Section *** --
- 	 <c:url var = "url" value = "/register"></c:url>
-	 <form:form action = "${url}" method="get" modelAttribute="registerUser">
-			E-Mail: <form:input path="email" /><br>
-			First name: <form:input path="firstName" /><br>
-			Last name: <form:input path="lastName" /><br>
-			Password: <form:input path="password" /><br>
-			
-		<input type="submit" value="Register Account" />
-	
-		<p align="center" style="color:red; font-size: 1.5em;">${message}</p>
-		<p align="center" style="color:green; font-size: 1.5em;">${successMessage}</p>
-		
-			<c:forEach var="e" items="${mess}">
-			<p align="center" style="color:red; font-size: 1.5em;">${e}</p>	
-			</c:forEach>	
-	  </form:form>
- 
-	
-<!-- *** This is REGISTER Section *** --
-</div>
-
-</body>
- -->
 </html>
