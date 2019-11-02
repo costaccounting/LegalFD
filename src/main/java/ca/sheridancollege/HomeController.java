@@ -960,7 +960,7 @@ public class HomeController {
 				}
 				
 				@RequestMapping("/testSubmit/{Useremail}")
-				public String goFormSubmit(Model model, @PathVariable String Useremail, List<String> legalForm) {
+				public String goFormSubmit(Model model, @PathVariable String Useremail,@RequestParam List<String> legalForm) {
 					
 					for(int i=0;i<legalForm.size();i++){
 					    System.out.println(legalForm.get(i));
