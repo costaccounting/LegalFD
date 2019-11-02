@@ -1065,16 +1065,15 @@ public class HomeController {
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 
 		List<String[]> fileinfo = new ArrayList<String[]>();		
-		System.out.println("filelist::::" + filelist);
 		try {		
 			for (File f : filelist) {		
-				System.out.println("filename :::" + f.getName());
 			
 				try {
 					fileinfo.add( dao.getFileInfo(  f.getName()  ) );
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
-					fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					//fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					System.out.println("bad");
 				}		
 			}		
 		} catch (Exception e) {		
