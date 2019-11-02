@@ -329,7 +329,7 @@ color:white;
 						Social Insurance Number: 
 					</td>
 					<td>
-						<form:input path="SIN"/>
+						<form:input id="sin" path="SIN"/>
 					</td>
 				</tr>
 				<tr>
