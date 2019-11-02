@@ -25,7 +25,7 @@
 <body>
 <div type="hidden" name ="email" value="${Useremail}"></div>
 
-	<h1>General Information Application Form</h1>
+	
 	
 	
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
