@@ -392,13 +392,22 @@ public class Dao {
 			return list;		
 		}		
 				
-		public boolean addFile(MultipartFile file, String dir) {		
+		public boolean addFile(MultipartFile file, String dir, String uploader) {		
 			if(file.isEmpty()) return false;		
 			try {		
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmm");  
+				DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+				
+				LocalDateTime now = LocalDateTime.now();  
+				
+				String date = dtf.format(now);
+				
 				byte[] bytes = file.getBytes();		
-				Path path = Paths.get(dir + File.separator+ file.getOriginalFilename());		
+				String modifiedFileName = uploader + "-" + date + "-" + file.getOriginalFilename();
+				Path path = Paths.get(dir + File.separator+ modifiedFileName);		
 						
-				Files.write(path, bytes);		
+				Files.write(path, bytes);	
+				addFileRecord(file.getOriginalFilename(), modifiedFileName , dir , uploader ,  dtf2.format(now));
 				return true;		
 			} catch (IOException e) {		
 				// TODO Auto-generated catch block		
@@ -418,13 +427,13 @@ public class Dao {
 			}		
 			return null;		
 		}
-		public boolean addFile(File file, String uploaderEmail, String uploadedAccount)
+		public boolean addFileRecord(String baseFileName, String modifiedFileName, String location, String uploadedAccount, String date)
 		{
-			if(file!=null) {
+			if(baseFileName!=null) {
 				Session session = sessionFactory.openSession();
 				session.beginTransaction();
 				
-				ClientFile cfile = new ClientFile(file.getName(), uploadedAccount, uploaderEmail, new Date() );
+				ClientFile cfile = new ClientFile(baseFileName, modifiedFileName, location, uploadedAccount, date );
 				
 				session.save(cfile);
 				
@@ -436,7 +445,33 @@ public class Dao {
 				return false;
 			}	
 		}
-		
+	public String[] getFileInfo(String modifiedName) {
+			String info[] = new String[] { modifiedName , "" , "" , ""};
+			
+			try {
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
+				
+				Query query1 = session.createQuery("SELECT cf.uploadedBy FROM ClientFile cf WHERE cf.modifiedFileName =:modifiedFileName");
+				Query query2 = session.createQuery("SELECT cf.uploadDate FROM ClientFile cf WHERE cf.modifiedFileName =:modifiedFileName");
+				Query query3 = session.createQuery("SELECT cf.baseFileName FROM ClientFile cf WHERE cf.modifiedFileName =:modifiedFileName");
+				query1.setParameter("modifiedFileName", modifiedName);
+				query2.setParameter("modifiedFileName", modifiedName);
+				query3.setParameter("modifiedFileName", modifiedName);
+				
+				info[1] = ( (List<String>) query1.getResultList() ).get(0);
+				info[2] = ( (List<String>) query2.getResultList() ).get(0);
+				info[3] = ( (List<String>) query3.getResultList() ).get(0);
+				
+				session.getTransaction().commit();
+				session.close();
+			} catch (HibernateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return info;
+		}
+
 		
 
 

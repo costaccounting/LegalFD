@@ -148,8 +148,17 @@
 								</form>
 						</c:if>
 						</td>
+						<td>
+							<c:if test="${file.isFile()}">
+								<c:forEach items="${fileinfo}" var="info">
+									<c:if test="${file.getName().equals( fileinfo[0])} ">
+										<c:out value="${fileinfo[2]}" />
+									</c:if>
+								</c:forEach>
+							</c:if>
+						</td>
 						<td></td>
-						<td></td>
+						
 					</tr>
 				</c:forEach>
 			</table>
@@ -162,7 +171,7 @@
 					type="submit" value="Submit" />
 			</form>
 			<hr>
-			<br /> 
+			<br /> message
 			<div c:if="${message}">
 				<h2 c:text="${message}" />
 			</div>

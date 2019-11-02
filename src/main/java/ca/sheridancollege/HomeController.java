@@ -1,4 +1,3 @@
-
 package ca.sheridancollege;
 
 import java.io.*;
@@ -62,16 +61,31 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/files")
-	public String goFilesDir(Model model, @ModelAttribute String location) {
-			if(location.equals(null) || location.equals("")){
-				location = dao.getProjectFolder();
-			}
-			
-			List<File> filelist = dao.getFileList(location);
-			model.addAttribute("filelist", filelist);
-			
-			return "Admin/Files";
+	@RequestMapping("/files")			
+	public String goFilesDir(Model model, @ModelAttribute String location) {			
+			if(location.equals(null) || location.equals("")){					
+				location = dao.getProjectFolder();						
+			}					
+								
+			List<String> uploaders = new ArrayList<String>();		
+					
+			List<File> filelist = dao.getFileList(location);					
+			List<String[]> fileinfo = new ArrayList<String[]>();		
+			try {		
+				for (File f : filelist) {		
+					fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+				}		
+			} catch (Exception e) {		
+				// TODO Auto-generated catch block		
+				e.printStackTrace();		
+			}		
+				
+					
+			model.addAttribute("filelist", filelist);					
+			model.addAttribute("fileinfo", fileinfo);		
+					
+								
+			return "Admin/Files";					
 	}
 	
 	@RequestMapping("/navclientInfo/{Useremail}")	
@@ -983,7 +997,6 @@ public class HomeController {
 	
 	
 	
-	
 
 //----**** BELOW this PRODIP Code*******---------------------------------
 
@@ -997,9 +1010,18 @@ public class HomeController {
 	{
 		
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
+
+		List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+		}
 		model.addAttribute("filelist", filelist);
-		
+		model.addAttribute("fileinfo", fileinfo);
 		model.addAttribute("presentDirectory", folderName);
 		
 		return  "Admin/Files";
@@ -1021,15 +1043,32 @@ public class HomeController {
         }
 
         // Get the file and save it somewhere
-		String dir = dao.getDirPath( folderName );
-		dao.addFile(file, dir);
-
-		model.addAttribute("message",
-		        "You successfully uploaded '" + file.getOriginalFilename() + "'");
-		
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
 		// showing the list of file in the folder
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+		}		
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
@@ -1111,6 +1150,3 @@ public class HomeController {
 	
 	
 }
-	
-	
-	
