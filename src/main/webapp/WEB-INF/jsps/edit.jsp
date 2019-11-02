@@ -190,7 +190,7 @@
                                 <select class="form-control" name="role">
                                     <option>Client</option>
                                     <option>Lawyer</option>
-                                    <option>** Admin **</option>
+                                    <option>Admin</option>
                                 </select><br>
                             </div>
                              <div id="buttons">

@@ -47,12 +47,6 @@ public class HomeController {
 		return "signUP";
 	}
 	
-	@RequestMapping("/admin")
-	public String goAdminPage(Model model, @ModelAttribute RegisterUser registerUser) {
-		model.addAttribute("registerUser", new RegisterUser());
-		
-		return "Admin/Admin";
-	}
 	
 	@RequestMapping("/logout")
 	public String goLogOut(Model model) {
@@ -418,13 +412,23 @@ public class HomeController {
 		@RequestMapping("/docEdit/{Useremail}")
 		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
 		
+			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
+				
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				
+				return "Admin/DocumentEdit";
+				}
+				else {
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+					
+				}
 			
-			
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			return "Admin/DocumentEdit";
 		}
 
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
@@ -506,6 +510,8 @@ public class HomeController {
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	
 	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail) {
 		
+		if((dao.getRole(Useremail).get(0)).equals("Admin")) {
+			
 		dao.deleteUser(email);
 
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -516,6 +522,13 @@ public class HomeController {
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 		model.addAttribute("confirmationMessage", "User Deleted Successfully");
 		return "Admin/Admin";
+		}
+		else {
+			model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Login Credential");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 //-----------------******* Delete User END *********---------------------------------
@@ -670,12 +683,7 @@ public class HomeController {
 	public String goGeneralApplication(Model model, @PathVariable String Useremail) {
 	
 		// Regular Code to send to General Application sos that Forms will work properly
-		model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-		model.addAttribute("children", (generalDao.getChildren(Useremail)));
 		model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-		model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-		model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-		model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 		// Needed in order to work with general application form
 		
 		// Regular Customer JSP EL tags needed code
@@ -701,11 +709,6 @@ public class HomeController {
 		
 				// Regular Code to send to General Application sos that Forms will work properly
 				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-				model.addAttribute("children", (generalDao.getChildren(Useremail)));
-				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-				model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-				model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 				// Needed in order to work with general application form
 				
 				// Regular Customer JSP EL tags needed code
@@ -728,12 +731,7 @@ public class HomeController {
 			}
 			
 					// Regular Code to send to General Application sos that Forms will work properly
-					model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 					model.addAttribute("children", (generalDao.getChildren(Useremail)));
-					model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-					model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-					model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-					model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 					// Needed in order to work with general application form
 					
 					// Regular Customer JSP EL tags needed code
@@ -756,12 +754,7 @@ public class HomeController {
 					//}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
-							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-							model.addAttribute("children", (generalDao.getChildren(Useremail)));
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
@@ -784,12 +777,7 @@ public class HomeController {
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
-							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-							model.addAttribute("children", (generalDao.getChildren(Useremail)));
-							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
 							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
@@ -812,12 +800,7 @@ public class HomeController {
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
-							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-							model.addAttribute("children", (generalDao.getChildren(Useremail)));
-							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
@@ -840,11 +823,6 @@ public class HomeController {
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
-							model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-							model.addAttribute("children", (generalDao.getChildren(Useremail)));
-							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 							// Needed in order to work with general application form
 							
