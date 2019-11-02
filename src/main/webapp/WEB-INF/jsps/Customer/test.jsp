@@ -115,8 +115,9 @@
 			</div>
 
 			<div id="accordion">
+			
+				<!--************** One Segment  1 ......................... -->
 				<div class="card" id="cardForm">
-					
 					<div class="card-header">
 						<h5>
 							  <a href="#collapse1"
@@ -156,6 +157,441 @@
 						</div>
 					</div>
 				</div>
+				<!--************** One Segment  1......................... -->
+				
+				<!--************** One Segment  2......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse2"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Divorce Application </a>
+						</h5>
+					</div>
+					<div id="collapse2" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="7" end="20" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  2......................... -->
+				
+				
+				<!--************** One Segment  3......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse3"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Application (General) </a>
+						</h5>
+					</div>
+					<div id="collapse3" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="21" end="31" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  3......................... -->
+				
+				
+				<!--************** One Segment  4......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse4"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Motion to Change </a>
+						</h5>
+					</div>
+					<div id="collapse4" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="32" end="39" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  4......................... -->
+				
+				
+				<!--************** One Segment  5......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse5"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Notice of Motion (Regular and/or Contempt) </a>
+						</h5>
+					</div>
+					<div id="collapse5" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="40" end="47" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  5......................... -->
+				
+				<!--************** One Segment  6......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse6"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Conferences </a>
+						</h5>
+					</div>
+					<div id="collapse6" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="48" end="54" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  6......................... -->
+				
+				<!--************** One Segment  7......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse7"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Enforcement </a>
+						</h5>
+					</div>
+					<div id="collapse7" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="55" end="71" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  7......................... -->
+				
+				<!--************** One Segment  8......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse8"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Child and Youth Family Services Act </a>
+						</h5>
+					</div>
+					<div id="collapse8" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="72" end="80" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  8......................... -->
+				
+				<!--************** One Segment  9......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse9"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Inter-jurisdictional Support Orders </a>
+						</h5>
+					</div>
+					<div id="collapse9" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="81" end="95" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  9......................... -->
+				
+				<!--************** One Segment  10......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse10"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Adoption </a>
+						</h5>
+					</div>
+					<div id="collapse10" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="96" end="114" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  10......................... -->
+				
+				<!--************** One Segment  11......................... -->
+				<div class="card" id="cardForm">
+					<div class="card-header">
+						<h5>
+							  <a href="#collapse11"
+								data-parent="#accordion" data-toggle="collapse"
+								style="color: #000"> Miscellaneous Forms </a>
+						</h5>
+					</div>
+					<div id="collapse11" class="collapse">
+						<div class="card-body">
+							<table>
+								<tr>
+									<th>Form Name</th>
+
+									<th>Price</th>
+								</tr>
+								<c:forEach begin="115" end="152" var="list" items="${listOfAllForms}">
+								    <tr>
+									    <td><input type="checkbox" name="legalForm"
+											value="${list.docType}${list.formType}${list.price}">
+										</td>
+								    	
+								    	<td>
+								    		${list.formType}
+								    	</td>
+								    	<td>
+								    		${list.price}
+								    	</td>
+								    	<td>
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
+								    	</td>
+								    </tr>
+								    
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--************** One Segment  11......................... -->
+				
 				
 				
 			</div>
