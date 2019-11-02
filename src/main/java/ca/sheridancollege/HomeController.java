@@ -673,8 +673,10 @@ public class HomeController {
 			
 		
 			List<LawyerDocEdit> docPrice = dao.getDocPrice();
-			
 			model.addAttribute("listOfAllForms", docPrice);
+			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
 			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
