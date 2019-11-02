@@ -116,6 +116,7 @@
 
 			<div id="accordion">
 				<div class="card" id="cardForm">
+					
 					<div class="card-header">
 						<h5>
 							  <a href="#collapse1"
@@ -123,8 +124,6 @@
 								style="color: #000"> Divorce (simple/joint) </a>
 						</h5>
 					</div>
-
-
 					<div id="collapse1" class="collapse">
 						<div class="card-body">
 							<table>
@@ -146,7 +145,9 @@
 								    		${list.price}
 								    	</td>
 								    	<td>
-								    		${list.sale}
+								    		<c:if test ="${list.sale == 'Yes'}">
+								    			<img src="/img/Sale.png" alt="Sale" width="42" height="42">
+								    		</c:if>
 								    	</td>
 								    </tr>
 								    
@@ -155,6 +156,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 			</div>
 		</div>
 		<br> <br> <input class="btn btn-info" type="submit"

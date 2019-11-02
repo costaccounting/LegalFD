@@ -113,10 +113,8 @@
 						class="btn btn-info" type="submit" value="Submit" id="submit">
 				</h2>
 			</div>
+			
 			<div id="accordion">
-
-
-
 				<div class="card" id="cardForm">
 					<div class="card-header">
 						<h5>
