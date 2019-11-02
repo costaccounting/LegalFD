@@ -873,13 +873,13 @@ public class HomeController {
 				@RequestMapping("/editForm")
 				public String goEditPriceForm(Model model, @RequestParam int id,@RequestParam double price,@RequestParam String sale ,@RequestParam String Useremail) {
 					
-					
+					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
+						
 						if (dao.editFormPrice(id, price, sale) == true)
 						{	
 					
 							model.addAttribute("mess", "Information Successfully Changed");
-					// Required code to go back to DocumentEdit
-					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
+						// Required code to go back to DocumentEdit
 						
 						List<LawyerDocEdit> docPrice = dao.getDocPrice();
 						
@@ -895,17 +895,9 @@ public class HomeController {
 						
 						return "Admin/DocumentEdit";
 						}
-						else
-						{
-							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-							model.addAttribute("registerUser", new RegisterUser());
-							
-							return "index";
-						}
-						}
 						else {
-							
-							model.addAttribute("mess", "ERROR Information NOT Changed");
+							model.addAttribute("mess", "Information NOT Changed due to Error");
+							// Required code to go back to DocumentEdit
 							
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
 							
@@ -918,13 +910,68 @@ public class HomeController {
 							model.addAttribute("firstName", firstNameStore);
 							model.addAttribute("Useremail", Useremail);
 							// Needed for Customer JSP EL tags
+							
 							return "Admin/DocumentEdit";
 						}
+					}
+					else
+					{
+						model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+						model.addAttribute("registerUser", new RegisterUser());
+								
+						return "index";
+					}
 				}
 				
 //-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
 
-	
+	// Client side Form View
+				@RequestMapping("/test/{Useremail}")
+				public String goFormView(Model model, @PathVariable String Useremail) {
+					
+						if ((dao.getRole(Useremail).get(0)).equals("Client")) {
+							
+						List<LawyerDocEdit> docPrice = dao.getDocPrice();
+						
+						model.addAttribute("listOfAllForms", docPrice);
+						
+						
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						// Needed for Customer JSP EL tags
+						
+						return "Customer/test";
+						}
+						else
+						{
+							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+							model.addAttribute("registerUser", new RegisterUser());
+							
+							return "index";
+						}
+				}
+				
+				@RequestMapping("/testSubmit/{Useremail}")
+				public String goFormSubmit(Model model, @PathVariable String Useremail, List<String> legalForm) {
+					
+					for(int i=0;i<legalForm.size();i++){
+					    System.out.println(legalForm.get(i));
+					} 
+						
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						// Needed for Customer JSP EL tags
+						
+						return "Customer/test";
+						
+				}
+				
 	
 //----**** ABOVE this PARAS Code*******---------------------------------
 

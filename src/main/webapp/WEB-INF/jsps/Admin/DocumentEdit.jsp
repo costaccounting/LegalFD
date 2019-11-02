@@ -102,6 +102,7 @@
 									<td>${list.formType}</td>
 									<td>
 									<form action="/editForm">
+									<input class="form-control" type="hidden" name="Useremail" value="${Useremail}">
 									<input class="form-control" type="hidden" name="id" value="${list.id}">
 									<input class="form-control" type="text" name="price" value="${list.price}" style="width: 70px;">
 									</td>
