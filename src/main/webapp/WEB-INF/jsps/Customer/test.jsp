@@ -136,7 +136,7 @@
 								<c:forEach begin="0" end="6" var="list" items="${listOfAllForms}">
 								    <tr>
 									    <td><input type="checkbox" name="legalForm"
-											value="${list.docType}${list.formType}${list.price}">
+											value="${list.docType}^${list.formType}^${list.price}">
 										</td>
 								    	
 								    	<td>
@@ -282,7 +282,6 @@
 								    		</c:if>
 								    	</td>
 								    </tr>
-								    
 								</c:forEach>
 							</table>
 						</div>
