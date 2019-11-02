@@ -18,15 +18,188 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
-  <link rel="stylesheet" href="css/CustomerPortal.css"> 
+  <link rel="stylesheet" href="/css/CustomerPortal.css"> 
   
 <title>Children</title>
 </head>
+
+<style>
+
+body {
+	margin: 0;
+}
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+	background-color: #555;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 23px;
+	right: 28px;
+	width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+	resize: none;
+	min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+	background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+}
+
+
+
+
+#cardBody {
+	margin-bottom: 80px;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+
+#newContainer {
+	background-color: lightgray;
+	padding: 1px;
+	margin-left: 300px;
+	width: 70%;
+	height: 70%;
+	opacity: 0.8;
+	border-radius: 15px;
+	
+}
+
+#cardHeader {
+	background-color: #555;
+	color: white;
+	width: 100%;
+}
+
+#card2 {
+	margin-left: 180px;
+	margin-top: 120px;
+}
+
+#cardForm {
+	/* margin-top: 70px; */
+	
+}
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 550px;
+}
+
+#submit1 {
+	margin-left: 300px;
+}
+
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+
+#navContainer {
+	width: 2200px;
+}
+#newUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#newLi a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+	text-align: center;
+}
+
+
+#navbarbrand {
+	display: block;
+	text-align: center;
+	color: white;
+	padding: 5px 16px;
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+#newLi a:hover:not(.active) {
+background-color:#555;
+color:white;
+}
+
+
+</style>
+
 <body>
+
+
+
 <div type="hidden" name ="email" value="${Useremail}"></div>
 	
 	
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
 			</i> LegalFD</a>
@@ -66,11 +239,11 @@
 			</div>
 		</div>
 	</nav>
-	
+		
 	<div class="card-header" id="cardHeader">
 
 			<h2>
-				 General Information Application Form
+				<i class="fas fa-file-alt"></i> General Information Application Form
 			</h2>
 
 		</div>
