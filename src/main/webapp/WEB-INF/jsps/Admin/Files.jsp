@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@  page import="java.util.List" %>								
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,13 +134,16 @@
 							</c:url>
 							<td><c:out value="${file.getName()}" /></td>
 							<td><a href="<c:out value="${fileURL}"/>">Next</a></td>
+							<td></td>
+							<td></td>
 
 						</c:if>
 						<c:if test="${file.isFile()}">
 							<c:url var="fileURL"
 								value="download/${presentDirectory}/${file.getName()}">
 							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
+							<td><c:out value="${file.getName()}" />
+							</td>
 							<td>
 								<form method="POST" action="/download">
 									<input type="hidden" name="filename" value="${file.getName()}" />
@@ -146,18 +151,28 @@
 										value="${presentDirectory}" /> <input type="submit"
 										value="Download file" class="btn btn-link" />
 								</form>
-						</c:if>
-						</td>
-						<td>
-							<c:if test="${file.isFile()}">
+							</td>
+							<td>
+								<% 
+									List<String[]> list = (List<String[]>)request.getAttribute("fileinfo");
+									for(String[] item : list){
+										if( item[0].equals( '${file.getName()}' )  )
+									
+										out.print(item[2]);
+									}
+								
+								%>
 								<c:forEach items="${fileinfo}" var="info">
-									<c:if test="${file.getName().equals( fileinfo[0])} ">
-										<c:out value="${fileinfo[2]}" />
-									</c:if>
+				
+									<c:out value="${info}[0]" />
 								</c:forEach>
-							</c:if>
+							
 						</td>
 						<td></td>
+							
+						</c:if>
+						
+						
 						
 					</tr>
 				</c:forEach>
