@@ -45,16 +45,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
-     <!--      <li class="nav-item">
-            <c:url var = "url2" value = "/signIn"></c:url>
-      		<a href="${url2 }" class="navbar-brand">LegalFD</a>
-    	  </li> -->
+   
     	  <li class="nav-item">
             <c:url var = "url3" value = "/signIn"></c:url>
       		<a href="${url3 }" class="nav-link">Sign In</a>
           </li>
           <li class="nav-item">
-            <a href="#explore-head-section" class="nav-link">About</a>
+            <a href="/about" class="nav-link">About</a>
           </li>
          
         </ul>
