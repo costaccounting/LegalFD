@@ -1069,16 +1069,26 @@ public class HomeController {
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 
 		List<String[]> fileinfo = new ArrayList<String[]>();		
+		System.out.println("filelist::::" + filelist);
 		try {		
 			for (File f : filelist) {		
-				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+				System.out.println("filename :::" + f.getName());
+			
+				try {
+					fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+				}		
 			}		
 		} catch (Exception e) {		
 			// TODO Auto-generated catch block		
+
 			e.printStackTrace();		
 		} 
 		model.addAttribute("filelist", filelist);
 		model.addAttribute("fileinfo", fileinfo);
+		
 		model.addAttribute("presentDirectory", folderName);
 		
 		return  "Admin/Files";
@@ -1129,7 +1139,7 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
-		
+		System.out.println(fileinfo);
 		
         return "Admin/Files";
     }
