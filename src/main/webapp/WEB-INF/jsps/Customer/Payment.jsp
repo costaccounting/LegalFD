@@ -176,14 +176,7 @@ th {
 		        </div>
 		      </div>
 		     </div>
-	 
-<!-- 
-  <section id="actions" class="py-4 mb-4 bg-light">
-  	<div class="alert alert-success">
-  		<p>${requestMessage}</p>
-	</div>
-	</section>
-	 -->
+	
 	<div class="card-header">
 
 		<h2>Payment</h2>
@@ -191,7 +184,7 @@ th {
 
 	<table>
 		<tr>
-			<th>ID</th>
+			
 			<th>Document Category</th>
 			<th>Form Type</th>
 			<th>Amount</th>
@@ -199,7 +192,7 @@ th {
 		</tr>
 		<c:forEach var="pay" items="${paymentData}">
 			<tr>
-				<td>${pay.id}</td>
+				
 				<td>${pay.documentType}</td>
 				<td>${pay.formType}</td>
 				<td>${pay.documentAmount}</td>
@@ -216,53 +209,6 @@ th {
 	</table>
 
 
-	<!-- USERS -->
-	<%-- <section id="users">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h4>List of Documents Requested by ${firstName}</h4>
-            </div>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>ID</th> 
-                  <th>Document Category</th>
-                  <th>Form Type</th>
-                  <th>Amount</th>
-                  <th>Delete Request</th>
-                </tr>
-              </thead>
-              <tbody>
-              
-              	<c:forEach var="pay" items="${paymentData}">
-					<tr>
-						<td>${pay.id}</td>		
-						<td>${pay.documentType}</td>
-						<td>${pay.formType}</td>
-						<td>${pay.documentAmount}</td>
-						
-						<td>
-			               	   <a href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>" class="btn btn-danger">
-						          <i class="fas fa-trash"></i> Delete Order
-						       </a>
-	       			  	</td>
-	       			  	 
-					</tr>
-				</c:forEach>
-              
-              </tbody>
-            </table>
-            
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
- --%>
 	<form action="/pay/${pay.id}/${Useremail}">
 
 		<input type="radio" name="paymentMethod" value="PayPal" checked>

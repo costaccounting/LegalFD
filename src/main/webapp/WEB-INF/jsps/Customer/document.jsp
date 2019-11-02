@@ -188,12 +188,12 @@ color:white;
 
 	<button class="open-button" onclick="openForm()">Chat</button>
 
-	<div class="chat-popup" id="myForm">
-		<form class="form-container">
+	<div class="chat-popup">
+		<form class="form-container" action="mailto:shahriya199907@gmail.com" method="post" enctype="text/plain">
 			<h1>Chat</h1>
 
 			<label for="msg"><b>Message</b></label>
-			<textarea placeholder="Type message.." name="msg" required></textarea>
+			<textarea placeholder="Type message.." name=${Useremail } required></textarea>
 
 			<button type="submit" class="btn">Send</button>
 			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
