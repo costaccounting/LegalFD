@@ -1,4 +1,3 @@
-
 package ca.sheridancollege;
 
 import java.io.*;
@@ -23,6 +22,10 @@ public class HomeController {
 
 	Dao dao = new Dao();
 	GeneralFormDao generalDao = new GeneralFormDao();
+	
+	// Global Variable for Yes and No
+	List<String> list = Arrays.asList(new String[]{"Yes", "No"});
+	
 	
 // ****  Navigation between Pages START ***
 	
@@ -58,16 +61,31 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/files")
-	public String goFilesDir(Model model, @ModelAttribute String location) {
-			if(location.equals(null) || location.equals("")){
-				location = dao.getProjectFolder();
-			}
-			
-			List<File> filelist = dao.getFileList(location);
-			model.addAttribute("filelist", filelist);
-			
-			return "Admin/Files";
+	@RequestMapping("/files")			
+	public String goFilesDir(Model model, @ModelAttribute String location) {			
+			if(location.equals(null) || location.equals("")){					
+				location = dao.getProjectFolder();						
+			}					
+								
+			List<String> uploaders = new ArrayList<String>();		
+					
+			List<File> filelist = dao.getFileList(location);					
+			List<String[]> fileinfo = new ArrayList<String[]>();		
+			try {		
+				for (File f : filelist) {		
+					fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+				}		
+			} catch (Exception e) {		
+				// TODO Auto-generated catch block		
+				e.printStackTrace();		
+			}		
+				
+					
+			model.addAttribute("filelist", filelist);					
+			model.addAttribute("fileinfo", fileinfo);		
+					
+								
+			return "Admin/Files";					
 	}
 	
 	@RequestMapping("/navclientInfo/{Useremail}")	
@@ -114,6 +132,7 @@ public class HomeController {
 	public String navMaritalInfo(Model model, @PathVariable String Useremail) {
 		
 		
+				model.addAttribute("optionsList", list);
 				// Regular Code to send to General Application sos that Forms will work properly
 				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 				// Needed in order to work with general application form
@@ -873,13 +892,13 @@ public class HomeController {
 				@RequestMapping("/editForm")
 				public String goEditPriceForm(Model model, @RequestParam int id,@RequestParam double price,@RequestParam String sale ,@RequestParam String Useremail) {
 					
-					
+					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
+						
 						if (dao.editFormPrice(id, price, sale) == true)
 						{	
 					
 							model.addAttribute("mess", "Information Successfully Changed");
-					// Required code to go back to DocumentEdit
-					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
+						// Required code to go back to DocumentEdit
 						
 						List<LawyerDocEdit> docPrice = dao.getDocPrice();
 						
@@ -895,17 +914,9 @@ public class HomeController {
 						
 						return "Admin/DocumentEdit";
 						}
-						else
-						{
-							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-							model.addAttribute("registerUser", new RegisterUser());
-							
-							return "index";
-						}
-						}
 						else {
-							
-							model.addAttribute("mess", "ERROR Information NOT Changed");
+							model.addAttribute("mess", "Information NOT Changed due to Error");
+							// Required code to go back to DocumentEdit
 							
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
 							
@@ -918,17 +929,71 @@ public class HomeController {
 							model.addAttribute("firstName", firstNameStore);
 							model.addAttribute("Useremail", Useremail);
 							// Needed for Customer JSP EL tags
+							
 							return "Admin/DocumentEdit";
 						}
+					}
+					else
+					{
+						model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+						model.addAttribute("registerUser", new RegisterUser());
+								
+						return "index";
+					}
 				}
 				
 //-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
 
-	
+	// Client side Form View
+				@RequestMapping("/test/{Useremail}")
+				public String goFormView(Model model, @PathVariable String Useremail) {
+					
+						if ((dao.getRole(Useremail).get(0)).equals("Client")) {
+							
+						List<LawyerDocEdit> docPrice = dao.getDocPrice();
+						
+						model.addAttribute("listOfAllForms", docPrice);
+						
+						
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						// Needed for Customer JSP EL tags
+						
+						return "Customer/test";
+						}
+						else
+						{
+							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+							model.addAttribute("registerUser", new RegisterUser());
+							
+							return "index";
+						}
+				}
+				
+				@RequestMapping("/testSubmit/{Useremail}")
+				public String goFormSubmit(Model model, @PathVariable String Useremail, List<String> legalForm) {
+					
+					for(int i=0;i<legalForm.size();i++){
+					    System.out.println(legalForm.get(i));
+					} 
+						
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						// Needed for Customer JSP EL tags
+						
+						return "Customer/test";
+						
+				}
+				
 	
 //----**** ABOVE this PARAS Code*******---------------------------------
 
-	
 	
 	
 	
@@ -945,9 +1010,18 @@ public class HomeController {
 	{
 		
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
+
+		List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+		}
 		model.addAttribute("filelist", filelist);
-		
+		model.addAttribute("fileinfo", fileinfo);
 		model.addAttribute("presentDirectory", folderName);
 		
 		return  "Admin/Files";
@@ -969,15 +1043,32 @@ public class HomeController {
         }
 
         // Get the file and save it somewhere
-		String dir = dao.getDirPath( folderName );
-		dao.addFile(file, dir);
-
-		model.addAttribute("message",
-		        "You successfully uploaded '" + file.getOriginalFilename() + "'");
-		
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
 		// showing the list of file in the folder
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+		}		
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
@@ -1059,6 +1150,3 @@ public class HomeController {
 	
 	
 }
-	
-	
-	
