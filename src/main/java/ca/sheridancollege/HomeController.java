@@ -322,6 +322,10 @@ public class HomeController {
 			}
 			else if((dao.getRole(email).get(0)).equals("Client"))
 			{
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();
+				
+				model.addAttribute("listOfAllForms", docPrice);
+				
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
@@ -577,6 +581,10 @@ public class HomeController {
 		
 		if((dao.getRole(Useremail).get(0)).equals("Client")) {
 		
+			List<LawyerDocEdit> docPrice = dao.getDocPrice();
+			
+			model.addAttribute("listOfAllForms", docPrice);
+			
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
@@ -612,12 +620,29 @@ public class HomeController {
 	@RequestMapping("/form/{Useremail}")
 	public String goFormPage(Model model, @PathVariable String Useremail) {
 		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		return "Customer/form";
+		if ((dao.getRole(Useremail).get(0)).equals("Client")) {
+			
+			List<LawyerDocEdit> docPrice = dao.getDocPrice();
+			
+			model.addAttribute("listOfAllForms", docPrice);
+			
+			
+			// Regular Customer JSP EL tags needed code
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			// Needed for Customer JSP EL tags
+			
+			return "Customer/form";
+			}
+			else
+			{
+				model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 	}
 	
 //-----------------*******End OF New Customer Side UI*********---------------------------------
@@ -625,35 +650,46 @@ public class HomeController {
 	
 //-----------------*******Legal Form STOP*********---------------------------------
 	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
-	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm, @RequestParam String legalFormType) {
+	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm) {
 			
-			//System.out.println("Test --> "+legalForm);
-			for(int i=0; i <= legalForm.size()-1; i++)
-			{
-				String testForm = legalForm.get(i);
-				
-				String testDoc = legalFormType;
-				String testPrice = testForm.substring(testForm.length()-2, testForm.length());
-				String formType = testForm.substring(0, testForm.length()-2);
-				
-				
-				System.out.println("Test Loop-->" + " " + testPrice+ " " + testDoc + " " + formType);
-				
-				dao.addPayment(new Payment(Useremail, testDoc, testPrice, formType));
-			}
+		String doc;
+		String form;
+		String price;
+		
+		
+		for(int i=0; i <= legalForm.size()-1; i++)
+		{
+			String testForm = legalForm.get(i);
 			
-			List<Payment> pay = dao.getPaymentInfo(Useremail);
-			model.addAttribute("paymentData", pay);
+			int firstIndex = testForm.indexOf("^");
+			int secondIndex = testForm.indexOf("^", firstIndex + 1);
 			
+			System.out.println(firstIndex);
+			System.out.println(secondIndex);
+			
+			doc = testForm.substring(0, firstIndex);
+			form = testForm.substring(firstIndex+1 , secondIndex);
+			price = testForm.substring(secondIndex+1, testForm.length());
+			
+			
+			System.out.println("Test Loop-->" + " " + doc+ " " + form + " " + price);
+			
+			dao.addPayment(new Payment(Useremail, doc, form, price));
+		}
+			
+		
+			List<LawyerDocEdit> docPrice = dao.getDocPrice();
+			
+			model.addAttribute("listOfAllForms", docPrice);
+			
+			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
+			// Needed for Customer JSP EL tags
 			
-
-			model.addAttribute("requestMessage", "You have successfully Requested those Legal Form");
-			
-			return "Customer/Payment";
+			return "Customer/form";
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
@@ -976,9 +1012,30 @@ public class HomeController {
 				@RequestMapping("/testSubmit/{Useremail}")
 				public String goFormSubmit(Model model, @PathVariable String Useremail,@RequestParam List<String> legalForm) {
 					
-					for(int i=0;i<legalForm.size();i++){
-					    System.out.println(legalForm.get(i));
-					} 
+					String doc;
+					String form;
+					String price;
+					
+					
+					for(int i=0; i <= legalForm.size()-1; i++)
+					{
+						String testForm = legalForm.get(i);
+						
+						int firstIndex = testForm.indexOf("^");
+						int secondIndex = testForm.indexOf("^", firstIndex + 1);
+						
+						System.out.println(firstIndex);
+						System.out.println(secondIndex);
+						
+						doc = testForm.substring(0, firstIndex);
+						form = testForm.substring(firstIndex+1 , secondIndex);
+						price = testForm.substring(secondIndex+1, testForm.length());
+						
+						
+						System.out.println("Test Loop-->" + " " + doc+ " " + form + " " + price);
+						
+						dao.addPayment(new Payment(Useremail, doc, form, price));
+					}
 						
 						// Regular Customer JSP EL tags needed code
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -1019,7 +1076,7 @@ public class HomeController {
 		} catch (Exception e) {		
 			// TODO Auto-generated catch block		
 			e.printStackTrace();		
-		}
+		} 
 		model.addAttribute("filelist", filelist);
 		model.addAttribute("fileinfo", fileinfo);
 		model.addAttribute("presentDirectory", folderName);
