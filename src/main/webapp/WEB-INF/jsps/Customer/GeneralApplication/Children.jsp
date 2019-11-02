@@ -308,7 +308,7 @@ color:white;
 						<form:input path="childName1"/>
 					</td>
 					<td>
-						<form:input path="dobChild1"/>
+						<form:input type="date" path="dobChild1"/>
 					</td>
 					<td>
 						<form:input path="livingChild1"/>
@@ -325,7 +325,7 @@ color:white;
 						<form:input path="childName2"/>
 					</td>
 					<td>
-						<form:input path="dobChild2"/>
+						<form:input type="date" path="dobChild2"/>
 					</td>
 					<td>
 						<form:input path="livingChild2"/>
@@ -342,7 +342,7 @@ color:white;
 						<form:input path="childName3"/>
 					</td>
 					<td>
-						<form:input path="dobChild3"/>
+						<form:input type="date" path="dobChild3"/>
 					</td>
 					<td>
 						<form:input path="livingChild3"/>
@@ -359,7 +359,7 @@ color:white;
 						<form:input path="childName4"/>
 					</td>
 					<td>
-						<form:input path="dobChild4"/>
+						<form:input type="date" path="dobChild4"/>
 					</td>
 					<td>
 						<form:input path="livingChild4"/>

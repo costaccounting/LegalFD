@@ -292,7 +292,7 @@ color:white;
 						Full Legal Name:
 					</td>
 					<td>
-						<form:input path="spouseName"/>
+						<form:input type="date" path="spouseName"/>
 					</td>
 				</tr>
 				<tr>
@@ -316,7 +316,7 @@ color:white;
 						Place of Birth:
 					</td>
 					<td>
-						<form:input path="spousePlaceOfBirth"/>
+						<form:input type="date" path="spousePlaceOfBirth"/>
 					</td>
 				</tr>
 				<tr>
@@ -428,7 +428,7 @@ color:white;
 						Date:
 					</td>
 					<td>
-						<form:input path="spouseDivorceDate"/>
+						<form:input type="date" path="spouseDivorceDate"/>
 					</td>
 				</tr>
 				<tr>

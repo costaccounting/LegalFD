@@ -305,7 +305,7 @@ color:white;
 						Date of Birth:
 					</td>
 					<td>
-						<form:input path="dateOfBirth"/>
+						<form:input type="date" path="dateOfBirth"/>
 					</td>
 				</tr>
 				<tr>
@@ -433,7 +433,7 @@ color:white;
 						Date:
 					</td>
 					<td>
-						<form:input path="date"/>
+						<form:input type="date" path="date"/>
 					</td>
 				</tr>
 				<tr>

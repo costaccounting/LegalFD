@@ -291,7 +291,7 @@ color:white;
 					</td>
 					
 					<td>
-						<form:input path="marriageDate"/>
+						<form:input type="date" path="marriageDate"/>
 					</td>
 				</tr>
 				
@@ -301,7 +301,7 @@ color:white;
 					</td>
 					
 					<td>
-						<form:input path="cohabitationDate"/>
+						<form:input type="date" path="cohabitationDate"/>
 					</td>
 				</tr>
 				<tr>
@@ -317,7 +317,7 @@ color:white;
 						Date of Separation:
 					</td>
 					<td>
-						<form:input path="separationDate"/>
+						<form:input type="date" path="separationDate"/>
 					</td>
 				</tr>
 				<tr>

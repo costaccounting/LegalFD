@@ -24,6 +24,10 @@ public class HomeController {
 	Dao dao = new Dao();
 	GeneralFormDao generalDao = new GeneralFormDao();
 	
+	// Global Variable for Yes and No
+	List<String> list = Arrays.asList(new String[]{"Yes", "No"});
+	
+	
 // ****  Navigation between Pages START ***
 	
 	@RequestMapping("/")
@@ -114,6 +118,7 @@ public class HomeController {
 	public String navMaritalInfo(Model model, @PathVariable String Useremail) {
 		
 		
+				model.addAttribute("optionsList", list);
 				// Regular Code to send to General Application sos that Forms will work properly
 				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 				// Needed in order to work with general application form
