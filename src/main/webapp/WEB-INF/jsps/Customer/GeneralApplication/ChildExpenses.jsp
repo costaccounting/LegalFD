@@ -27,9 +27,6 @@
 <body>
 <div type="hidden" name ="email" value="${Useremail}"></div>
 
-	<h1>General Information Application Form</h1>
-	
-	
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
@@ -71,7 +68,17 @@
 		</div>
 	</nav>
   	
-  	<div class="container">
+  
+  	<div class="card-header" id="cardHeader">
+
+			<h2>
+				 General Information Application Form
+			</h2>
+
+		</div>
+		<br>
+		
+	<div class="container">
       <div class="row">
         <div class="col-md-3">
           <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">

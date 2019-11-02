@@ -67,6 +67,16 @@
 			</div>
 		</div>
 	</nav>
+	
+	<div class="card-header" id="cardHeader">
+
+			<h2>
+				 General Information Application Form
+			</h2>
+
+		</div>
+		<br>
+	
   	<div class="container">
       <div class="row">
         <div class="col-md-3">

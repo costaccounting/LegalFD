@@ -24,8 +24,6 @@
 </head>
 <body>
 <div type="hidden" name ="email" value="${Useremail}"></div>
-
-	<h1>General Information Application Form</h1>
 	
 	
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -68,6 +66,16 @@
 			</div>
 		</div>
 	</nav>
+	
+	<div class="card-header" id="cardHeader">
+
+			<h2>
+				 General Information Application Form
+			</h2>
+
+		</div>
+		<br>
+	
   	<div class="container">
       <div class="row">
         <div class="col-md-3">
