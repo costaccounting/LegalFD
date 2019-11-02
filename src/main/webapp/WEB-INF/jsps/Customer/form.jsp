@@ -292,8 +292,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="0" end="6" var="list" items="${listOfAllForms}">
@@ -335,8 +335,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="7" end="20" var="list" items="${listOfAllForms}">
@@ -379,8 +379,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="21" end="31" var="list" items="${listOfAllForms}">
@@ -423,8 +423,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="32" end="39" var="list" items="${listOfAllForms}">
@@ -466,8 +466,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="40" end="47" var="list" items="${listOfAllForms}">
@@ -509,8 +509,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="48" end="54" var="list" items="${listOfAllForms}">
@@ -552,8 +552,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="55" end="71" var="list" items="${listOfAllForms}">
@@ -595,8 +595,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="72" end="80" var="list" items="${listOfAllForms}">
@@ -638,8 +638,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="81" end="95" var="list" items="${listOfAllForms}">
@@ -681,8 +681,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="96" end="114" var="list" items="${listOfAllForms}">
@@ -724,8 +724,8 @@ color:white;
 						<div class="card-body">
 							<table>
 								<tr>
+									<th> </th>
 									<th>Form Name</th>
-
 									<th>Price</th>
 								</tr>
 								<c:forEach begin="115" end="152" var="list" items="${listOfAllForms}">

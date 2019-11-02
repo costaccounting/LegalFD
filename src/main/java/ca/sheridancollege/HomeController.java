@@ -664,15 +664,9 @@ public class HomeController {
 			int firstIndex = testForm.indexOf("^");
 			int secondIndex = testForm.indexOf("^", firstIndex + 1);
 			
-			System.out.println(firstIndex);
-			System.out.println(secondIndex);
-			
 			doc = testForm.substring(0, firstIndex);
 			form = testForm.substring(firstIndex+1 , secondIndex);
 			price = testForm.substring(secondIndex+1, testForm.length());
-			
-			
-			System.out.println("Test Loop-->" + " " + doc+ " " + form + " " + price);
 			
 			dao.addPayment(new Payment(Useremail, doc, form, price));
 		}
@@ -689,7 +683,7 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
 			
-			return "Customer/form";
+			return "Customer/Payment";
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
