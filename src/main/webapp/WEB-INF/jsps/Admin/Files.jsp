@@ -95,17 +95,6 @@
 
 			<div class="card" id="cardForm">
 				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-warning">Search</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" id="cardForm">
-				<div class="card-header">
 
 					<div style="display: flex">
 						<c:forEach var="Users" items="${allDataForLawyer}">
