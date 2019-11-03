@@ -27,7 +27,7 @@ public class Payment {
 	}
 
 
-	public Payment(String userEmail, String documentType, String documentAmount, String formType) {
+	public Payment(String userEmail, String documentType, String formType, String documentAmount) {
 		this.userEmail = userEmail;
 		this.documentType = documentType;
 		this.documentAmount = documentAmount;
