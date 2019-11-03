@@ -17,6 +17,57 @@
     crossorigin="anonymous">
 <title>Edit Form/Document</title>
 </head>
+<style>
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
+}
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 950px;
+	margin-top: 5px;
+}
+.card-header {
+	background-color: #555;
+	color: white;
+	width: 1240px;
+	margin-top: 30px;
+	margin-left: 20px;
+	display: flex;
+}
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 95%;
+	margin-top: 20px;
+	margin-left: 30px;
+	border-collapse: collapse;
+}
+
+th {
+	color: white;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+tr:hover {
+	background-color: #ddd;
+}
+
+th {
+	background-color: dimgrey;
+}
+
+</style>
 <body>
 <div type="hidden" name ="Useremail" value="${Useremail}"></div>
 
@@ -46,7 +97,7 @@
 					</a>
 						<div class="dropdown-menu">
 							
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							 <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -59,16 +110,20 @@
 		</div>
 	</nav>
 	
-	<div class="card-header" id="cardHeader">
+	<div class="card-header">
 
 			<h2>
-				 General Information Application Form Edit
+				 Document/Form Price
 			</h2>
+			<a href="<c:url value="/dashboard/${Useremail}"/>"
+			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
+			Back To Dashboard
+		</a>
 
 		</div>
 		<br>
 		
-		<div class="container">
+		<%-- <div class="container">
       <div class="row">
         <div class="col-md-3">
           <a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light btn-block">
@@ -76,16 +131,13 @@
           </a>
         </div>
       </div>
-     </div>
+     </div> --%>
   	
-<br>
-<br>
-<br>
+
   														
-       		<div class="card" id="cardForm">
-				<div class="card-header">
-					<table class="table table-striped" id="myTable">
-						<thead class="thead-dark">
+       		
+					<table>
+						
 							<tr>
 								<th>Document Type</th>
 								<th>Form Name</th>
@@ -93,8 +145,8 @@
 								<th>Sale</th>
 								<th>Edit Price</th>
 							</tr>
-						</thead>
-						<tbody>
+						
+						
 
 							<c:forEach var="list" items="${listOfAllForms}">
 								<tr>
@@ -115,21 +167,14 @@
 									<td>
 									<input class="btn btn-outline-success" type="submit" value="Edit" />
 									</form>
-									
-								<!-- 	<a
-										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
-										class="btn btn-outline-success"> 
-											<i class="fas fa-pencil-alt"></i> Edit
-										</a>
-										 -->
+								
 									</td>
 								</tr>
 							</c:forEach>
 
-						</tbody>
+						
 					</table>
-				</div>
-			</div>
+				
         	
     	
 

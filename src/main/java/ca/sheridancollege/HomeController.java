@@ -372,7 +372,6 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
 				
@@ -384,13 +383,25 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
+				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
-				
-				
 				return "Lawyer/Lawyer";
 			}
+			else if((dao.getRole(Useremail).get(0)).equals("Client")) {
+				
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();
+				
+				model.addAttribute("listOfAllForms", docPrice);
+				
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Customer/form";
+			}
 			else {
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
@@ -688,6 +699,22 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
+	@RequestMapping("/bookOfAuth/{Useremail}")
+	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
+			
+		
+		
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			
+			
+			return "Customer/Payment";
+	}
+	
 	@RequestMapping("/paymentPage/{Useremail}")
 	public String goViewCart(Model model, @PathVariable String Useremail) {
 			
@@ -709,7 +736,7 @@ public class HomeController {
 	@RequestMapping("/pay/{id}/{Useremail}")
 	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable int id) {
 			
-			dao.deleteOrderById(id);
+			//dao.deleteOrderById(id);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
@@ -922,7 +949,7 @@ public class HomeController {
 				}
 				
 				@RequestMapping("/editForm")
-				public String goEditPriceForm(Model model, @RequestParam int id,@RequestParam double price,@RequestParam String sale ,@RequestParam String Useremail) {
+				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam int id, @RequestParam double price, @RequestParam String sale) {
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						

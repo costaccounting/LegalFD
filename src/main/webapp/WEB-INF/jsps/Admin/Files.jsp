@@ -26,6 +26,7 @@
 </head>
 <body>
 
+<div type="hidden" name="email" value="${Useremail}"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
@@ -66,22 +67,17 @@
 		</div>
 	</nav>
 	<section id="actions" class="py-4 ml-2 bg-light">
-
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
 				<h4>Dashboard</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+			
+			<li id="newLi"><a href="/dashboard/${Useremail}">List of User</a></li>
+			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
+			<li id="newLi"><a href="#">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
@@ -93,17 +89,6 @@
 		</div>
 		<div id="accordion">
 
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-warning">Search</button>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="card" id="cardForm">
 				<div class="card-header">
 

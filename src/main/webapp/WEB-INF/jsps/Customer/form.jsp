@@ -246,25 +246,17 @@ color:white;
 				<h4>Services</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/document/${Useremail}" />
+			
 			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
-			<c:url var="sh" value="/form/${Useremail}" />
+			
 			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
-			<c:url var="sh" value="/uploadDoc/${Useremail}" />
+			
 			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
 
-<!-- 
-		<section id="actions" class="py-4 mb-4 bg-light">
-		  	<div class="alert alert-success">
-		  		<p>${requestMessage}</p>
-			</div>
-		</section>
-	 -->
+
 	<form action="/legalDocumentFormMulti/${Useremail}">
 
 
@@ -764,11 +756,11 @@ color:white;
 			value="Submit" id="submit1"> <br> <br>
 	</form>
 
-	<button class="open-button" onclick="openForm()">Chat</button>
+	<button class="open-button" onclick="openForm()">Contact</button>
 
 	<div class="chat-popup" id="myForm">
 		<form class="form-container" action="mailto:shahriya199907@gmail.com" method="post" enctype="text/plain">
-			<h1>Chat</h1>
+			<h1>Contact</h1>
 
 			<label for="msg"><b>Message</b></label>
 			<textarea placeholder="Type message.." name=${Useremail } required></textarea>

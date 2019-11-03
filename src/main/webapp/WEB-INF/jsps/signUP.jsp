@@ -30,6 +30,9 @@
   border-bottom: #7b68ee 3px solid;
   opacity: 0.8;
 }
+.navbar-brand{
+font-size: 30px;
+}
   </style>
 
 </head>

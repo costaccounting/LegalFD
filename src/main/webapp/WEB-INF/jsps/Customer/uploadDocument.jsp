@@ -23,6 +23,7 @@
 </head>
 <body>
 
+<div type="hidden" name="email" value="${Useremail}"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
@@ -62,6 +63,7 @@
 			</div>
 		</div>
 	</nav>
+	<!-- ACTIONS -->
 	<section id="actions" class="py-4 ml-2 bg-light">
 
 		<ul id="newUl">
@@ -69,16 +71,14 @@
 				<h4>Services</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/document/${Useremail}" />
+			
 			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
-			<c:url var="sh" value="/form/${Useremail}" />
-			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
-			<c:url var="sh" value="/uploadDoc/${Useremail}" />
-			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			
+			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
+			
+			<li id="newLi"><a class="active" href="/uploadDoc/${Useremail}">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
 
 	<div class="container" id="newContainer">
