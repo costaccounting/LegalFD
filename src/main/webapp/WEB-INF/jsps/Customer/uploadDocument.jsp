@@ -78,7 +78,7 @@
 			
 			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
 			
-			<li id="newLi"><a class="active" href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<li id="newLi"><a class="active" href="/uploadCustomer/${presentDirectory}">Upload Documents</a></li>
 
 		</ul>
 	</section>
@@ -172,7 +172,7 @@
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/upload/<c:out value= "${presentDirectory}" />"
+				action="/uploadCustomer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
 				<input type="file" name="file" type="button"
 					class="btn btn-primary btn-lg" /><br /> <br /> <input

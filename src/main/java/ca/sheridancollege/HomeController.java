@@ -1070,7 +1070,7 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/uploadingDoc/{folder_name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}", method = RequestMethod.GET)
 	public String getFilesFromLawyer(
 			Model model,
 			@PathVariable("folder_name") String folderName, 	
@@ -1320,45 +1320,6 @@ public class HomeController {
 //-----------------File View and Add --	END---------------------------------
 
 	
-	@RequestMapping(value = "/uploadDoc/{useremail}" , method = RequestMethod.GET)
-	public String goUploadDocumentClent(Model model, @PathVariable String useremail)  {
-	
-		List<File> filelist = dao.getFileList(dao.getDirPath(useremail));
-
-		List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-			
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					
-				}		
-			}		
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-
-			e.printStackTrace();		
-		} 
-		model.addAttribute("filelist", filelist);
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", useremail);
-		
-		// Regular Customer JSP EL tags needed code
-		String firstNameStore = dao.getFirstName(useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", useremail);
-		// Needed for Customer JSP EL tags
-		
-		return "Customer/uploadDocument";
-	}
 	
 //----**** ABOVE this PRODIP Code*******---------------------------------
 			
