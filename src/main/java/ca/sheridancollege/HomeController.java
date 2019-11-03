@@ -230,11 +230,6 @@ public class HomeController {
 
 			return "Lawyer/Lawyer";
 		}
-		@RequestMapping(value = "uploadngDoc", method = RequestMethod.GET)
-		public String uploadingDoc(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Lawyer/uploadingDoc";
-		}
 		
 		
 		
@@ -1110,11 +1105,14 @@ public class HomeController {
 			for (File f : filelist) {		
 			
 				try {
-					fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					//fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					System.out.println("bad");
+					
 				}		
 			}		
 		} catch (Exception e) {		
@@ -1128,6 +1126,44 @@ public class HomeController {
 		model.addAttribute("presentDirectory", folderName);
 		
 		return  "Admin/Files";
+			
+	  
+	}
+	@RequestMapping(value = "/uploadingDoc/{folder_name}", method = RequestMethod.GET)
+	public String getFilesFromLawyer(
+			Model model,
+			@PathVariable("folder_name") String folderName, 	
+			HttpServletResponse response) 	
+	{
+		
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+
+		List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+			
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					
+				}		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+
+			e.printStackTrace();		
+		} 
+		model.addAttribute("filelist", filelist);
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		
+		return  "Lawyer/uploadingDoc";
 			
 	  
 	}
@@ -1230,14 +1266,31 @@ public class HomeController {
 	public String goUploadDocumentClent(Model model, @PathVariable String useremail)  {
 	
 		List<File> filelist = dao.getFileList(dao.getDirPath(useremail));
-		
+
+		List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
+			
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					
+				}		
+			}		
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+
+			e.printStackTrace();		
+		} 
 		model.addAttribute("filelist", filelist);
+		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", useremail);
-		// Required code for JSP
-		String firstNameStore = dao.getFirstName(useremail).get(0);
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", useremail);
 		
 		
 		return "Customer/uploadDocument";
