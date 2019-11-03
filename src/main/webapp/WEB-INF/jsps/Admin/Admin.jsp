@@ -148,7 +148,7 @@
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			<li id="newLi"><a href="#">Upload Documents</a></li>
+			<!-- <li id="newLi"><a href="#">Upload Documents</a></li> -->
 
 		</ul>
 	</section>
