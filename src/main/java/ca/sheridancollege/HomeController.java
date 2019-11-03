@@ -1239,7 +1239,15 @@ public class HomeController {
 			ex.printStackTrace();
 		}
 			
-						
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(folderName).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", folderName);
+		// Needed for Customer JSP EL tags
+		
+	    
+	    
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
@@ -1293,6 +1301,14 @@ public class HomeController {
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
 		System.out.println(fileinfo);
+		
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(folderName).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", folderName);
+		// Needed for Customer JSP EL tags
+
 		
         return "Lawyer/uploadingDoc";
     }
@@ -1377,6 +1393,13 @@ public class HomeController {
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
 		System.out.println(fileinfo);
+		
+		// Regular Customer JSP EL tags needed code
+				String firstNameStore = dao.getFirstName(folderName).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", folderName);
+				// Needed for Customer JSP EL tags
 		
         return "Customer/uploadDocument";
     }
