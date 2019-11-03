@@ -1185,6 +1185,120 @@ public class HomeController {
 	    List<String[]> fileinfo = new ArrayList<String[]>();		
 		try {		
 			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		System.out.println(fileinfo);
+		
+        return "Admin/Files";
+    }
+	@PostMapping("/uploadCustomer/{folder_name}") // //new annotation since 4.3
+    public String singleFileUploadCustomer(
+    		Model model,
+    		@RequestParam("file") MultipartFile file,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        // Get the file and save it somewhere
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
+		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+	    try {		
+			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		System.out.println(fileinfo);
+		
+        return "Customer/uploadDocument";
+    }
+	@PostMapping("/uploadLawyer/{folder_name}") // //new annotation since 4.3
+    public String singleFileUploadLawyer(
+    		Model model,
+    		@RequestParam("file") MultipartFile file,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        // Get the file and save it somewhere
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
+		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
 				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
 			}		
 		} catch (Exception e) {		
@@ -1199,8 +1313,11 @@ public class HomeController {
 		model.addAttribute("filelist", filelist);
 		System.out.println(fileinfo);
 		
-        return "Admin/Files";
+        return "Lawyer/uploadingDoc";
     }
+
+	
+	
 	@RequestMapping(value = "/download", method = RequestMethod.POST )
 	public void FileSystemResource (
 			

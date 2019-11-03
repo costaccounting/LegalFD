@@ -159,7 +159,7 @@
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/upload/<c:out value= "${presentDirectory}" />"
+				action="/uploadCustomer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
 				<input type="file" name="file" type="button" class="btn btn-primary btn-lg"/><br /> <br /> <input
 					type="submit" value="Submit" />
