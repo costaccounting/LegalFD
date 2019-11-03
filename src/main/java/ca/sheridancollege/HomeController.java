@@ -958,14 +958,18 @@ public class HomeController {
 				}
 				
 				@RequestMapping("/editForm")
-				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam int id, @RequestParam double price, @RequestParam String sale) {
+				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam String id, @RequestParam String price, @RequestParam String sale) {
+					
+					int idDB = Integer.parseInt(id);
+					double priceDB = Double.parseDouble(price);
+					
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
-						if (dao.editFormPrice(id, price, sale) == true)
+						if (dao.editFormPrice(idDB, priceDB, sale) == true)
 						{	
 					
-							model.addAttribute("mess", "Information Successfully Changed");
+							model.addAttribute("message", "Information Successfully Changed");
 						// Required code to go back to DocumentEdit
 						
 						List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -1292,6 +1296,12 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", useremail);
 		
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", useremail);
+		// Needed for Customer JSP EL tags
 		
 		return "Customer/uploadDocument";
 	}
