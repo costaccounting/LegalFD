@@ -235,8 +235,8 @@ th {
 		<tr>
 
 			<th>Document Category</th>
-			<th>Amount</th>
 			<th>Form Type</th>
+			<th>Amount</th>
 			<th>Delete Request</th>
 		</tr>
 		<c:forEach var="pay" items="${paymentData}">

@@ -275,26 +275,28 @@ color:white;
 			<h2>
 				<i class="fas fa-folder"></i> Legal Document
 			</h2>
+		
+		<div class="alert alert-success" role="alert">
+  			${message}
 		</div>
+			
+		</div>
+		
 		<div class="card-columns">
 			<div class="card" id="cardBody" style="width: 20rem;">
 				<div class="card-body">
 					<h4 class="card-title">Book of Authority</h4>
 					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text"> Description About it</p>
-					<c:url var="MainPage"
-						value="/MainPage/${Useremail}/${UserPassword}" />
-					<a class="btn btn-outline-info" href="${MainPage}">Request</a>
+					<p class="card-text"> Description About it - CAD$50</p>
+					<a class="btn btn-outline-info" href="/bookOfAuth/${Useremail}">Request</a>
 				</div>
 			</div>
 			<div class="card" id="card2" style="width: 20rem;">
 				<div class="card-body">
 					<h4 class="card-title">Factum</h4>
 					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text">Description About it</p>
-					<c:url var="MainPage"
-						value="/MainPage/${Useremail}/${UserPassword}" />
-					<a class="btn btn-outline-info" href="${MainPage}">Request</a>
+					<p class="card-text">Description About it - CAD$55</p>
+					<a class="btn btn-outline-info" href="/factum/${Useremail}">Request</a>
 				</div>
 			</div>
 		</div>

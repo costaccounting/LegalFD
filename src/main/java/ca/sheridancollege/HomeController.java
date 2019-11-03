@@ -697,17 +697,31 @@ public class HomeController {
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
 			
+			dao.addPayment(new Payment(Useremail, "Book of Authority", "50.00"));
 		
-		
+			model.addAttribute("message", "Book of Authority requested Successfully");
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
+			return "Customer/document";
+	}
+	
+	@RequestMapping("/factum/{Useremail}")
+	public String goFactum(Model model, @PathVariable String Useremail) {
 			
+		dao.addPayment(new Payment(Useremail, "Factum", "55.00"));
 			
-			return "Customer/Payment";
+		model.addAttribute("message", "Factum requested Successfully");
+		
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Customer/document";
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
