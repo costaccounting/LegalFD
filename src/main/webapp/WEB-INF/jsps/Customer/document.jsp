@@ -259,16 +259,14 @@ color:white;
 				<h4>Services</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/document/${Useremail }" />
-			<li id="newLi"><a class="active" href=${sh }>Legal Documents</a></li>
-			<c:url var="sh" value="/form/${Useremail }" />
-			<li id="newLi"><a href=${sh }>Legal Forms</a></li>
-			<c:url var="sh" value="/uploadDoc" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+			
+			<li id="newLi"><a class="active" href="/document/${Useremail}">Legal Documents</a></li>
+			
+			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
+			
+			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
 
 	<div class="container" id="newContainer">
