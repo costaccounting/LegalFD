@@ -764,11 +764,11 @@ color:white;
 			value="Submit" id="submit1"> <br> <br>
 	</form>
 
-	<button class="open-button" onclick="openForm()">Chat</button>
+	<button class="open-button" onclick="openForm()">Contact</button>
 
 	<div class="chat-popup" id="myForm">
 		<form class="form-container" action="mailto:shahriya199907@gmail.com" method="post" enctype="text/plain">
-			<h1>Chat</h1>
+			<h1>Contact</h1>
 
 			<label for="msg"><b>Message</b></label>
 			<textarea placeholder="Type message.." name=${Useremail } required></textarea>

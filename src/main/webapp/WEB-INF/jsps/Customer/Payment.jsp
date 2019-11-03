@@ -52,11 +52,50 @@ body {
 	color: white;
 }
 
-#newLi a:hover:not (.active ) {
-	background-color: #555;
-	color: white;
-}
+#newLi
 
+ 
+
+a
+
+
+:hover
+
+
+:not
+
+ 
+
+(
+.active
+
+ 
+
+)
+{
+background-color
+
+
+:
+
+ 
+
+#555
+
+
+;
+color
+
+
+:
+
+ 
+
+white
+
+
+;
+}
 #navbarbrand {
 	display: block;
 	text-align: center;
@@ -77,6 +116,7 @@ body {
 	width: 1240px;
 	margin-top: 30px;
 	margin-left: 20px;
+	display: flex;
 }
 
 table {
@@ -86,6 +126,10 @@ table {
 	margin-top: 20px;
 	margin-left: 30px;
 	border-collapse: collapse;
+}
+
+th {
+	color: white;
 }
 
 td, th {
@@ -114,6 +158,14 @@ th {
 #navContainer {
 	width: 2200px;
 }
+
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 950px;
+	margin-top: 5px;
+}
+}
 </style>
 
 </head>
@@ -125,7 +177,7 @@ th {
 
 
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
 			</i> LegalFD</a>
@@ -167,24 +219,21 @@ th {
 	</nav>
 
 
-			<div class="container">
-		      <div class="row">
-		        <div class="col-md-3">
-		          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
-		            <i class="fas fa-arrow-left"></i> Back To Dashboard
-		          </a>
-		        </div>
-		      </div>
-		     </div>
-	
+
+
 	<div class="card-header">
 
 		<h2>Payment</h2>
+
+		<a href="<c:url value="/ClientSide/${Useremail}"/>"
+			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
+			Back To Dashboard
+		</a>
 	</div>
 
 	<table>
 		<tr>
-			
+
 			<th>Document Category</th>
 			<th>Amount</th>
 			<th>Form Type</th>
@@ -192,7 +241,7 @@ th {
 		</tr>
 		<c:forEach var="pay" items="${paymentData}">
 			<tr>
-				
+
 				<td>${pay.documentType}</td>
 				<td>${pay.formType}</td>
 				<td>${pay.documentAmount}</td>
@@ -209,7 +258,7 @@ th {
 	</table>
 
 
-	<form action="/pay/${pay.id}/${Useremail}">
+	<%-- <form action="/pay/${pay.id}/${Useremail}">
 
 		<input type="radio" name="paymentMethod" value="PayPal" checked>
 		Pay Pal <br> <input type="radio" name="paymentMethod"
@@ -217,7 +266,113 @@ th {
 			name="paymentMethod" value="Credit Card"> Credit Card <br>
 
 		<input type="submit" value="Pay Amount"> <br>
-	</form>
+	</form> --%>
+
+	<div class="container py-5">
+
+		<form action="/pay/${pay.id}/${Useremail}">
+
+			<div class="row">
+				<div class="col-lg-7 mx-auto">
+					<div class="bg-white rounded-lg shadow-sm p-5">
+						<!-- Credit card form tabs -->
+						<ul role="tablist"
+							class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+							<li class="nav-item"><a data-toggle="pill"
+								href="#nav-tab-card" class="nav-link active rounded-pill"> <i
+									class="fa fa-credit-card"></i> Credit Card
+							</a></li>
+							<li class="nav-item"><a data-toggle="pill"
+								href="#nav-tab-paypal" class="nav-link rounded-pill"> <i
+									class="fa fa-paypal"></i> Paypal
+							</a></li>
+
+						</ul>
+						<!-- End -->
+
+
+						<!-- Credit card form content -->
+						<div class="tab-content">
+
+							<!-- credit card info-->
+							<div id="nav-tab-card" class="tab-pane fade show active">
+
+								<form role="form">
+									<div class="form-group">
+										<label for="username">Full name (on the card)</label> <input
+											type="text" name="username" placeholder="Jason Doe" required
+											class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="cardNumber">Card number</label>
+										<div class="input-group">
+											<input type="text" name="cardNumber"
+												placeholder="Your card number" class="form-control" required>
+											<div class="input-group-append">
+												<span class="input-group-text text-muted"> <i
+													class="fa fa-cc-visa mx-1"></i> <i
+													class="fa fa-cc-amex mx-1"></i> <i
+													class="fa fa-cc-mastercard mx-1"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="form-group">
+												<label><span class="hidden-xs">Expiration</span></label>
+												<div class="input-group">
+													<input type="number" placeholder="MM" name=""
+														class="form-control" required> <input
+														type="number" placeholder="YY" name=""
+														class="form-control" required>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group mb-4">
+												<label data-toggle="tooltip"
+													title="Three-digits code on the back of your card">CVV
+													<i class="fa fa-question-circle"></i>
+												</label> <input type="text" required class="form-control">
+											</div>
+										</div>
+
+
+
+									</div>
+									<button type="button"
+										class="subscribe btn btn-primary btn-block rounded-pill shadow-sm">
+										Confirm</button>
+								</form>
+							</div>
+							<!-- End -->
+
+							<!-- Paypal info -->
+							<div id="nav-tab-paypal" class="tab-pane fade">
+								<p>Paypal is easiest way to pay online</p>
+								<p>
+									<button type="button" class="btn btn-primary rounded-pill">
+										<i class="fa fa-paypal mr-2"></i> Log into my Paypal
+									</button>
+								</p>
+								<p class="text-muted">Lorem ipsum dolor sit amet,
+									consectetur adipisicing elit, sed do eiusmod tempor incididunt
+									ut labore et dolore magna aliqua.</p>
+							</div>
+							<!-- End -->
+
+							<!-- bank transfer info -->
+
+							<!-- End -->
+						</div>
+						<!-- End -->
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>

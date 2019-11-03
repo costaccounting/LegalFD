@@ -186,11 +186,11 @@ color:white;
 	<div type="hidden" name="password" value="${UserPassword}"></div>
 
 
-	<button class="open-button" onclick="openForm()">Chat</button>
+	<button class="open-button" onclick="openForm()">Contact</button>
 
 	<div class="chat-popup">
 		<form class="form-container" action="mailto:shahriya199907@gmail.com" method="post" enctype="text/plain">
-			<h1>Chat</h1>
+			<h1>Contact</h1>
 
 			<label for="msg"><b>Message</b></label>
 			<textarea placeholder="Type message.." name=${Useremail } required></textarea>
