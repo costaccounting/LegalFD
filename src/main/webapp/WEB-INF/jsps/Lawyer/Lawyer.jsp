@@ -114,8 +114,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
@@ -129,7 +129,7 @@
 					</a>
 						<div class="dropdown-menu">
 							
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -143,8 +143,7 @@
 	</nav>
 
 
-	<section id="actions" class="py-4 ml-2 bg-light">
-
+		<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
 				<h4>Dashboard</h4>
@@ -152,14 +151,10 @@
 			<br>
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/uploadngDoc" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
+			<li id="newLi"><a href="#">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
 
 	<div class="container" id="newContainer">
