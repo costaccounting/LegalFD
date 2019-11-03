@@ -36,6 +36,21 @@
 	margin-left: 20px;
 	display: flex;
 }
+#price{
+
+background-color: white;
+}
+
+#myInput {
+  
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 90%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
@@ -110,7 +125,7 @@ th {
 		</div>
 	</nav>
 	
-	<div class="card-header">
+	<div class="card-header" >
 
 			<h2>
 				 Document/Form Price
@@ -119,8 +134,21 @@ th {
 			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
 			Back To Dashboard
 		</a>
+		
 
 		</div>
+		
+		<div class="card" id="cardForm">
+				<div class="card-header" id="price">
+					<div class="input-group">
+						<input type="text" class="form-control" id="myInput"
+							placeholder="Search Users..." onkeyup="myFunction()">
+						
+
+						<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+					</div>
+				</div>
+			</div>
 		<br>
 		
 		<%-- <div class="container">
@@ -136,7 +164,7 @@ th {
 
   														
        		
-					<table>
+					<table id="myTable">
 						
 							<tr>
 								<th>Document Type</th>
@@ -175,7 +203,26 @@ th {
 						
 					</table>
 				
-        	
+        	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
     	
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
