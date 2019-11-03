@@ -101,6 +101,43 @@
 
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
+
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
+						<div class="dropdown-menu">
+							
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
+							</a>
+						</div></li>
+
+					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 	<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">

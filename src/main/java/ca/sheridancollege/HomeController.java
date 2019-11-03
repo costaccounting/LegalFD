@@ -401,7 +401,7 @@ public class HomeController {
 			return "Customer/form";
 			}
 			else {
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
