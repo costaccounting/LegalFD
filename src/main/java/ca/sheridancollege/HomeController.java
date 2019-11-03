@@ -280,7 +280,7 @@ public class HomeController {
 	public String goLogin(Model model, @RequestParam String email, @RequestParam String password) {
 		
 		
-		if(dao.getEmail(email).isEmpty()==false){
+			if(dao.getEmail(email).isEmpty()==false){
 			
 			System.out.println("Test o/p -->" + dao.userExist(email, password).isEmpty());
 			if(dao.userExist(email, password).isEmpty() == true)
