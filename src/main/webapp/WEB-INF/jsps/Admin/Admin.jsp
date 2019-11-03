@@ -172,10 +172,8 @@
 				<div class="card-header">
 					<div class="input-group">
 						<input type="text" class="form-control" id="myInput"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-info" id="myInput" onclick="myFunction()">Search</button>
-						</div>
+							placeholder="Search Users..." onkeyup="myFunction()">
+						
 
 						<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
 					</div>
