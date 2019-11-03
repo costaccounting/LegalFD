@@ -153,7 +153,7 @@
 			<c:url var="sh" value="/listUser" />
 			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
 			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+			<li id="newLi"><a href="#">Upload Documents</a></li>
 
 		</ul>
 
@@ -245,7 +245,7 @@
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/uploadingDocLawyer/<c:out value= "${presentDirectory}" />"
+				action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
 				<input type="file" name="file" type="button"
 					class="btn btn-primary btn-lg" /><br /> <br /> <input

@@ -1088,7 +1088,7 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}")
 	public String getFilesFromLawyer(
 			Model model,
 			@PathVariable("folder_name") String folderName, 	
