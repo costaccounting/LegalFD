@@ -20,7 +20,7 @@ import ca.sheridancollege.dao.*;
 @Controller
 public class HomeController {
 
-	Dao dao = new Dao();
+	private static Dao dao = new Dao();
 	GeneralFormDao generalDao = new GeneralFormDao();
 	
 	// Global Variable for Yes and No
