@@ -279,15 +279,18 @@ public class HomeController {
 	@RequestMapping("/login")
 	public String goLogin(Model model, @RequestParam String email, @RequestParam String password) {
 		
-		if(dao.getEmail(email).isEmpty())
-		{
-			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
-			model.addAttribute("registerUser", new RegisterUser());
+		
+		if(dao.getEmail(email).isEmpty()==false){
 			
-			return "index";
-		}
-		else {
-			if((dao.userExist(email, password)).equals("Admin"))
+			System.out.println("Test o/p -->" + dao.userExist(email, password).isEmpty());
+			if(dao.userExist(email, password).isEmpty() == true)
+			{
+				model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Details");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
+			else if((dao.userExist(email, password).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -298,7 +301,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.userExist(email, password)).equals("Client"))
+			else if((dao.userExist(email, password).get(0)).equals("Client"))
 			{
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
 				
@@ -312,7 +315,7 @@ public class HomeController {
 				
 				return "Customer/form";
 			}
-			else if((dao.userExist(email, password)).equals("Lawyer"))
+			else if((dao.userExist(email, password).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -324,13 +327,7 @@ public class HomeController {
 				
 				return "Lawyer/Lawyer";
 			}
-			else if((dao.userExist(email, password)).equals(null))
-			{
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
-				model.addAttribute("registerUser", new RegisterUser());
-				
-				return "index";
-			}
+			
 			else 
 			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
@@ -338,6 +335,19 @@ public class HomeController {
 				
 				return "index";
 			}
+		}
+		else if(dao.getEmail(email).isEmpty()==true)
+		{
+			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+		else {
+			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
 		}
 		
 	}
