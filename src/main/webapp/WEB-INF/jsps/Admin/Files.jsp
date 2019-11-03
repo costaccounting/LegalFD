@@ -138,7 +138,7 @@
 						
 						if( f.isDirectory() ){
 							out.print("<td>" + f.getName() + "</td>");
-							out.print("<td><a href='"+ f.getName() + "'>Next</a></td>");
+							out.print("<td><a href='files/"+ f.getName() + "'>Next</a></td>");
 							out.print("<td></td>");
 							out.print("<td></td>");
 							
@@ -150,7 +150,7 @@
 								if( listitem[0].equals(f.getName()) ){
 									out.print("<td>" + listitem[3] + "</td>");
 									out.print("<td>" +
-										"<form method='POST' action=''/download'>"+
+										"<form method='POST' action='/download'>"+
 										"<input type='hidden' name='filename' value='"+ f.getName()+ "'/>"+
 										"<input type='hidden' name='foldername' "+
 										" value='" + presentDirectory +"' /> "
@@ -168,57 +168,6 @@
 					}
 					
 				%>
-
-				<!--
-								<c:forEach items="${filelist}" var="file">
-					<tr>
-						<c:if test="${file.isDirectory()}">
-							<c:url var="fileURL" value="files/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
-							<td><a href="<c:out value="${fileURL}"/>">Next</a></td>
-							<td></td>
-							<td></td>
-
-						</c:if>
-						<c:if test="${file.isFile()}">
-							<c:url var="fileURL"
-								value="download/${presentDirectory}/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" />
-							</td>
-							<td>
-								<form method="POST" action="/download">
-									<input type="hidden" name="filename" value="${file.getName()}" />
-									<input type="hidden" name="foldername"
-										value="${presentDirectory}" /> <input type="submit"
-										value="Download file" class="btn btn-link" />
-								</form>
-							</td>
-							<td>
-							
-						List<String[]> list = (List<String[]>) request.getAttribute("fileinfo");
-
-					for (String[] item : list) {
-
-						out.print(item[2]);
-					}				%>
-								<c:forEach items="${fileinfo}" var="info">
-				
-									<c:out value="${info}[0]" />
-								</c:forEach>
-							
-						</td>
-						<td></td>
-							
-						</c:if>
-						
-						
-						
-					</tr>
-				</c:forEach>
-				
-				  -->
 			</table>
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
