@@ -709,7 +709,7 @@ public class HomeController {
 	@RequestMapping("/pay/{id}/{Useremail}")
 	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable int id) {
 			
-			dao.deleteOrderById(id);
+			//dao.deleteOrderById(id);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
