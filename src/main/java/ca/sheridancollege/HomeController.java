@@ -215,27 +215,10 @@ public class HomeController {
 
 	
 		
-		@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
-		public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/uploadDocument";
-		}
-		@RequestMapping(value = "homePage", method = RequestMethod.GET)
-		public String homePage(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/form";
-		}
-		@RequestMapping(value = "listUser", method = RequestMethod.GET)
-		public String userList(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Lawyer/Lawyer";
-		}
-		
-		
-		
-//----------Sidebar Navigation END-------------
 //----**** ABOVE this RIYA Code*******---------------------------------
 		
+	
+	
 		
 		
 //----**** BELOW this HEET Code*******---------------------------------
@@ -304,7 +287,7 @@ public class HomeController {
 			return "index";
 		}
 		else {
-			if((dao.getRole(email).get(0)).equals("Admin"))
+			if((dao.userExist(email, password)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -315,7 +298,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(email).get(0)).equals("Client"))
+			else if((dao.userExist(email, password)).equals("Client"))
 			{
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
 				
@@ -329,7 +312,7 @@ public class HomeController {
 				
 				return "Customer/form";
 			}
-			else if((dao.getRole(email).get(0)).equals("Lawyer"))
+			else if((dao.userExist(email, password)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -341,13 +324,20 @@ public class HomeController {
 				
 				return "Lawyer/Lawyer";
 			}
-			else {
+			else if((dao.userExist(email, password)).equals(null))
+			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
-			
+			else 
+			{
+				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
 		
 	}
@@ -697,17 +687,31 @@ public class HomeController {
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
 			
+			dao.addPayment(new Payment(Useremail, "Book of Authority", "50.00"));
 		
-		
+			model.addAttribute("message", "Book of Authority requested Successfully");
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
+			return "Customer/document";
+	}
+	
+	@RequestMapping("/factum/{Useremail}")
+	public String goFactum(Model model, @PathVariable String Useremail) {
 			
+		dao.addPayment(new Payment(Useremail, "Factum", "55.00"));
 			
-			return "Customer/Payment";
+		model.addAttribute("message", "Factum requested Successfully");
+		
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Customer/document";
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
@@ -944,14 +948,33 @@ public class HomeController {
 				}
 				
 				@RequestMapping("/editForm")
-				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam int id, @RequestParam double price, @RequestParam String sale) {
+				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam String id, @RequestParam String price, @RequestParam String sale) {
+					
+					
+					int idDB = Integer.parseInt(id);
+					double priceDB = Double.parseDouble(price);
+					String saleDB = sale.trim();
+					String formDB = dao.getFormInfo(idDB);
+					String docDB = dao.getDocumentInfo(idDB);
+					
+					System.out.println(dao.getFormInfo(idDB));
+					System.out.println(dao.getDocumentInfo(idDB));
+					System.out.println(saleDB);
+					
+					LawyerDocEdit lawPrice = new LawyerDocEdit(docDB, formDB, priceDB, saleDB);
+					
+					/*
+					RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
+					
+					dao.editUser(formEmail, reg);
+					*/
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
-						if (dao.editFormPrice(id, price, sale) == true)
+						if (dao.editFormPrice(idDB, lawPrice) == true)
 						{	
 					
-							model.addAttribute("mess", "Information Successfully Changed");
+							model.addAttribute("message", "Information Successfully Changed");
 						// Required code to go back to DocumentEdit
 						
 						List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -969,7 +992,7 @@ public class HomeController {
 						return "Admin/DocumentEdit";
 						}
 						else {
-							model.addAttribute("mess", "Information NOT Changed due to Error");
+							model.addAttribute("message", "Information NOT Changed due to Error");
 							// Required code to go back to DocumentEdit
 							
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -998,74 +1021,6 @@ public class HomeController {
 				
 //-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
 
-	// Client side Form View
-				@RequestMapping("/test/{Useremail}")
-				public String goFormView(Model model, @PathVariable String Useremail) {
-					
-						if ((dao.getRole(Useremail).get(0)).equals("Client")) {
-							
-						List<LawyerDocEdit> docPrice = dao.getDocPrice();
-						
-						model.addAttribute("listOfAllForms", docPrice);
-						
-						
-						// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						// Needed for Customer JSP EL tags
-						
-						return "Customer/test";
-						}
-						else
-						{
-							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-							model.addAttribute("registerUser", new RegisterUser());
-							
-							return "index";
-						}
-				}
-				
-				@RequestMapping("/testSubmit/{Useremail}")
-				public String goFormSubmit(Model model, @PathVariable String Useremail,@RequestParam List<String> legalForm) {
-					
-					String doc;
-					String form;
-					String price;
-					
-					
-					for(int i=0; i <= legalForm.size()-1; i++)
-					{
-						String testForm = legalForm.get(i);
-						
-						int firstIndex = testForm.indexOf("^");
-						int secondIndex = testForm.indexOf("^", firstIndex + 1);
-						
-						System.out.println(firstIndex);
-						System.out.println(secondIndex);
-						
-						doc = testForm.substring(0, firstIndex);
-						form = testForm.substring(firstIndex+1 , secondIndex);
-						price = testForm.substring(secondIndex+1, testForm.length());
-						
-						
-						System.out.println("Test Loop-->" + " " + doc+ " " + form + " " + price);
-						
-						dao.addPayment(new Payment(Useremail, doc, form, price));
-					}
-						
-						// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						// Needed for Customer JSP EL tags
-						
-						return "Customer/test";
-						
-				}
-				
 	
 //----**** ABOVE this PARAS Code*******---------------------------------
 
@@ -1395,6 +1350,12 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", useremail);
 		
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", useremail);
+		// Needed for Customer JSP EL tags
 		
 		return "Customer/uploadDocument";
 	}

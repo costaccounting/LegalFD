@@ -66,16 +66,21 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
-	public boolean userExist(String email)			
+	public String userExist(String email, String password)			
 	{			
-		if (getEmail(email).get(0)!=null)				
-		{				
-			return false;					
-		}				
-		else {				
-			return true;					
-		}				
-						
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			Query query = session.createQuery("SELECT role from RegisterUser WHERE email =:email AND password =:password");
+			query.setParameter("email", email);
+			query.setParameter("password", password);
+			
+			String register = (String) query.getResultList().get(0);
+
+			session.getTransaction().commit();
+			session.close();
+			
+			return register;	
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
@@ -305,24 +310,65 @@ public class Dao {
 				}
 				
 //-----------------------------------------------------------******************************------------------------------------	
-				public boolean editFormPrice(int id, double price, String sale){
+				public boolean editFormPrice(int id, LawyerDocEdit lawPrice){
+					
+					//String firstName, String lastName, String role
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					Query query = session.createQuery("UPDATE LawyerDocEdit SET price =:price ,sale =:sale WHERE id =:id");
-					query.setParameter("price", price);
-					query.setParameter("sale", sale);
-					query.setParameter("id", id);
+					LawyerDocEdit lawNew = (LawyerDocEdit) session.get(LawyerDocEdit.class, id);
 					
-					
+					lawNew.setDocType((lawPrice.getDocType()));
+					lawNew.setFormType((lawPrice.getFormType()));
+					lawNew.setPrice((lawPrice.getPrice()));
+					lawNew.setSale(lawPrice.getSale());
 					session.getTransaction().commit();
+					
 					session.close();
 					
 					return true;
 				}
 //-----------------------------------------------------------******************************------------------------------------	
-				
-				
+
+								
+								public String getFormInfo(int id)
+								{
+									Session session = sessionFactory.openSession();
+									session.beginTransaction();
+									
+									String form;
+									
+									Query query = session.createQuery("select formType from LawyerDocEdit where id =:id");
+									query.setParameter("id", id);
+									
+									form= (String) query.getResultList().get(0);
+									
+									session.getTransaction().commit();
+									session.close();
+									
+									return form;
+								}
+//-----------------------------------------------------------******************************------------------------------------	
+								
+								public String getDocumentInfo(int id)
+								{
+									Session session = sessionFactory.openSession();
+									session.beginTransaction();
+									
+									String document;
+									
+									Query query = session.createQuery("select docType from LawyerDocEdit where id =:id");
+									query.setParameter("id", id);
+									
+									document= (String) query.getResultList().get(0);
+									
+									session.getTransaction().commit();
+									session.close();
+									
+									return document;
+								}
+//-----------------------------------------------------------******************************------------------------------------	
+								
 		public List<String> validateUser(RegisterUser reg) {
 			List<String> err = new ArrayList<String>();
 			

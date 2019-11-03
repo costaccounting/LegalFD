@@ -160,6 +160,11 @@
 				<i class="fas fa-users"></i> List of User
 			</h2>
 
+			<div class="alert alert-success" role="alert">
+  				${message}
+			</div>
+
+
 		</div>
 		<div id="accordion">
 

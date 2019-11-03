@@ -24,6 +24,19 @@
 
 <title>Upload Documents</title>
 </head>
+<style>
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 650px;
+    margin-top: 9px;
+	
+}
+.card-header{
+display: flex;
+}
+
+</style>
 <body>
 
 <div type="hidden" name="email" value="${Useremail}"></div>
@@ -70,12 +83,13 @@
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
 				<h4>Dashboard</h4>
+				
 			</li>
 			<br>
 			
-			<li id="newLi"><a href="/dashboard/${Useremail}">List of User</a></li>
+			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			<li id="newLi"><a href="#">Upload Documents</a></li>
+			
 
 		</ul>
 	</section>
@@ -83,8 +97,12 @@
 		<div class="card-header" id="cardHeader">
 
 			<h2>
-				<i class="fas fa-users"></i> Upload Documents
+				<i class="fa fa-upload"></i> Upload Documents
 			</h2>
+			<a href="<c:url value="/dashboard/${Useremail}"/>"
+			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
+			Back To Dashboard
+		</a>
 
 		</div>
 		<div id="accordion">

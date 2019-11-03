@@ -24,4 +24,13 @@ public class LawyerDocEdit {
 	private String formType;
 	private double price;
 	private String sale;
+	
+	
+	public LawyerDocEdit(String docType, String formType, double price, String sale) {
+		super();
+		this.docType = docType;
+		this.formType = formType;
+		this.price = price;
+		this.sale = sale;
+	}
 }
