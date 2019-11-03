@@ -960,13 +960,28 @@ public class HomeController {
 				@RequestMapping("/editForm")
 				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam String id, @RequestParam String price, @RequestParam String sale) {
 					
+					
 					int idDB = Integer.parseInt(id);
 					double priceDB = Double.parseDouble(price);
+					String saleDB = sale.trim();
+					String formDB = dao.getFormInfo(idDB);
+					String docDB = dao.getDocumentInfo(idDB);
 					
+					System.out.println(dao.getFormInfo(idDB));
+					System.out.println(dao.getDocumentInfo(idDB));
+					System.out.println(saleDB);
+					
+					LawyerDocEdit lawPrice = new LawyerDocEdit(docDB, formDB, priceDB, saleDB);
+					
+					/*
+					RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
+					
+					dao.editUser(formEmail, reg);
+					*/
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
-						if (dao.editFormPrice(idDB, priceDB, sale) == true)
+						if (dao.editFormPrice(idDB, lawPrice) == true)
 						{	
 					
 							model.addAttribute("message", "Information Successfully Changed");
@@ -987,7 +1002,7 @@ public class HomeController {
 						return "Admin/DocumentEdit";
 						}
 						else {
-							model.addAttribute("mess", "Information NOT Changed due to Error");
+							model.addAttribute("message", "Information NOT Changed due to Error");
 							// Required code to go back to DocumentEdit
 							
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -1016,74 +1031,6 @@ public class HomeController {
 				
 //-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
 
-	// Client side Form View
-				@RequestMapping("/test/{Useremail}")
-				public String goFormView(Model model, @PathVariable String Useremail) {
-					
-						if ((dao.getRole(Useremail).get(0)).equals("Client")) {
-							
-						List<LawyerDocEdit> docPrice = dao.getDocPrice();
-						
-						model.addAttribute("listOfAllForms", docPrice);
-						
-						
-						// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						// Needed for Customer JSP EL tags
-						
-						return "Customer/test";
-						}
-						else
-						{
-							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-							model.addAttribute("registerUser", new RegisterUser());
-							
-							return "index";
-						}
-				}
-				
-				@RequestMapping("/testSubmit/{Useremail}")
-				public String goFormSubmit(Model model, @PathVariable String Useremail,@RequestParam List<String> legalForm) {
-					
-					String doc;
-					String form;
-					String price;
-					
-					
-					for(int i=0; i <= legalForm.size()-1; i++)
-					{
-						String testForm = legalForm.get(i);
-						
-						int firstIndex = testForm.indexOf("^");
-						int secondIndex = testForm.indexOf("^", firstIndex + 1);
-						
-						System.out.println(firstIndex);
-						System.out.println(secondIndex);
-						
-						doc = testForm.substring(0, firstIndex);
-						form = testForm.substring(firstIndex+1 , secondIndex);
-						price = testForm.substring(secondIndex+1, testForm.length());
-						
-						
-						System.out.println("Test Loop-->" + " " + doc+ " " + form + " " + price);
-						
-						dao.addPayment(new Payment(Useremail, doc, form, price));
-					}
-						
-						// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						// Needed for Customer JSP EL tags
-						
-						return "Customer/test";
-						
-				}
-				
 	
 //----**** ABOVE this PARAS Code*******---------------------------------
 

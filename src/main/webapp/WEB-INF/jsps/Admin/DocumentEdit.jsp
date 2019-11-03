@@ -138,6 +138,10 @@ th {
 
 		</div>
 		
+		<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 20%; ">
+  			${message}
+		</div>
+		
 		<div class="card" id="cardForm">
 				<div class="card-header" id="price">
 					<div class="input-group">
