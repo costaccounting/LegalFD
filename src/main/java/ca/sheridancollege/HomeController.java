@@ -699,6 +699,22 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
+	@RequestMapping("/bookOfAuth/{Useremail}")
+	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
+			
+		
+		
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			
+			
+			return "Customer/Payment";
+	}
+	
 	@RequestMapping("/paymentPage/{Useremail}")
 	public String goViewCart(Model model, @PathVariable String Useremail) {
 			

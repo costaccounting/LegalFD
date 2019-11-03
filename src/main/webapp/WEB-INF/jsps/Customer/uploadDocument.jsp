@@ -74,9 +74,9 @@
 			
 			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
 			
-			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
+			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
 			
-			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<li id="newLi"><a class="active" href="/uploadDoc/${Useremail}">Upload Documents</a></li>
 
 		</ul>
 	</section>
