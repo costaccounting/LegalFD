@@ -87,8 +87,8 @@
 			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
 			<c:url var="sh" value="/form/${Useremail}" />
 			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
-			<c:url var="sh" value="/uploadDoc/${Useremail}" />
-			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<c:url var="sh" value="/uploadCustomer/${Useremail}" />
+			<li id="newLi"><a href="/uploadCustomer/${Useremail}">Upload Documents</a></li>
 
 		</ul>
 

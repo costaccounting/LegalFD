@@ -20,7 +20,7 @@ import ca.sheridancollege.dao.*;
 @Controller
 public class HomeController {
 
-	Dao dao = new Dao();
+	private static Dao dao = new Dao();
 	GeneralFormDao generalDao = new GeneralFormDao();
 	
 	// Global Variable for Yes and No
@@ -279,15 +279,18 @@ public class HomeController {
 	@RequestMapping("/login")
 	public String goLogin(Model model, @RequestParam String email, @RequestParam String password) {
 		
-		if(dao.getEmail(email).isEmpty())
-		{
-			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
-			model.addAttribute("registerUser", new RegisterUser());
+		
+			if(dao.getEmail(email).isEmpty()==false){
 			
-			return "index";
-		}
-		else {
-			if((dao.userExist(email, password)).equals("Admin"))
+			System.out.println("Test o/p -->" + dao.userExist(email, password).isEmpty());
+			if(dao.userExist(email, password).isEmpty() == true)
+			{
+				model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Details");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
+			else if((dao.userExist(email, password).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -298,7 +301,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.userExist(email, password)).equals("Client"))
+			else if((dao.userExist(email, password).get(0)).equals("Client"))
 			{
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
 				
@@ -312,7 +315,7 @@ public class HomeController {
 				
 				return "Customer/form";
 			}
-			else if((dao.userExist(email, password)).equals("Lawyer"))
+			else if((dao.userExist(email, password).get(0)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -324,13 +327,27 @@ public class HomeController {
 				
 				return "Lawyer/Lawyer";
 			}
-			else {
+			
+			else 
+			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
+		}
+		else if(dao.getEmail(email).isEmpty()==true)
+		{
+			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
+			model.addAttribute("registerUser", new RegisterUser());
 			
+			return "index";
+		}
+		else {
+			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
 		}
 		
 	}
@@ -1063,7 +1080,7 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/uploadingDoc/{folder_name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}", method = RequestMethod.GET)
 	public String getFilesFromLawyer(
 			Model model,
 			@PathVariable("folder_name") String folderName, 	
@@ -1133,6 +1150,120 @@ public class HomeController {
 	    List<String[]> fileinfo = new ArrayList<String[]>();		
 		try {		
 			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		System.out.println(fileinfo);
+		
+        return "Admin/Files";
+    }
+	@PostMapping("/uploadCustomer/{folder_name}") // //new annotation since 4.3
+    public String singleFileUploadCustomer(
+    		Model model,
+    		@RequestParam("file") MultipartFile file,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        // Get the file and save it somewhere
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
+		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+	    try {		
+			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		System.out.println(fileinfo);
+		
+        return "Customer/uploadDocument";
+    }
+	@PostMapping("/uploadLawyer/{folder_name}") // //new annotation since 4.3
+    public String singleFileUploadLawyer(
+    		Model model,
+    		@RequestParam("file") MultipartFile file,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        // Get the file and save it somewhere
+		try {				
+			String dir = dao.getDirPath( folderName );
+			dao.addFile(file, dir, "uploader");		
+			model.addAttribute("message",				
+			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+		} catch (Exception e) {		
+			// TODO Auto-generated catch block		
+			e.printStackTrace();		
+			model.addAttribute("message",		
+			        "Your file wasn't uploaded");		
+		}
+		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+		try {		
+			for (File f : filelist) {		
 				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
 			}		
 		} catch (Exception e) {		
@@ -1147,8 +1278,11 @@ public class HomeController {
 		model.addAttribute("filelist", filelist);
 		System.out.println(fileinfo);
 		
-        return "Admin/Files";
+        return "Lawyer/uploadingDoc";
     }
+
+	
+	
 	@RequestMapping(value = "/download", method = RequestMethod.POST )
 	public void FileSystemResource (
 			
@@ -1196,45 +1330,6 @@ public class HomeController {
 //-----------------File View and Add --	END---------------------------------
 
 	
-	@RequestMapping(value = "/uploadDoc/{useremail}" , method = RequestMethod.GET)
-	public String goUploadDocumentClent(Model model, @PathVariable String useremail)  {
-	
-		List<File> filelist = dao.getFileList(dao.getDirPath(useremail));
-
-		List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-			
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					
-				}		
-			}		
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-
-			e.printStackTrace();		
-		} 
-		model.addAttribute("filelist", filelist);
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", useremail);
-		
-		// Regular Customer JSP EL tags needed code
-		String firstNameStore = dao.getFirstName(useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", useremail);
-		// Needed for Customer JSP EL tags
-		
-		return "Customer/uploadDocument";
-	}
 	
 //----**** ABOVE this PRODIP Code*******---------------------------------
 			

@@ -207,7 +207,7 @@
 											class="fas fa-pencil-alt"></i> Edit User
 									</a></td>
 									<td><a
-										href="<c:url value="/details/${Users.email}/${Useremail}"/>"
+										href="<c:url value="/uploadingDocLawyer/${Users.email}"/>"
 										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
 											Details
 									</a></td>

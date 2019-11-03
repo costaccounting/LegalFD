@@ -78,7 +78,7 @@
 			
 			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
 			
-			<li id="newLi"><a class="active" href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<li id="newLi"><a class="active" href="/uploadCustomer/${presentDirectory}">Upload Documents</a></li>
 
 		</ul>
 	</section>
@@ -128,40 +128,54 @@
 					<th>Uploaded By</th>
 					<th>Upload Date</th>
 				</tr>
-				<c:forEach items="${filelist}" var="file">
-					<tr>
-						<c:if test="${file.isDirectory()}">
-							<c:url var="fileURL" value="files/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
-							<td><a href="<c:out value="${fileURL}"/>">Next</a></td>
+				<%
+					List<String[]> list = (List<String[]>) request.getAttribute("fileinfo");
+					List<File> filelist = (List<File>)request.getAttribute("filelist");
+					String presentDirectory = (String)request.getAttribute("presentDirectory");
 
-						</c:if>
-						<c:if test="${file.isFile()}">
-							<c:url var="fileURL"
-								value="download/${presentDirectory}/${file.getName()}">
-							</c:url>
-							<td><c:out value="${file.getName()}" /></td>
-							<td>
-								<form method="POST" action="/download">
-									<input type="hidden" name="filename" value="${file.getName()}" />
-									<input type="hidden" name="foldername"
-										value="${presentDirectory}" /> <input type="submit"
-										value="Download file" class="btn btn-link" />
-								</form>
-						</c:if>
-						</td>
-						<td></td>
-						<td></td>
-					</tr>
-				</c:forEach>
+					for(File f : filelist){
+						out.print("<tr>");
+						
+						if( f.isDirectory() ){
+							out.print("<td>" + f.getName() + "</td>");
+							out.print("<td><a href='files/"+ f.getName() + "'>Next</a></td>");
+							out.print("<td></td>");
+							out.print("<td></td>");
+							
+						}
+						else if ( f.isFile() ){
+							for (String[] listitem : list){
+								//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
+								System.out.println(listitem);
+								if( listitem[0].equals(f.getName()) ){
+									out.print("<td>" + listitem[3] + "</td>");
+									out.print("<td>" +
+										"<form method='POST' action='/download'>"+
+										"<input type='hidden' name='filename' value='"+ f.getName()+ "'/>"+
+										"<input type='hidden' name='foldername' "+
+										" value='" + presentDirectory +"' /> "
+										+ "<input type='submit' value='Download file' class='btn btn-link' /> </form>" +								
+								
+										"</td>");
+									out.print("<td>" + listitem[1] +" </td>");
+									out.print("<td>" + listitem[2] + "</td>");
+									
+									
+								}
+							}
+						}
+						out.print("</tr>");
+					}
+					
+				%>
 			</table>
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/upload/<c:out value= "${presentDirectory}" />"
+				action="/uploadCustomer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
-				<input type="file" name="file" type="button" class="btn btn-primary btn-lg"/><br /> <br /> <input
+				<input type="file" name="file" type="button"
+					class="btn btn-primary btn-lg" /><br /> <br /> <input
 					type="submit" value="Submit" />
 			</form>
 			<hr>
@@ -170,7 +184,7 @@
 				<h2 c:text="${message}" />
 			</div>
 		</div>
-	</div>
+		</div>
 
 
 

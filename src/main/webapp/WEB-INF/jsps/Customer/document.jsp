@@ -264,7 +264,7 @@ color:white;
 			
 			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
 			
-			<li id="newLi"><a href="/uploadDoc/${Useremail}">Upload Documents</a></li>
+			<li id="newLi"><a href="/uploadCustomer/${Useremail}">Upload Documents</a></li>
 
 		</ul>
 	</section>

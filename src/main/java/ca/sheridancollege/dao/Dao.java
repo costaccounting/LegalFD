@@ -66,7 +66,7 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
-	public String userExist(String email, String password)			
+	public List<String> userExist(String email, String password)			
 	{			
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
@@ -75,12 +75,12 @@ public class Dao {
 			query.setParameter("email", email);
 			query.setParameter("password", password);
 			
-			String register = (String) query.getResultList().get(0);
+			List<String> checkUser = (List<String>) query.getResultList();
 
 			session.getTransaction().commit();
 			session.close();
 			
-			return register;	
+			return checkUser;	
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
@@ -216,7 +216,6 @@ public class Dao {
 			
 			return register;
 		}
-		
 		
 //-----------------------------------------------------------******************************------------------------------------	
 		public void deleteUser(String email) {
