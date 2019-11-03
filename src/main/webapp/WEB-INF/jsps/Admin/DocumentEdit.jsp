@@ -115,13 +115,7 @@
 									<td>
 									<input class="btn btn-outline-success" type="submit" value="Edit" />
 									</form>
-									
-								<!-- 	<a
-										href="<c:url value="/editForm/${list.id}/${list.price}/${list.sale}"/>"
-										class="btn btn-outline-success"> 
-											<i class="fas fa-pencil-alt"></i> Edit
-										</a>
-										 -->
+								
 									</td>
 								</tr>
 							</c:forEach>

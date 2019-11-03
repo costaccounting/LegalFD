@@ -372,7 +372,6 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
 				
@@ -384,10 +383,22 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
+				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
-				
-				
 				return "Lawyer/Lawyer";
+			}
+			else if((dao.getRole(Useremail).get(0)).equals("Client")) {
+				
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();
+				
+				model.addAttribute("listOfAllForms", docPrice);
+				
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Customer/form";
 			}
 			else {
 				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
@@ -709,7 +720,7 @@ public class HomeController {
 	@RequestMapping("/pay/{id}/{Useremail}")
 	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable int id) {
 			
-			dao.deleteOrderById(id);
+			//dao.deleteOrderById(id);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
@@ -922,7 +933,7 @@ public class HomeController {
 				}
 				
 				@RequestMapping("/editForm")
-				public String goEditPriceForm(Model model, @RequestParam int id,@RequestParam double price,@RequestParam String sale ,@RequestParam String Useremail) {
+				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam int id, @RequestParam double price, @RequestParam String sale) {
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
