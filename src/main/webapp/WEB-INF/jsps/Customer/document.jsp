@@ -276,9 +276,9 @@ color:white;
 				<i class="fas fa-folder"></i> Legal Document
 			</h2>
 		
-		<div class="alert alert-success" role="alert">
+		<%-- <div class="alert alert-success" role="alert">
   			${message}
-		</div>
+		</div> --%>
 			
 		</div>
 		
