@@ -324,13 +324,20 @@ public class HomeController {
 				
 				return "Lawyer/Lawyer";
 			}
-			else {
+			else if((dao.userExist(email, password)).equals(null))
+			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
-			
+			else 
+			{
+				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
 		
 	}
