@@ -215,27 +215,10 @@ public class HomeController {
 
 	
 		
-		@RequestMapping(value = "uploadDoc", method = RequestMethod.GET)
-		public String uploadDoc(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/uploadDocument";
-		}
-		@RequestMapping(value = "homePage", method = RequestMethod.GET)
-		public String homePage(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Customer/form";
-		}
-		@RequestMapping(value = "listUser", method = RequestMethod.GET)
-		public String userList(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Lawyer/Lawyer";
-		}
-		
-		
-		
-//----------Sidebar Navigation END-------------
 //----**** ABOVE this RIYA Code*******---------------------------------
 		
+	
+	
 		
 		
 //----**** BELOW this HEET Code*******---------------------------------
@@ -304,7 +287,7 @@ public class HomeController {
 			return "index";
 		}
 		else {
-			if((dao.getRole(email).get(0)).equals("Admin"))
+			if((dao.userExist(email, password)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				
@@ -315,7 +298,7 @@ public class HomeController {
 				
 				return "Admin/Admin";
 			}
-			else if((dao.getRole(email).get(0)).equals("Client"))
+			else if((dao.userExist(email, password)).equals("Client"))
 			{
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
 				
@@ -329,7 +312,7 @@ public class HomeController {
 				
 				return "Customer/form";
 			}
-			else if((dao.getRole(email).get(0)).equals("Lawyer"))
+			else if((dao.userExist(email, password)).equals("Lawyer"))
 			{
 				String firstNameStore = dao.getFirstName(email).get(0);
 				

@@ -66,16 +66,21 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
-	public boolean userExist(String email)			
+	public String userExist(String email, String password)			
 	{			
-		if (getEmail(email).get(0)!=null)				
-		{				
-			return false;					
-		}				
-		else {				
-			return true;					
-		}				
-						
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			Query query = session.createQuery("SELECT role from RegisterUser WHERE email =:email AND password =:password");
+			query.setParameter("email", email);
+			query.setParameter("password", password);
+			
+			String register = (String) query.getResultList().get(0);
+
+			session.getTransaction().commit();
+			session.close();
+			
+			return register;	
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
