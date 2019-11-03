@@ -87,7 +87,7 @@ display: flex;
 			</li>
 			<br>
 			
-			<li id="newLi"><a href="/dashboard/${Useremail}">List of User</a></li>
+			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
 			
 
