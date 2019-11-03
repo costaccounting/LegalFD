@@ -260,11 +260,11 @@ color:white;
 			</li>
 			<br>
 			
-			<li id="newLi"><a class="active" href="/document/${Useremail}">Legal Documents</a></li>
+			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
 			
-			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
+			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
 			
-			<li id="newLi"><a href="/uploadCustomer/${Useremail}">Upload Documents</a></li>
+			<li id="newLi"><a href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 
 		</ul>
 	</section>
