@@ -1038,6 +1038,7 @@ public class HomeController {
 			@PathVariable("folder_name") String folderName, 	
 			HttpServletResponse response) 	
 	{
+		String Useremail = folderName;
 		
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
 
@@ -1065,6 +1066,13 @@ public class HomeController {
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
+		
+		// Regular Customer JSP EL tags needed code
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		// Needed for Customer JSP EL tags
 		
 		return  "Admin/Files";
 			
@@ -1103,6 +1111,14 @@ public class HomeController {
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
+		
+		// Regular Customer JSP EL tags needed code
+				String firstNameStore = dao.getFirstName(folderName).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", folderName);
+				// Needed for Customer JSP EL tags
+		
 		
 		return  "Lawyer/uploadingDoc";
 			
@@ -1315,6 +1331,45 @@ public class HomeController {
 		
 		
 	}
+	@RequestMapping("/goToCustomerUpload/{folder_name}") // //new annotation since 4.3
+    public String goToUploadCustomer(
+    		Model model,
+    		RedirectAttributes redirectAttributes,
+    		@PathVariable("folder_name") String folderName) throws IOException 
+	{
+
+		//adding a file
+       		// showing the list of file in the folder
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
+		
+	    List<String[]> fileinfo = new ArrayList<String[]>();		
+	    try {		
+			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+			
+						
+		model.addAttribute("fileinfo", fileinfo);
+		
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		System.out.println(fileinfo);
+		
+        return "Customer/uploadDocument";
+    }
 
 			
 //-----------------File View and Add --	END---------------------------------
