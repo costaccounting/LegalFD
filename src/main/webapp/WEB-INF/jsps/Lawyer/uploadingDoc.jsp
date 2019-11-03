@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ page import="java.util.List"%>
+<%@ page import="java.io.File" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -190,6 +192,72 @@
                       
                         
                           </div>
+       		<div>
+			<h2>Directory : ${presentDirectory}</h2>
+			<table class="table table-dark">
+				<tr>
+					<th>Name</th>
+					<th>Action</th>
+					<th>Uploaded By</th>
+					<th>Upload Date</th>
+				</tr>
+				<%
+					List<String[]> list = (List<String[]>) request.getAttribute("fileinfo");
+					List<File> filelist = (List<File>)request.getAttribute("filelist");
+					String presentDirectory = (String)request.getAttribute("presentDirectory");
+
+					for(File f : filelist){
+						out.print("<tr>");
+						
+						if( f.isDirectory() ){
+							out.print("<td>" + f.getName() + "</td>");
+							out.print("<td><a href='files/"+ f.getName() + "'>Next</a></td>");
+							out.print("<td></td>");
+							out.print("<td></td>");
+							
+						}
+						else if ( f.isFile() ){
+							for (String[] listitem : list){
+								//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
+								System.out.println(listitem);
+								if( listitem[0].equals(f.getName()) ){
+									out.print("<td>" + listitem[3] + "</td>");
+									out.print("<td>" +
+										"<form method='POST' action='/download'>"+
+										"<input type='hidden' name='filename' value='"+ f.getName()+ "'/>"+
+										"<input type='hidden' name='foldername' "+
+										" value='" + presentDirectory +"' /> "
+										+ "<input type='submit' value='Download file' class='btn btn-link' /> </form>" +								
+								
+										"</td>");
+									out.print("<td>" + listitem[1] +" </td>");
+									out.print("<td>" + listitem[2] + "</td>");
+									
+									
+								}
+							}
+						}
+						out.print("</tr>");
+					}
+					
+				%>
+			</table>
+			<span class="border-top my-3"></span>
+			<h2>Add file</h2>
+			<form method="POST"
+				action="/upload/<c:out value= "${presentDirectory}" />"
+				enctype="multipart/form-data">
+				<input type="file" name="file" type="button"
+					class="btn btn-primary btn-lg" /><br /> <br /> <input
+					type="submit" value="Submit" />
+			</form>
+			<hr>
+			<br /> message
+			<div c:if="${message}">
+				<h2 c:text="${message}" />
+			</div>
+		</div>
+        
         </div>
                   
 

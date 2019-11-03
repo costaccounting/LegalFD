@@ -230,11 +230,6 @@ public class HomeController {
 
 			return "Lawyer/Lawyer";
 		}
-		@RequestMapping(value = "uploadngDoc", method = RequestMethod.GET)
-		public String uploadingDoc(Model model, @ModelAttribute RegisterUser user) {
-
-			return "Lawyer/uploadingDoc";
-		}
 		
 		
 		
@@ -1120,7 +1115,7 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/files/{folder_name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadingDoc/{folder_name}", method = RequestMethod.GET)
 	public String getFilesFromLawyer(
 			Model model,
 			@PathVariable("folder_name") String folderName, 	
@@ -1154,7 +1149,7 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", folderName);
 		
-		return  "Admin/Files";
+		return  "Lawyer/uploadingDoc";
 			
 	  
 	}
