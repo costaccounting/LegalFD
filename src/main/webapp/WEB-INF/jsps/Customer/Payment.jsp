@@ -238,7 +238,7 @@ display: flex;
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>

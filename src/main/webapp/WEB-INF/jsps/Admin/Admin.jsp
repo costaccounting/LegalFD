@@ -127,7 +127,7 @@
 					</a>
 						<div class="dropdown-menu">
 							
-							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
