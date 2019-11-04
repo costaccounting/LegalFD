@@ -711,12 +711,15 @@ public class HomeController {
 		
 			model.addAttribute("message", "Book of Authority requested Successfully");
 			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			return "Customer/document";
+			return "Customer/Payment";
 	}
 	
 	@RequestMapping("/factum/{Useremail}")
@@ -726,12 +729,15 @@ public class HomeController {
 			
 		model.addAttribute("message", "Factum requested Successfully");
 		
+		List<Payment> pay = dao.getPaymentInfo(Useremail);
+		model.addAttribute("paymentData", pay);
+		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			return "Customer/document";
+			return "Customer/Payment";
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")

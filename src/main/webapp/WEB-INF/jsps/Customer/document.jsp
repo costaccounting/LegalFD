@@ -276,11 +276,11 @@ color:white;
 			<h2>
 				<i class="fas fa-folder"></i> Legal Document
 			</h2>
-		
+		<!-- 
 		<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 25%; ">
   				${message}
 			</div>
-			
+			 -->
 		</div>
 		
 		<div class="card-columns">
