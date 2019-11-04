@@ -51,11 +51,12 @@ display: flex;
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
+					
+					<li class="nav-item px-2"><a href="/editDocPrice/${Useremail}" class="nav-link">Edit Form Price</a></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -65,9 +66,8 @@ display: flex;
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="/generalApplication/${Useremail}" class="dropdown-item">
-								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -79,6 +79,7 @@ display: flex;
 			</div>
 		</div>
 	</nav>
+	<!-- 
 	<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
@@ -93,6 +94,8 @@ display: flex;
 
 		</ul>
 	</section>
+	 -->
+	
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
 

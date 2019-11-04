@@ -111,15 +111,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
+						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
+					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
@@ -127,7 +129,7 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -141,31 +143,39 @@
 	</nav>
 
 
+	<!-- ACTIONS -->
+	<!-- 
 	<section id="actions" class="py-4 ml-2 bg-light">
 
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
-				<h4>Dashboard</h4>
+				<h4>Services</h4>
 			</li>
 			<br>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href="#">Upload Documents</a></li>
+			
+			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
+			
+			<li id="newLi"><a href="/form/${Useremail}">Legal Forms</a></li>
+			
+			<li id="newLi"><a class="active" href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 
 		</ul>
-
-
 	</section>
+ -->
 
 	<div  class="container" id="newContainer">
-            <div class="card-header" id="cardHeader">
-                    
-                    <h2><i class="fas fa-users"></i> Upload Documents </h2>
-                    
-                </div>
+           
+           <div class="card-header">
+
+			 <h2><i class="fas fa-users"></i> Upload Documents </h2>
+
+		
+				<a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light" id="submit" >
+            <i class="fas fa-arrow-left"></i> Back To Dashboard
+      		   </a>
+			</div>
+           
+            
                 <div id="accordion">
 
                     <div class="card" id="cardForm">

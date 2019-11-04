@@ -261,9 +261,9 @@ color:white;
 			</li>
 			<br>
 			
-			<li id="newLi"><a href="/document/${Useremail}">Legal Documents</a></li>
+			<li id="newLi"><a class="active" href="/document/${Useremail}">Legal Documents</a></li>
 			
-			<li id="newLi"><a class="active" href="/form/${Useremail}">Legal Forms</a></li>
+			<li id="newLi"><a  href="/form/${Useremail}">Legal Forms</a></li>
 			
 			<li id="newLi"><a href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 
@@ -277,16 +277,14 @@ color:white;
 				<i class="fas fa-folder"></i> Legal Document
 			</h2>
 		
-		<%-- <div class="alert alert-success" role="alert">
-  			${message}
-		</div> --%>
+		<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 25%; ">
+  				${message}
+			</div>
 			
 		</div>
 		
 		<div class="card-columns">
-			<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 20%; ">
-  				${message}
-			</div>
+			
 			<div class="card" id="cardBody" style="width: 20rem;">
 				<div class="card-body">
 					<h4 class="card-title">Book of Authority</h4>

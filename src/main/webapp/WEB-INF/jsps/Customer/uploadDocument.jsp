@@ -37,15 +37,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
+						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
+					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
@@ -53,7 +55,7 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -65,7 +67,9 @@
 			</div>
 		</div>
 	</nav>
+
 	<!-- ACTIONS -->
+	<!-- 
 	<section id="actions" class="py-4 ml-2 bg-light">
 
 		<ul id="newUl">
@@ -82,15 +86,18 @@
 
 		</ul>
 	</section>
+	 -->
 
 	<div class="container" id="newContainer">
-		<div class="card-header" id="cardHeader">
+		<div class="card-header">
 
-			<h2>
-				<i class="fas fa-users"></i> Upload Documents
-			</h2>
+			 <h2><i class="fas fa-users"></i> Upload Documents </h2>
 
-		</div>
+		
+				<a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light" id="submit" >
+            <i class="fas fa-arrow-left"></i> Back To Dashboard
+      		   </a>
+			</div>
 		<div id="accordion">
 
 			<div class="card" id="cardForm">
