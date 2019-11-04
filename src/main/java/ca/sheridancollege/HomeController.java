@@ -549,7 +549,7 @@ public class HomeController {
 		model.addAttribute("Useremail", Useremail);
 		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
-		model.addAttribute("confirmationMessage", "User Deleted Successfully");
+		model.addAttribute("message", "User Deleted Successfully");
 		return "Admin/Admin";
 		}
 		else {
