@@ -1064,6 +1064,7 @@ public class HomeController {
 			@PathVariable("folder_name") String folderName, 	
 			HttpServletResponse response) 	
 	{
+		
 		String Useremail = folderName;
 		
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
@@ -1104,10 +1105,10 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}")
+	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}/{Useremail}")
 	public String getFilesFromLawyer(
 			Model model,
-			@PathVariable("folder_name") String folderName, 	
+			@PathVariable("folder_name") String folderName, @PathVariable String Useremail,	
 			HttpServletResponse response) 	
 	{
 		
@@ -1139,10 +1140,10 @@ public class HomeController {
 		model.addAttribute("presentDirectory", folderName);
 		
 		// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(folderName).get(0);
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", folderName);
+				model.addAttribute("Useremail", Useremail);
 				// Needed for Customer JSP EL tags
 		
 		
