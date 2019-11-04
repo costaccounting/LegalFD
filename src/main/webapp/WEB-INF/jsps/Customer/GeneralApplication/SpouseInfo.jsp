@@ -197,6 +197,12 @@ color:white;
 	margin-left: 20px;
 	display: flex;
 }
+#submit {
+	/*    padding-bottom: 50px;  */
+	position: absolute;
+	margin-left: 950px;
+	margin-top: 15px;
+}
 </style>
 
 
@@ -253,7 +259,7 @@ color:white;
 				<i class="fas fa-file-alt"></i> General Information Application Form
 			</h2>
 
-		<a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+		<a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light " id="submit">
             <i class="fas fa-arrow-left"></i> Back To Dashboard
          </a>
 	</div>
