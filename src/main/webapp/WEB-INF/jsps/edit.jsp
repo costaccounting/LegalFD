@@ -111,11 +111,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
+					
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -126,7 +126,7 @@
 					</a>
 						<div class="dropdown-menu">
 							
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -139,7 +139,7 @@
 		</div>
 	</nav>
 
-
+<!--  
 	<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
@@ -149,11 +149,11 @@
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			<!-- <li id="newLi"><a href="#">Upload Documents</a></li> -->
+			 <li id="newLi"><a href="#">Upload Documents</a></li> 
 
 		</ul>
 	</section>
-	
+	-->
 	
 <div  class="container" id="newContainer">
             <div class="card-header" id="cardHeader">
@@ -188,13 +188,9 @@
                                     <option>Admin</option>
                                 </select><br>
                             </div>
-<<<<<<< HEAD
-                             <div id="buttons"
-                        <a href="/dashboard/${Useremail}"/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
-=======
-                             <div id="buttons">
-                        <a href="/dashboard/${Useremail}" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
->>>>>>> afea1bb1005bb87d4226bbdffc7a040cc01537a6
+
+					 <div id="buttons">
+					<a href="/dashboard/${Useremail}" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
                     
                     <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">
                 </div>
