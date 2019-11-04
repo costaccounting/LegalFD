@@ -585,6 +585,8 @@ public class HomeController {
 	@RequestMapping(value = "/ClientSide/{Useremail}")	
 	public String testingClientSide(Model model, @PathVariable String Useremail) {
 		
+		try {
+		
 		if((dao.getRole(Useremail).get(0)).equals("Client")) {
 		
 			List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -598,12 +600,20 @@ public class HomeController {
 		
 		return "Customer/form";
 		}
+		
 		else {
 			model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
 			model.addAttribute("registerUser", new RegisterUser());
 			
 			return "index";
 			
+		}
+		}
+		catch (Exception e) {
+			model.addAttribute("logOutMess", "Sorry But your Account Expired or got Deleted");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
 		}
 	}
 	
