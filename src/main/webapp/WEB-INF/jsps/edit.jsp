@@ -190,7 +190,7 @@
                                 </select><br>
                             </div>
                              <div id="buttons">
-                        <a href="/dashboard/${Useremail}"/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
+                        <a href="/dashboard/${Useremail}" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
                     
                     <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">
                 </div>
