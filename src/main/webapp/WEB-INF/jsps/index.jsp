@@ -41,8 +41,8 @@ font-size: 30px;
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
     <div class="container">
     
-    <c:url var = "url1" value = "/"></c:url>
-      <a href="${url1}" class="navbar-brand"><i class="fas fa-balance-scale"></i>LegalFD</a>
+    
+      <a href="#" class="navbar-brand"><i class="fas fa-balance-scale"></i>LegalFD</a>
      
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -61,8 +61,8 @@ font-size: 30px;
             <a href= "${url}" class="nav-link">Sign Up</a>
           </li>
           <li class="nav-item">
-          <c:url var="sh" value="/about" />
-            <a href=${sh } class="nav-link">About</a>
+         
+            <a href="/about" class="nav-link">About</a>
           </li>
          
         </ul>
