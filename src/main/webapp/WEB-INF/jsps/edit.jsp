@@ -188,8 +188,13 @@
                                     <option>Admin</option>
                                 </select><br>
                             </div>
+<<<<<<< HEAD
                              <div id="buttons"
                         <a href="/dashboard/${Useremail}"/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
+=======
+                             <div id="buttons">
+                        <a href="/dashboard/${Useremail}" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
+>>>>>>> afea1bb1005bb87d4226bbdffc7a040cc01537a6
                     
                     <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">
                 </div>
