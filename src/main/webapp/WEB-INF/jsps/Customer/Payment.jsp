@@ -277,7 +277,7 @@ display: flex;
 				<td>${pay.documentType}</td>
 				<td>${pay.formType}</td>
 				<td>${pay.documentAmount}</td>
-
+				
 				<td><a
 					href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>"
 					class="btn btn-danger"> <i class="fas fa-trash"></i> Delete

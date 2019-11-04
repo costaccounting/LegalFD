@@ -89,28 +89,23 @@
 	 -->
 
 	<div class="container" id="newContainer">
-		<div class="card-header">
-
-			 <h2><i class="fas fa-users"></i> Upload Documents </h2>
-
 		
-				<a href="<c:url value="/dashboard/${Useremail}"/>" class="btn btn-light" id="submit" >
-            <i class="fas fa-arrow-left"></i> Back To Dashboard
-      		   </a>
-			</div>
+		<div class="card-header" id="cardHeader">
+
+			<h2>
+				<i class="fa fa-upload"></i> Upload Documents
+			</h2>
+			<a href="<c:url value="/dashboard/${Useremail}"/>"
+			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
+			Back To Dashboard
+		</a>
+
+		</div>		
+
+
 		<div id="accordion">
 
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Search Users...">
-						<div class="input-group-append">
-							<button class="btn btn-warning">Search</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<div class="card" id="cardForm">
 				<div class="card-header">
 
@@ -186,7 +181,7 @@
 					type="submit" value="Submit" />
 			</form>
 			<hr>
-			<br /> message
+			<br /> 
 			<div c:if="${message}">
 				<h2 c:text="${message}" />
 			</div>
