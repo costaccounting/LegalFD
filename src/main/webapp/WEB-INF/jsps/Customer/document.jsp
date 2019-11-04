@@ -183,7 +183,7 @@ color:white;
 
 
 	<div type="hidden" name="email" value="${Useremail}"></div>
-	<div type="hidden" name="password" value="${UserPassword}"></div>
+	
 
 
 	<button class="open-button" onclick="openForm()">Contact</button>
@@ -209,27 +209,27 @@ color:white;
 			document.getElementById("myForm").style.display = "none";
 		}
 	</script>
+	
+	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container">
-			<a href="clientService.html" class="navbar-brand"><i
-				class="fas fa-balance-scale"> </i> LegalFD</a>
+		<div class="container" id="navContainer">
+			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
+			</i> LegalFD</a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh }
-						class="nav-link active">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><c:url var="payment"
-							value="/paymentPage/${Useremail}" /> <a href="${payment}"
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
 						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
@@ -237,15 +237,16 @@ color:white;
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="profile.html" class="dropdown-item"> <i
-								class="fas fa-user-circle"></i> Profile
-							</a> <a href="settings.html" class="dropdown-item"> <i
-								class="fas fa-cog"></i> Settings
+							<a href="/generalApplication/${Useremail}" class="dropdown-item">
+								<i class="fas fa-user-circle"></i> Profile
+							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+								Settings
 							</a>
 						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link active"><i class="fa fa-power-off"></i> Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link "><i
+							class="fa fa-power-off"></i> Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -283,6 +284,9 @@ color:white;
 		</div>
 		
 		<div class="card-columns">
+			<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 20%; ">
+  				${message}
+			</div>
 			<div class="card" id="cardBody" style="width: 20rem;">
 				<div class="card-body">
 					<h4 class="card-title">Book of Authority</h4>

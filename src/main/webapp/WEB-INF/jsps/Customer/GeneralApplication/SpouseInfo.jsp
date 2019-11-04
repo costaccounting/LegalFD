@@ -189,7 +189,14 @@ background-color:#555;
 color:white;
 }
 
-
+.card-header {
+	background-color: #555;
+	color: white;
+	width: 1240px;
+	margin-top: 30px;
+	margin-left: 20px;
+	display: flex;
+}
 </style>
 
 
@@ -240,25 +247,16 @@ color:white;
 		</div>
 	</nav>
 	
-	<div class="card-header" id="cardHeader">
+	<div class="card-header">
 
 			<h2>
-			 <i class="fas fa-file-alt"></i>General Information Application Form
+				<i class="fas fa-file-alt"></i> General Information Application Form
 			</h2>
 
-		</div>
-		<br>
-	
-  	<div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
+		<a href="<c:url value="/ClientSide/${Useremail}"/>" class="btn btn-light btn-block">
             <i class="fas fa-arrow-left"></i> Back To Dashboard
-          </a>
-        </div>
-      </div>
-     </div>
-  	
+         </a>
+	</div>
 <br>
 <br>
 <br>
