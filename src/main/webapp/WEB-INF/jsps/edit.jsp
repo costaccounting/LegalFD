@@ -125,8 +125,7 @@
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="/generalApplication/${Useremail}" class="dropdown-item">
-								<i class="fas fa-user-circle"></i> Profile
+							
 							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
@@ -189,7 +188,7 @@
                                     <option>Admin</option>
                                 </select><br>
                             </div>
-                             <div id="buttons">
+                             <div id="buttons"
                         <a href="/dashboard/${Useremail}"/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard </a>
                     
                     <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">

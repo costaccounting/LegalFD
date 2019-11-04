@@ -114,8 +114,9 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
+					
+					<li class="nav-item px-2"><a href="/editDocPrice/${Useremail}" class="nav-link">Edit Form Price</a></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -139,6 +140,7 @@
 		</div>
 	</nav>
 
+<!-- 
 	<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
@@ -148,11 +150,12 @@
 			
 			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
 			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			<!-- <li id="newLi"><a href="#">Upload Documents</a></li> -->
+			 
 
 		</ul>
 	</section>
-
+ -->
+ 
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
 

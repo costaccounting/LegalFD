@@ -142,7 +142,7 @@
 		</div>
 	</nav>
 
-
+<!-- 
 		<section id="actions" class="py-4 ml-2 bg-light">
 		<ul id="newUl">
 			<li id="navbarbrand" class="bg-dark">
@@ -156,7 +156,7 @@
 
 		</ul>
 	</section>
-
+ -->
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
 
