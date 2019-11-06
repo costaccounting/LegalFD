@@ -264,6 +264,7 @@ display: flex;
 	</div>
 
 	<table>
+	<c:set var="totalPrice" value="${0.0}" />
 		<tr>
 
 			<th>Document Category</th>
@@ -271,6 +272,9 @@ display: flex;
 			<th>Amount</th>
 			<th>Delete Request</th>
 		</tr>
+		
+		
+		
 		<c:forEach var="pay" items="${paymentData}">
 			<tr>
 
@@ -283,23 +287,32 @@ display: flex;
 					class="btn btn-danger"> <i class="fas fa-trash"></i> Delete
 						Order
 				</a></td>
-
+				<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
+				
 			</tr>
 		</c:forEach>
-
+			<tr>
+				<td>
+					
+				</td>
+				<td>
+					<b>
+						Total Amount:
+					</b>
+				</td>
+				<td>
+					<b>
+						${totalPrice}
+					</b>
+				</td>
+				<td>
+				
+				</td>
+			</tr>
 	</table>
 	
 
 
-	<%-- <form action="/pay/${pay.id}/${Useremail}">
-
-		<input type="radio" name="paymentMethod" value="PayPal" checked>
-		Pay Pal <br> <input type="radio" name="paymentMethod"
-			value="Debit"> Debit Card <br> <input type="radio"
-			name="paymentMethod" value="Credit Card"> Credit Card <br>
-
-		<input type="submit" value="Pay Amount"> <br>
-	</form> --%>
 
 	<div class="container py-5">
 
