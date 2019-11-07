@@ -98,7 +98,6 @@
 <!-- ***************** ___Client Information Form -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Client Information 		</legend>  
-		<form:form action="/clientInfo/${Useremail}" method="get" modelAttribute="clientInfo">
 			<table>
 				<tr>
 					<td>
@@ -110,7 +109,7 @@
 						Full Legal Name:
 					</td>
 					<td>
-						<form:input path="fullLegalName"/>
+						${clientInfo.fullLegalName}
 					</td>
 				</tr>
 				<tr>
@@ -290,8 +289,7 @@
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="Add"/>
-			</form:form>
+			
 			</fieldset>					
 <!-- ***************** ___Client Information Form -- END___ ******************** -->										
 <br>
