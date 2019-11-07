@@ -227,25 +227,21 @@
 									</a></td>
 									<td>
 										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
-											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
+											class="btn btn-outline-info"> <i class="fa fa-upload"></i>
 												Upload Document
 										</a>
 									</td>
 									<td>
-										<a href="<c:url value="#"/>"
+										<a href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
 												Customer Details
 										</a>
 									</td>
 									<td>
-											<a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="close">
-                                            </a>
-			               	<!-- 
-                                            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
+								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
                                                <i class="fas fa-trash"></i> Delete User
                                             </a>
-                                 -->           
-                                       </td>
+                                    </td>
 								</tr>
 							</c:forEach>
 

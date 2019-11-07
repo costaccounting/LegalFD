@@ -206,12 +206,18 @@
 										class="btn btn-outline-success "> <i
 											class="fas fa-pencil-alt"></i> Edit User
 									</a></td>
-									<td><a
-										href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
-										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
-											Details
-									</a></td>
-									
+									<td>
+										<a href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
+											class="btn btn-outline-info"> <i class="fa fa-upload"></i>
+												Upload Document
+										</a>
+									</td>
+									<td>
+										<a href="<c:url value="/application/${Users.email}/${Useremail}"/>"
+											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
+												Customer Details
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 
