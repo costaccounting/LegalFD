@@ -486,7 +486,7 @@ public class HomeController {
 						model.addAttribute("childExpenses", childExpenses);
 						model.addAttribute("children", children);
 						model.addAttribute("clientInfo", clientInfo);
-						model.addAttribute("martialInfo", martialInfo);
+						model.addAttribute("maritalInfo", martialInfo);
 						model.addAttribute("matrimonialHome", matrimonialHome);
 						model.addAttribute("spouseInfo", spouseInfo);
 						
