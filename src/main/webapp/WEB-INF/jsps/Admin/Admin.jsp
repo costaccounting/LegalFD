@@ -94,6 +94,20 @@
 	margin-left: 180px;
 	margin-top: 120px;
 }
+
+/* Paras CSS code - For Delete button */
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+
 </style>
 <body>
 
@@ -211,17 +225,26 @@
 										class="btn btn-outline-success "> <i
 											class="fas fa-pencil-alt"></i> Edit User
 									</a></td>
-									<td><a
-										href="<c:url value="/details/${Users.email}/${Useremail}"/>"
-										class="btn btn-outline-info"> <i class="fa fa-bars"></i>
-											Details
-									</a></td>
 									<td>
-			               	
+										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
+											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
+												Upload Document
+										</a>
+									</td>
+									<td>
+										<a href="<c:url value="#"/>"
+											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
+												Customer Details
+										</a>
+									</td>
+									<td>
+											<a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="close">
+                                            </a>
+			               	<!-- 
                                             <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
                                                <i class="fas fa-trash"></i> Delete User
                                             </a>
-                                            
+                                 -->           
                                        </td>
 								</tr>
 							</c:forEach>
