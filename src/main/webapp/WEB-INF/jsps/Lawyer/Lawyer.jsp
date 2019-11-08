@@ -189,6 +189,7 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
+								<th>User Document</th>
 								<th>User Details</th>
 
 							</tr>

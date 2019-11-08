@@ -83,7 +83,7 @@
 		<div class="card-header" id="cardHeader">
 
 			<h2>
-				<i class="fas fa-users"></i> ${clientFirstName}'s Personal Information 
+				<i class="fas fa-users"></i> ${clientFirstName} Personal Information 
 			</h2>
 
 
@@ -99,11 +99,6 @@
        	<fieldset>
        	<legend>	Client Information 		</legend>  
 			<table>
-				<tr>
-					<td>
-						<form:hidden path="userEmail" value="${Useremail}"/>
-					</td>
-				</tr>
 				<tr>
 					<td>
 						Full Legal Name:
@@ -300,11 +295,7 @@
        	<fieldset>
        	<legend>	Spouse Information 		</legend>  
 			<table>
-				<tr>
-					<td>
-						<form:hidden path="userEmail" value="${Useremail}"/>
-					</td>
-				</tr>
+				
 				<tr>
 					<td>
 						Full Legal Name:
@@ -501,11 +492,7 @@
        	<legend>	Marital Information 		</legend>  
 	
 			<table>
-				<tr>
-					<td>
-						<form:hidden path="userEmail" value="${Useremail}"/>
-					</td>
-				</tr>
+				
 				<tr>
 					<td>
 						Date of Marriage:
@@ -598,11 +585,7 @@
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
 			<table>
-				<tr>
-					<td>
-						<form:hidden path="userEmail" value="${Useremail}"/>
-					</td>
-				</tr>
+				
 				<tr>
 					<td>
 						Address:
@@ -707,11 +690,7 @@
        	<legend>	Children Information 		</legend>  
 		
 			<table>
-				<tr>
-					<td>
-						<form:hidden path="userEmail" value="${Useremail}"/>
-					</td>
-				</tr>
+				
 				<tr>
 					<th>
 						Name
@@ -809,11 +788,7 @@
 		       	<legend>	Child Expenses Information 		</legend>  
 
 					<table>
-						<tr>
-							<td>
-								<form:hidden path="userEmail" value="${Useremail}"/>
-							</td>
-						</tr>
+						
 						<tr>
 							<td>
 								Medical/Dental/Orthodontic:

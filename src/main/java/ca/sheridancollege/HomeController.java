@@ -275,7 +275,7 @@ public class HomeController {
 		
 			if(dao.getEmail(email).isEmpty()==false){
 			
-			System.out.println("Test o/p -->" + dao.userExist(email, password).isEmpty());
+			
 			if(dao.userExist(email, password).isEmpty() == true)
 			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Details");
@@ -458,30 +458,24 @@ public class HomeController {
 
 //-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START********---------------------------------
 			
-				@RequestMapping("/application/{cleintEmail}/{Useremail}")
-				public String goViewClientInfo(Model model, @PathVariable String clientEmail ,@PathVariable String Useremail) {
+				@RequestMapping("/application/{email}/{Useremail}")
+				public String goViewClientInfo(Model model, @PathVariable String email ,@PathVariable String Useremail) {
 				
 					if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) 
 						{
+	
 						
-						ChildExpenses childExpenses = generalDao.getChildExpenses(clientEmail);
-						Children children = generalDao.getChildren(clientEmail);
-						ClientInfo clientInfo= generalDao.getclientInfoList(clientEmail);
-						MartialInfo martialInfo= generalDao.getMartialInfo(clientEmail);
-						MatrimonialHome matrimonialHome= generalDao.getMatrimonialHome(clientEmail);
-						SpouseInfo spouseInfo= generalDao.getSpouseInfo(clientEmail);
-						
-						
+						// Sending Client and Session Email First Name to display
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						String clientFirstName = dao.getFirstName(Useremail).get(0);
+						String clientFirstName = dao.getFirstName(email).get(0);
 						
 						// Getting Client data based on their Client Email
-						model.addAttribute("childExpenses", childExpenses);
-						model.addAttribute("children", children);
-						model.addAttribute("clientInfo", clientInfo);
-						model.addAttribute("maritalInfo", martialInfo);
-						model.addAttribute("matrimonialHome", matrimonialHome);
-						model.addAttribute("spouseInfo", spouseInfo);
+						model.addAttribute("childExpenses", generalDao.getChildExpenses(email));
+						model.addAttribute("children", generalDao.getChildren(email));
+						model.addAttribute("clientInfo", generalDao.getclientInfoList(email));
+						model.addAttribute("maritalInfo", generalDao.getMartialInfo(email));
+						model.addAttribute("matrimonialHome", generalDao.getMatrimonialHome(email));
+						model.addAttribute("spouseInfo", generalDao.getSpouseInfo(email));
 						
 						// Necessary code to send to JSP
 						model.addAttribute("firstName", firstNameStore);

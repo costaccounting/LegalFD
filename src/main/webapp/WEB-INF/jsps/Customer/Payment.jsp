@@ -100,7 +100,7 @@
 			<th>Document Category</th>
 			<th>Form Type</th>
 			<th>Amount</th>
-			<th>Remove</th>
+			<th>Remove Item</th>
 
 			</tr>
 
@@ -114,10 +114,11 @@
 					<td>${pay.formType}</td>
 					<td>${pay.documentAmount}</td>
 
-					<td><a
-						href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>"
-						class="btn btn-secondary"> <i class="fa fa-times-circle"></i>
-					</a></td>
+					<td>
+						<a href="/deletePayment/${Useremail}/${pay.id}" class="btn btn-secondary"> 
+							<i class="fa fa-times-circle"></i>
+						</a>
+					</td>
 					<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
 
 				</tr>

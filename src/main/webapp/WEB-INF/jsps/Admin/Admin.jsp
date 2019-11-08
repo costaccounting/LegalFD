@@ -207,10 +207,9 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
-								<th>Upload Document</th>
+								<th>User Document</th>
 								<th>User Details</th>
 								<th>Delete User</th>
-
 							</tr>
 						</thead>
 						<tbody>
