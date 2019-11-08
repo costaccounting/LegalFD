@@ -174,14 +174,14 @@
 
 
 			</div>
-<input type="submit" class="btn btn-primary" value="Save"/>
+			<input type="submit" class="btn btn-primary" value="Save" />
 		</form:form>
 		<br> <br>
 
 		<nav>
 			<ul class="pagination justify-content-center">
 				<li class="page-item "><a class="page-link"
-					href="/navclientInfo/${Useremail}"> <span>&laquo;</span> <span
+					href="/navspouseInfo/${Useremail}"> <span>&laquo;</span> <span
 						class="sr-only">Previous</span>
 				</a></li>
 				<li class="page-item "><a class="page-link"
@@ -197,7 +197,7 @@
 				<li class="page-item"><a class="page-link"
 					href="/navchildExpense/${Useremail}">6</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navmaritalInfo/${Useremail}"> <span>&raquo;</span> <span
+					href="/navmatrimonialHome/${Useremail}"> <span>&raquo;</span> <span
 						class="sr-only">Next</span>
 				</a></li>
 			</ul>
