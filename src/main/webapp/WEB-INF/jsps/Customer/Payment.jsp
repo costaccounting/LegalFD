@@ -82,7 +82,7 @@
 
 		<h2 class=" flex-grow-1 bd-highlight">Payment</h2>
 
-		<a href="<c:url value="/ClientSide/${Useremail}"/>"
+		<a href="<c:url value="/dashboard/${Useremail}"/>"
 			class="btn btn-light bd-highlight " id="submit"> <i class="fas fa-arrow-left"></i>
 			Back To Dashboard
 		</a>

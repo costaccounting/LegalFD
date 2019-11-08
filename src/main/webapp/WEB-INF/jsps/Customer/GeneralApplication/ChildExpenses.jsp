@@ -85,7 +85,7 @@
 				<i class="fas fa-file-alt"></i> General Application Information Form
 			</h2>
 
-			<a href="#" class="btn btn-light bd-highlight " id="submit"> <i
+			<a href="/dashboard/${Useremail}" class="btn btn-light bd-highlight " id="submit"> <i
 				class="fas fa-arrow-left"></i> Back To Dashboard
 			</a>
 		</div>
@@ -96,10 +96,14 @@
 
 
 	<div class="container">
-
+<!-- 
 		<div class="progress">
 			<div class="progress-bar bg-dark" style="width: 100%;"></div>
-		</div>
+		</div> -->
+		
+		<div class="progress">
+            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" style="width:100%;">100%</div>
+        </div>
 
 		<br>
 
@@ -172,17 +176,17 @@
 						class="sr-only">Previous</span>
 				</a></li>
 				<li class="page-item "><a class="page-link"
-					href="/navclientInfo/${Useremail}">1</a></li>
+					href="/navclientInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Client Information">1</a></li>
 				<li class="page-item "><a class="page-link"
-					href="/navspouseInfo/${Useremail}">2</a></li>
+					href="/navspouseInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Spouse Information">2</a></li>
 				<li class="page-item "><a class="page-link"
-					href="/navmaritalInfo/${Useremail}">3</a></li>
+					href="/navmaritalInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Marital Information">3</a></li>
 				<li class="page-item "><a class="page-link"
-					href="/navmatrimonialHome/${Useremail}">4</a></li>
+					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Information">4</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navchildren/${Useremail}">5</a></li>
+					href="/navchildren/${Useremail}" data-toggle="tooltip" data-placement="top" title="Children Information">5</a></li>
 				<li class="page-item active"><a class="page-link"
-					href="/navchildExpense/${Useremail}">6</a></li>
+					href="/navchildExpense/${Useremail}" data-toggle="tooltip" data-placement="top" title="Child Expenses">6</a></li>
 				<li class="page-item disabled"><a class="page-link"
 					href="/navchildren/${Useremail}"> <span>&raquo;</span> <span
 						class="sr-only">Next</span>
@@ -213,8 +217,7 @@
 
 
 	<script>
-		// Get the current year for the copyright
-		$('#year').text(new Date().getFullYear());
+	$('[data-toggle="tooltip"]').tooltip();
 	</script>
 	
 </body>
