@@ -201,6 +201,7 @@ public class GeneralFormDao {
 					session.beginTransaction();
 					
 					ClientInfo client = (ClientInfo) session.get(ClientInfo.class, email);
+					
 					client.setFullLegalName(clientInfo.getFullLegalName());
 					client.setDateOfBirth(clientInfo.getDateOfBirth());
 					client.setCitizenship(clientInfo.getCitizenship());
@@ -236,7 +237,32 @@ public class GeneralFormDao {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(children);
+					Children child = (Children) session.get(Children.class, email);
+					
+					child.setChildName1(children.getChildName1());
+					child.setDobChild1(children.getDobChild1());
+					child.setLivingChild1(children.getLivingChild1());
+					child.setGradeChild1(children.getGradeChild1());
+					child.setSchoolChild1(children.getSchoolChild1());
+					
+					child.setChildName2(children.getChildName2());
+					child.setDobChild2(children.getDobChild2());
+					child.setLivingChild2(children.getLivingChild2());
+					child.setGradeChild2(children.getGradeChild2());
+					child.setSchoolChild2(children.getSchoolChild2());
+					
+					child.setChildName2(children.getChildName3());
+					child.setDobChild2(children.getDobChild3());
+					child.setLivingChild2(children.getLivingChild3());
+					child.setGradeChild2(children.getGradeChild3());
+					child.setSchoolChild2(children.getSchoolChild3());
+					
+					child.setChildName2(children.getChildName4());
+					child.setDobChild2(children.getDobChild4());
+					child.setLivingChild2(children.getLivingChild4());
+					child.setGradeChild2(children.getGradeChild4());
+					child.setSchoolChild2(children.getSchoolChild4());
+				
 					
 					session.getTransaction().commit();
 					session.close();
@@ -247,7 +273,17 @@ public class GeneralFormDao {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(martialInfo);
+					MartialInfo martial = (MartialInfo) session.get(MartialInfo.class, email);
+					
+					martial.setMarriageDate(martialInfo.getMarriageDate());
+					martial.setMarriagePlace(martialInfo.getMarriagePlace());
+					martial.setCohabitationDate(martialInfo.getCohabitationDate());
+					martial.setSeparationDate(martialInfo.getSeparationDate());
+					martial.setCourtCase(martialInfo.getCourtCase());
+					martial.setWrittenAgreement(martialInfo.getWrittenAgreement());
+					martial.setRelevantDate(martialInfo.getRelevantDate());
+					martial.setSafetyConcerns(martialInfo.getSafetyConcerns());
+					martial.setSpouseCriminalRecord(martialInfo.getSpouseCriminalRecord());
 					
 					session.getTransaction().commit();
 					session.close();
@@ -258,7 +294,20 @@ public class GeneralFormDao {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(matrimonialHome);
+					MatrimonialHome matrimonial = (MatrimonialHome) session.get(MatrimonialHome.class, email);
+					
+					matrimonial.setFirstAddress(matrimonialHome.getFirstAddress());
+					matrimonial.setFirstTitle(matrimonialHome.getFirstTitle());
+					matrimonial.setFirstValue(matrimonialHome.getFirstValue());
+					matrimonial.setFirstMortgage(matrimonialHome.getFirstMortgage());
+					
+					matrimonial.setSecondAddress(matrimonialHome.getSecondAddress());
+					matrimonial.setSecondTitle(matrimonialHome.getSecondTitle());
+					matrimonial.setSecondValue(matrimonialHome.getSecondValue());
+					matrimonial.setSecondMortgage(matrimonialHome.getSecondMortgage());
+					
+					matrimonial.setExcludePropertyClient(matrimonialHome.getExcludePropertyClient());
+					matrimonial.setExcludePropertySpouse(matrimonialHome.getExcludePropertySpouse());
 					
 					session.getTransaction().commit();
 					session.close();
@@ -269,8 +318,32 @@ public class GeneralFormDao {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(spouseInfo);
+					SpouseInfo spouse = (SpouseInfo) session.get(SpouseInfo.class, email);
 					
+					spouse.setSpouseName(spouseInfo.getSpouseName());
+					spouse.setSpouseDateOfBirth(spouseInfo.getSpouseDateOfBirth());
+					spouse.setSpousePlaceOfBirth(spouseInfo.getSpousePlaceOfBirth());
+					spouse.setSpouseCitizenship(spouseInfo.getSpouseCitizenship());
+					spouse.setSpouseSIN(spouseInfo.getSpouseSIN());	
+					spouse.setSpouseSurnameBirth(spouseInfo.getSpouseSurnameBirth());
+					spouse.setSpouseSurnameMarriage(spouseInfo.getSpouseSurnameMarriage());
+					spouse.setSpouseCurrentAddress(spouseInfo.getSpouseCurrentAddress());
+					spouse.setSpouseSinceWhen(spouseInfo.getSpouseSinceWhen());
+					spouse.setSpouseMailingAddress(spouseInfo.getSpouseMailingAddress());
+					spouse.setSpouseHomeTel(spouseInfo.getSpouseHomeTel());
+					spouse.setSpouseWorkTel(spouseInfo.getSpouseWorkTel());
+					spouse.setSpouseCell(spouseInfo.getSpouseCell());
+					spouse.setSpouseFax(spouseInfo.getSpouseFax());
+					spouse.setSpouseEmail(spouseInfo.getSpouseEmail());
+					spouse.setSpouseDivorcedStatus(spouseInfo.getSpouseDivorcedStatus());
+					spouse.setSpouseDivorcePlace(spouseInfo.getSpouseDivorcePlace());
+					spouse.setSpouseDivorceDate(spouseInfo.getSpouseDivorceDate());
+					spouse.setSpouseJobTitle(spouseInfo.getSpouseJobTitle());
+					spouse.setSpouseCurrentEmployer(spouseInfo.getSpouseCurrentEmployer());
+					spouse.setSpouseEmployerAddress(spouseInfo.getSpouseEmployerAddress());
+					spouse.setSpouseAnnualIncome(spouseInfo.getSpouseAnnualIncome());
+					spouse.setSpouseIncomeOtherSource(spouseInfo.getSpouseIncomeOtherSource());
+										
 					session.getTransaction().commit();
 					session.close();
 				}
