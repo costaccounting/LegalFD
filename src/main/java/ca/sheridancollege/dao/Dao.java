@@ -415,19 +415,24 @@ public class Dao {
 		    String users_home = System.getProperty("user.home");		
 		    return users_home.replace("\\", "/"); // to support all platforms.		
 		}		
-		public static String getProjectFolder() {		
+		public  String getProjectFolder() {		
 			return  getUsersHomeDir() + File.separator + location_string;		
 		}		
-		public static String getDirPath(String dirName) {		
-			return  (getUsersHomeDir() + File.separator + location_string + File.separator + dirName).replace("\\", "/");		
+		public  String getDirPath(String dirName) {		
+			String path =  (getUsersHomeDir() + File.separator + location_string + File.separator + dirName).replace("\\", "/");	
+			File f = new File(path);
+			if (!f.exists() || ! f.isDirectory()) {
+				createFolder(dirName);
+			}
+			return path;
+			
 		}		
 		public List getFileList(String dir){		
 					
 					
 			List<File> list = new ArrayList<File>();		
-			//System.out.println("filedao location string:" + location);		
 			File fileName = new File(dir);		
-	        File[] fileList = fileName.listFiles();		
+			File[] fileList = fileName.listFiles();		
 	        		
 	        for (File file: fileList) {		
 	            		

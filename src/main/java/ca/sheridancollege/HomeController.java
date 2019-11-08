@@ -69,16 +69,9 @@ public class HomeController {
 								
 			List<String> uploaders = new ArrayList<String>();		
 					
-			List<File> filelist = dao.getFileList(location);					
-			List<String[]> fileinfo = new ArrayList<String[]>();		
-			try {		
-				for (File f : filelist) {		
-					fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
-				}		
-			} catch (Exception e) {		
-				// TODO Auto-generated catch block		
-				e.printStackTrace();		
-			}		
+			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+					
 				
 					
 			model.addAttribute("filelist", filelist);					
@@ -436,7 +429,7 @@ public class HomeController {
 
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
 
-//-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
+//-----------------********		NAVIGATION TO Document Edit for Admin Side Start	********---------------------------------
 	
 		@RequestMapping("/docEdit/{Useremail}")
 		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
@@ -460,9 +453,59 @@ public class HomeController {
 			
 		}
 
-//-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
+//-----------------********		NAVIGATION TO Document Edit for Admin Side End	********---------------------------------
 
-	
+
+//-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START********---------------------------------
+			
+				@RequestMapping("/application/{cleintEmail}/{Useremail}")
+				public String goViewClientInfo(Model model, @PathVariable String clientEmail ,@PathVariable String Useremail) {
+				
+					if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) 
+						{
+						
+						ChildExpenses childExpenses = generalDao.getChildExpenses(clientEmail);
+						Children children = generalDao.getChildren(clientEmail);
+						ClientInfo clientInfo= generalDao.getclientInfoList(clientEmail);
+						MartialInfo martialInfo= generalDao.getMartialInfo(clientEmail);
+						MatrimonialHome matrimonialHome= generalDao.getMatrimonialHome(clientEmail);
+						SpouseInfo spouseInfo= generalDao.getSpouseInfo(clientEmail);
+						
+						
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						String clientFirstName = dao.getFirstName(Useremail).get(0);
+						
+						// Getting Client data based on their Client Email
+						model.addAttribute("childExpenses", childExpenses);
+						model.addAttribute("children", children);
+						model.addAttribute("clientInfo", clientInfo);
+						model.addAttribute("maritalInfo", martialInfo);
+						model.addAttribute("matrimonialHome", matrimonialHome);
+						model.addAttribute("spouseInfo", spouseInfo);
+						
+						// Necessary code to send to JSP
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						
+						model.addAttribute("clientFirstName", clientFirstName);
+						
+						return "ViewData";
+						}
+						else {
+							model.addAttribute("logOutMess", "You DO NOT hold privileges to View this Page");
+							model.addAttribute("registerUser", new RegisterUser());
+							
+							return "index";
+							
+						}
+					
+				}
+
+//-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START ********---------------------------------
+
+			
+		
+		
 //-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
 		
 		@RequestMapping("/edit/{email}/{Useremail}")
@@ -1067,29 +1110,10 @@ public class HomeController {
 		
 		String Useremail = folderName;
 		
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-
-		List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-			
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					
-				}		
-			}		
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-
-			e.printStackTrace();		
-		} 
-		model.addAttribute("filelist", filelist);
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+		
+	    model.addAttribute("filelist", filelist);
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
@@ -1112,28 +1136,8 @@ public class HomeController {
 			HttpServletResponse response) 	
 	{
 		
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-
-		List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-			
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					
-				}		
-			}		
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-
-			e.printStackTrace();		
-		} 
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 		model.addAttribute("filelist", filelist);
 		model.addAttribute("fileinfo", fileinfo);
 		
@@ -1178,33 +1182,15 @@ public class HomeController {
 			        "Your file wasn't uploaded");		
 		}
 		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
-	    List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-				
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}	
-			}
-		}catch (Exception ex){
-			ex.printStackTrace();
-		}
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 			
 						
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
-		System.out.println(fileinfo);
+		
 		
         return "Admin/Files";
     }
@@ -1235,26 +1221,8 @@ public class HomeController {
 			        "Your file wasn't uploaded");		
 		}
 		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
-	    List<String[]> fileinfo = new ArrayList<String[]>();		
-	    try {		
-			for (File f : filelist) {		
-				
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}	
-			}
-		}catch (Exception ex){
-			ex.printStackTrace();
-		}
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 			
 		// Regular Customer JSP EL tags needed code
 		String firstNameStore = dao.getFirstName(folderName).get(0);
@@ -1300,17 +1268,8 @@ public class HomeController {
 			        "Your file wasn't uploaded");		
 		}
 		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
-	    List<String[]> fileinfo = new ArrayList<String[]>();		
-		try {		
-			for (File f : filelist) {		
-				fileinfo.add( dao.getFileInfo(  f.getName()  ) );		
-			}		
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-			e.printStackTrace();		
-		}		
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 			
 						
 		model.addAttribute("fileinfo", fileinfo);
@@ -1383,26 +1342,8 @@ public class HomeController {
 
 		//adding a file
        		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));
-		
-	    List<String[]> fileinfo = new ArrayList<String[]>();		
-	    try {		
-			for (File f : filelist) {		
-				
-				try {
-					if( dao.getFileInfo( f.getName() )!=null ) {
-						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
-					}else {
-						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
-					}
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}	
-			}
-		}catch (Exception ex){
-			ex.printStackTrace();
-		}
+		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 			
 						
 		model.addAttribute("fileinfo", fileinfo);
@@ -1420,6 +1361,30 @@ public class HomeController {
 		
         return "Customer/uploadDocument";
     }
+
+	private List<String[]> compareWithFileDatabase(List<File> filelist) {
+		// TODO Auto-generated method stub
+		List<String[]> fileinfo = new ArrayList<String[]>();		
+	    try {		
+			for (File f : filelist) {		
+				
+				try {
+					if( dao.getFileInfo( f.getName() )!=null ) {
+						fileinfo.add( dao.getFileInfo(  f.getName()  ) );
+					}else {
+						fileinfo.add(new String[] {f.getName(), "", "" , "" } );
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+			return new  ArrayList<String[]>();
+		}
+		return fileinfo;
+	}
 
 			
 //-----------------File View and Add --	END---------------------------------

@@ -207,6 +207,7 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
+								<th>Upload Document</th>
 								<th>User Details</th>
 								<th>Delete User</th>
 
@@ -239,7 +240,7 @@
 									</td>
 									<td>
 								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
-                                               <i class="fas fa-trash"></i> Delete User
+                                               <i class="fas fa-trash"></i> 
                                             </a>
                                     </td>
 								</tr>
