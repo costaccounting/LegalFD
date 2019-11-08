@@ -69,14 +69,29 @@ public class HomeController {
 		RegisterUser reg = dao.getUser(email); 
 		model.addAttribute("userInfo", reg);
 		
+		
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		
+		return "edit";
+	}
+	
+	@RequestMapping("/settings/{Useremail}")
+	public String goEditUser(Model model, @PathVariable String Useremail) {
+		
+		RegisterUser reg = dao.getUser(Useremail); 
+		model.addAttribute("userInfo", reg);
+		
+		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 				
-		return "edit";
+		return "Settings";
 	}
-	
 	
 	
 	@RequestMapping("/paymentPage/{Useremail}")
@@ -543,9 +558,7 @@ public class HomeController {
 
 			
 		
-		
-		
-//-----------------********		NAVIGATION TO Edit User & UPDATE Function 	STOP ********---------------------------------
+//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
 	
 		@RequestMapping("/editUser/{sessionEmail}/{userEmail}")
 		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
@@ -559,7 +572,7 @@ public class HomeController {
 			String formRole = role.trim();
 			
 			RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
-			dao.editUser(formEmail, reg);
+			dao.editUserRole(formEmail, reg);
 			
 			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
 			
@@ -603,6 +616,41 @@ public class HomeController {
 		
 //-----------------******* Edit User STOP *********---------------------------------
 
+
+//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
+			
+	@RequestMapping("/editPassword/{userEmail}")
+	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
+					
+		try {
+				
+			RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
+			dao.editUser(regUser);
+					
+				model.addAttribute("confirmationMessage", "Your Information is modified successfully");
+					
+				RegisterUser reg = dao.getUser(userEmail); 
+				model.addAttribute("userInfo", reg);
+				
+				String firstNameStore = dao.getFirstName(userEmail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", userEmail );
+				
+					return "Settings";
+				
+					}// Try block closes
+					catch (Exception e) {
+						model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
+				}
+				
+//-----------------******* Edit User STOP *********---------------------------------
+
+		
 		
 //-----------------******* Delete User START *********---------------------------------
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	

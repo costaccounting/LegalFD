@@ -261,7 +261,7 @@ public class Dao {
 				
 			
 //-----------------------------------------------------------******************************------------------------------------	
-				public void editUser(String email, RegisterUser reg) {
+				public void editUserRole(String email, RegisterUser reg) {
 					//String firstName, String lastName, String role
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
@@ -271,6 +271,24 @@ public class Dao {
 					registredUser.setFirstName(reg.getFirstName());
 					registredUser.setLastName(reg.getLastName());
 					registredUser.setRole(reg.getRole());
+					
+					session.getTransaction().commit();
+					session.close();
+				}
+	
+//-----------------------------------------------------------******************************------------------------------------	
+				public void editUser(RegisterUser reg) {
+					//String firstName, String lastName, String role
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					String email = reg.getEmail();
+					
+					RegisterUser registredUser = (RegisterUser) session.get(RegisterUser.class, email);
+					
+					registredUser.setFirstName(reg.getFirstName());
+					registredUser.setLastName(reg.getLastName());
+					registredUser.setPassword(reg.getPassword());
 					
 					session.getTransaction().commit();
 					session.close();
