@@ -61,24 +61,39 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/files")			
-	public String goFilesDir(Model model, @ModelAttribute String location) {			
-			if(location.equals(null) || location.equals("")){					
-				location = dao.getProjectFolder();						
-			}					
-								
-			List<String> uploaders = new ArrayList<String>();		
-					
-			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
-		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-					
+
+			
+	@RequestMapping("/edit/{email}/{Useremail}")
+	public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
 				
-					
-			model.addAttribute("filelist", filelist);					
-			model.addAttribute("fileinfo", fileinfo);		
-					
-								
-			return "Admin/Files";					
+		RegisterUser reg = dao.getUser(email); 
+		model.addAttribute("userInfo", reg);
+		
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+				
+		return "edit";
+	}
+	
+	
+	
+	@RequestMapping("/paymentPage/{Useremail}")
+	public String goViewCart(Model model, @PathVariable String Useremail) {
+			
+			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			
+			
+			return "Customer/Payment";
 	}
 	
 	@RequestMapping("/navclientInfo/{Useremail}")	
@@ -199,24 +214,46 @@ public class HomeController {
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
 	
+	// Above method to Navigate to Upload Document - PRODIP CODE
+	@RequestMapping("/files")			
+	public String goFilesDir(Model model, @ModelAttribute String location) {			
+			if(location.equals(null) || location.equals("")){					
+				location = dao.getProjectFolder();						
+			}					
+								
+			List<String> uploaders = new ArrayList<String>();		
+					
+			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+					
+				
+					
+			model.addAttribute("filelist", filelist);					
+			model.addAttribute("fileinfo", fileinfo);		
+					
+								
+			return "Admin/Files";					
+	}
 	
+	// Above method to Navigate to Upload Document - PRODIP CODE
 	
 // ****  Navigation between Pages 	END ***
+	
 	
 	
 //----**** BELOW this RIYA Code*******---------------------------------
 
 	
+	
+	
 		
 //----**** ABOVE this RIYA Code*******---------------------------------
 		
-	
-	
 		
 		
 //----**** BELOW this HEET Code*******---------------------------------
 		
-		@RequestMapping(value = "about", method = RequestMethod.GET)
+		@RequestMapping("/about")
 		public String about(Model model, @ModelAttribute RegisterUser user) {
 
 			return "About";
@@ -347,12 +384,12 @@ public class HomeController {
 //-----------------********		LOGIN	END		********---------------------------------
 	
 	
-//-----------------********		Admin or Lawyer	Dashboard START		********---------------------------------
+//-----------------********	Dashboard START		********---------------------------------
 	
 	@RequestMapping("/dashboard/{Useremail}")
 	public String goDashbaord(Model model, @PathVariable String Useremail) {
 		
-		
+		try {	
 			if((dao.getRole(Useremail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -394,9 +431,16 @@ public class HomeController {
 				
 				return "index";
 			}
-			
 		}
-//-----------------********		Admin or Lawyer	Dashboard STOP		********---------------------------------
+		catch (Exception e) {
+			
+			model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+	}
+//-----------------********	Dashboard STOP		********---------------------------------
 	
 	
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
@@ -500,29 +544,13 @@ public class HomeController {
 			
 		
 		
-//-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
-		
-		@RequestMapping("/edit/{email}/{Useremail}")
-		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
-		
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			model.addAttribute("firstName", firstNameStore);
-			
-			RegisterUser reg = dao.getUser(email); 
-			
-			
-			model.addAttribute("userInfo", reg);
-			model.addAttribute("Useremail", Useremail);
-			
-			
-			return "edit";
-		}
 		
 //-----------------********		NAVIGATION TO Edit User & UPDATE Function 	STOP ********---------------------------------
 	
 		@RequestMapping("/editUser/{sessionEmail}/{userEmail}")
 		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
-		
+			
+			try {
 			String adminEmail = sessionEmail.trim();
 						
 			String formEmail = userEmail.trim();
@@ -530,43 +558,47 @@ public class HomeController {
 			String formLastName = userLastName.trim();
 			String formRole = role.trim();
 			
-			
 			RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
-			
 			dao.editUser(formEmail, reg);
 			
 			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
 			
-			if((dao.getRole(adminEmail).get(0)).equals("Admin"))
-			{
-				String firstNameStore = dao.getFirstName(adminEmail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", adminEmail);
-				
-				model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
-				model.addAttribute("user", new RegisterUser());
-				
-				return "Admin/Admin";
-			}
-			else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
-			{
-				String firstNameStore = dao.getFirstName(adminEmail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", adminEmail );
-				
-				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
-				
-				return "Lawyer/Lawyer";
-			}
-			else {
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				if((dao.getRole(adminEmail).get(0)).equals("Admin"))
+				{
+					String firstNameStore = dao.getFirstName(adminEmail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", adminEmail);
+					
+					model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
+					model.addAttribute("user", new RegisterUser());
+					
+					return "Admin/Admin";
+				}
+				else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
+				{
+					String firstNameStore = dao.getFirstName(adminEmail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", adminEmail );
+					
+					model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
+					
+					return "Lawyer/Lawyer";
+				}
+				else {
+					model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
+			}// Try block closes
+			catch (Exception e) {
+				model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
-			
 		}
 		
 //-----------------******* Edit User STOP *********---------------------------------
@@ -777,22 +809,7 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
-	@RequestMapping("/paymentPage/{Useremail}")
-	public String goViewCart(Model model, @PathVariable String Useremail) {
-			
-			
-			List<Payment> pay = dao.getPaymentInfo(Useremail);
-			model.addAttribute("paymentData", pay);
-			
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			
-			
-			return "Customer/Payment";
-	}
+	
 //-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
 	@RequestMapping("/pay/{id}/{Useremail}")
