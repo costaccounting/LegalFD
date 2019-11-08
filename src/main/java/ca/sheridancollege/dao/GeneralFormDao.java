@@ -351,4 +351,19 @@ public class GeneralFormDao {
 //Code Saving Data in MYSQL Database  -- END
 				
 				
+				
+// ------------*********	Delete Rows for Tables	*******---------------				
+		public void deleteChildExpenses(String email){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+					
+			ChildExpenses childExpenses = (ChildExpenses) session.get(ChildExpenses.class, email);
+			session.delete(childExpenses);
+				
+			session.getTransaction().commit();
+			session.close();
+		}
+
+// ------------*********	Delete Rows for Tables	*******---------------				
+				
 }
