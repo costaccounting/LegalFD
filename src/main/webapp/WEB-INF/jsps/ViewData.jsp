@@ -117,7 +117,7 @@
 						Date of Birth:
 					</td>
 					<td>
-						<form:input type="date" path="dateOfBirth"/>
+						${clientInfo.dateOfBirth}
 					</td>
 				</tr>
 				<tr>
@@ -125,7 +125,7 @@
 						Citizenship:
 					</td>
 					<td>
-						<form:input path="citizenship"/>
+						${clientInfo.citizenship}
 					</td>
 				</tr>
 				<tr>
@@ -133,7 +133,7 @@
 						Place of Birth:
 					</td>
 					<td>
-						<form:input path="placeOfBirth"/>
+						${clientInfo.placeOfBirth}
 					</td>
 				</tr>
 				<tr>
@@ -141,7 +141,7 @@
 						Social Insurance Number: 
 					</td>
 					<td>
-						<form:input id="sin" path="SIN"/>
+						${clientInfo.SIN}
 					</td>
 				</tr>
 				<tr>
@@ -149,7 +149,7 @@
 						Surname at Birth:
 					</td>
 					<td>
-						<form:input path="surnameBirth"/>
+						${clientInfo.surnameBirth}
 					</td>
 				</tr>
 				<tr>
@@ -157,7 +157,7 @@
 						Surname before Marriage:
 					</td>
 					<td>
-						<form:input path="surnameBeforeMarriage"/>
+						${clientInfo.surnameBeforeMarriage}
 					</td>
 				</tr>
 				<tr>
@@ -165,7 +165,7 @@
 						Current Home Address:
 					</td>
 					<td>
-						<form:input path="currentHomeAddress"/>
+						${clientInfo.currentHomeAddress}
 					</td>
 				</tr>
 				<tr>
@@ -173,7 +173,7 @@
 						Since When?
 					</td>
 					<td>
-						<form:input path="sinceWhen"/>
+						${ clientInfo.sinceWhen}
 					</td>
 				</tr>
 				<tr>
@@ -181,7 +181,7 @@
 						Current Mailing Address:
 					</td>
 					<td>
-						<form:input path="currentMailingAddress"/>
+						${clientInfo.currentMailingAddress}
 					</td>
 				</tr>
 				<tr>
@@ -189,7 +189,7 @@
 						Home Tel.:
 					</td>
 					<td>
-						<form:input path="homeTel"/>
+						${clientInfo.homeTel}
 					</td>
 				</tr>
 				<tr>
@@ -197,7 +197,7 @@
 						Work Tel:
 					</td>
 					<td>
-						<form:input path="workTel"/>
+						${clientInfo.workTel}
 					</td>
 				</tr>
 				<tr>
@@ -205,7 +205,7 @@
 						Cell:
 					</td>
 					<td>
-						<form:input path="cell"/>
+						${clientInfo.cell}
 					</td>
 				</tr>
 				<tr>
@@ -213,7 +213,7 @@
 						Fax:
 					</td>
 					<td>
-						<form:input path="fax"/>
+						${clientInfo.fax}
 					</td>
 				</tr>
 				<tr>
@@ -221,7 +221,7 @@
 						Email:
 					</td>
 					<td>
-						<form:input path="email"/>
+						${clientInfo.email}
 					</td>
 				</tr>
 				<tr>
@@ -229,7 +229,7 @@
 						Divorced Before?
 					</td>
 					<td>
-						<form:input path="divorcedBefore"/>
+						${clientInfo.divorcedBefore}
 					</td>
 				</tr>
 				<tr>
@@ -237,7 +237,7 @@
 						Place:
 					</td>
 					<td>
-						<form:input path="place"/>
+						${clientInfo.place}
 					</td>
 				</tr>
 				<tr>
@@ -245,7 +245,7 @@
 						Date:
 					</td>
 					<td>
-						<form:input type="date" path="date"/>
+						${path=clientInfo.date}
 					</td>
 				</tr>
 				<tr>
@@ -253,7 +253,7 @@
 						Job Title: 
 					</td>
 					<td>
-						<form:input path="jobTitle"/>
+						${clientInfo.jobTitle}
 					</td>
 				</tr>
 				<tr>
@@ -261,7 +261,7 @@
 						Current Employer: 
 					</td>
 					<td>
-						<form:input path="currentEmployer"/>
+						${clientInfo.currentEmployer}
 					</td>
 				</tr>
 				<tr>
@@ -269,7 +269,7 @@
 						Current Employer Address:
 					</td>
 					<td>
-						<form:input path="employerAddress"/>
+						${clientInfo.employerAddress}
 					</td>
 				</tr>
 				<tr>
@@ -277,7 +277,7 @@
 						Annual Income from Employment:
 					</td>
 					<td>
-						<form:input path="annualIncome"/>
+						${clientInfo.annualIncome}
 					</td>
 				</tr>
 				<tr>
@@ -285,7 +285,7 @@
 						Income from Another Source:
 					</td>
 					<td>
-						<form:input path="incomeOtherSource"/>
+						${clientInfo.incomeOtherSource}
 					</td>
 				</tr>
 			</table>
@@ -299,7 +299,6 @@
 <!-- ***************** ___Spouse Information -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Spouse Information 		</legend>  
-		<form:form action="/spouseInfo/${Useremail}" method="get" modelAttribute="spouseInfo">
 			<table>
 				<tr>
 					<td>
@@ -311,7 +310,7 @@
 						Full Legal Name:
 					</td>
 					<td>
-						<form:input type="date" path="spouseName"/>
+						${spouseInfo.spouseName}
 					</td>
 				</tr>
 				<tr>
@@ -319,7 +318,7 @@
 						Date of Birth:
 					</td>
 					<td>
-						<form:input path="spouseDateOfBirth"/>
+						${spouseInfo.spouseDateOfBirth}
 					</td>
 				</tr>
 				<tr>
@@ -327,7 +326,7 @@
 						Citizenship:
 					</td>
 					<td>
-						<form:input path="spouseCitizenship"/>
+						${spouseInfo.spouseCitizenship}
 					</td>
 				</tr>
 				<tr>
@@ -335,7 +334,7 @@
 						Place of Birth:
 					</td>
 					<td>
-						<form:input type="date" path="spousePlaceOfBirth"/>
+						${spouseInfo.spousePlaceOfBirth}
 					</td>
 				</tr>
 				<tr>
@@ -343,7 +342,7 @@
 						SIN: 
 					</td>
 					<td>
-						<form:input path="spouseSIN"/>
+						${spouseInfo.spouseSIN}
 					</td>
 				</tr>
 				<tr>
@@ -351,7 +350,7 @@
 						Surname at Birth:
 					</td>
 					<td>
-						<form:input path="spouseSurnameBirth"/>
+						${spouseInfo.spouseSurnameBirth}
 					</td>
 				</tr>
 				<tr>
@@ -359,7 +358,7 @@
 					`	Surname Before marriage:
 					</td>
 					<td>
-						<form:input path="spouseSurnameMarriage"/>
+						${spouseInfo.spouseSurnameMarriage}
 					</td>
 				</tr>
 				<tr>
@@ -367,7 +366,7 @@
 						Current Home Address:
 					</td>
 					<td>
-						<form:input path="spouseCurrentAddress"/>
+						${spouseInfo.spouseCurrentAddress}
 					</td>
 				</tr>
 				<tr>
@@ -375,7 +374,7 @@
 						Since When?
 					</td>
 					<td>
-						<form:input path="spouseSinceWhen"/>
+						${spouseInfo.spouseSinceWhen}
 					</td>
 				</tr>
 				<tr>
@@ -383,7 +382,7 @@
 						Current Mailing Address:
 					</td>
 					<td>
-						<form:input path="spouseMailingAddress"/>
+						${spouseInfo.spouseMailingAddress}
 					</td>
 				</tr>
 				<tr>
@@ -391,7 +390,7 @@
 						Home Tel:
 					</td>
 					<td>
-						<form:input path="spouseHomeTel"/>
+						${spouseInfo.spouseHomeTel}
 					</td>
 				</tr>
 				<tr>
@@ -399,7 +398,7 @@
 						Work Tel:
 					</td>
 					<td>
-						<form:input path="spouseWorkTel"/>
+						${spouseInfo.spouseWorkTel}
 					</td>
 				</tr>
 				<tr>
@@ -407,7 +406,7 @@
 						Cell:
 					</td>
 					<td>
-						<form:input path="spouseCell"/>
+						${spouseInfo.spouseCell}
 					</td>
 				</tr>
 				<tr>
@@ -415,7 +414,7 @@
 						Fax:
 					</td>
 					<td>
-						<form:input path="spouseFax"/>
+						${spouseInfo.spouseFax}
 					</td>
 				</tr>
 				<tr>
@@ -423,7 +422,7 @@
 						Email:
 					</td>
 					<td>
-						<form:input path="spouseEmail"/>
+						${spouseInfo.spouseEmail}
 					</td>
 				</tr>
 				<tr>
@@ -431,7 +430,7 @@
 						Divorced Before?
 					</td>
 					<td>
-						<form:input path="spouseDivorcedStatus"/>
+						${spouseInfo.spouseDivorcedStatus}
 					</td>
 				</tr>
 				<tr>
@@ -439,7 +438,7 @@
 						Place:
 					</td>
 					<td>
-						<form:input path="spouseDivorcePlace"/>
+						${spouseInfo.spouseDivorcePlace}
 					</td>
 				</tr>
 				<tr>
@@ -447,7 +446,7 @@
 						Date:
 					</td>
 					<td>
-						<form:input type="date" path="spouseDivorceDate"/>
+						${spouseInfo.spouseDivorceDate}
 					</td>
 				</tr>
 				<tr>
@@ -455,7 +454,7 @@
 						Job Title:
 					</td>
 					<td>
-						<form:input path="spouseJobTitle"/>
+						${spouseInfo.spouseJobTitle}
 					</td>
 				</tr>
 				<tr>
@@ -463,7 +462,7 @@
 						Current Employer:
 					</td>
 					<td>
-						<form:input path="spouseCurrentEmployer"/>
+						${spouseInfo.spouseCurrentEmployer}
 					</td>
 				</tr>
 				<tr>
@@ -471,7 +470,7 @@
 						Current Employer Address:
 					</td>
 					<td>
-						<form:input path="spouseEmployerAddress"/>
+						${spouseInfo.spouseEmployerAddress}
 					</td>
 				</tr>
 				<tr>
@@ -479,7 +478,7 @@
 						Current Annual Income from Employment($):
 					</td>
 					<td>
-						<form:input path="spouseAnnualIncome"/>
+						${spouseInfo.spouseAnnualIncome}
 					</td>
 				</tr>
 				<tr>
@@ -487,12 +486,10 @@
 						Income from other sources:
 					</td>
 					<td>
-						<form:input path="spouseIncomeOtherSource"/>
+						${spouseInfo.spouseIncomeOtherSource}
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="Add"/>
-			</form:form>
 			</fieldset>					
 <!-- ***************** ___Spouse Information -- END___ ******************** -->										
 <br>
@@ -502,7 +499,7 @@
 
  	<fieldset>
        	<legend>	Marital Information 		</legend>  
-		<form:form action="/maritalInfo/${Useremail}" method="get" modelAttribute="maritalInfo">
+	
 			<table>
 				<tr>
 					<td>
@@ -515,7 +512,7 @@
 					</td>
 					
 					<td>
-						<form:input type="date" path="marriageDate"/>
+						${maritalInfo.marriageDate}
 					</td>
 				</tr>
 				
@@ -525,7 +522,7 @@
 					</td>
 					
 					<td>
-						<form:input type="date" path="cohabitationDate"/>
+						${maritalInfo.cohabitationDate}
 					</td>
 				</tr>
 				<tr>
@@ -533,7 +530,7 @@
 						Place of Marriage:
 					</td>
 					<td>
-						<form:input path="marriagePlace"/>
+						${maritalInfo.marriagePlace}
 					</td>
 				</tr>
 				<tr>
@@ -541,7 +538,7 @@
 						Date of Separation:
 					</td>
 					<td>
-						<form:input type="date" path="separationDate"/>
+						${maritalInfo.separationDate}
 					</td>
 				</tr>
 				<tr>
@@ -549,7 +546,7 @@
 						Have either you, your spouse,or children been in a court case before?(Yes/No):
 					</td>
 					<td>
-						<form:input path="courtCase"/>
+						${maritalInfo.courtCase}
 					</td>
 				</tr>
 				<tr>
@@ -557,7 +554,7 @@
 						Have you and your spouse made a written agreement dealing with any matter involved in this case?(Yes/No):
 					</td>
 					<td>
-						<form:input path="writtenAgreement"/>
+						${maritalInfo.writtenAgreement}
 					</td>
 				</tr>
 				
@@ -566,7 +563,7 @@
 						If client or spouse is stay-at-home parent,please give relevant dates:
 					</td>
 					<td>
-						<form:input path="relevantDate"/>
+						${maritalInfo.relevantDate}
 					</td>
 				</tr>
 				
@@ -575,7 +572,7 @@
 						Do you have any safety concerns for yourself of your children?(Yes/No):
 					</td>
 					<td>
-						<form:input path="safetyConcerns"/>
+						${maritalInfo.safetyConcerns}
 					</td>
 				</tr>
 				
@@ -584,13 +581,12 @@
 						Have the police been called to the matrimonial home and does either spouse have a criminal record?(Yes/No):
 					</td>
 					<td>
-						<form:input path="spouseCriminalRecord"/>
+						${maritalInfo.spouseCriminalRecord}
 					</td>
 				</tr>
 				
 			</table>
-			<input type="submit" value="Add"/>
-			</form:form>
+			
 			</fieldset>
 <!-- ***************** ___Marital Information Form -- END___ ******************** -->										
 
@@ -601,7 +597,6 @@
 
 <fieldset>
        	<legend>	Matrimonial Information 		</legend>  
-		<form:form action="/matrimonialHome/${Useremail}" method="get" modelAttribute="matrimonialHome">
 			<table>
 				<tr>
 					<td>
@@ -614,7 +609,7 @@
 					</td>
 					
 					<td>
-						<form:input path="firstAddress"/>
+						${matrimonialHome.firstAddress}
 					</td>
 				</tr>
 				
@@ -624,7 +619,7 @@
 					</td>
 					
 					<td>
-						<form:input path="firstTitle"/>
+						${matrimonialHome.firstTitle}
 					</td>
 				</tr>
 				<tr>
@@ -632,7 +627,7 @@
 						Value($):
 					</td>
 					<td>
-						<form:input path="firstValue"/>
+						${matrimonialHome.firstValue}
 					</td>
 				</tr>
 				<tr>
@@ -640,7 +635,7 @@
 						Mortgage($):
 					</td>
 					<td>
-						<form:input path="firstMortgage"/>
+						${matrimonialHome.firstMortgage}
 					</td>
 				</tr>
 				
@@ -650,7 +645,7 @@
 					</td>
 					
 					<td>
-						<form:input path="secondAddress"/>
+						${matrimonialHome.secondAddress}
 					</td>
 				</tr>
 				
@@ -660,7 +655,7 @@
 					</td>
 					
 					<td>
-						<form:input path="secondTitle"/>
+						${matrimonialHome.secondTitle}
 					</td>
 				</tr>
 				<tr>
@@ -668,7 +663,7 @@
 						Value($):
 					</td>
 					<td>
-						<form:input path="secondValue"/>
+						${matrimonialHome.secondValue}
 					</td>
 				</tr>
 				<tr>
@@ -676,7 +671,7 @@
 						Mortgage($):
 					</td>
 					<td>
-						<form:input path="secondMortgage"/>
+						${matrimonialHome.secondMortgage}
 					</td>
 				</tr>
 				<br>
@@ -687,7 +682,7 @@
 						Received by client(during or after marriage):
 					</td>
 					<td>
-						<form:input path="excludePropertyClient"/>
+						${matrimonialHome.excludePropertyClient}
 					</td>
 				</tr>
 				<tr>
@@ -695,13 +690,11 @@
 						Received by client's spouse(during or after marriage):
 					</td>
 					<td>
-						<form:input path="excludePropertySpouse"/>
+						${matrimonialHome.excludePropertySpouse}
 					</td>
 				</tr>
 							
 			</table>
-			<input type="submit" value="Add"/>
-			</form:form>
 			</fieldset>
 
 <!-- ***************** ___Marimonial Home Information Form -- END___ ******************** -->										
@@ -712,7 +705,7 @@
 <!-- ***************** ___Children Information Form -- START___ ******************** -->       	
        	<fieldset>
        	<legend>	Children Information 		</legend>  
-		<form:form action="/children/${Useremail}" method="get" modelAttribute="children">
+		
 			<table>
 				<tr>
 					<td>
@@ -733,81 +726,80 @@
 						Grade
 					</th>
 					<th>
-					School
+						School
 					</th>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName1"/>
+						${children.childName1}
 					</td>
 					<td>
-						<form:input type="date" path="dobChild1"/>
+						${children.dobChild1}
 					</td>
 					<td>
-						<form:input path="livingChild1"/>
+						${children.livingChild1}
 					</td>
 					<td>
-						<form:input path="gradeChild1"/>
+						${children.gradeChild1}
 					</td>
 					<td>
-						<form:input path="schoolChild1"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<form:input path="childName2"/>
-					</td>
-					<td>
-						<form:input type="date" path="dobChild2"/>
-					</td>
-					<td>
-						<form:input path="livingChild2"/>
-					</td>
-					<td>
-						<form:input path="gradeChild2"/>
-					</td>
-					<td>
-						<form:input path="schoolChild2"/>
+						${children.schoolChild1}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName3"/>
+						${children.childName2}
 					</td>
 					<td>
-						<form:input type="date" path="dobChild3"/>
+						${children.dobChild2}
 					</td>
 					<td>
-						<form:input path="livingChild3"/>
+						${children.livingChild2}
 					</td>
 					<td>
-						<form:input path="gradeChild3"/>
+						${children.gradeChild2}
 					</td>
 					<td>
-						<form:input path="schoolChild3"/>
+						${children.schoolChild2}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<form:input path="childName4"/>
+						${children.childName3}
 					</td>
 					<td>
-						<form:input type="date" path="dobChild4"/>
+						${children.dobChild3}
 					</td>
 					<td>
-						<form:input path="livingChild4"/>
+						${children.livingChild3}
 					</td>
 					<td>
-						<form:input path="gradeChild4"/>
+						${children.gradeChild3}
 					</td>
 					<td>
-						<form:input path="schoolChild4"/>
+						${children.schoolChild3}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						${children.childName4}
+					</td>
+					<td>
+						${children.dobChild4}
+					</td>
+					<td>
+						${children.livingChild4}
+					</td>
+					<td>
+						${children.gradeChild4}
+					</td>
+					<td>
+						${children.schoolChild4}
 					</td>
 				</tr>
 				
 			</table>
-			<input type="submit" value="Add"/>
-			</form:form>
+			
 			</fieldset>					
 <!-- ***************** ___Children Information Form -- END___ ******************** -->										
 <br>
@@ -815,7 +807,7 @@
 <!-- ***************** ___Child Expenses Information Form -- START___ ******************** -->       						
 				<fieldset>
 		       	<legend>	Child Expenses Information 		</legend>  
-				<form:form action="/childExpense/${Useremail}" method="get" modelAttribute="childExpenses">
+
 					<table>
 						<tr>
 							<td>
@@ -827,7 +819,7 @@
 								Medical/Dental/Orthodontic:
 							</td>
 							<td>
-								<form:input path="medical"/>
+								${childExpenses.medical}
 							</td>
 						</tr>
 						<tr>
@@ -835,7 +827,7 @@
 								Private School/Tutoring/Educational Expenses:
 							</td>
 							<td>
-								<form:input path="educational"/>
+								${childExpenses.educational}
 							</td>
 						</tr>
 						<tr>
@@ -843,7 +835,7 @@
 								Post-secondary Educational Expenses:
 							</td>
 							<td>
-								<form:input path="postEducational"/>
+								${childExpenses.postEducational}
 							</td>
 						</tr>
 						<tr>
@@ -851,7 +843,7 @@
 								Daycare/Child Care:
 							</td>
 							<td>
-								<form:input path="daycare"/>
+								${childExpenses.daycare}
 							</td>
 						</tr>
 						<tr>
@@ -859,7 +851,7 @@
 								Extracurricular Activities:
 							</td>
 							<td>
-								<form:input path="extraCurricular"/>
+								${childExpenses.extraCurricular}
 							</td>
 						</tr>
 						<tr>
@@ -867,13 +859,12 @@
 								Other Expenses:
 							</td>
 							<td>
-								<form:input path="others"/>
+								${childExpenses.others}
 							</td>
 						</tr>
 						
 					</table>
-					<input type="submit" value="Add"/>
-					</form:form>
+					
 					</fieldset>	
 <!-- ***************** ___Child Expenses Information Form -- END___ ******************** -->										
 <br>

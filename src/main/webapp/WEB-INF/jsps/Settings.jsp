@@ -191,6 +191,11 @@
                                 <input class="form-control" type="text" name="userLastName" value="${userInfo.password}">
                             </div>
                            
+                            <div class="form-group">
+                                <label for="name">Confirm Password:</label>
+                                <input class="form-control" type="text" name="userLastName" value="${userInfo.password}">
+                            </div>
+                            
                              <div id="buttons">
                         <a href=" <c:url value="/dashboard/${Useremail}/${UserPassword} "/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard</a>
                     
