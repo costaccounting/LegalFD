@@ -421,8 +421,9 @@ public class Dao {
 		public  String getDirPath(String dirName) {		
 			String path =  (getUsersHomeDir() + File.separator + location_string + File.separator + dirName).replace("\\", "/");	
 			File f = new File(path);
-			if (!f.exists() && f.isDirectory()) 
+			if (!f.exists() || ! f.isDirectory()) {
 				createFolder(dirName);
+			}
 			return path;
 			
 		}		

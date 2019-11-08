@@ -1190,7 +1190,7 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
-		System.out.println(fileinfo);
+		
 		
         return "Admin/Files";
     }
