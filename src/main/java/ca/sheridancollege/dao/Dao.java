@@ -366,7 +366,8 @@ public class Dao {
 									
 									return document;
 								}
-//-----------------------------------------------------------******************************------------------------------------	
+								
+//---------------------------************** Above this PARAS Code ****************------------------------------------	
 								
 		public List<String> validateUser(RegisterUser reg) {
 			List<String> err = new ArrayList<String>();
@@ -385,6 +386,8 @@ public class Dao {
 			return err;
 		}
 
+//----------------------********** Below this PRODIP Code ********************------------------------------------	
+		
 	public boolean createFolder(RegisterUser user) {		
 			String path = getUsersHomeDir() + File.separator + location_string + File.separator + user.getEmail() ;		
 					

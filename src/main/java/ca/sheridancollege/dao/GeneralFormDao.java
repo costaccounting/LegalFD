@@ -176,29 +176,62 @@ public class GeneralFormDao {
 				
 //Code Saving Data in MYSQL Database  -- START
 		
-				public void addChildExpenses(ChildExpenses childExpenses)
+				public void addChildExpenses(ChildExpenses childExpenses, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(childExpenses);
+					//session.save(childExpenses);
+					
+					ChildExpenses childExp = (ChildExpenses) session.get(ChildExpenses.class, email);
+					childExp.setMedical(childExpenses.getMedical());
+					childExp.setEducational(childExpenses.getEducational());
+					childExp.setPostEducational(childExpenses.getPostEducational());
+					childExp.setDaycare(childExpenses.getDaycare());
+					childExp.setExtraCurricular(childExpenses.getExtraCurricular());
+					childExp.setOthers(childExpenses.getOthers());
 					
 					session.getTransaction().commit();
 					session.close();
 				}
 				
-				public void addClientInfo(ClientInfo clientInfo)
+				public void addClientInfo(ClientInfo clientInfo, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
-					session.save(clientInfo);
+					ClientInfo client = (ClientInfo) session.get(ClientInfo.class, email);
+					client.setFullLegalName(clientInfo.getFullLegalName());
+					client.setDateOfBirth(clientInfo.getDateOfBirth());
+					client.setCitizenship(clientInfo.getCitizenship());
+					client.setPlaceOfBirth(clientInfo.getPlaceOfBirth());
+					client.setSIN(clientInfo.getSIN());
+					client.setSurnameBirth(clientInfo.getSurnameBirth());
+					client.setSurnameBeforeMarriage(clientInfo.getSurnameBeforeMarriage());
+					client.setCurrentHomeAddress(clientInfo.getCurrentHomeAddress());
+					client.setSinceWhen(clientInfo.getSinceWhen());
+					client.setCurrentMailingAddress(clientInfo.getCurrentMailingAddress());
+					client.setHomeTel(clientInfo.getHomeTel());
+					client.setWorkTel(clientInfo.getWorkTel());
+					client.setCell(clientInfo.getCell());
+					client.setFax(clientInfo.getFax());
+					client.setEmail(clientInfo.getEmail());
+					client.setDivorcedBefore(clientInfo.getDivorcedBefore());
+					client.setPlace(clientInfo.getPlace());
+					client.setDate(clientInfo.getDate());
+					client.setJobTitle(clientInfo.getJobTitle());
+					client.setCurrentEmployer(clientInfo.getCurrentEmployer());
+					client.setEmployerAddress(clientInfo.getEmployerAddress());
+					client.setAnnualIncome(clientInfo.getAnnualIncome());
+					client.setIncomeOtherSource(clientInfo.getIncomeOtherSource());
+					
+					
 					
 					session.getTransaction().commit();
 					session.close();
 				}
 				
-				public void addChildren(Children children)
+				public void addChildren(Children children, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
@@ -209,7 +242,7 @@ public class GeneralFormDao {
 					session.close();
 				}
 				
-				public void addMartialInfo(MartialInfo martialInfo)
+				public void addMartialInfo(MartialInfo martialInfo, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
@@ -220,7 +253,7 @@ public class GeneralFormDao {
 					session.close();
 				}
 				
-				public void addMatrimonialHome(MatrimonialHome matrimonialHome)
+				public void addMatrimonialHome(MatrimonialHome matrimonialHome, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
@@ -231,7 +264,7 @@ public class GeneralFormDao {
 					session.close();
 				}
 				
-				public void addSpouseInfo(SpouseInfo spouseInfo)
+				public void addSpouseInfo(SpouseInfo spouseInfo, String email)
 				{
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();

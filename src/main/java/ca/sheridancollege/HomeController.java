@@ -843,8 +843,9 @@ public class HomeController {
 // First Class Saving Data to DAO method	
 	@RequestMapping("/childExpense/{Useremail}")	
 	public String goChildExpenses(Model model, @PathVariable String Useremail, @ModelAttribute ChildExpenses childExpenses) {
+		
 		synchronized (ChildExpenses.class) {
-			generalDao.addChildExpenses(childExpenses);
+			generalDao.addChildExpenses(childExpenses, Useremail);
 		}
 		
 				// Regular Code to send to General Application sos that Forms will work properly
@@ -867,7 +868,7 @@ public class HomeController {
 		@RequestMapping("/children/{Useremail}")	
 		public String goChildren(Model model, @PathVariable String Useremail, @ModelAttribute Children children) {
 			synchronized (Children.class) {
-				generalDao.addChildren(children);
+				generalDao.addChildren(children, Useremail);
 			}
 			
 					// Regular Code to send to General Application sos that Forms will work properly
@@ -890,7 +891,7 @@ public class HomeController {
 				@RequestMapping("/clientInfo/{Useremail}")	
 				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
 					//synchronized (ClientInfo.class) {
-						generalDao.addClientInfo(clientInfo);
+						generalDao.addClientInfo(clientInfo, Useremail);
 					//}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -913,7 +914,7 @@ public class HomeController {
 				@RequestMapping("/maritalInfo/{Useremail}")	
 				public String goMartialInfo(Model model, @PathVariable String Useremail, @ModelAttribute MartialInfo martialInfo) {
 					synchronized (MartialInfo.class) {
-						generalDao.addMartialInfo(martialInfo);
+						generalDao.addMartialInfo(martialInfo, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -936,7 +937,7 @@ public class HomeController {
 				@RequestMapping("/matrimonialHome/{Useremail}")	
 				public String goMatrimonialHome(Model model, @PathVariable String Useremail, @ModelAttribute MatrimonialHome matrimonialHome) {
 					synchronized (MatrimonialHome.class) {
-						generalDao.addMatrimonialHome(matrimonialHome);
+						generalDao.addMatrimonialHome(matrimonialHome, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -959,7 +960,7 @@ public class HomeController {
 				@RequestMapping("/spouseInfo/{Useremail}")	
 				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
 					synchronized (SpouseInfo.class) {
-						generalDao.addSpouseInfo(spouseInfo);
+						generalDao.addSpouseInfo(spouseInfo, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
