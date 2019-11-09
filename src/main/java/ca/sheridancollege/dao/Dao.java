@@ -261,19 +261,42 @@ public class Dao {
 		}
 		
 //-----------------------------------------------------------******************************------------------------------------	
-		public boolean deleteUserPayment(String email) {
+		public boolean deleteUserPayment(int id) {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
-			Query query = session.getNamedQuery("Payment.byEmail");
-			//Query query = session.createQuery("delete from Payment where userEmail= :email");
-			query.setParameter("userEmail", email);
+			
+			
+			Payment payment = (Payment)session.get(Payment.class, id);
+			session.delete(payment);
 			
 			session.getTransaction().commit();
 			session.close();
 			
 			return true;
 		}
+
+//-----------------------------------------------------------******************************------------------------------------	
+		
+		public List<Integer> getIDFromPayAmount(String email){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			//Register register = session.get(Register.class, email, password);
+			
+			Query query = session.createQuery("select id from Payment where userEmail= :email");
+			query.setParameter("email", email);
+			
+			List<Integer> payAmount = (List<Integer>) query.getResultList();
+			
+			session.getTransaction().commit();
+			session.close();
+			
+			return payAmount;
+		}
+		
+//-----------------------------------------------------------******************************------------------------------------	
+	
 		
 //-----------------------------------------------------------******************************------------------------------------	
 				

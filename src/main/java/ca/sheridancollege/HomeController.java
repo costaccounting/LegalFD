@@ -679,8 +679,8 @@ public class HomeController {
 			
 		// Code Required to Delete all Data from other Tables as well
 		dao.deleteUser(email);
-		dao.deleteUserPayment(email);
-		/*generalDao.deleteChildExpenses(email);
+		/*dao.deleteUserPayment(email);
+		generalDao.deleteChildExpenses(email);
 		generalDao.deleteChildren(email);
 		generalDao.deleteClientInfo(email);
 		generalDao.deleteMartialInfo(email);
@@ -789,7 +789,7 @@ public class HomeController {
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
 			
-			dao.addPayment(new Payment(Useremail, "Book of Authority", "50.00"));
+			dao.addPayment(new Payment(Useremail, "Book of Authority", "", "50.00"));
 		
 			model.addAttribute("message", "Book of Authority requested Successfully");
 			
@@ -810,7 +810,7 @@ public class HomeController {
 	@RequestMapping("/factum/{Useremail}")
 	public String goFactum(Model model, @PathVariable String Useremail) {
 			
-		dao.addPayment(new Payment(Useremail, "Factum", "55.00"));
+		dao.addPayment(new Payment(Useremail, "Factum", "", "55.00"));
 			
 		model.addAttribute("message", "Factum requested Successfully");
 		
@@ -852,39 +852,19 @@ public class HomeController {
 				
 				System.out.println(strDate);
 				
-		
-		//String[] requestDoc = new String[25];
-		/*
-		for (int i = 0; i < pay.size(); i++) {
-		    System.out.println(pay.get(i).getFormType());
-		    	if(pay.get(i).getFormType().isEmpty() == false) {
-		    		requestDoc[i] = pay.get(i).getFormType();
-		    	}
-		}
-		
-		for (int j = 0; j < pay.size(); j++) {
-		    System.out.println(pay.get(j).getFormType());
-		    	if(pay.get(j).getFormType().equals(null) || pay.get(j).getFormType().equals("")) {
-		    		requestDoc[j] = pay.get(j).getDocumentType();
-		    	}
-		}
-		*/
 				
 		String requestDoc;
 		for(Payment list : pay) {
 			
-			System.out.println(list.getFormType().isEmpty());
 			
-			if(list.getFormType().isEmpty() == false) {
+			if(!list.getFormType().equals("")) {
 				requestDoc = list.getFormType();
 				
 				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
 				
 				dao.addPayAmount(payAmount);
 			}
-			else {
-				break;
-			}
+				
 		}
 		
 		for(Payment list : pay) {
@@ -900,7 +880,12 @@ public class HomeController {
 		
 		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
 		
-		dao.deleteUserPayment(Useremail);
+		List<Integer> listID = dao.getIDFromPayAmount(Useremail);
+		
+		for(int i : listID) {
+			dao.deleteUserPayment(i);
+		}
+		
 		
 		// Required code for Payment.jsp
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -918,16 +903,7 @@ public class HomeController {
 	
 //-----------------********* Redirect Third Party Pay END*******---------------------------------
 
-	@RequestMapping("/testDel/{Useremail}")	
-	public void testingDelete(@PathVariable String Useremail) {
-		
 	
-		
-		if(dao.deleteUserPayment(Useremail) == true ) {
-			System.out.println(Useremail);
-		}
-		
-	}
 //-----------------********* General Registration Form  START *******---------------------------------
 
 	@RequestMapping("/generalApplication/{Useremail}")	
