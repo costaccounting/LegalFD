@@ -18,9 +18,9 @@ public class PayAmount {
 	private String email;
 	private String amount;
 	private String timePayment;
-	private String[] requestedDocs;
+	private String requestedDocs;
 	
-	public PayAmount(String email, String amount, String timePayment, String[] requestDoc) {
+	public PayAmount(String email, String amount, String timePayment, String requestDoc) {
 		super();
 		this.email = email;
 		this.amount = amount;
