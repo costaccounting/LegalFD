@@ -837,11 +837,10 @@ public class HomeController {
 	
 	@RequestMapping("/pay/{Useremail}")
 	public String goConfirmPaymennt(Model model, @PathVariable String Useremail) {
-			
-			
-			
 		
 		
+		
+		// Required code for Payment.jsp
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
