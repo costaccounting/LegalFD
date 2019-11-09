@@ -20,201 +20,17 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/file.css">
 <title>Client Document</title>
-<style>
-body {
-	box-sizing: border-box;
-}
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-	background-color: #555;
-	color: white;
-	padding: 16px 20px;
-	border: none;
-	cursor: pointer;
-	opacity: 0.8;
-	position: fixed;
-	bottom: 23px;
-	right: 28px;
-	width: 280px;
-}
 
-/* The popup chat - hidden by default */
-.chat-popup {
-	display: none;
-	position: fixed;
-	bottom: 0;
-	right: 15px;
-	border: 3px solid #f1f1f1;
-	z-index: 9;
-}
 
-/* Add styles to the form container */
-.form-container {
-	max-width: 300px;
-	padding: 10px;
-	background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-	width: 100%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	border: none;
-	background: #f1f1f1;
-	resize: none;
-	min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-	background-color: #ddd;
-	outline: none;
-}
-
-/* Set a style for the submit/send button */
-.form-container .btn {
-	background-color: #4CAF50;
-	color: white;
-	padding: 16px 20px;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	margin-bottom: 10px;
-	opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-	background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-	opacity: 1;
-}
-
-#newUl {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 20%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
-}
-
-#newLi a {
-	display: block;
-	color: #000;
-	padding: 8px 16px;
-	text-decoration: none;
-	text-align: center;
-}
-
-#newLi a.active {
-	background-color: #555;
-	color: white;
-}
-
-#newLi a:hover {
-	background-color: #555;
-	color: white;
-}
-
-#navbarbrand {
-	display: block;
-	text-align: center;
-	color: white;
-	padding: 5px 16px;
-	text-decoration: none;
-}
-
-#cardBody {
-	margin-bottom: 80px;
-	margin-top: 120px;
-	margin-left: 80px;
-}
-
-#newContainer {
-	background-color: lightgray;
-	padding: 1px;
-	margin-left: 300px;
-	width: 70%;
-	position: fixed;
-	height: 70%;
-	opacity: 0.8;
-	border-radius: 15px;
-}
-
-.card-header {
-	background-color: #555;
-	color: white;
-	position: fixed;
-	width: 70%;
-}
-
-#card2 {
-	margin-left: 180px;
-	margin-top: 120px;
-}
-
-.navbar-brand {
-	font-size: xx-large;
-	margin-right: 30px;
-}
-
-#navContainer {
-	width: 2200px;
-}
-#newLi a.active {
-	background-color: #555;
-	color: white;
-}
-#newLi a:hover:not(.active) {
-background-color:#555;
-color:white;
-}
-</style>
 </head>
 
 <body>
-
-
 	<div type="hidden" name="email" value="${Useremail}"></div>
-	
 
-
-	<button class="open-button" onclick="openForm()">Contact</button>
-
-	<div class="chat-popup">
-		<form class="form-container" action="mailto:shahriya199907@gmail.com" method="post" enctype="text/plain">
-			<h1>Contact</h1>
-
-			<label for="msg"><b>Message</b></label>
-			<textarea placeholder="Type message.." name=${Useremail } required></textarea>
-
-			<button type="submit" class="btn">Send</button>
-			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	</div>
-
-	<script>
-		function openForm() {
-			document.getElementById("myForm").style.display = "block";
-		}
-
-		function closeForm() {
-			document.getElementById("myForm").style.display = "none";
-		}
-	</script>
-	
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container" id="navContainer">
-			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
-			</i> LegalFD</a>
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black">
+		<div class="container" >
+			<a href="#" class="navbar-brand" ><span class="mb-0 h1"><i class="fas fa-balance-scale">
+			</i> LegalFD</span></a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
@@ -222,7 +38,7 @@ color:white;
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
 					
-					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
@@ -239,7 +55,8 @@ color:white;
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> 
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -252,59 +69,85 @@ color:white;
 		</div>
 	</nav>
 
-	<!-- ACTIONS -->
-	<section id="actions" class="py-4 ml-2 bg-light">
-
-		<ul id="newUl">
-			<li id="navbarbrand" class="bg-dark">
-				<h4>Services</h4>
-			</li>
-			<br>
-			
-			<li id="newLi"><a class="active" href="/document/${Useremail}">Legal Documents</a></li>
-			
-			<li id="newLi"><a  href="/form/${Useremail}">Legal Forms</a></li>
-			
-			<li id="newLi"><a href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
-
-		</ul>
-	</section>
-
-	<div class="container" id="newContainer">
-		<div class="card-header">
-
-			<h2>
-				<i class="fas fa-folder"></i> Legal Document
-			</h2>
-		<!-- 
-		<div class="alert alert-success" role="alert" style="margin-left: 30px; width: 25%; ">
-  				${message}
-			</div>
-			 -->
-		</div>
-		
-		<div class="card-columns">
-			
-			<div class="card" id="cardBody" style="width: 20rem;">
-				<div class="card-body">
-					<h4 class="card-title">Book of Authority</h4>
-					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text"> Description About it - CAD$50</p>
-					<a class="btn btn-outline-info" href="/bookOfAuth/${Useremail}">Request</a>
-				</div>
-			</div>
-			<div class="card" id="card2" style="width: 20rem;">
-				<div class="card-body">
-					<h4 class="card-title">Factum</h4>
-					<h6 class="card-subtitle text-muted">Card subtitle</h6>
-					<p class="card-text">Description About it - CAD$55</p>
-					<a class="btn btn-outline-info" href="/factum/${Useremail}">Request</a>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
+            <div class="container-fluid ">
+                    <div class="row min-vh-100">
+                        <aside class="col-12 col-md-2 p-0 bg-primary" >
+                            <nav class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2 pb-5 " >
+                                
+                                    <br><a href="#" class="navbar-brand" ><span class="pl-4 h2">Services
+                                    </span></a>
+                                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+            
+                                <div class="collapse navbar-collapse">
+                                    
+                                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
+                                     <br>
+                                        <li class="nav-item">
+                                            <a class="nav-link pl-4 " href="/form/${Useremail}"> Legal Forms</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link pl-4 active" href="/document/${Useremail}">Legal Documents</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link pl-4" href="/goToCustomerUpload/${Useremail}">Upload Documents</a>
+                                        </li>
+                                        
+                                    </ul>
+                               
+                            </div>
+                            </nav>
+                        </aside>
+                        <main class="col bg-faded py-3">
+                               
+                            
+
+
+                              <div class="container mr-5 pt-3 pl-5" >
+                                  <div class="card " style="height: 570px">
+                                  <div class="card-header text-light" style="background-color: black">
+
+                                      <h2>
+                                        <i class="fas fa-folder"></i> Legal Document
+                                      </h2>
+                                    <!-- 
+                                    <div class="alert alert-success" role="alert" style="margin-left: 30px; width: 25%; ">
+                                          ${message}
+                                      </div>
+                                       -->
+                                    </div>
+                                    <br>
+                                    
+                                      <div class="ml-5 row mb-5 mt-5">
+                                      <div class="card col-md-5 " id="cardBody" style="width: 20rem;">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Book of Authority</h4>
+                                          <h6 class="card-subtitle text-muted">Card subtitle</h6>
+                                          <p class="card-text"> Description About it - CAD$50</p>
+                                          <a class="btn btn-outline-primary" href="/bookOfAuth/${Useremail}">Request</a>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-1"></div>
+                                      <div class="card col-md-5 " id="card2" style="width: 20rem;">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Factum</h4>
+                                          <h6 class="card-subtitle text-muted">Card subtitle</h6>
+                                          <p class="card-text">Description About it - CAD$55</p>
+                                          <a class="btn btn-outline-primary" href="/factum/${Useremail}">Request</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                              </div>
+                            </div>
+                                      
+
+                      </main>
+                  </div>
+             
+                            
+                        
 
 
 
@@ -320,6 +163,8 @@ color:white;
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+
+
 
 </body>
 </html>
