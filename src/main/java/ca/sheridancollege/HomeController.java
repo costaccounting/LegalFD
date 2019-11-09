@@ -61,26 +61,6 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/files")			
-	public String goFilesDir(Model model, @ModelAttribute String location) {			
-			if(location.equals(null) || location.equals("")){					
-				location = dao.getProjectFolder();						
-			}					
-								
-			List<String> uploaders = new ArrayList<String>();		
-					
-			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
-		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-					
-				
-					
-			model.addAttribute("filelist", filelist);					
-			model.addAttribute("fileinfo", fileinfo);		
-					
-								
-			return "Admin/Files";					
-	}
-	
 	@RequestMapping("/navclientInfo/{Useremail}")	
 	public String navClientInfo(Model model, @PathVariable String Useremail) {
 		
@@ -402,31 +382,7 @@ public class HomeController {
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
 // prodip edit 	
 
-	@RequestMapping("/details/{email}/{Useremail}")
-	public String goDetails(Model model, @PathVariable String email, @PathVariable String Useremail) {
 	
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		model.addAttribute("firstName", firstNameStore);
-		
-		
-		model.addAttribute("email", email);
-		model.addAttribute("Useremail", Useremail);
-		
-		List<File> filelist;
-		try {
-			filelist = dao.getFileList(dao.getDirPath(email));
-		} catch (Exception e) {
-			dao.createFolder (email)  ;
-			filelist = dao.getFileList(dao.getDirPath(email));
-		}
-		
-		model.addAttribute("filelist", filelist);
-		
-		model.addAttribute("presentDirectory", email);
-		
-		return  "Admin/Files";
-	}
-
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
 
 //-----------------********		NAVIGATION TO Document Edit for Admin Side Start	********---------------------------------
@@ -1101,29 +1057,28 @@ public class HomeController {
 
 //-----------------File View and Add --	START---------------------------------
 	
-	@RequestMapping(value = "/files/{folder_name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/details/{folder_name}/{Useremail}", method = RequestMethod.GET)
 	public String getFolder(
 			Model model,
+			@PathVariable("Useremail") String Useremail,
 			@PathVariable("folder_name") String folderName, 	
 			HttpServletResponse response) 	
 	{
 		
-		String Useremail = folderName;
-		
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
 	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-		
-	    model.addAttribute("filelist", filelist);
+		model.addAttribute("filelist", filelist);
 		model.addAttribute("fileinfo", fileinfo);
 		
 		model.addAttribute("presentDirectory", folderName);
 		
 		// Regular Customer JSP EL tags needed code
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				// Needed for Customer JSP EL tags
 		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		// Needed for Customer JSP EL tags
 		
 		return  "Admin/Files";
 			
@@ -1159,10 +1114,12 @@ public class HomeController {
     public String singleFileUpload(
     		Model model,
     		@RequestParam("file") MultipartFile file,
+    		@RequestParam("Useremail") String useremail,
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
 
+		String firstName = dao.getFirstName(useremail).get(0);
 		//adding a file
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -1172,7 +1129,7 @@ public class HomeController {
         // Get the file and save it somewhere
 		try {				
 			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, "uploader");		
+			dao.addFile(file, dir, firstName);		
 			model.addAttribute("message",				
 			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
 		} catch (Exception e) {		
@@ -1187,7 +1144,7 @@ public class HomeController {
 			
 						
 		model.addAttribute("fileinfo", fileinfo);
-		
+		model.addAttribute("Useremail", useremail);
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
 		
@@ -1202,6 +1159,8 @@ public class HomeController {
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
 
+		
+		String firstName = dao.getFirstName(folderName).get(0);
 		//adding a file
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -1211,7 +1170,7 @@ public class HomeController {
         // Get the file and save it somewhere
 		try {				
 			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, "uploader");		
+			dao.addFile(file, dir, firstName);		
 			model.addAttribute("message",				
 			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
 		} catch (Exception e) {		
@@ -1245,10 +1204,14 @@ public class HomeController {
     public String singleFileUploadLawyer(
     		Model model,
     		@RequestParam("file") MultipartFile file,
+    		@RequestParam("Useremail") String useremail,
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
+    		
 	{
 
+		String firstName = dao.getFirstName(useremail).get(0);
+		
 		//adding a file
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -1258,7 +1221,7 @@ public class HomeController {
         // Get the file and save it somewhere
 		try {				
 			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, "uploader");		
+			dao.addFile(file, dir, firstName);		
 			model.addAttribute("message",				
 			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
 		} catch (Exception e) {		
@@ -1282,13 +1245,45 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(folderName).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", folderName);
+		model.addAttribute("Useremail", useremail);
 		// Needed for Customer JSP EL tags
 
 		
         return "Lawyer/uploadingDoc";
     }
 
+	@PostMapping("/deleteFileLawyer/{folder_name}")
+	  public String deleteFileLawyer(
+	    		Model model,
+	    		@RequestParam("hiddenInp") Object selectedChecks,
+	    		RedirectAttributes redirectAttributes,
+	    		@PathVariable("folder_name") String folderName) throws IOException 
+	    		
+		{
+
+			System.out.println(selectedChecks.toString());
+			
+			// showing the list of file in the folder
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+				
+							
+			model.addAttribute("fileinfo", fileinfo);
+			
+			model.addAttribute("presentDirectory", folderName);
+			model.addAttribute("filelist", filelist);
+			System.out.println(fileinfo);
+			
+			// Regular Customer JSP EL tags needed code
+			String firstNameStore = dao.getFirstName(folderName).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", folderName);
+			// Needed for Customer JSP EL tags
+
+			
+	        return "Lawyer/uploadingDoc";
+	    }
 	
 	
 	@RequestMapping(value = "/download", method = RequestMethod.POST )

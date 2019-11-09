@@ -179,6 +179,7 @@
 			<h2>Directory : ${presentDirectory}</h2>
 			<table class="table table-dark">
 				<tr>
+					<th></th>
 					<th>Name</th>
 					<th>Action</th>
 					<th>Uploaded By</th>
@@ -202,8 +203,9 @@
 						else if ( f.isFile() ){
 							for (String[] listitem : list){
 								//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
-								System.out.println(listitem);
+								//System.out.println(listitem);
 								if( listitem[0].equals(f.getName()) ){
+									out.print("<td><input type='checkbox' id='sel' class='sel' name='"+ f.getName() + "'/></td>");
 									out.print("<td>" + listitem[3] + "</td>");
 									out.print("<td>" +
 										"<form method='POST' action='/download'>"+
@@ -225,11 +227,18 @@
 					
 				%>
 			</table>
+			<form method="POST" id="delForm"
+				action="/deleteFileLawyer/<c:out value= "${presentDirectory}" />"
+				enctype="multipart/form-data">
+				<input type="hidden" id="hiddenInp" />
+				<input type="submit" value="Delete selected files" />
+			</form>
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
 				action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
+				<input type="hidden" name="Useremail" value="${Useremail}" />
 				<input type="file" name="file" type="button"
 					class="btn btn-primary btn-lg" /><br /> <br /> <input
 					type="submit" value="Submit" />
@@ -263,6 +272,18 @@
 				}
 			}
 		}
+		
+		$("#delForm").submit(function(eventObj) {
+			var selected = [];
+			$('sel').each(function() {
+				if($(this).is(':checked')){
+					selected.push($(this).attr('name'));
+				}
+			    
+			});
+			$("#hiddenInp").attr("value") = selected;
+		    return true;
+		});
 	</script>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

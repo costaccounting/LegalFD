@@ -22,7 +22,9 @@ import javax.validation.ValidatorFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 	import org.springframework.web.multipart.MultipartFile;		
+	
 import ca.sheridancollege.beans.*;
+
 
 
 public class Dao {

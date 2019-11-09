@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page import="java.util.List"%>
+    pageEncoding="UTF-8"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ page import="java.util.List"%>
 <%@ page import="java.io.File" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,28 +19,89 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="../../../css/fileupload.css">
-
 <title>Upload Documents</title>
 </head>
 <style>
-#submit {
-	/*    padding-bottom: 50px;  */
-	position: absolute;
-	margin-left: 650px;
-    margin-top: 9px;
-	
-}
-.card-header{
-display: flex;
+.navbar-brand {
+	font-size: xx-large;
+	margin-right: 30px;
 }
 
+#navContainer {
+	width: 2200px;
+}
+
+#newLi a.active {
+	background-color: #555;
+	color: white;
+}
+
+#newLi a:hover {
+	background-color: #555;
+	color: white;
+}
+
+#newUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#newLi a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#navbarbrand {
+	display: block;
+	text-align: center;
+	color: white;
+	padding: 5px 16px;
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+#cardBody {
+	margin-bottom: 80px;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+
+#newContainer {
+	background-color: lightgray;
+	padding: 1px;
+	margin-left: 300px;
+	width: 70%;
+	height: 70%;
+	opacity: 0.8;
+	border-radius: 15px;
+}
+
+#cardHeader {
+	background-color: #555;
+	color: white;
+	width: 100%;
+}
+
+#card2 {
+	margin-left: 180px;
+	margin-top: 120px;
+}
 </style>
 <body>
 
-<div type="hidden" name="email" value="${Useremail}"></div>
+	<div type="hidden" name="email" value="${Useremail}"></div>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
 			</i> LegalFD</a>
@@ -54,20 +114,18 @@ display: flex;
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
-					
-					<li class="nav-item px-2"><a href="/editDocPrice/${Useremail}" class="nav-link">Edit Form Price</a></li>
+					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
+					
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							
-							</a> <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+							 <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -79,25 +137,13 @@ display: flex;
 			</div>
 		</div>
 	</nav>
-	<!-- 
-	<section id="actions" class="py-4 ml-2 bg-light">
-		<ul id="newUl">
-			<li id="navbarbrand" class="bg-dark">
-				<h4>Dashboard</h4>
-				
-			</li>
-			<br>
-			
-			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
-			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			
 
-		</ul>
-	</section>
-	 -->
-	
-	<div class="container" id="newContainer">
-		<div class="card-header" id="cardHeader">
+
+
+
+	<div  class="container" id="newContainer">
+           
+          <div class="card-header" id="cardHeader">
 
 			<h2>
 				<i class="fa fa-upload"></i> Upload Documents
@@ -108,27 +154,32 @@ display: flex;
 		</a>
 
 		</div>
-		<div id="accordion">
+           
+            
+                <div id="accordion">
 
-			<div class="card" id="cardForm">
-				<div class="card-header">
-
-					<div style="display: flex">
-						<c:forEach var="Users" items="${allDataForLawyer}">
-							<a><img src="folder.png" alt="Workplace" width="70"
-								height="70" style="display: block">{Users.email}</a>
-
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		<div>
+                    <div class="card" id="cardForm">
+                        
+                      </div>
+                      <div class="card" id="cardForm">
+                          <div class="card-header" >
+                             
+                            <div style="display: flex">
+                                <c:forEach var="Users" items="${allDataForLawyer}">
+                          <a><img src="folder.png" alt="Workplace" width="70" height="70"  style="display: block">{Users.email}</a>
+                          
+                          </c:forEach>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        
+                          </div>
+       		<div>
 			<h2>Directory : ${presentDirectory}</h2>
 			<table class="table table-dark">
 				<tr>
+					<th></th>
 					<th>Name</th>
 					<th>Action</th>
 					<th>Uploaded By</th>
@@ -152,8 +203,9 @@ display: flex;
 						else if ( f.isFile() ){
 							for (String[] listitem : list){
 								//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
-								System.out.println(listitem);
+								//System.out.println(listitem);
 								if( listitem[0].equals(f.getName()) ){
+									out.print("<td><input type='checkbox' id='sel' class='sel' name='"+ f.getName() + "'/></td>");
 									out.print("<td>" + listitem[3] + "</td>");
 									out.print("<td>" +
 										"<form method='POST' action='/download'>"+
@@ -175,11 +227,18 @@ display: flex;
 					
 				%>
 			</table>
+			<form method="POST" id="delForm"
+				action="/deleteFileLawyer/<c:out value= "${presentDirectory}" />"
+				enctype="multipart/form-data">
+				<input type="hidden" id="hiddenInp" />
+				<input type="submit" value="Delete selected files" />
+			</form>
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/upload/<c:out value= "${presentDirectory}" />"
+				action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
+				<input type="hidden" name="Useremail" value="${Useremail}" />
 				<input type="file" name="file" type="button"
 					class="btn btn-primary btn-lg" /><br /> <br /> <input
 					type="submit" value="Submit" />
@@ -190,9 +249,9 @@ display: flex;
 				<h2 c:text="${message}" />
 			</div>
 		</div>
-	</div>
-
-
+        
+        </div>
+                  
 
 	<script>
 		function myFunction() {
@@ -213,6 +272,18 @@ display: flex;
 				}
 			}
 		}
+		
+		$("#delForm").submit(function(eventObj) {
+			var selected = [];
+			$('sel').each(function() {
+				if($(this).is(':checked')){
+					selected.push($(this).attr('name'));
+				}
+			    
+			});
+			$("#hiddenInp").attr("value") = selected;
+		    return true;
+		});
 	</script>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
