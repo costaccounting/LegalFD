@@ -345,6 +345,7 @@ public class HomeController {
 				model.addAttribute("allData", dao.getDataForAdmin(email));
 				
 				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				return "Admin/Admin";
 			}
@@ -420,6 +421,7 @@ public class HomeController {
 				model.addAttribute("user", new RegisterUser());
 				
 				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				return "Admin/Admin";
 			}
@@ -595,6 +597,7 @@ public class HomeController {
 					model.addAttribute("user", new RegisterUser());
 					
 					model.addAttribute("notiList", dao.getList());
+					model.addAttribute("count", dao.getList().size());
 					
 					return "Admin/Admin";
 				}
@@ -678,6 +681,7 @@ public class HomeController {
 		model.addAttribute("Useremail", Useremail);
 		
 		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
 		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 		model.addAttribute("message", "User Deleted Successfully");

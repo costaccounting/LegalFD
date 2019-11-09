@@ -108,6 +108,32 @@
   opacity: 1;
 }
 
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+
 </style>
 <body>
 
@@ -128,7 +154,11 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2 dropdown mr-3"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Notification</a>
+					<li class="nav-item px-2 dropdown mr-3">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<span class="notification">Notification</span>
+								<span class="badge">${count} </span>
+						</a>
 					<div class="dropdown-menu">
 					
 						<c:forEach var="notification" items="${notiList}">
