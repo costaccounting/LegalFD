@@ -246,7 +246,21 @@ public class Dao {
 		}
 		
 //-----------------------------------------------------------******************************------------------------------------	
-				public RegisterUser getUser(String email) {
+		public void deleteUserPayment(String email) {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			Payment deletePayments = (Payment)session.get(Payment.class, email);
+			session.delete(deletePayments);
+			
+			session.getTransaction().commit();
+			session.close();
+		}
+		
+//-----------------------------------------------------------******************************------------------------------------	
+				
+		
+		public RegisterUser getUser(String email) {
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
 					
@@ -256,7 +270,7 @@ public class Dao {
 					session.close();
 					
 					return register;
-				}
+		}
 			
 //-----------------------------------------------------------******************************------------------------------------	
 				public List<LawyerDocEdit> getDocPrice() {

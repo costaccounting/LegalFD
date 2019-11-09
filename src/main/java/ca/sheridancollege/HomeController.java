@@ -679,6 +679,7 @@ public class HomeController {
 			
 		// Code Required to Delete all Data from other Tables as well
 		dao.deleteUser(email);
+		dao.deleteUserPayment(email);
 		generalDao.deleteChildExpenses(email);
 		generalDao.deleteChildren(email);
 		generalDao.deleteClientInfo(email);
@@ -740,7 +741,7 @@ public class HomeController {
 //-----------------*******End OF New Customer Side UI*********---------------------------------
 
 	
-//-----------------*******Legal Form STOP*********---------------------------------
+//-----------------*******Legal Form -- START*********---------------------------------
 	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
 	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm) {
 			
@@ -782,7 +783,10 @@ public class HomeController {
 			
 			return "Customer/Payment";
 	}
+//-----------------*******Legal Form -- END*********---------------------------------
 	
+	
+//-----------------*******Documents -- START*********---------------------------------	
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
 			
@@ -803,7 +807,8 @@ public class HomeController {
 			
 			return "Customer/Payment";
 	}
-	
+
+
 	@RequestMapping("/factum/{Useremail}")
 	public String goFactum(Model model, @PathVariable String Useremail) {
 			
@@ -824,14 +829,16 @@ public class HomeController {
 			
 			return "Customer/Payment";
 	}
+
+//-----------------*******Documents -- END *********---------------------------------
 	
 	
 //-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
-	@RequestMapping("/pay/{id}/{Useremail}")
-	public String goDeleteOrder(Model model, @PathVariable String Useremail, @PathVariable int id) {
+	@RequestMapping("/pay/{Useremail}")
+	public String goConfirmPaymennt(Model model, @PathVariable String Useremail) {
 			
-			//dao.deleteOrderById(id);
+			
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			

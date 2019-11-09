@@ -139,7 +139,7 @@
 
 	<div class="container py-5">
 
-		<form action="/pay/${pay.id}/${Useremail}">
+		<form action="/pay/${Useremail}" role="form">
 
 			<div class="row">
 				<div class="col-lg-4" id="doing">
@@ -162,21 +162,12 @@
 							<b>Credit Card</b>
 							<!-- credit card info-->
 							<div id="nav-tab-card" class="tab-pane fade show active">
-
-								<form role="form">
-
-									<br>
-
-									<button type="button"
-										class="subscribe btn btn-primary btn-block rounded-pill shadow-sm">
-										Confirm</button>
-								</form>
+								<br>
+								<button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm">
+									Confirm
+								</button>
 							</div>
-
-
 						</div>
-
-
 					</div>
 				</div>
 			</div>
