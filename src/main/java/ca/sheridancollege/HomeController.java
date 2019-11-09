@@ -1371,6 +1371,7 @@ public class HomeController {
 	  public String deleteFileAdmin(
 	    		Model model,
 	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
+	    		@RequestParam(required=false, name="Useremail") String Useremail,
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 	    		
@@ -1395,7 +1396,7 @@ public class HomeController {
 			String firstNameStore = dao.getFirstName(folderName).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", folderName);
+			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
 
 			
@@ -1406,6 +1407,7 @@ public class HomeController {
 	  public String deleteFileLawyer(
 	    		Model model,
 	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
+	    		@RequestParam(required=false, name="Useremail") String Useremail,
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 	    		
@@ -1430,7 +1432,7 @@ public class HomeController {
 			String firstNameStore = dao.getFirstName(folderName).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", folderName);
+			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
 
 			

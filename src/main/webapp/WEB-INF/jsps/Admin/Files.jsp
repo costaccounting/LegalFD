@@ -270,7 +270,7 @@
 		}
 		
 		function processDelete(){
-			document.getElementById("formDelete").innerHTML = '<form id="submitForm" method="Post" action="/deleteFileLawyer/${presentDirectory}" /><input type="hidden" id="hiddenInp" name="hiddenInp"/><input type="submit" value="Delete selected files" /></form>';
+			document.getElementById("formDelete").innerHTML = '<form id="submitForm" method="Post" action="/deleteFileLawyer/${presentDirectory}" /><input type="hidden" id="Useremail" name="Useremail" value="${Useremail}"/><input type="hidden" id="hiddenInp" name="hiddenInp"/><input type="submit" value="Delete selected files" /></form>';
 			var selected = new Array();
 			var boxes = document.getElementsByClassName("sel");
 			for (var i=0;i<boxes.length;i++) {
@@ -279,6 +279,7 @@
 				   selected.push(box.value);
 			   }
 			}
+			
 			document.getElementById("hiddenInp").value = selected;
 			document.getElementById("submitForm").submit();
 			
