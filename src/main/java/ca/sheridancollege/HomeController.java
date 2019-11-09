@@ -230,26 +230,6 @@ public class HomeController {
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
 	
-	// Above method to Navigate to Upload Document - PRODIP CODE
-	@RequestMapping("/files")			
-	public String goFilesDir(Model model, @ModelAttribute String location) {			
-			if(location.equals(null) || location.equals("")){					
-				location = dao.getProjectFolder();						
-			}					
-								
-			List<String> uploaders = new ArrayList<String>();		
-					
-			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
-		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-					
-				
-					
-			model.addAttribute("filelist", filelist);					
-			model.addAttribute("fileinfo", fileinfo);		
-					
-								
-			return "Admin/Files";					
-	}
 	
 	// Above method to Navigate to Upload Document - PRODIP CODE
 	
