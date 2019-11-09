@@ -96,6 +96,20 @@
 	margin-left: 180px;
 	margin-top: 120px;
 }
+
+
+
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
 </style>
 
 </head>
