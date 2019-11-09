@@ -120,7 +120,7 @@
 
 
 
-			<div class="container mr-5 pt-3 pl-5">
+			<div class="container mr-5 pt-3 pl-5" style="height: 590px">
 				<div class="card " >
 					<div class="card-header text-light" style="background-color: black">
 
