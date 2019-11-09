@@ -250,7 +250,7 @@ public class Dao {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
-			Query query = session.createQuery("DELETE FROM Payment where email =:email");
+			Query query = session.createQuery("DELETE FROM Payment where userEmail =:email");
 			query.setParameter("email", email);
 			
 			session.getTransaction().commit();
