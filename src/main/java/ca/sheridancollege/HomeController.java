@@ -231,8 +231,117 @@ public class HomeController {
 	}
 	
 	
-	// Above method to Navigate to Upload Document - PRODIP CODE
+//  Navigation to Other Forms, Documents and Pages -- START
 	
+		@RequestMapping("/document/{Useremail}")
+		public String goDocumentPage(Model model, @PathVariable String Useremail) {
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "Customer/document";
+		}
+		
+		
+		@RequestMapping("/form/{Useremail}")
+		public String goFormPage(Model model, @PathVariable String Useremail) {
+			
+			if ((dao.getRole(Useremail).get(0)).equals("Client")) {
+				
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();
+				
+				model.addAttribute("listOfAllForms", docPrice);
+				
+				
+				// Regular Customer JSP EL tags needed code
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				// Needed for Customer JSP EL tags
+				
+				return "Customer/form";
+				}
+				else
+				{
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
+		}	
+
+
+//  Navigation to Other Forms, Documents and Pages -- END
+
+// 		Dashboard START		
+			
+			@RequestMapping("/dashboard/{Useremail}")
+			public String goDashbaord(Model model, @PathVariable String Useremail) {
+				
+				try {	
+					if((dao.getRole(Useremail).get(0)).equals("Admin"))
+					{
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						
+						model.addAttribute("allData", dao.getDataForAdmin(Useremail));
+						model.addAttribute("user", new RegisterUser());
+						
+						model.addAttribute("notiList", dao.getList());
+						model.addAttribute("count", dao.getList().size());
+						
+						return "Admin/Admin";
+					}
+					else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
+					{
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail );
+						
+						model.addAttribute("notiList", dao.getList());
+						model.addAttribute("count", dao.getList().size());
+						
+						model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
+						return "Lawyer/Lawyer";
+					}
+					else if((dao.getRole(Useremail).get(0)).equals("Client")) {
+						
+						List<LawyerDocEdit> docPrice = dao.getDocPrice();
+						
+						model.addAttribute("listOfAllForms", docPrice);
+						
+					String firstNameStore = dao.getFirstName(Useremail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", Useremail);
+					
+					return "Customer/form";
+					}
+					else {
+						model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
+				}
+				catch (Exception e) {
+					
+					model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
+			}
+		//  	Dashboard STOP		
+				
+		
+		
 // ****  Navigation between Pages 	END ***
 	
 	
@@ -386,73 +495,8 @@ public class HomeController {
 //-----------------********		LOGIN	END		********---------------------------------
 	
 	
-//-----------------********	Dashboard START		********---------------------------------
-	
-	@RequestMapping("/dashboard/{Useremail}")
-	public String goDashbaord(Model model, @PathVariable String Useremail) {
-		
-		try {	
-			if((dao.getRole(Useremail).get(0)).equals("Admin"))
-			{
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-				
-				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
-				model.addAttribute("user", new RegisterUser());
-				
-				model.addAttribute("notiList", dao.getList());
-				model.addAttribute("count", dao.getList().size());
-				
-				return "Admin/Admin";
-			}
-			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
-			{
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail );
-				
-				model.addAttribute("notiList", dao.getList());
-				model.addAttribute("count", dao.getList().size());
-				
-				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
-				return "Lawyer/Lawyer";
-			}
-			else if((dao.getRole(Useremail).get(0)).equals("Client")) {
-				
-				List<LawyerDocEdit> docPrice = dao.getDocPrice();
-				
-				model.addAttribute("listOfAllForms", docPrice);
-				
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			return "Customer/form";
-			}
-			else {
-				model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
-				model.addAttribute("registerUser", new RegisterUser());
-				
-				return "index";
-			}
-		}
-		catch (Exception e) {
-			
-			model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
-			model.addAttribute("registerUser", new RegisterUser());
-			
-			return "index";
-		}
-	}
-//-----------------********	Dashboard STOP		********---------------------------------
-	
 	
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
-// prodip edit 	
 
 	
 //-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
@@ -633,8 +677,17 @@ public class HomeController {
 		
 		if((dao.getRole(Useremail).get(0)).equals("Admin")) {
 			
+		// Code Required to Delete all Data from other Tables as well
 		dao.deleteUser(email);
-
+		generalDao.deleteChildExpenses(email);
+		generalDao.deleteChildren(email);
+		generalDao.deleteClientInfo(email);
+		generalDao.deleteMartialInfo(email);
+		generalDao.deleteMatrimonialHome(email);
+		generalDao.deleteSpouseInfo(email);
+		// Code to delete other Dependency of that user
+		
+		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
@@ -657,6 +710,9 @@ public class HomeController {
 	
 //-----------------******* Delete User END *********---------------------------------
 	
+
+//-----------------******* Delete Payment for User -- START *********---------------------------------
+
 	@RequestMapping(value = "/deletePayment/{Useremail}/{id}")	
 	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail) {
 		
@@ -674,87 +730,12 @@ public class HomeController {
 		
 		return "Customer/Payment";
 	}
+	
+//-----------------******* Delete Payment for User -- END *********---------------------------------
 
-//-----------------********   Client Dashboard Side UI -- START********---------------------------------
-	/*
-	@RequestMapping(value = "/ClientSide/{Useremail}")	
-	public String testingClientSide(Model model, @PathVariable String Useremail) {
-		
-		try {
-		
-		if((dao.getRole(Useremail).get(0)).equals("Client")) {
-		
-			List<LawyerDocEdit> docPrice = dao.getDocPrice();
-			
-			model.addAttribute("listOfAllForms", docPrice);
-			
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		return "Customer/form";
-		}
-		
-		else {
-			model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-			model.addAttribute("registerUser", new RegisterUser());
-			
-			return "index";
-			
-		}
-		}
-		catch (Exception e) {
-			model.addAttribute("logOutMess", "Sorry But your Account Expired or got Deleted");
-			model.addAttribute("registerUser", new RegisterUser());
-			
-			return "index";
-		}
-	}
-	*/
-//-----------------********   Client Side UI -- END********---------------------------------
-	
-//-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
-	
-	@RequestMapping("/document/{Useremail}")
-	public String goDocumentPage(Model model, @PathVariable String Useremail) {
-		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		return "Customer/document";
-	}
 	
 	
-	@RequestMapping("/form/{Useremail}")
-	public String goFormPage(Model model, @PathVariable String Useremail) {
-		
-		if ((dao.getRole(Useremail).get(0)).equals("Client")) {
-			
-			List<LawyerDocEdit> docPrice = dao.getDocPrice();
-			
-			model.addAttribute("listOfAllForms", docPrice);
-			
-			
-			// Regular Customer JSP EL tags needed code
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			// Needed for Customer JSP EL tags
-			
-			return "Customer/form";
-			}
-			else
-			{
-				model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-				model.addAttribute("registerUser", new RegisterUser());
-				
-				return "index";
-			}
-	}
+
 	
 //-----------------*******End OF New Customer Side UI*********---------------------------------
 
