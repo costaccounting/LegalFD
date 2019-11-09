@@ -163,9 +163,9 @@
 							<!-- credit card info-->
 							<div id="nav-tab-card" class="tab-pane fade show active">
 								<br>
-								<button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm">
-									Confirm
-								</button>
+								<input type="submit" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm" value="Confirm">
+									
+								
 							</div>
 						</div>
 					</div>

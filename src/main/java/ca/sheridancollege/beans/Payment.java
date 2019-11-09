@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Entity
+@NamedQuery(name = "Payment.byEmail", query = "delete from Payment where userEmail = :userEmail")
 public class Payment {
 
 	@Id

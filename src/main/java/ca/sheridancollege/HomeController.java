@@ -680,12 +680,12 @@ public class HomeController {
 		// Code Required to Delete all Data from other Tables as well
 		dao.deleteUser(email);
 		dao.deleteUserPayment(email);
-		generalDao.deleteChildExpenses(email);
+		/*generalDao.deleteChildExpenses(email);
 		generalDao.deleteChildren(email);
 		generalDao.deleteClientInfo(email);
 		generalDao.deleteMartialInfo(email);
 		generalDao.deleteMatrimonialHome(email);
-		generalDao.deleteSpouseInfo(email);
+		generalDao.deleteSpouseInfo(email);*/
 		// Code to delete other Dependency of that user
 		
 		
@@ -839,12 +839,22 @@ public class HomeController {
 		// To get Current Data
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		
+		// To Convert Amount to 2 decimal places
 		double d = Double.parseDouble(amount);
-		
 		String finalAmount = String.format("%.2f", d);
 		
-		String[] requestDoc = new String[155];
 		
+		// Extract Current Date to Log Data
+				Date date = Calendar.getInstance().getTime();  
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
+				String strDate = dateFormat.format(date);  
+				// Extract Current Date to Log Data
+				
+				System.out.println(strDate);
+				
+		
+		//String[] requestDoc = new String[25];
+		/*
 		for (int i = 0; i < pay.size(); i++) {
 		    System.out.println(pay.get(i).getFormType());
 		    	if(pay.get(i).getFormType().isEmpty() == false) {
@@ -858,18 +868,34 @@ public class HomeController {
 		    		requestDoc[j] = pay.get(j).getDocumentType();
 		    	}
 		}
+		*/
+				
+		String requestDoc;
+		for(Payment list : pay) {
+			
+			System.out.println(list.getFormType().isEmpty());
+			
+			if(list.getFormType().isEmpty() == false) {
+				requestDoc = list.getFormType();
+				
+				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+				
+				dao.addPayAmount(payAmount);
+			}
+			else {
+				break;
+			}
+		}
 		
-		
-		
-		// Extract Current Date to Log Data
-		Date date = Calendar.getInstance().getTime();  
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
-		String strDate = dateFormat.format(date);  
-		// Extract Current Date to Log Data
-		
-		PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
-		
-		dao.addPayAmount(payAmount);
+		for(Payment list : pay) {
+			if(list.getFormType().equals(null) || list.getFormType().equals("") || list.getFormType().equals(" ")) {
+				requestDoc = list.getDocumentType();
+				
+				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+				
+				dao.addPayAmount(payAmount);
+			}
+		}
 		
 		
 		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
@@ -882,7 +908,7 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			model.addAttribute("paymentData", pay);
+			model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
 		
 			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
 			
@@ -892,8 +918,16 @@ public class HomeController {
 	
 //-----------------********* Redirect Third Party Pay END*******---------------------------------
 
+	@RequestMapping("/testDel/{Useremail}")	
+	public void testingDelete(@PathVariable String Useremail) {
+		
 	
-	
+		
+		if(dao.deleteUserPayment(Useremail) == true ) {
+			System.out.println(Useremail);
+		}
+		
+	}
 //-----------------********* General Registration Form  START *******---------------------------------
 
 	@RequestMapping("/generalApplication/{Useremail}")	
