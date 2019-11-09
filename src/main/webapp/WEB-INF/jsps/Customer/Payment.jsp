@@ -34,7 +34,7 @@
 
 
 
-	<nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+	<nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: black">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i class="fas fa-balance-scale">
 			</i> LegalFD</span></a>

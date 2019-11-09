@@ -19,7 +19,7 @@
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/CustomerPortal.css">
+
 
 <title>Client Form</title>
 </head>
@@ -27,7 +27,7 @@
 
 
 
-	
+
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
@@ -81,9 +81,8 @@
 				<nav
 					class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2">
 
-					<br>
-					<a href="#" class="navbar-brand"><span class="pl-4 h2">Services
-					</span></a>
+					<br> <a href="#" class="navbar-brand"><span
+						class="pl-4 h2">Services </span></a>
 					<button class="navbar-toggler" data-toggle="collapse"
 						data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -118,10 +117,9 @@
 						<h2>
 							<i class="fas fa-file-alt"></i> Legal Forms
 							<div class="float-right">
-								<input class="btn btn-primary " type="submit" value="Submit"
-									 /> 
-									<input class="btn btn-primary "
-									type="button" onclick="myFunction()" value="Clear" />
+								<input class="btn btn-primary " type="submit" value="Submit" />
+								<input class="btn btn-primary " type="button"
+									onclick="myFunction()" value="Clear" />
 							</div>
 						</h2>
 					</div>
@@ -598,10 +596,17 @@
 								</div>
 							</div>
 						</div>
-			</div>
-			</div>
+					</div>
+				</div>
+				<br>
+				<div class="float-right mr-5 pb-3 ">
+					<input class="btn btn-primary " type="submit" value="Submit" /> 
+					<input
+						class="btn btn-primary " type="button" onclick="myFunction()"
+						value="Clear" />
+				</div>
 			</form>
-			
+
 			</main>
 		</div>
 	</div>
@@ -610,22 +615,22 @@
 
 
 	<!-- accordion Div closes here -->
-	
 
 
-	
+
+	<!-- 
 	<div class="float-right mr-5 pb-3">
-			<input class="btn btn-primary " type="submit" value="Submit"> 
+			<input class="btn btn-primary " type="submit" value="Submit" /> 
 			<input class="btn btn-primary " type="button"
 			onclick="myFunction()" value="Clear"/>
 	</div>
-
+ -->
 
 
 
 	<!-- <input class="btn btn-primary float-right mr-5 " type="submit"
 			value="Submit"> <br> <br> -->
-	
+
 
 	<!-- <button class="open-button" onclick="openForm()">Contact</button>
 

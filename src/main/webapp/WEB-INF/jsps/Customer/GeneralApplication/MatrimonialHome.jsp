@@ -158,17 +158,17 @@
 
 
 			<div class="row">
-				<label class="mb-2 col">Received by client(during or after
+				<label class="mb-2 col-md-3">Received by client(during or after
 					marriage):</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col-md-3"
 					path="excludePropertyClient" />
 
 
 			</div>
 			<div class="row">
-				<label class="mb-2 col">Received by client's spouse(during
+				<label class="mb-2 col-md-3">Received by client's spouse(during
 					or after marriage):</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col-md-3"
 					path="excludePropertySpouse" />
 
 

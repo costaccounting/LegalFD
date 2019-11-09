@@ -227,12 +227,8 @@
 					
 				%>
 			</table>
-			<form method="POST" id="delForm"
-				action="/deleteFileLawyer/<c:out value= "${presentDirectory}" />"
-				enctype="multipart/form-data">
-				<input type="hidden" id="hiddenInp" />
-				<input type="submit" value="Delete selected files" />
-			</form>
+			<div id="formDelete"></div>
+			<input type="button" onClick="processDelete()" value="Delete selected files" />
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
@@ -253,7 +249,7 @@
         </div>
                   
 
-	<script>
+	<script  type="text/javascript">
 		function myFunction() {
 			var input, filter, table, tr, td, i, txtValue;
 			input = document.getElementById("myInput");
@@ -273,17 +269,21 @@
 			}
 		}
 		
-		$("#delForm").submit(function(eventObj) {
-			var selected = [];
-			$('sel').each(function() {
-				if($(this).is(':checked')){
-					selected.push($(this).attr('name'));
-				}
-			    
-			});
-			$("#hiddenInp").attr("value") = selected;
-		    return true;
-		});
+		function processDelete(){
+			document.getElementById("formDelete").innerHTML = '<form id="submitForm" method="Post" action="/deleteFileLawyer/${presentDirectory}" /><input type="hidden" id="Useremail" name="Useremail" value="${Useremail}"/><input type="hidden" id="hiddenInp" name="hiddenInp"/><input type="submit" value="Delete selected files" /></form>';
+			var selected = new Array();
+			var boxes = document.getElementsByClassName("sel");
+			for (var i=0;i<boxes.length;i++) {
+			   var box = boxes[i];
+			   if (box.checked) {
+				   selected.push(box.value);
+			   }
+			}
+			
+			document.getElementById("hiddenInp").value = selected;
+			document.getElementById("submitForm").submit();
+			
+		}
 	</script>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

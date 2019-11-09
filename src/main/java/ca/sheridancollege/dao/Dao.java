@@ -590,6 +590,16 @@ public class Dao {
 			}
 			return info;
 		}
+	public void deleteFile(String filename, String dir) {
+		try {
+			File f = getFile(filename, dir);
+			f.delete();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 
 		

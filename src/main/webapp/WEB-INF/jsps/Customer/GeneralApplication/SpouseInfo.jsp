@@ -215,10 +215,10 @@
 
 			</div>
 
-			<div class="form-inline">
-				<label class="mb-2 mr-sm-4">Income from another source:</label>
+			<div class="row">
+				<label class="mb-2 col-md-3">Income from another source:</label>
 				<form:input path="spouseIncomeOtherSource" type="text"
-					class="form-control mb-2 " placeholder="Income" />
+					class="form-control mb-2 col-md-3 " placeholder="Income" />
 				<!-- <button type="submit" class="btn btn-primary mb-2 ml-sm-4">Add</button> -->
 
 			</div>
