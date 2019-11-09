@@ -615,8 +615,7 @@
 
 	
 	<div class="float-right mr-5 pb-3">
-			<input class="btn btn-primary " type="submit" value="Submit"
-			id="submit"/> 
+			<input class="btn btn-primary " type="submit" value="Submit"> 
 			<input class="btn btn-primary " type="button"
 			onclick="myFunction()" value="Clear"/>
 	</div>
