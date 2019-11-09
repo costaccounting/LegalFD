@@ -19,7 +19,7 @@
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/CustomerPortal.css">
+
 
 <title>Client Form</title>
 </head>
@@ -615,7 +615,7 @@
 
 	
 	<div class="float-right mr-5 pb-3">
-			<input class="btn btn-primary " type="submit" value="Submit"> 
+			<input class="btn btn-primary " type="submit" value="Submit" /> 
 			<input class="btn btn-primary " type="button"
 			onclick="myFunction()" value="Clear"/>
 	</div>

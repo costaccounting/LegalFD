@@ -213,9 +213,9 @@
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col">Income from another source:</label>
+				<label class="mb-2 col-md-3">Income from another source:</label>
 				<form:input path="incomeOtherSource" type="text"
-					class="form-control mb-2 col" placeholder="Income" />
+					class="form-control mb-2 col-md-3" placeholder="Income" />
 				
 
 			</div>
