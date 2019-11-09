@@ -839,6 +839,8 @@ public class HomeController {
 	public String goConfirmPaymennt(Model model, @PathVariable String Useremail) {
 			
 			
+			
+		
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
