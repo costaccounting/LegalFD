@@ -374,6 +374,7 @@ public class HomeController {
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(email));
 				
 				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				return "Lawyer/Lawyer";
 			}
@@ -433,6 +434,7 @@ public class HomeController {
 				model.addAttribute("Useremail", Useremail );
 				
 				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 				return "Lawyer/Lawyer";
@@ -611,6 +613,7 @@ public class HomeController {
 					model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
 					
 					model.addAttribute("notiList", dao.getList());
+					model.addAttribute("count", dao.getList().size());
 					
 					return "Lawyer/Lawyer";
 				}
