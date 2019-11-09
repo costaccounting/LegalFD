@@ -344,6 +344,8 @@ public class HomeController {
 				model.addAttribute("UserPassword", password);
 				model.addAttribute("allData", dao.getDataForAdmin(email));
 				
+				model.addAttribute("notiList", dao.getList());
+				
 				return "Admin/Admin";
 			}
 			else if((dao.userExist(email, password).get(0)).equals("Client"))
@@ -369,6 +371,8 @@ public class HomeController {
 				model.addAttribute("UserPassword", password);
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(email));
+				
+				model.addAttribute("notiList", dao.getList());
 				
 				return "Lawyer/Lawyer";
 			}
@@ -415,6 +419,8 @@ public class HomeController {
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
 				
+				model.addAttribute("notiList", dao.getList());
+				
 				return "Admin/Admin";
 			}
 			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
@@ -423,6 +429,8 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
+				
+				model.addAttribute("notiList", dao.getList());
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 				return "Lawyer/Lawyer";
@@ -586,6 +594,8 @@ public class HomeController {
 					model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
 					model.addAttribute("user", new RegisterUser());
 					
+					model.addAttribute("notiList", dao.getList());
+					
 					return "Admin/Admin";
 				}
 				else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
@@ -596,6 +606,8 @@ public class HomeController {
 					model.addAttribute("Useremail", adminEmail );
 					
 					model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
+					
+					model.addAttribute("notiList", dao.getList());
 					
 					return "Lawyer/Lawyer";
 				}
@@ -665,6 +677,8 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
+		model.addAttribute("notiList", dao.getList());
+		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 		model.addAttribute("message", "User Deleted Successfully");
 		return "Admin/Admin";
@@ -698,7 +712,7 @@ public class HomeController {
 	}
 
 //-----------------********   Client Dashboard Side UI -- START********---------------------------------
-	
+	/*
 	@RequestMapping(value = "/ClientSide/{Useremail}")	
 	public String testingClientSide(Model model, @PathVariable String Useremail) {
 		
@@ -733,7 +747,7 @@ public class HomeController {
 			return "index";
 		}
 	}
-	
+	*/
 //-----------------********   Client Side UI -- END********---------------------------------
 	
 //-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
@@ -804,7 +818,7 @@ public class HomeController {
 			dao.addPayment(new Payment(Useremail, doc, form, price));
 		}
 			
-		
+			
 			List<LawyerDocEdit> docPrice = dao.getDocPrice();
 			model.addAttribute("listOfAllForms", docPrice);
 			
@@ -813,6 +827,9 @@ public class HomeController {
 			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			dao.getList().add("New Form Request from: "+firstNameStore + "-" + Useremail);
+			
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
@@ -833,6 +850,9 @@ public class HomeController {
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
+			dao.getList().add("New Book of Authority Request from: "+firstNameStore + "-" + Useremail);
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -850,6 +870,9 @@ public class HomeController {
 		model.addAttribute("paymentData", pay);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			dao.getList().add("New Factum Request from: "+firstNameStore + "-" + Useremail);
+			
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);

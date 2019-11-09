@@ -117,8 +117,16 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Notification</a>
+					<div class="dropdown-menu">
+					
+						<c:forEach var="notification" items="${notiList}">
+							<i> ${notification} </i><br>
+						</c:forEach>
+					
+					</div>
 					</li>
+					
 				</ul>
 
 				<ul class="navbar-nav ml-auto">

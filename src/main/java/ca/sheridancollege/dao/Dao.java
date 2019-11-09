@@ -24,14 +24,29 @@ import org.hibernate.cfg.*;
 	import org.springframework.web.multipart.MultipartFile;		
 import ca.sheridancollege.beans.*;
 
+import lombok.Data;
 
+@Data
 public class Dao {
 
 	private static String location_string = "client_files";
 
+	static ArrayList<String> list = new ArrayList<String>();
+	
+	
 	SessionFactory sessionFactory = new Configuration().
 			configure("hibernate.cfg.xml").buildSessionFactory();
 
+
+
+	public ArrayList<String> getList() {
+		return list;
+	}
+
+	public static void setList(ArrayList<String> list) {
+		Dao.list = list;
+	}
+	
 //-----------------------------------------------------------******************************------------------------------------	
 	
 	public boolean addUser(RegisterUser register)
@@ -543,7 +558,7 @@ public class Dao {
 			return info;
 		}
 
-		
 
+		
 
 }

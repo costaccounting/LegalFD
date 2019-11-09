@@ -128,7 +128,15 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Notification</a>
+					<div class="dropdown-menu">
+					
+						<c:forEach var="notification" items="${notiList}">
+							<i> ${notification} </i><br>
+						</c:forEach>
+					
+					</div>
+					</li>
 					
 					<li class="nav-item px-2"><a href="/editDocPrice/${Useremail}" class="nav-link">Edit Form Price</a></li>
 				</ul>
@@ -154,21 +162,6 @@
 		</div>
 	</nav>
 
-<!-- 
-	<section id="actions" class="py-4 ml-2 bg-light">
-		<ul id="newUl">
-			<li id="navbarbrand" class="bg-dark">
-				<h4>Dashboard</h4>
-			</li>
-			<br>
-			
-			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
-			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			 
-
-		</ul>
-	</section>
- -->
  
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
