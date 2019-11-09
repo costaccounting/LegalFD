@@ -1367,17 +1367,53 @@ public class HomeController {
 		
         return "Lawyer/uploadingDoc";
     }
-
-	@PostMapping("/deleteFileLawyer/{folder_name}")
-	  public String deleteFileLawyer(
+	@PostMapping("/deleteFileAdmin/{folder_name}")
+	  public String deleteFileAdmin(
 	    		Model model,
-	    		@RequestParam("hiddenInp") Object selectedChecks,
+	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 	    		
 		{
 
-			System.out.println(selectedChecks.toString());
+			for(String name : selectedChecks) {
+				dao.deleteFile(name, folderName);
+			}
+			
+			// showing the list of file in the folder
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+				
+							
+			model.addAttribute("fileinfo", fileinfo);
+			
+			model.addAttribute("presentDirectory", folderName);
+			model.addAttribute("filelist", filelist);
+			System.out.println(fileinfo);
+			
+			// Regular Customer JSP EL tags needed code
+			String firstNameStore = dao.getFirstName(folderName).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", folderName);
+			// Needed for Customer JSP EL tags
+
+			
+	        return "Admin/Files";
+	    }
+
+	@PostMapping("/deleteFileLawyer/{folder_name}")
+	  public String deleteFileLawyer(
+	    		Model model,
+	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
+	    		RedirectAttributes redirectAttributes,
+	    		@PathVariable("folder_name") String folderName) throws IOException 
+	    		
+		{
+
+			for(String name : selectedChecks) {
+				dao.deleteFile(name, folderName);
+			}
 			
 			// showing the list of file in the folder
 			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
