@@ -353,9 +353,16 @@ public class GeneralFormDao {
 				
 				
 // ------------*********	Delete Rows for Tables	*******---------------				
+<<<<<<< HEAD
 		
 				
 		public void deleteChildExpenses(String email){
+=======
+
+// ------------*********	Delete Rows for Child Expense - Start	*******---------------					
+
+			public void deleteChildExpenses(String email){
+>>>>>>> 3f3e7aa16ebca14787870a0ff263aadd246e99e4
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 					
@@ -369,6 +376,87 @@ public class GeneralFormDao {
 		
 		
 
+// ------------*********	Delete Rows for Child Expense - End	*******---------------								
+
+			// ------------*********	Delete Rows for Children - Start	*******---------------					
+
+						public void deleteChildren(String email){
+						Session session = sessionFactory.openSession();
+						session.beginTransaction();
+								
+						Children child = (Children) session.get(Children.class, email);
+						session.delete(child);
+							
+						session.getTransaction().commit();
+						session.close();
+					}
+
+			// ------------*********	Delete Rows for Children - End	*******---------------								
+
+						// ------------*********	Delete Rows for ClientInfo - Start	*******---------------					
+
+						public void deleteClientInfo(String email){
+						Session session = sessionFactory.openSession();
+						session.beginTransaction();
+								
+						ClientInfo clientInfo = (ClientInfo) session.get(ClientInfo.class, email);
+						session.delete(clientInfo);
+							
+						session.getTransaction().commit();
+						session.close();
+					}
+
+			// ------------*********	Delete Rows for ClientInfo - End	*******---------------								
+
+						
+	 	// ------------*********	Delete Rows for MartialInfo - Start	*******---------------					
+
+						public void deleteMartialInfo(String email){
+						Session session = sessionFactory.openSession();
+						session.beginTransaction();
+								
+						MartialInfo martialInfo = (MartialInfo) session.get(MartialInfo.class, email);
+						session.delete(martialInfo);
+							
+						session.getTransaction().commit();
+						session.close();
+					}
+
+			// ------------*********	Delete Rows for MartialInfo - End	*******---------------								
+
+					 	// ------------*********	Delete Rows for MatrimonialHome - Start	*******---------------					
+
+						public void deleteMatrimonialHome(String email){
+						Session session = sessionFactory.openSession();
+						session.beginTransaction();
+								
+						MatrimonialHome matrimonialHome = (MatrimonialHome) session.get(MatrimonialHome.class, email);
+						session.delete(matrimonialHome);
+							
+						session.getTransaction().commit();
+						session.close();
+					}
+
+			// ------------*********	Delete Rows for MatrimonialHome - End	*******---------------								
+
+					 	// ------------*********	Delete Rows for SpouseInfo - Start	*******---------------					
+
+						public void deleteSpouseInfo(String email){
+						Session session = sessionFactory.openSession();
+						session.beginTransaction();
+								
+						SpouseInfo spouseInfo = (SpouseInfo) session.get(SpouseInfo.class, email);
+						session.delete(spouseInfo);
+							
+						session.getTransaction().commit();
+						session.close();
+					}
+
+			// ------------*********	Delete Rows for SpouseInfo - End	*******---------------								
+
+						
+										
+						
 // ------------*********	Delete Rows for Tables	*******---------------				
 				
 }
