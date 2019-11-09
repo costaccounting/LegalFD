@@ -528,12 +528,16 @@ public class HomeController {
 		
 			if((dao.getRole(Useremail).get(0)).equals("Client")) {
 				
+				List<PayAmount> payAmount = dao.getPayAmountCustomer(Useremail);
+				
+				model.addAttribute("payAmount", payAmount);
+				
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				return "NewClientRequest";
+				return "/Customer/CustomerRequest";
 				}
 				else {
 					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");

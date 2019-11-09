@@ -347,6 +347,25 @@ public class Dao {
 									
 				return payAmount;
 				}
+
+//-----------------------------------------------------------******************************------------------------------------	
+			public List<PayAmount> getPayAmountCustomer(String email) {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+													
+			List<PayAmount> payAmount;
+												
+			Query query = session.createQuery("from PayAmount where email= :email");
+			query.setParameter("email", email);
+			
+			payAmount= query.getResultList();
+													
+													
+			session.getTransaction().commit();
+			session.close();
+													
+			return payAmount;
+			}	
 //-----------------------------------------------------------******************************------------------------------------	
 				public void editUserRole(String email, RegisterUser reg) {
 					//String firstName, String lastName, String role

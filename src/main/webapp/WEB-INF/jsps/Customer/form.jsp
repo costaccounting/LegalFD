@@ -64,6 +64,9 @@
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
 							</a>
+							<a href="/customerRequest/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Customer Request
+							</a>
 						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
