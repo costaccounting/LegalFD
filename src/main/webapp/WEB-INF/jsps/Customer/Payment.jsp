@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -23,183 +24,6 @@
 
 <title>Payment Page</title>
 
-<style>
-body {
-	margin: 0;
-}
-
-#newUl {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 20%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
-}
-
-#newLi a {
-	display: block;
-	color: #000;
-	padding: 8px 16px;
-	text-decoration: none;
-	text-align: center;
-}
-
-#newLi a.active {
-	background-color: #4CAF50;
-	color: white;
-}
-
-#newLi
-
-
- 
-
-
-a
-
-
-
-
-:hover
-
-
-
-
-:not
-
-
- 
-
-
-(
-.active
-
-
- 
-
-
-)
-{
-background-color
-
-
-
-
-:
-
-
- 
-
-
-#555
-
-
-
-
-;
-color
-
-
-
-
-:
-
-
- 
-
-
-white
-
-
-
-
-;
-}
-#navbarbrand {
-	display: block;
-	text-align: center;
-	color: white;
-	padding: 5px 16px;
-	text-decoration: none;
-}
-
-#cardBody {
-	margin-bottom: 80px;
-	margin-top: 120px;
-	margin-left: 80px;
-}
-
-.card-header {
-	background-color: #555;
-	color: white;
-	width: 1240px;
-	margin-top: 30px;
-	margin-left: 20px;
-	display: flex;
-}
-
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 70%;
-	margin-top: 20px;
-	margin-left: 30px;
-	border-collapse: collapse;
-	
-}
-
-th {
-	color: white;
-}
-
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
-
-tr:hover {
-	background-color: #ddd;
-}
-
-th {
-	background-color: dimgrey;
-}
-
-.navbar-brand {
-	font-size: xx-large;
-	margin-right: 30px;
-}
-
-#navContainer {
-	width: 2200px;
-}
-
-#submit {
-	/*    padding-bottom: 50px;  */
-	position: absolute;
-	margin-left: 950px;
-	margin-top: 5px;
-}
-#doing{
-  margin-left: 850px;
-  
-}
-#icons{
-  font-size: 30px;
-}
-.container{
-display: flex;
-}
-}
-</style>
 
 </head>
 
@@ -210,18 +34,19 @@ display: flex;
 
 
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+	<nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
 		<div class="container" id="navContainer">
-			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
-			</i> LegalFD</a>
+			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i class="fas fa-balance-scale">
+			</i> LegalFD</span></a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					
-					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}" class="nav-link ">Home</a></li>
+
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
+						class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
@@ -251,67 +76,65 @@ display: flex;
 		</div>
 	</nav>
 
+<br>
 
+	<div class="card-header mx-5 p-3 text-light bg-primary">
+	<div class="d-flex bd-highlight">
 
-	<div class="card-header">
+		<h2 class=" flex-grow-1 bd-highlight">Payment</h2>
 
-		<h2>Payment</h2>
-
-		<a href="<c:url value="/ClientSide/${Useremail}"/>"
-			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
+		<a href="<c:url value="/dashboard/${Useremail}"/>"
+			class="btn btn-light bd-highlight " id="submit"> <i class="fas fa-arrow-left"></i>
 			Back To Dashboard
 		</a>
+		</div>
 	</div>
-
-	<table>
-	<c:set var="totalPrice" value="${0.0}" />
+	
+	<br>
+	
+<div class="container">
+	<table class="table table-striped">
+		<c:set var="totalPrice" value="${0.0}" />
+		<thead class="thead-dark">
 		<tr>
-
+		
 			<th>Document Category</th>
 			<th>Form Type</th>
 			<th>Amount</th>
-			<th>Delete Request</th>
-		</tr>
-		
-		
-		
-		<c:forEach var="pay" items="${paymentData}">
-			<tr>
+			<th>Remove Item</th>
 
-				<td>${pay.documentType}</td>
-				<td>${pay.formType}</td>
-				<td>${pay.documentAmount}</td>
-				
-				<td><a
-					href="<c:url value="/deletePayment/${Useremail}/${pay.id}"/>"
-					class="btn btn-danger"> <i class="fas fa-trash"></i> Delete
-						Order
-				</a></td>
-				<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
-				
 			</tr>
-		</c:forEach>
+
+		</thead>
+		<tbody>
+
+			<c:forEach var="pay" items="${paymentData}">
+				<tr>
+
+					<td>${pay.documentType}</td>
+					<td>${pay.formType}</td>
+					<td>${pay.documentAmount}</td>
+
+					<td>
+						<a href="/deletePayment/${Useremail}/${pay.id}" class="btn btn-secondary"> 
+							<i class="fa fa-times-circle"></i>
+						</a>
+					</td>
+					<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
+
+				</tr>
+			</c:forEach>
 			<tr>
-				<td>
-					
-				</td>
-				<td>
-					<b>
-						Total Amount:
-					</b>
-				</td>
-				<td>
-					<b>
-						${totalPrice}
-					</b>
-				</td>
-				<td>
+				<td></td>
+				<td><b> Total Amount: </b></td>
 				
-				</td>
+				<td><b> <fmt:formatNumber type="number" maxFractionDigits="2" value="${totalPrice}"/> </b></td>
+				<td></td>
 			</tr>
+		</tbody>
 	</table>
-	
 
+</div>
 
 
 	<div class="container py-5">

@@ -96,6 +96,20 @@
 	margin-left: 180px;
 	margin-top: 120px;
 }
+
+
+
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
 </style>
 
 </head>
@@ -117,8 +131,20 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					<li class="nav-item px-2 dropdown mr-3">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<span class="notification">Notification</span>
+								<span class="badge">${count} </span>
+						</a>
+					<div class="dropdown-menu">
+					
+						<c:forEach var="notification" items="${notiList}">
+							<i> ${notification} </i><br>
+						</c:forEach>
+					
+					</div>
 					</li>
+					
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -129,7 +155,7 @@
 					</a>
 						<div class="dropdown-menu">
 							
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -189,6 +215,7 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
+								<th>User Document</th>
 								<th>User Details</th>
 
 							</tr>

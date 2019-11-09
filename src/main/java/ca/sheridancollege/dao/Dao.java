@@ -22,18 +22,32 @@ import javax.validation.ValidatorFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 	import org.springframework.web.multipart.MultipartFile;		
-	
 import ca.sheridancollege.beans.*;
 
+import lombok.Data;
 
 
+@Data
 public class Dao {
 
 	private static String location_string = "client_files";
 
+	static ArrayList<String> list = new ArrayList<String>();
+	
+	
 	SessionFactory sessionFactory = new Configuration().
 			configure("hibernate.cfg.xml").buildSessionFactory();
 
+
+
+	public ArrayList<String> getList() {
+		return list;
+	}
+
+	public static void setList(ArrayList<String> list) {
+		Dao.list = list;
+	}
+	
 //-----------------------------------------------------------******************************------------------------------------	
 	
 	public boolean addUser(RegisterUser register)
@@ -263,7 +277,7 @@ public class Dao {
 				
 			
 //-----------------------------------------------------------******************************------------------------------------	
-				public void editUser(String email, RegisterUser reg) {
+				public void editUserRole(String email, RegisterUser reg) {
 					//String firstName, String lastName, String role
 					Session session = sessionFactory.openSession();
 					session.beginTransaction();
@@ -273,6 +287,24 @@ public class Dao {
 					registredUser.setFirstName(reg.getFirstName());
 					registredUser.setLastName(reg.getLastName());
 					registredUser.setRole(reg.getRole());
+					
+					session.getTransaction().commit();
+					session.close();
+				}
+	
+//-----------------------------------------------------------******************************------------------------------------	
+				public void editUser(RegisterUser reg) {
+					//String firstName, String lastName, String role
+					Session session = sessionFactory.openSession();
+					session.beginTransaction();
+					
+					String email = reg.getEmail();
+					
+					RegisterUser registredUser = (RegisterUser) session.get(RegisterUser.class, email);
+					
+					registredUser.setFirstName(reg.getFirstName());
+					registredUser.setLastName(reg.getLastName());
+					registredUser.setPassword(reg.getPassword());
 					
 					session.getTransaction().commit();
 					session.close();
@@ -368,7 +400,8 @@ public class Dao {
 									
 									return document;
 								}
-//-----------------------------------------------------------******************************------------------------------------	
+								
+//---------------------------************** Above this PARAS Code ****************------------------------------------	
 								
 		public List<String> validateUser(RegisterUser reg) {
 			List<String> err = new ArrayList<String>();
@@ -387,6 +420,8 @@ public class Dao {
 			return err;
 		}
 
+//----------------------********** Below this PRODIP Code ********************------------------------------------	
+		
 	public boolean createFolder(RegisterUser user) {		
 			String path = getUsersHomeDir() + File.separator + location_string + File.separator + user.getEmail() ;		
 					
@@ -524,7 +559,7 @@ public class Dao {
 			return info;
 		}
 
-		
 
+		
 
 }

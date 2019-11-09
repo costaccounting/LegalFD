@@ -16,6 +16,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   
+       
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+  
+  
   <title>Settings</title>
   <style>
 .navbar-brand {
@@ -100,9 +110,7 @@
 <body>
 
 <div type="hidden" name="email" value="${Useremail}"></div>
-<div type="hidden" name="password" value="${UserPassword}"></div>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
 			</i> LegalFD</a>
@@ -112,15 +120,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					<c:url var="sh" value="/homePage" />
-					<li class="nav-item px-2"><a href=${sh } class="nav-link ">Home</a></li>
+					
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
+					<li class="nav-item"><a href="/paymentPage/${Useremail}"
+						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
+					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
@@ -128,7 +138,8 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+							</a> 
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -142,40 +153,30 @@
 	</nav>
 
 
-	<section id="actions" class="py-4 ml-2 bg-light">
 
-		<ul id="newUl">
-			<li id="navbarbrand" class="bg-dark">
-				<h4>Dashboard</h4>
-			</li>
-			<br>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a class="active" href=${sh }>List of User</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Edit Document/Form Price</a></li>
-			<c:url var="sh" value="/listUser" />
-			<li id="newLi"><a href=${sh }>Upload Documents</a></li>
+<div class="card-header mx-5 p-3 text-light bg-primary">
+	<div class="d-flex bd-highlight">
 
-		</ul>
+		<h2 class="fas fa-pencil-alt">Edit your Information</h2>
 
+		<a href="<c:url value="/dashboard/${Useremail}"/>"
+			class="btn btn-light bd-highlight " id="submit"> <i class="fas fa-arrow-left"></i>
+			Back To Dashboard
+		</a>
+		</div>
+</div>
+	
+	<br>
 
-	</section>
-<div  class="container" id="newContainer">
-            <div class="card-header" id="cardHeader">
-                    
-                    <h2><i class="fas fa-pencil-alt"></i> Edit User</h2>
-                    
-                    
-                </div>
-                <div id="accordion">
-
-                    <div class="card" id="cardForm">
-                        <div class="card-header">
+			<div class="container">
+                <div class="card" id="cardForm">
+                    <div class="card-header">
                         
-                        <form action="/editUser/${Useremail}/${userInfo.email}">
+                        <form action="/editPassword/${Useremail}">
+                            
                             <div class="form-group">
                                 <label for="name">User Email:</label>
-                                <input class="form-control" type="text" name="userEmail" value="${userInfo.email}" disabled>
+                                <input class="form-control" type="text" name="userEmail" value="${Useremail}" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="name">First Name:</label>
@@ -185,50 +186,18 @@
                                 <label for="name">Last Name:</label>
                                 <input class="form-control" type="text" name="userLastName" value="${userInfo.lastName}">
                             </div>
-                           
                             <div class="form-group">
-                                <label for="name">Password:</label>
-                                <input class="form-control" type="text" name="userLastName" value="${userInfo.password}">
+                                <label for="name">New Password:</label>
+                                <input class="form-control" type="text" name="userNewPassword" value="${userInfo.password}">
                             </div>
-                           
-                             <div id="buttons">
-                        <a href=" <c:url value="/dashboard/${Useremail}/${UserPassword} "/>" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back to Dashboard</a>
-                    
-                    <input class="btn btn-success" type="submit"value="Save Changes" id="submit1">
-                </div>
-                    </form>
-                   
+                          
+                          
+                    		<input class="btn btn-success" type="submit"value="Save Changes">
+              	      </form>
+					  </div>                  
                   </div>
-                  
-                
                 </div>
                       
-                     
-                         
-           </div>           
-                            
-                      
-                              
-                 
-                
-        </div>
-
-  
-
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-
-    CKEDITOR.replace('editor1');
-  </script>
+           
 </body>
-
 </html>

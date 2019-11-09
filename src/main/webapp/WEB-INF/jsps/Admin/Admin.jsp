@@ -108,6 +108,22 @@
   opacity: 1;
 }
 
+
+
+
+
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+
 </style>
 <body>
 
@@ -128,7 +144,19 @@
 					
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a></li>
+					<li class="nav-item px-2 dropdown mr-3">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<span class="notification">Notification</span>
+								<span class="badge">${count} </span>
+						</a>
+					<div class="dropdown-menu">
+					
+						<c:forEach var="notification" items="${notiList}">
+							<i> ${notification} </i><br>
+						</c:forEach>
+					
+					</div>
+					</li>
 					
 					<li class="nav-item px-2"><a href="/editDocPrice/${Useremail}" class="nav-link">Edit Form Price</a></li>
 				</ul>
@@ -140,8 +168,8 @@
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
+						
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>
@@ -154,21 +182,6 @@
 		</div>
 	</nav>
 
-<!-- 
-	<section id="actions" class="py-4 ml-2 bg-light">
-		<ul id="newUl">
-			<li id="navbarbrand" class="bg-dark">
-				<h4>Dashboard</h4>
-			</li>
-			<br>
-			
-			<li id="newLi"><a class="active" href="/dashboard/${Useremail}">List of User</a></li>
-			<li id="newLi"><a href="/editDocPrice/${Useremail}">Edit Document/Form Price</a></li>
-			 
-
-		</ul>
-	</section>
- -->
  
 	<div class="container" id="newContainer">
 		<div class="card-header" id="cardHeader">
@@ -207,10 +220,9 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
-								<th>Upload Document</th>
+								<th>User Document</th>
 								<th>User Details</th>
 								<th>Delete User</th>
-
 							</tr>
 						</thead>
 						<tbody>

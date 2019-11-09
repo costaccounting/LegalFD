@@ -61,6 +61,57 @@ public class HomeController {
 	}
 	
 	
+
+
+			
+	@RequestMapping("/edit/{email}/{Useremail}")
+	public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
+				
+		RegisterUser reg = dao.getUser(email); 
+		model.addAttribute("userInfo", reg);
+		
+		
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+		
+		return "edit";
+	}
+	
+	@RequestMapping("/settings/{Useremail}")
+	public String goEditUser(Model model, @PathVariable String Useremail) {
+		
+		RegisterUser reg = dao.getUser(Useremail); 
+		model.addAttribute("userInfo", reg);
+		
+		
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+				
+		return "Settings";
+	}
+	
+	
+	@RequestMapping("/paymentPage/{Useremail}")
+	public String goViewCart(Model model, @PathVariable String Useremail) {
+			
+			
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			
+			
+			return "Customer/Payment";
+	}
+	
 	@RequestMapping("/navclientInfo/{Useremail}")	
 	public String navClientInfo(Model model, @PathVariable String Useremail) {
 		
@@ -179,24 +230,46 @@ public class HomeController {
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
 	
+	// Above method to Navigate to Upload Document - PRODIP CODE
+	@RequestMapping("/files")			
+	public String goFilesDir(Model model, @ModelAttribute String location) {			
+			if(location.equals(null) || location.equals("")){					
+				location = dao.getProjectFolder();						
+			}					
+								
+			List<String> uploaders = new ArrayList<String>();		
+					
+			List<File> filelist = dao.getFileList(dao.getDirPath(location));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+					
+				
+					
+			model.addAttribute("filelist", filelist);					
+			model.addAttribute("fileinfo", fileinfo);		
+					
+								
+			return "Admin/Files";					
+	}
 	
+	// Above method to Navigate to Upload Document - PRODIP CODE
 	
 // ****  Navigation between Pages 	END ***
+	
 	
 	
 //----**** BELOW this RIYA Code*******---------------------------------
 
 	
+	
+	
 		
 //----**** ABOVE this RIYA Code*******---------------------------------
 		
-	
-	
 		
 		
 //----**** BELOW this HEET Code*******---------------------------------
 		
-		@RequestMapping(value = "about", method = RequestMethod.GET)
+		@RequestMapping("/about")
 		public String about(Model model, @ModelAttribute RegisterUser user) {
 
 			return "About";
@@ -255,7 +328,7 @@ public class HomeController {
 		
 			if(dao.getEmail(email).isEmpty()==false){
 			
-			System.out.println("Test o/p -->" + dao.userExist(email, password).isEmpty());
+			
 			if(dao.userExist(email, password).isEmpty() == true)
 			{
 				model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Details");
@@ -271,6 +344,9 @@ public class HomeController {
 				model.addAttribute("Useremail", email );
 				model.addAttribute("UserPassword", password);
 				model.addAttribute("allData", dao.getDataForAdmin(email));
+				
+				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				return "Admin/Admin";
 			}
@@ -297,6 +373,9 @@ public class HomeController {
 				model.addAttribute("UserPassword", password);
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(email));
+				
+				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				return "Lawyer/Lawyer";
 			}
@@ -327,12 +406,12 @@ public class HomeController {
 //-----------------********		LOGIN	END		********---------------------------------
 	
 	
-//-----------------********		Admin or Lawyer	Dashboard START		********---------------------------------
+//-----------------********	Dashboard START		********---------------------------------
 	
 	@RequestMapping("/dashboard/{Useremail}")
 	public String goDashbaord(Model model, @PathVariable String Useremail) {
 		
-		
+		try {	
 			if((dao.getRole(Useremail).get(0)).equals("Admin"))
 			{
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -343,6 +422,9 @@ public class HomeController {
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
 				
+				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
+				
 				return "Admin/Admin";
 			}
 			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
@@ -351,6 +433,9 @@ public class HomeController {
 				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
+				
+				model.addAttribute("notiList", dao.getList());
+				model.addAttribute("count", dao.getList().size());
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 				return "Lawyer/Lawyer";
@@ -374,9 +459,16 @@ public class HomeController {
 				
 				return "index";
 			}
-			
 		}
-//-----------------********		Admin or Lawyer	Dashboard STOP		********---------------------------------
+		catch (Exception e) {
+			
+			model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+	}
+//-----------------********	Dashboard STOP		********---------------------------------
 	
 	
 //-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
@@ -414,30 +506,24 @@ public class HomeController {
 
 //-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START********---------------------------------
 			
-				@RequestMapping("/application/{cleintEmail}/{Useremail}")
-				public String goViewClientInfo(Model model, @PathVariable String clientEmail ,@PathVariable String Useremail) {
+				@RequestMapping("/application/{email}/{Useremail}")
+				public String goViewClientInfo(Model model, @PathVariable String email ,@PathVariable String Useremail) {
 				
 					if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) 
 						{
+	
 						
-						ChildExpenses childExpenses = generalDao.getChildExpenses(clientEmail);
-						Children children = generalDao.getChildren(clientEmail);
-						ClientInfo clientInfo= generalDao.getclientInfoList(clientEmail);
-						MartialInfo martialInfo= generalDao.getMartialInfo(clientEmail);
-						MatrimonialHome matrimonialHome= generalDao.getMatrimonialHome(clientEmail);
-						SpouseInfo spouseInfo= generalDao.getSpouseInfo(clientEmail);
-						
-						
+						// Sending Client and Session Email First Name to display
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						String clientFirstName = dao.getFirstName(Useremail).get(0);
+						String clientFirstName = dao.getFirstName(email).get(0);
 						
 						// Getting Client data based on their Client Email
-						model.addAttribute("childExpenses", childExpenses);
-						model.addAttribute("children", children);
-						model.addAttribute("clientInfo", clientInfo);
-						model.addAttribute("maritalInfo", martialInfo);
-						model.addAttribute("matrimonialHome", matrimonialHome);
-						model.addAttribute("spouseInfo", spouseInfo);
+						model.addAttribute("childExpenses", generalDao.getChildExpenses(email));
+						model.addAttribute("children", generalDao.getChildren(email));
+						model.addAttribute("clientInfo", generalDao.getclientInfoList(email));
+						model.addAttribute("maritalInfo", generalDao.getMartialInfo(email));
+						model.addAttribute("matrimonialHome", generalDao.getMatrimonialHome(email));
+						model.addAttribute("spouseInfo", generalDao.getSpouseInfo(email));
 						
 						// Necessary code to send to JSP
 						model.addAttribute("firstName", firstNameStore);
@@ -461,30 +547,12 @@ public class HomeController {
 
 			
 		
-		
-//-----------------********		NAVIGATION TO Edit & UPDATE User Function 	********---------------------------------
-		
-		@RequestMapping("/edit/{email}/{Useremail}")
-		public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
-		
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			model.addAttribute("firstName", firstNameStore);
-			
-			RegisterUser reg = dao.getUser(email); 
-			
-			
-			model.addAttribute("userInfo", reg);
-			model.addAttribute("Useremail", Useremail);
-			
-			
-			return "edit";
-		}
-		
-//-----------------********		NAVIGATION TO Edit User & UPDATE Function 	STOP ********---------------------------------
+//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
 	
 		@RequestMapping("/editUser/{sessionEmail}/{userEmail}")
 		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
-		
+			
+			try {
 			String adminEmail = sessionEmail.trim();
 						
 			String formEmail = userEmail.trim();
@@ -492,47 +560,92 @@ public class HomeController {
 			String formLastName = userLastName.trim();
 			String formRole = role.trim();
 			
-			
 			RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
-			
-			dao.editUser(formEmail, reg);
+			dao.editUserRole(formEmail, reg);
 			
 			model.addAttribute("confirmationMessage", "User's Detail modified successfully");
 			
-			if((dao.getRole(adminEmail).get(0)).equals("Admin"))
-			{
-				String firstNameStore = dao.getFirstName(adminEmail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", adminEmail);
-				
-				model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
-				model.addAttribute("user", new RegisterUser());
-				
-				return "Admin/Admin";
-			}
-			else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
-			{
-				String firstNameStore = dao.getFirstName(adminEmail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", adminEmail );
-				
-				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
-				
-				return "Lawyer/Lawyer";
-			}
-			else {
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				if((dao.getRole(adminEmail).get(0)).equals("Admin"))
+				{
+					String firstNameStore = dao.getFirstName(adminEmail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", adminEmail);
+					
+					model.addAttribute("allData", dao.getDataForAdmin(adminEmail));
+					model.addAttribute("user", new RegisterUser());
+					
+					model.addAttribute("notiList", dao.getList());
+					model.addAttribute("count", dao.getList().size());
+					
+					return "Admin/Admin";
+				}
+				else if((dao.getRole(adminEmail).get(0)).equals("Lawyer"))
+				{
+					String firstNameStore = dao.getFirstName(adminEmail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", adminEmail );
+					
+					model.addAttribute("allDataForLawyer", dao.getDataForLawyer(adminEmail));
+					
+					model.addAttribute("notiList", dao.getList());
+					model.addAttribute("count", dao.getList().size());
+					
+					return "Lawyer/Lawyer";
+				}
+				else {
+					model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
+			}// Try block closes
+			catch (Exception e) {
+				model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
-			
 		}
 		
 //-----------------******* Edit User STOP *********---------------------------------
 
+
+//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
+			
+	@RequestMapping("/editPassword/{userEmail}")
+	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
+					
+		try {
+				
+			RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
+			dao.editUser(regUser);
+					
+				model.addAttribute("confirmationMessage", "Your Information is modified successfully");
+					
+				RegisterUser reg = dao.getUser(userEmail); 
+				model.addAttribute("userInfo", reg);
+				
+				String firstNameStore = dao.getFirstName(userEmail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", userEmail );
+				
+					return "Settings";
+				
+					}// Try block closes
+					catch (Exception e) {
+						model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
+				}
+				
+//-----------------******* Edit User STOP *********---------------------------------
+
+		
 		
 //-----------------******* Delete User START *********---------------------------------
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	
@@ -546,6 +659,9 @@ public class HomeController {
 		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
+		
+		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
 		
 		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 		model.addAttribute("message", "User Deleted Successfully");
@@ -580,7 +696,7 @@ public class HomeController {
 	}
 
 //-----------------********   Client Dashboard Side UI -- START********---------------------------------
-	
+	/*
 	@RequestMapping(value = "/ClientSide/{Useremail}")	
 	public String testingClientSide(Model model, @PathVariable String Useremail) {
 		
@@ -615,7 +731,7 @@ public class HomeController {
 			return "index";
 		}
 	}
-	
+	*/
 //-----------------********   Client Side UI -- END********---------------------------------
 	
 //-----------------*******Navigation to Other Forms and Ppages*********---------------------------------
@@ -686,7 +802,7 @@ public class HomeController {
 			dao.addPayment(new Payment(Useremail, doc, form, price));
 		}
 			
-		
+			
 			List<LawyerDocEdit> docPrice = dao.getDocPrice();
 			model.addAttribute("listOfAllForms", docPrice);
 			
@@ -695,6 +811,9 @@ public class HomeController {
 			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			dao.getList().add("New Form Request from: "+firstNameStore + "-" + Useremail);
+			
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
@@ -715,6 +834,9 @@ public class HomeController {
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
+			dao.getList().add("New Book of Authority Request from: "+firstNameStore + "-" + Useremail);
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -733,28 +855,16 @@ public class HomeController {
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
+			dao.getList().add("New Factum Request from: "+firstNameStore + "-" + Useremail);
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
 			return "Customer/Payment";
 	}
 	
-	@RequestMapping("/paymentPage/{Useremail}")
-	public String goViewCart(Model model, @PathVariable String Useremail) {
-			
-			
-			List<Payment> pay = dao.getPaymentInfo(Useremail);
-			model.addAttribute("paymentData", pay);
-			
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			
-			
-			return "Customer/Payment";
-	}
+	
 //-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
 	@RequestMapping("/pay/{id}/{Useremail}")
@@ -805,8 +915,9 @@ public class HomeController {
 // First Class Saving Data to DAO method	
 	@RequestMapping("/childExpense/{Useremail}")	
 	public String goChildExpenses(Model model, @PathVariable String Useremail, @ModelAttribute ChildExpenses childExpenses) {
+		
 		synchronized (ChildExpenses.class) {
-			generalDao.addChildExpenses(childExpenses);
+			generalDao.addChildExpenses(childExpenses, Useremail);
 		}
 		
 				// Regular Code to send to General Application sos that Forms will work properly
@@ -829,7 +940,7 @@ public class HomeController {
 		@RequestMapping("/children/{Useremail}")	
 		public String goChildren(Model model, @PathVariable String Useremail, @ModelAttribute Children children) {
 			synchronized (Children.class) {
-				generalDao.addChildren(children);
+				generalDao.addChildren(children, Useremail);
 			}
 			
 					// Regular Code to send to General Application sos that Forms will work properly
@@ -852,7 +963,7 @@ public class HomeController {
 				@RequestMapping("/clientInfo/{Useremail}")	
 				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
 					//synchronized (ClientInfo.class) {
-						generalDao.addClientInfo(clientInfo);
+						generalDao.addClientInfo(clientInfo, Useremail);
 					//}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -875,7 +986,7 @@ public class HomeController {
 				@RequestMapping("/maritalInfo/{Useremail}")	
 				public String goMartialInfo(Model model, @PathVariable String Useremail, @ModelAttribute MartialInfo martialInfo) {
 					synchronized (MartialInfo.class) {
-						generalDao.addMartialInfo(martialInfo);
+						generalDao.addMartialInfo(martialInfo, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -898,7 +1009,7 @@ public class HomeController {
 				@RequestMapping("/matrimonialHome/{Useremail}")	
 				public String goMatrimonialHome(Model model, @PathVariable String Useremail, @ModelAttribute MatrimonialHome matrimonialHome) {
 					synchronized (MatrimonialHome.class) {
-						generalDao.addMatrimonialHome(matrimonialHome);
+						generalDao.addMatrimonialHome(matrimonialHome, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
@@ -921,7 +1032,7 @@ public class HomeController {
 				@RequestMapping("/spouseInfo/{Useremail}")	
 				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
 					synchronized (SpouseInfo.class) {
-						generalDao.addSpouseInfo(spouseInfo);
+						generalDao.addSpouseInfo(spouseInfo, Useremail);
 					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
