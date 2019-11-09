@@ -163,16 +163,23 @@
 
 				<ul class="navbar-nav ml-auto">
 
-					<li class="nav-item dropdown mr-3"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-							class="fas fa-user"></i> Welcome ${firstName}
-					</a>
+					<li class="nav-item dropdown mr-3">
+						<a href="#"
+							class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+								class="fas fa-user"></i> Welcome ${firstName}
+						</a>
 						<div class="dropdown-menu">
-						
+							
+							<a href="/caseRequest/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i>Case Request
+							</a>
+							
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
-						</div></li>
+							
+						</div>
+					</li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
 						<a href="${logoutUrl}" class="nav-link "><i

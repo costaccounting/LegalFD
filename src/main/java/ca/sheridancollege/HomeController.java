@@ -490,11 +490,64 @@ public class HomeController {
 	
 	
 	
-//-----------------********		NAVIGATION TO DETAILS Start	********---------------------------------
+//-----------------********		NAVIGATION TO Case Request (Admin and Lawyer) -- Start	********---------------------------------
+
+	@RequestMapping("/caseRequest/{Useremail}")
+	public String goCaseRequest(Model model, @PathVariable String Useremail) {
+	
+		if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) {
+			
+			List<PayAmount> payAmount = dao.getPayAmount();
+			
+			model.addAttribute("payAmount", payAmount);
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return "NewClientRequest";
+			}
+			else {
+				model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+				
+			}
+		
+	}
+	
+//-----------------********		NAVIGATION TO Case Request (Admin and Lawyer) -- End	********---------------------------------
+
+
+//-----------------********		NAVIGATION TO Case Request (Customer) -- Start	********---------------------------------
+
+		@RequestMapping("/customerRequest/{Useremail}")
+		public String goCustomerRequest(Model model, @PathVariable String Useremail) {
+		
+			if((dao.getRole(Useremail).get(0)).equals("Client")) {
+				
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				
+				return "NewClientRequest";
+				}
+				else {
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+					
+				}
+			
+		}
+		
+//-----------------********		NAVIGATION TO Case Request (Customer) -- End	********---------------------------------
 
 	
-//-----------------********		NAVIGATION TO DETAILS End	********---------------------------------
-
 //-----------------********		NAVIGATION TO Document Edit for Admin Side Start	********---------------------------------
 	
 		@RequestMapping("/docEdit/{Useremail}")

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,14 +64,16 @@
 			</div>
 		</div>
 	</nav>
-
+<br>
+<br>
+<br>
 <!--------------------------- Nav Bar End --------------------------------------------->	
 
 <div class="container" id="newContainer">
 		<div class="card-header text-light rounded" style="background-color: black" id="cardHeader">
 
 			<h2>
-				<i class="fas fa-users"></i>Client Request
+				<i class="fas fa-users"></i>New Client Case Request
 			</h2>
 
 		</div>
@@ -82,7 +86,6 @@
 							placeholder="Search Users..." onkeyup="myFunction()">
 						
 
-						<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
 					</div>
 				</div>
 			</div>
@@ -92,21 +95,21 @@
 					<table class="table table-striped" id="myTable">
 						<thead class="thead-dark">
 							<tr>
-								<th>Email</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Role</th>
+								<th>Client Email</th>
+								<th>Total Amount</th>
+								<th>Time Payed</th>
+								<th>Document Requested</th>
 								
 							</tr>
 						</thead>
 						<tbody>
 
-							<c:forEach var="Users" items="${allDataForLawyer}">
+							<c:forEach var="list" items="${payAmount}">
 								<tr>
-									<td>${Users.email}</td>
-									<td>${Users.firstName}</td>
-									<td>${Users.lastName}</td>
-									<td>${Users.role}</td>
+									<td>${list.email}</td>
+									<td>${list.amount}</td>
+									<td>${list.timePayment}</td>
+									<td>${list.requestedDocs}</td>
 								</tr>
 							</c:forEach>
 

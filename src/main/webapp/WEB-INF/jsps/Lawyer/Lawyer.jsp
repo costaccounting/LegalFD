@@ -155,6 +155,10 @@
 					</a>
 						<div class="dropdown-menu">
 							
+							<a href="/caseRequest/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i>Case Request
+							</a>
+							
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>

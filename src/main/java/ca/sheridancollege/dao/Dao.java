@@ -330,7 +330,23 @@ public class Dao {
 					return docPrice;
 				}
 				
-			
+
+//-----------------------------------------------------------******************************------------------------------------	
+				public List<PayAmount> getPayAmount() {
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
+									
+				List<PayAmount> payAmount;
+								
+				Query query = session.createQuery("from PayAmount");
+				payAmount= query.getResultList();
+									
+									
+				session.getTransaction().commit();
+				session.close();
+									
+				return payAmount;
+				}
 //-----------------------------------------------------------******************************------------------------------------	
 				public void editUserRole(String email, RegisterUser reg) {
 					//String firstName, String lastName, String role
