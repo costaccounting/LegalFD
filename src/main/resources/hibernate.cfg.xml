@@ -28,12 +28,15 @@
 		<!-- Name the annotated Entity classes -->
 		<mapping class="ca.sheridancollege.beans.RegisterUser" />
 		<mapping class="ca.sheridancollege.beans.Payment" />
+		<mapping class="ca.sheridancollege.beans.PayAmount" />
+		
 		<mapping class="ca.sheridancollege.beans.ClientInfo" />
 		<mapping class="ca.sheridancollege.beans.ChildExpenses" />
 		<mapping class="ca.sheridancollege.beans.SpouseInfo" />
 		<mapping class="ca.sheridancollege.beans.MartialInfo" />
 		<mapping class="ca.sheridancollege.beans.MatrimonialHome" />
 		<mapping class="ca.sheridancollege.beans.Children" />
+		
 		<mapping class="ca.sheridancollege.beans.LawyerDocEdit" />
 		<mapping class="ca.sheridancollege.beans.ClientFile" />
 		
