@@ -1312,7 +1312,6 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
-		System.out.println(fileinfo);
 		
         return "Customer/uploadDocument";
     }
@@ -1320,13 +1319,13 @@ public class HomeController {
     public String singleFileUploadLawyer(
     		Model model,
     		@RequestParam("file") MultipartFile file,
-    		@RequestParam("Useremail") String useremail,
+    		@RequestParam("Useremail") String Useremail,
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
     		
 	{
 
-		String firstName = dao.getFirstName(useremail).get(0);
+		String firstName = dao.getFirstName(Useremail).get(0);
 		
 		//adding a file
         if (file.isEmpty()) {
@@ -1361,7 +1360,7 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(folderName).get(0);
 		
 		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", useremail);
+		model.addAttribute("Useremail", Useremail);
 		// Needed for Customer JSP EL tags
 
 		
