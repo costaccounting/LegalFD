@@ -1,6 +1,6 @@
 package ca.sheridancollege.beans;
 
-import java.util.*;
+import java.util.List;
 
 import javax.persistence.*;
 import lombok.*;
@@ -18,15 +18,14 @@ public class PayAmount {
 	private String email;
 	private String amount;
 	private String timePayment;
-	private List<String> requestedDocs;
+	private String[] requestedDocs;
 	
-	
-	public PayAmount(String email, String amount, String timePayment, List<String> requestedDocs) {
+	public PayAmount(String email, String amount, String timePayment, String[] requestedDocs) {
 		super();
 		this.email = email;
 		this.amount = amount;
 		this.timePayment = timePayment;
 		this.requestedDocs = requestedDocs;
-	} 
+	}
 	
 }
