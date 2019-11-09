@@ -353,16 +353,12 @@ public class GeneralFormDao {
 				
 				
 // ------------*********	Delete Rows for Tables	*******---------------				
-<<<<<<< HEAD
-		
-				
-		public void deleteChildExpenses(String email){
-=======
+
 
 // ------------*********	Delete Rows for Child Expense - Start	*******---------------					
 
 			public void deleteChildExpenses(String email){
->>>>>>> 3f3e7aa16ebca14787870a0ff263aadd246e99e4
+
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 					
