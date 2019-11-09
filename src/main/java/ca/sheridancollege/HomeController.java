@@ -774,7 +774,6 @@ public class HomeController {
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
-			dao.getList().add("New Form Request from: "+firstNameStore + "-" + Useremail);
 			
 			
 			model.addAttribute("firstName", firstNameStore);
@@ -799,7 +798,6 @@ public class HomeController {
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
-			dao.getList().add("New Book of Authority Request from: "+firstNameStore + "-" + Useremail);
 			
 			
 			model.addAttribute("firstName", firstNameStore);
@@ -821,7 +819,6 @@ public class HomeController {
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
-			dao.getList().add("New Factum Request from: "+firstNameStore + "-" + Useremail);
 			
 			
 			model.addAttribute("firstName", firstNameStore);
@@ -842,6 +839,9 @@ public class HomeController {
 		// To get Current Data
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		
+		double d = Double.parseDouble(amount);
+		
+		String finalAmount = String.format("%.2f", d);
 		
 		String[] requestDoc = new String[155];
 		
@@ -867,9 +867,10 @@ public class HomeController {
 		String strDate = dateFormat.format(date);  
 		// Extract Current Date to Log Data
 		
-		PayAmount payAmount = new PayAmount(Useremail, amount, strDate, requestDoc);
+		PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
 		
 		dao.addPayAmount(payAmount);
+		
 		
 		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
 		
@@ -883,6 +884,9 @@ public class HomeController {
 			
 			model.addAttribute("paymentData", pay);
 		
+			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
+			
+			
 			return "Customer/Payment";
 	}
 	

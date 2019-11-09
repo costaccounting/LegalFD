@@ -128,7 +128,7 @@
 				<td></td>
 				<td><b> Total Amount: </b></td>
 				
-				<td><b> <fmt:formatNumber  var="finalTotal" type="number" maxFractionDigits="2" value="${totalPrice}"/> </b></td>
+				<td><b> <fmt:formatNumber type="number" maxFractionDigits="2" value="${totalPrice}"/> </b></td>
 				<td></td>
 			</tr>
 		</tbody>
@@ -139,7 +139,7 @@
 
 	<div class="container py-5">
 
-		<form action="/pay/${Useremail}/${finalTotal}" role="form">
+		<form action="/pay/${Useremail}/${totalPrice}" role="form">
 
 			<div class="row">
 				<div class="col-lg-4" id="doing">
