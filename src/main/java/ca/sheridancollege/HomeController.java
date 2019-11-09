@@ -835,10 +835,45 @@ public class HomeController {
 	
 //-----------------******* Redirect Third Party Pay START *********---------------------------------
 	
-	@RequestMapping("/pay/{Useremail}")
-	public String goConfirmPaymennt(Model model, @PathVariable String Useremail) {
+	@RequestMapping("/pay/{Useremail}/{amount}")
+	public String goConfirmPayment(Model model, @PathVariable String Useremail, @PathVariable String amount) {
 		
 		
+		// To get Current Data
+		List<Payment> pay = dao.getPaymentInfo(Useremail);
+		
+		
+		String[] requestDoc = new String[155];
+		
+		for (int i = 0; i < pay.size(); i++) {
+		    System.out.println(pay.get(i).getFormType());
+		    	if(pay.get(i).getFormType().isEmpty() == false) {
+		    		requestDoc[i] = pay.get(i).getFormType();
+		    	}
+		}
+		
+		for (int j = 0; j < pay.size(); j++) {
+		    System.out.println(pay.get(j).getFormType());
+		    	if(pay.get(j).getFormType().equals(null) || pay.get(j).getFormType().equals("")) {
+		    		requestDoc[j] = pay.get(j).getDocumentType();
+		    	}
+		}
+		
+		
+		
+		// Extract Current Date to Log Data
+		Date date = Calendar.getInstance().getTime();  
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
+		String strDate = dateFormat.format(date);  
+		// Extract Current Date to Log Data
+		
+		PayAmount payAmount = new PayAmount(Useremail, amount, strDate, requestDoc);
+		
+		dao.addPayAmount(payAmount);
+		
+		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
+		
+		dao.deleteUserPayment(Useremail);
 		
 		// Required code for Payment.jsp
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -846,11 +881,8 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
-			
-			model.addAttribute("requestMessage", "You have successfully Deleted that order");
-			
+		
 			return "Customer/Payment";
 	}
 	

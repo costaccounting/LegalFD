@@ -82,6 +82,21 @@ public class Dao {
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
+	
+	public void addPayAmount(PayAmount payAmount)
+	{
+		
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			session.save(payAmount);
+			
+			session.getTransaction().commit();
+			session.close();	
+	}
+	
+//-----------------------------------------------------------******************************------------------------------------	
+	
 	public List<String> userExist(String email, String password)			
 	{			
 			Session session = sessionFactory.openSession();

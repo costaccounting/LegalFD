@@ -20,12 +20,12 @@ public class PayAmount {
 	private String timePayment;
 	private String[] requestedDocs;
 	
-	public PayAmount(String email, String amount, String timePayment, String[] requestedDocs) {
+	public PayAmount(String email, String amount, String timePayment, String[] requestDoc) {
 		super();
 		this.email = email;
 		this.amount = amount;
 		this.timePayment = timePayment;
-		this.requestedDocs = requestedDocs;
+		this.requestedDocs = requestDoc;
 	}
 	
 }
