@@ -220,8 +220,8 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
-								<th>User Document</th>
-								<th>User Details</th>
+								<th>Upload Document</th>
+								<th>Customer Details</th>
 								<th>Delete User</th>
 							</tr>
 						</thead>
@@ -241,13 +241,13 @@
 									<td>
 										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-info"> <i class="fa fa-upload"></i>
-												Upload Document
+												
 										</a>
 									</td>
 									<td>
 										<a href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
-												Customer Details
+												
 										</a>
 									</td>
 									<td>
