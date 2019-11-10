@@ -99,7 +99,6 @@
 								<th>Total Amount</th>
 								<th>Time Payed</th>
 								<th>Document Requested</th>
-								
 							</tr>
 						</thead>
 						<tbody>
