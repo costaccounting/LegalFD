@@ -243,7 +243,7 @@
 									<td><a
 										href="<c:url value="/edit/${Users.email}/${Useremail}"/>"
 										class="btn btn-outline-success "> <i
-											class="fas fa-pencil-alt"></i> Edit User
+											class="fas fa-pencil-alt"></i> 
 									</a></td>
 									<td>
 										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
