@@ -155,6 +155,10 @@
 					</a>
 						<div class="dropdown-menu">
 							
+							<a href="/caseRequest/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i>Case Request
+							</a>
+							
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
@@ -162,7 +166,8 @@
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
 						<a href="${logoutUrl}" class="nav-link "><i
-							class="fa fa-power-off"></i> Log Out</a></li>
+							class="fa fa-power-off"></i> Log Out</a>
+					</li>
 				</ul>
 			</div>
 		</div>

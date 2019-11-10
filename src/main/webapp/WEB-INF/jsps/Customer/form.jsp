@@ -60,8 +60,12 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="/settings/${Useremail}" class="dropdown-item"> <i
+							</a> 
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
+							</a>
+							<a href="/customerRequest/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Customer Request
 							</a>
 						</div></li>
 

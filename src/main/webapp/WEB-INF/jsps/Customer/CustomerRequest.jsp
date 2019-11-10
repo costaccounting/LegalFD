@@ -73,48 +73,32 @@
 		<div class="card-header text-light rounded" style="background-color: black" id="cardHeader">
 
 			<h2>
-				<i class="fas fa-users"></i>New Client Case Request
+				<i class="fas fa-users"></i>Your Case Request
 			</h2>
 
 		</div>
 		<div id="accordion">
+			
 
 			<div class="card" id="cardForm">
 				<div class="card-header">
-					<div class="input-group">
-						<input type="text" class="form-control" id="myInput"
-							placeholder="Search Users..." onkeyup="myFunction()">
-						
-
+					<h5>
+						<a href="#collapse1" data-parent="#accordion"
+							data-toggle="collapse" style="color: #000"> ${payAmount[0].email} || ${payAmount[0].amount} || ${payAmount[0].timePayment}</a>
+					</h5>
+				</div>
+					
+				<div id="collapse1" class="collapse">
+					<div class="card-body table-responsive">
+						<ul>
+						<c:forEach var="list" items="${payAmount}">
+							<li> ${list.requestedDocs} </li>
+						</c:forEach>			
+						</ul>		
+					
 					</div>
-				</div>
-			</div>
-
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<table class="table table-striped" id="myTable">
-						<thead class="thead-dark">
-							<tr>
-								<th>Client Email</th>
-								<th>Total Amount</th>
-								<th>Time Payed</th>
-								<th>Document Requested</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<c:forEach var="list" items="${payAmount}">
-								<tr>
-									<td>${list.email}</td>
-									<td>${list.amount}</td>
-									<td>${list.timePayment}</td>
-									<td>${list.requestedDocs}</td>
-								</tr>
-							</c:forEach>
-
-						</tbody>
-					</table>
-				</div>
+				</div>		
+						
 			</div>
 		</div>
 	</div>
