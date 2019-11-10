@@ -153,7 +153,7 @@
 									<th>Last Name</th>
 									<th>Role</th>
 									<th>Edit User</th>
-									<th>User Document</th>
+									<th>Upload Document</th>
 									<th>User Details</th>
 
 								</tr>
@@ -166,20 +166,20 @@
 										<td>${Users.firstName}</td>
 										<td>${Users.lastName}</td>
 										<td>${Users.role}</td>
-										<td><a
+										<td class="text-center"><a
 											href="<c:url value="/edit/${Users.email}/${Useremail}"/>"
-											class="btn btn-outline-success "> <i
-												class="fas fa-pencil-alt"></i> Edit User
+											class="btn btn-outline-primary "> <i
+												class="fas fa-pencil-alt "></i>
 										</a></td>
-										<td><a
+										<td class="text-center"><a
 											href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
-											class="btn btn-outline-primary"> <i class="fa fa-upload"></i>
-												Upload Document
+											class="btn btn-outline-primary "> <i class="fa fa-upload"></i>
+												
 										</a></td>
-										<td><a
+										<td class="text-center"><a
 											href="<c:url value="/application/${Users.email}/${Useremail}"/>"
-											class="btn btn-outline-secondary"> <i class="fa fa-bars"></i>
-												Customer Details
+											class="btn btn-outline-primary "> <i class="fa fa-th-list"></i>
+												
 										</a></td>
 									</tr>
 								</c:forEach>
