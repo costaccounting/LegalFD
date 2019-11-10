@@ -229,6 +229,7 @@
 								<th>Edit User</th>
 								<th>Upload Document</th>
 								<th>Customer Details</th>
+								<th>Case Request</th>
 								<th>Delete User</th>
 							</tr>
 						</thead>
@@ -257,6 +258,12 @@
 												
 										</a>
 									</td>
+									<td>
+								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
+                                               <i class="fas fa-bars"></i> 
+                                            </a>
+                                    </td>
+                                    
 									<td>
 								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
                                                <i class="fas fa-trash"></i> 
