@@ -227,8 +227,9 @@
 								<th>Last Name</th>
 								<th>Role</th>
 								<th>Edit User</th>
-								<th>User Document</th>
-								<th>User Details</th>
+								<th>Upload Document</th>
+								<th>Customer Details</th>
+								<th>Case Request</th>
 								<th>Delete User</th>
 							</tr>
 						</thead>
@@ -243,20 +244,26 @@
 									<td><a
 										href="<c:url value="/edit/${Users.email}/${Useremail}"/>"
 										class="btn btn-outline-success "> <i
-											class="fas fa-pencil-alt"></i> Edit User
+											class="fas fa-pencil-alt"></i> 
 									</a></td>
 									<td>
 										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-info"> <i class="fa fa-upload"></i>
-												Upload Document
+												
 										</a>
 									</td>
 									<td>
 										<a href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
-												Customer Details
+												
 										</a>
 									</td>
+									<td>
+								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
+                                               <i class="fas fa-bars"></i> 
+                                            </a>
+                                    </td>
+                                    
 									<td>
 								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
                                                <i class="fas fa-trash"></i> 
