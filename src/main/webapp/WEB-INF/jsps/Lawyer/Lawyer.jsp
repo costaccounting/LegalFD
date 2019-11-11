@@ -175,7 +175,7 @@
 										<c:if test="${Users.role == 'Client'}">
 
 											<td class="text-center"><a
-												href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
+												href="<c:url value="/details/${Users.email}/${Useremail}"/>"
 												class="btn btn-outline-primary "> <i
 													class="fa fa-upload"></i>
 											</a></td>
