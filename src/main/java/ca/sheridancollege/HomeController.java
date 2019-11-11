@@ -24,7 +24,7 @@ public class HomeController {
 	GeneralFormDao generalDao = new GeneralFormDao();
 	
 	
-// ****  Navigation between Pages START ***
+//***************___Navigation between Pages -- START******************
 	
 	@RequestMapping("/")
 	public String goHome(Model model) {
@@ -47,6 +47,11 @@ public class HomeController {
 		return "signUP";
 	}
 	
+	@RequestMapping("/about")
+	public String about(Model model, @ModelAttribute RegisterUser user) {
+
+		return "About";
+	}
 	
 	@RequestMapping("/logout")
 	public String goLogOut(Model model) {
@@ -56,17 +61,12 @@ public class HomeController {
 		
 		return "index";
 	}
-	
-	
-
-
-			
+				
 	@RequestMapping("/edit/{email}/{Useremail}")
 	public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
 				
 		RegisterUser reg = dao.getUser(email); 
 		model.addAttribute("userInfo", reg);
-		
 		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -82,7 +82,6 @@ public class HomeController {
 		RegisterUser reg = dao.getUser(Useremail); 
 		model.addAttribute("userInfo", reg);
 		
-		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
@@ -97,7 +96,6 @@ public class HomeController {
 		RegisterUser reg = dao.getUser(Useremail); 
 		model.addAttribute("userInfo", reg);
 		
-		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
@@ -109,36 +107,27 @@ public class HomeController {
 	@RequestMapping("/paymentPage/{Useremail}")
 	public String goViewCart(Model model, @PathVariable String Useremail) {
 			
-			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
+			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			
-			
 			
 			return "Customer/Payment";
 	}
 	
+//-------- 	Navigation to General Application Client Side __ START  -----------			
 	@RequestMapping("/navclientInfo/{Useremail}")	
 	public String navClientInfo(Model model, @PathVariable String Useremail) {
 		
-		
-				// Regular Code to send to General Application sos that Forms will work properly
-				
 				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-				// Needed in order to work with general application form
 				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
+				// Code to required to go to other pages
+				String firstNameStore = dao.getFirstName(Useremail).get(0);	
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
 				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
@@ -146,109 +135,77 @@ public class HomeController {
 	@RequestMapping("/navspouseInfo/{Useremail}")	
 	public String navSpouseInfo(Model model, @PathVariable String Useremail) {
 		
-		
-				// Regular Code to send to General Application sos that Forms will work properly
+		model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 				
-				model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
-				// Needed in order to work with general application form
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);				
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
 				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
-				
-				return "Customer/GeneralApplication/SpouseInfo";
+		return "Customer/GeneralApplication/SpouseInfo";
 	}
 	
 	@RequestMapping("/navmaritalInfo/{Useremail}")	
 	public String navMaritalInfo(Model model, @PathVariable String Useremail) {
 		
+		model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 		
-			
-				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-				// Needed in order to work with general application form
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
 				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
-				
-				return "Customer/GeneralApplication/MaritalInfo";
+		return "Customer/GeneralApplication/MaritalInfo";
 	}
 	
 	@RequestMapping("/navmatrimonialHome/{Useremail}")	
 	public String navMatrimonialHome(Model model, @PathVariable String Useremail) {
-		
-		
-				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-				// Needed in order to work with general application form
+
+		model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
+
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);				
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
 				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
-				
-				return "Customer/GeneralApplication/MatrimonialHome";
+		return "Customer/GeneralApplication/MatrimonialHome";
 	}
 	
 	@RequestMapping("/navchildren/{Useremail}")	
 	public String navChildren(Model model, @PathVariable String Useremail) {
+
+		model.addAttribute("children", (generalDao.getChildren(Useremail)));
+
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);						
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
 		
-		
-				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("children", (generalDao.getChildren(Useremail)));
-				// Needed in order to work with general application form
-				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
-				
-				return "Customer/GeneralApplication/Children";
+		return "Customer/GeneralApplication/Children";
 	}
 	
 	
 	@RequestMapping("/navchildExpense/{Useremail}")	
 	public String navChildExpenses(Model model, @PathVariable String Useremail) {
 		
-		
-				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-				// Needed in order to work with general application form
-				
-				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
-				// Needed for Customer JSP EL tags
-				
-				return "Customer/GeneralApplication/ChildExpenses";
+		model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);				
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+			
+		return "Customer/GeneralApplication/ChildExpenses";
 	}
+//------ Navigation to General Application Client Side __ END  ------		
 	
 	
-//  Navigation to Other Forms, Documents and Pages -- START
-	
+//-----	Navigation to Other Forms, Documents __ START  -----------		
 		@RequestMapping("/document/{Useremail}")
 		public String goDocumentPage(Model model, @PathVariable String Useremail) {
 			
+			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -262,33 +219,50 @@ public class HomeController {
 			if ((dao.getRole(Useremail).get(0)).equals("Client")) {
 				
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
-				
 				model.addAttribute("listOfAllForms", docPrice);
 				
-				
-				// Regular Customer JSP EL tags needed code
+				// Code to required to go to other pages
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-				// Needed for Customer JSP EL tags
 				
 				return "Customer/form";
 				}
 				else
 				{
-					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to View this Page");
 					model.addAttribute("registerUser", new RegisterUser());
 					
 					return "index";
 				}
-		}	
+		}
+//-------- 	Navigation to Other Forms, Documents __ STOP  -----------	
 
 
-//  Navigation to Other Forms, Documents and Pages -- END
+//-------- 	Navigation to Document Price Edit __ START  -----------		
+		@RequestMapping("/docEdit/{Useremail}")
+		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
+		
+			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
+				
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				
+				return "Admin/DocumentEdit";
+				}
+				else {
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";		
+				}
+		}
+//-------- 	Navigation to Document Price Edit __ END  -----------	
 
-// 		Dashboard START		
-			
+		
+//-------- 	Dashboard __ STOP  -----------					
 			@RequestMapping("/dashboard/{Useremail}")
 			public String goDashbaord(Model model, @PathVariable String Useremail) {
 				
@@ -349,36 +323,14 @@ public class HomeController {
 					return "index";
 				}
 			}
-		//  	Dashboard STOP		
+//-------- 	Dashboard __ STOP  -----------		
 				
 		
 		
-// ****  Navigation between Pages 	END ***
+//***************___Navigation between Pages -- END******************
 	
-	
-	
-//----**** BELOW this RIYA Code*******---------------------------------
 
-	
-	
-	
-		
-//----**** ABOVE this RIYA Code*******---------------------------------
-		
-		
-		
-//----**** BELOW this HEET Code*******---------------------------------
-		
-		@RequestMapping("/about")
-		public String about(Model model, @ModelAttribute RegisterUser user) {
 
-			return "About";
-		}
-
-//----**** ABOVE this HEET Code*******---------------------------------
-		
-		
-		
 	
 	
 //-----------------********		REGISTER   START	********---------------------------------
@@ -526,7 +478,7 @@ public class HomeController {
 			return "ClientRequest";
 			}
 			else {
-				model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+				model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
@@ -538,60 +490,36 @@ public class HomeController {
 //-----------------********		NAVIGATION TO Case Request (Admin and Lawyer) -- End	********---------------------------------
 
 
-//-----------------********		NAVIGATION TO Case Request (Customer) -- Start	********---------------------------------
+//-----------------********		NAVIGATION TO Case Request (ALL) -- Start	********---------------------------------
 
 		@RequestMapping("/customerRequest/{Useremail}/{SessionEmail}")
 		public String goCustomerRequest(Model model, @PathVariable String Useremail, @PathVariable String SessionEmail) {
 		
-			if((dao.getRole(Useremail).get(0)).equals("Client")) {
+			if((dao.getRole(SessionEmail).get(0)).equals("Client") || (dao.getRole(SessionEmail).get(0)).equals("Admin") || (dao.getRole(SessionEmail).get(0)).equals("Lawyer")) {
 				
 				List<PayAmount> payAmount = dao.getPayAmountCustomer(Useremail);
-				
 				model.addAttribute("payAmount", payAmount);
 				
 				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
-				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", SessionEmail);
 				
 				return "/Customer/CustomerRequest";
 				}
 				else {
-					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+					model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
 					model.addAttribute("registerUser", new RegisterUser());
 					
-					return "index";
-					
+					return "index";	
 				}
-			
 		}
 		
-//-----------------********		NAVIGATION TO Case Request (Customer) -- End	********---------------------------------
+//-----------------********		NAVIGATION TO Case Request (ALL) -- End	********---------------------------------
 
 	
 //-----------------********		NAVIGATION TO Document Edit for Admin Side Start	********---------------------------------
 	
-		@RequestMapping("/docEdit/{Useremail}")
-		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
 		
-			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
-				
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-				
-				return "Admin/DocumentEdit";
-				}
-				else {
-					model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
-					model.addAttribute("registerUser", new RegisterUser());
-					
-					return "index";
-					
-				}
-			
-		}
 
 //-----------------********		NAVIGATION TO Document Edit for Admin Side End	********---------------------------------
 
@@ -1159,7 +1087,7 @@ public class HomeController {
 						}
 						else
 						{
-							model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+							model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
 							model.addAttribute("registerUser", new RegisterUser());
 							
 							return "index";
@@ -1172,21 +1100,8 @@ public class HomeController {
 					
 					int idDB = Integer.parseInt(id);
 					double priceDB = Double.parseDouble(price);
-					String saleDB = sale.trim();
-					String formDB = dao.getFormInfo(idDB);
-					String docDB = dao.getDocumentInfo(idDB);
 					
-					System.out.println(dao.getFormInfo(idDB));
-					System.out.println(dao.getDocumentInfo(idDB));
-					System.out.println(saleDB);
-					
-					LawyerDocEdit lawPrice = new LawyerDocEdit(docDB, formDB, priceDB, saleDB);
-					
-					/*
-					RegisterUser reg = new RegisterUser(formFirstName, formLastName, formRole);
-					
-					dao.editUser(formEmail, reg);
-					*/
+					LawyerDocEdit lawPrice = new LawyerDocEdit(dao.getDocumentInfo(idDB), dao.getFormInfo(idDB), priceDB, sale.trim());
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
@@ -1194,19 +1109,15 @@ public class HomeController {
 						{	
 					
 							model.addAttribute("message", "Information Successfully Changed");
-						// Required code to go back to DocumentEdit
 						
-						List<LawyerDocEdit> docPrice = dao.getDocPrice();
+							// Required code to go back to DocumentEdit
+							List<LawyerDocEdit> docPrice = dao.getDocPrice();
+							model.addAttribute("listOfAllForms", docPrice);
 						
-						model.addAttribute("listOfAllForms", docPrice);
-						
-						
-						// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						// Needed for Customer JSP EL tags
+							// Code to required to go to other pages
+							String firstNameStore = dao.getFirstName(Useremail).get(0);
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
 						
 						return "Admin/DocumentEdit";
 						}
@@ -1231,7 +1142,7 @@ public class HomeController {
 					}
 					else
 					{
-						model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
+						model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
 						model.addAttribute("registerUser", new RegisterUser());
 								
 						return "index";
@@ -1356,34 +1267,27 @@ public class HomeController {
 		// showing the list of file in the folder
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
 	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-			
+	    
+		model.addAttribute("fileinfo", fileinfo);
+		model.addAttribute("presentDirectory", folderName);
+		model.addAttribute("filelist", filelist);
+		
 		// Regular Customer JSP EL tags needed code
 		String firstNameStore = dao.getFirstName(folderName).get(0);
-		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
 		// Needed for Customer JSP EL tags
-		
-	    
-	    
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", folderName);
-		model.addAttribute("filelist", filelist);
 		
         return "Customer/uploadDocument";
     }
 		
 	@PostMapping("/deleteFileAdmin/{folder_name}")
-	  public String deleteFile(
-	    		Model model,
+	  public String deleteFile(Model model,
 	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
 	    		@RequestParam(required=true, name="Useremail") String Useremail,
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
-	    		
 		{
-
 			for(String name : selectedChecks) {
 				dao.deleteFile(name, folderName);
 			}
@@ -1391,7 +1295,6 @@ public class HomeController {
 			// showing the list of file in the folder
 			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
 		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-				
 							
 			model.addAttribute("fileinfo", fileinfo);
 			
@@ -1400,28 +1303,18 @@ public class HomeController {
 			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
-
 			
 	        return "Admin/Files";
 	    }
 	
-		@RequestMapping(value = "/download", method = RequestMethod.POST )
-	public void FileSystemResource (
-			
-			Model model,
-			HttpServletRequest request,
-            HttpServletResponse response,
-            @RequestHeader String referer,
-			@RequestParam("filename") String filename,
-    		@RequestParam("foldername") String dirname
-    		
-    		) 
-    				throws IOException 
-	{
+	@RequestMapping(value = "/download", method = RequestMethod.POST )
+	public void FileSystemResource (Model model, HttpServletRequest request, HttpServletResponse response,
+            @RequestHeader String referer, @RequestParam("filename") String filename, 
+            @RequestParam("foldername") String dirname) throws IOException  
+    {
 		// to prevent hotlinking a file
 		if(referer != null && !referer.isEmpty()) {
             //do nothing
@@ -1445,11 +1338,8 @@ public class HomeController {
                 ex.printStackTrace();
             }
         } 
-        else {
-        	
+        else {	
         }
-		
-		
 	}
 	
 	@RequestMapping("/goToCustomerUpload/{folder_name}") // //new annotation since 4.3
@@ -1508,16 +1398,9 @@ public class HomeController {
 
 					
 //-----------------File View and Add --	END---------------------------------
-
 	
 	
 //----**** ABOVE this PRODIP Code*******---------------------------------
 			
-	
-	
-	
-	
-
-	
-	
+		
 }
