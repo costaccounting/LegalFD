@@ -158,9 +158,10 @@
 	<div class="d-flex bd-highlight">
 
 		<h2 class="fas fa-pencil-alt">Edit your Information</h2>
-
+<br>
+<br>
 		<a href="<c:url value="/dashboard/${Useremail}"/>"
-			class="btn btn-light bd-highlight " id="submit"> <i class="fas fa-arrow-left"></i>
+			class="btn btn-light bd-highlight " id="submit" style="float: right;"> <i class="fas fa-arrow-left"></i>
 			Back To Dashboard
 		</a>
 		</div>
