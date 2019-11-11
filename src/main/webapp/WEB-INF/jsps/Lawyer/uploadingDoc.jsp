@@ -22,170 +22,134 @@
 <title>Upload Documents</title>
 </head>
 <style>
-.navbar-brand {
-	font-size: xx-large;
-	margin-right: 30px;
-}
-
-#navContainer {
-	width: 2200px;
-}
-
-#newLi a.active {
-	background-color: #555;
-	color: white;
-}
-
-#newLi a:hover {
-	background-color: #555;
-	color: white;
-}
-
-#newUl {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 20%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
-}
-
-#newLi a {
-	display: block;
-	color: #000;
-	padding: 8px 16px;
-	text-decoration: none;
-	text-align: center;
-}
-
-#navbarbrand {
-	display: block;
-	text-align: center;
-	color: white;
-	padding: 5px 16px;
-	text-decoration: none;
-	font-size: xx-large;
-}
-
-#cardBody {
-	margin-bottom: 80px;
-	margin-top: 120px;
-	margin-left: 80px;
-}
-
-#newContainer {
-	background-color: lightgray;
-	padding: 1px;
-	margin-left: 300px;
-	width: 70%;
-	height: 70%;
-	opacity: 0.8;
-	border-radius: 15px;
-}
-
-#cardHeader {
-	background-color: #555;
-	color: white;
-	width: 100%;
-}
-
-#card2 {
-	margin-left: 180px;
-	margin-top: 120px;
+.custom-file-upload {
+   
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer; 
 }
 </style>
 <body>
 
+
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+    style="background-color: black">
+    <div class="container">
+        <a href="#" class="navbar-brand"><span class="mb-0 h1"><i
+                class="fas fa-balance-scale"> </i> LegalFD</span></a>
+        <button class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container" id="navContainer">
-			<a href="#" class="navbar-brand"><i class="fas fa-balance-scale">
-			</i> LegalFD</a>
-			<button class="navbar-toggler" data-toggle="collapse"
-				data-target="#navbarCollapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav">
-					
-					<li class="nav-item px-2"><a href="/dashboard/${Useremail}" class="nav-link ">Home</a></li>
+                <li class="nav-item px-2"><a href="/dashboard/${Useremail}"
+                    class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
-				</ul>
+                <li class="nav-item px-2 dropdown mr-3"><a href="#"
+                    class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+                        class="notification">Notification</span> <span
+                        class="badge text-dark bg-light">${count} </span>
+                </a>
+                    <div class="dropdown-menu">
 
-				<ul class="navbar-nav ml-auto">
-					
-					<li class="nav-item dropdown mr-3"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-							class="fas fa-user"></i> Welcome ${firstName}
-					</a>
-						<div class="dropdown-menu">
-							 <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
-								Settings
-							</a>
-						</div></li>
+                        <c:forEach var="notification" items="${notiList}">
+                             ${notification}
+                            <br>
+                        </c:forEach>
 
-					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link "><i
-							class="fa fa-power-off"></i> Log Out</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+                    </div></li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item dropdown mr-3"><a href="#"
+                    class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+                        class="fas fa-user"></i> Welcome ${firstName}
+                </a>
+                    <div class="dropdown-menu">
+
+                        <a href="/settings/${Useremail}" class="dropdown-item"> <i
+                            class="fas fa-cog"></i> Settings
+                        </a>
+                    </div></li>
+
+                <li class="nav-item"><c:url var="logoutUrl" value="/logout" />
+                    <a href="${logoutUrl}" class="nav-link "><i
+                        class="fa fa-power-off"></i> Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
 
 
-	<div  class="container" id="newContainer">
-           
-          <div class="card-header" id="cardHeader">
-
-			<h2>
-				<i class="fa fa-upload"></i> Upload Documents
-			</h2>
-			<a href="<c:url value="/dashboard/${Useremail}"/>"
-			class="btn btn-light " id="submit"> <i class="fas fa-arrow-left"></i>
-			Back To Dashboard
-		</a>
-
-		</div>
-           
-            
-                <div id="accordion">
-
-                    <div class="card" id="cardForm">
-                        
-                      </div>
-                      <div class="card" id="cardForm">
-                          <div class="card-header" >
-                             
-                            <div style="display: flex">
-                                <c:forEach var="Users" items="${allDataForLawyer}">
-                          <a><img src="folder.png" alt="Workplace" width="70" height="70"  style="display: block">{Users.email}</a>
-                          
-                          </c:forEach>
+	<div class="container-fluid ">
+		<div class="row min-vh-100">
+			
+                <aside class="col-12 col-md-2 p-0 bg-primary">
+                        <nav
+                            class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2">
+        
+                            <br>
+                            <a href="#" class="navbar-brand"><span class="pl-2 h2">Dashboard
+                            </span></a>
+                            <button class="navbar-toggler" data-toggle="collapse"
+                                data-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+        
+                            <div class="collapse navbar-collapse">
+        
+                                <ul
+                                    class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
+                                    <br>
+                                    <li class="nav-item"><a class="nav-link pl-4 active"
+                                        href="/dashboard/${Useremail}"> Manage Users</a></li>
+                                    <li class="nav-item"><a class="nav-link pl-4"
+                                        href="/caseRequest/${Useremail}">Client Requests </span></a></li>
+        
+                                </ul>
+        
                             </div>
-                          </div>
-                        </div>
-                      
-                        
-                          </div>
-       		<div>
-			<h2>Directory : ${presentDirectory}</h2>
-			<table class="table table-dark">
-				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>Action</th>
-					<th>Uploaded By</th>
-					<th>Upload Date</th>
-				</tr>
-				<%
+                        </nav>
+                    </aside>
+			<main class="col bg-faded py-3">
+
+
+
+
+			<div class="container mr-5 pt-3 pl-5" style="height: 590px">
+				<div class="card " >
+					<div class="card-header text-light" style="background-color: black">
+
+						<h2>
+							<i class="fa fa-upload"></i> Upload Documents
+						</h2>
+						<!-- 
+                                    <div class="alert alert-success" role="alert" style="margin-left: 30px; width: 25%; ">
+                                          ${message}
+                                      </div>
+                                       -->
+					</div>
+
+					<div class="m-4">
+						<h2>Directory : ${presentDirectory}</h2>
+						<table class="table table-striped">
+							<thead class="thead-dark">
+								<tr>
+								<th></th>
+									<th>Name</th>
+									<th>Action</th>
+									<th>Uploaded By</th>
+									<th>Upload Date</th>
+								</tr>
+							</thead>
+							<%
 					List<String[]> list = (List<String[]>) request.getAttribute("fileinfo");
 					List<File> filelist = (List<File>)request.getAttribute("filelist");
 					String presentDirectory = (String)request.getAttribute("presentDirectory");
@@ -226,31 +190,49 @@
 					}
 					
 				%>
-			</table>
-			<div id="formDelete"></div>
-			<input type="button" onClick="processDelete()" value="Delete selected files" />
+                        </table>
+                        <div id="formDelete"></div>
+			<input type="button" onClick="processDelete()" class="btn btn-primary"value="Delete selected files" />
+						<span class="border-top my-3"></span>
+						<h2>Add file</h2>
+						<form method="POST"
+                        action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
+							enctype="multipart/form-data">
+
+							<!-- <label class="btn btn-primary btn-file" >Browse
+												<input  type="file" name="file" 
+												style="display: none;"/></label> -->
+												<input type="hidden" name="Useremail" value="${Useremail}" />
+
+							<label class="btn btn-primary custom-file-upload"
+								for="file-upload">Browse</label> <input type="file" name="file"
+								id="file-upload" name='upload_cont_img' style="display: none;" />
+
+							<label id="file-name"></label> <input
+								class="btn btn-primary float-right mr-5 mt-4" type="submit"
+								value="Submit" />
+						</form>
+						<hr>
+						<br />
+						<div c:if="${message}">
+							<h2 c:text="${message}" />
+						</div>
+					</div>
+				</div>
+
+
+
 			
-			<span class="border-top my-3"></span>
-			<h2>Add file</h2>
-			<form method="POST"
-				action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
-				enctype="multipart/form-data">
-				<input type="hidden" name="Useremail" value="${Useremail}" />
-				<input type="file" name="file" type="button"
-					class="btn btn-primary btn-lg" /><br /> <br /> <input
-					type="submit" value="Submit" />
-			</form>
-			<hr>
-			<br /> 
-			<div c:if="${message}">
-				<h2 c:text="${message}" />
+
+
 			</div>
 		</div>
-        
-        </div>
-                  
+	</div>
 
-	<script type="text/javascript">
+
+	</main>
+	
+    <script type="text/javascript">
 		function myFunction() {
 			var input, filter, table, tr, td, i, txtValue;
 			input = document.getElementById("myInput");
@@ -284,6 +266,15 @@
 			
 		}
 	</script>
+
+
+	<script>
+		document.querySelector("#file-upload").onchange = function() {
+			document.querySelector("#file-name").textContent = this.files[0].name;
+		}
+	</script>
+
+
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>
@@ -295,11 +286,8 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
 
 
-	<script>
-		// Get the current year for the copyright
-		$('#year').text(new Date().getFullYear());
-	</script>
 </body>
 </html>
