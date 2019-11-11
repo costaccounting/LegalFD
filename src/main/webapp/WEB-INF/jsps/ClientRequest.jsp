@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,19 +45,20 @@
 						class="nav-link ">Home</a></li>
 
 					
-					<li class="nav-item px-2 dropdown mr-3"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
-							class="notification">Notification</span> <span
-							class="badge text-dark bg-light">${count} </span>
-					</a>
+					<li class="nav-item px-2 dropdown mr-3">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
+							<span class="notification">Notification</span> 
+							<span class="badge text-dark bg-light">${count}</span>
+						</a>
 						<div class="dropdown-menu">
-
-							<c:forEach var="notification" items="${notiList}">
-								 ${notification}
+							<c:set var="count_noti" value="${fn:length(notiList)}" />
+							
+							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
+								${notiList[count_noti-i]}
 								<br>
 							</c:forEach>
-
-						</div></li>
+						</div>
+					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
