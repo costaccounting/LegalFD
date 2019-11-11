@@ -242,30 +242,30 @@
 									<td>${Users.lastName}</td>
 									<td>${Users.role}</td>
 									<td><a
-										href="<c:url value="/edit/${Users.email}/${Useremail}"/>"
+										href="/edit/${Users.email}/${Useremail}"
 										class="btn btn-outline-success "> <i
 											class="fas fa-pencil-alt"></i> 
 									</a></td>
 									<td>
-										<a href="<c:url value="/details/${Users.email}/${Useremail}"/>"
+										<a href="details/${Users.email}/${Useremail}"
 											class="btn btn-outline-info"> <i class="fa fa-upload"></i>
 												
 										</a>
 									</td>
 									<td>
-										<a href="<c:url value="/application/${Users.email}/${Useremail}"/>"
+										<a href="/application/${Users.email}/${Useremail}"
 											class="btn btn-outline-info"> <i class="fa fa-bars"></i>
 												
 										</a>
 									</td>
 									<td>
-								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
+								            <a href="/customerRequest/${Users.email}/${Useremail}" class="btn btn-outline-dark">
                                                <i class="fas fa-bars"></i> 
                                             </a>
                                     </td>
                                     
 									<td>
-								            <a href="<c:url value="/deleteAdmin/${Users.email}/${Useremail}"/>" class="btn btn-outline-dark">
+								            <a href="/deleteAdmin/${Users.email}/${Useremail}" class="btn btn-outline-dark">
                                                <i class="fas fa-trash"></i> 
                                             </a>
                                     </td>
