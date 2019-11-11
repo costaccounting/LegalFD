@@ -177,7 +177,7 @@
 													class="fas fa-pencil-alt"></i>
 											</a></td>
 											<td class="text-center"><a
-												href="details/${Users.email}/${Useremail}"
+												href="/details/${Users.email}/${Useremail}"
 												class="btn btn-outline-primary"> <i class="fa fa-upload"></i>
 
 											</a></td>
