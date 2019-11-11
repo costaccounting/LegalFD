@@ -77,7 +77,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/settings/{Useremail}")
-	public String goEditUser(Model model, @PathVariable String Useremail) {
+	public String clientSettings(Model model, @PathVariable String Useremail) {
 		
 		RegisterUser reg = dao.getUser(Useremail); 
 		model.addAttribute("userInfo", reg);
@@ -91,6 +91,20 @@ public class HomeController {
 		return "Settings";
 	}
 	
+	@RequestMapping("/Lawsettings/{Useremail}")
+	public String lawyerSetting(Model model, @PathVariable String Useremail) {
+		
+		RegisterUser reg = dao.getUser(Useremail); 
+		model.addAttribute("userInfo", reg);
+		
+		
+		// Code to required to go to other pages
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
+				
+		return "Lawyer/LawSettings";
+	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
 	public String goViewCart(Model model, @PathVariable String Useremail) {
@@ -503,8 +517,10 @@ public class HomeController {
 			model.addAttribute("payAmount", payAmount);
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			String role = dao.getRole(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("role", role);
 			model.addAttribute("Useremail", Useremail);
 			
 			return "ClientRequest";
@@ -1229,6 +1245,9 @@ public class HomeController {
 
 	
 	
+				
+				
+				
 	
 
 //----**** BELOW this PRODIP Code*******---------------------------------

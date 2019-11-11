@@ -69,7 +69,7 @@
 					</a>
 						<div class="dropdown-menu">
 
-							<a href="/settings/${Useremail}" class="dropdown-item"> <i
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
@@ -136,9 +136,6 @@
 							<div class="input-group">
 								<input type="text" class="form-control" id="myInput"
 									placeholder="Search Users..." onkeyup="myFunction()">
-
-
-								<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
 							</div>
 						</div>
 					</div>

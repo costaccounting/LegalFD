@@ -125,7 +125,7 @@
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							 <a href="Settings.jsp" class="dropdown-item"> <i class="fas fa-cog"></i>
+							 <a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
 						</div></li>

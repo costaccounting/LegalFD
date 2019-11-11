@@ -69,7 +69,7 @@
 					</a>
 						<div class="dropdown-menu">
 
-							<a href="/settings/${Useremail}" class="dropdown-item"> <i
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
