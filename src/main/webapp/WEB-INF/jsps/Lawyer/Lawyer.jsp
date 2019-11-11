@@ -172,16 +172,33 @@
 											class="btn btn-outline-primary "> <i
 												class="fas fa-pencil-alt "></i>
 										</a></td>
-										<td class="text-center"><a
-											href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
+										
+										<c:if test="${Users.role == 'Client'}">	
+														
+										<td class="text-center">
+											<a href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-primary "> <i class="fa fa-upload"></i>
-												
-										</a></td>
+											</a>
+										</td>
 										<td>
 								            <a href="/customerRequest/${Users.email}/${Useremail}" class="btn btn-outline-dark">
                                                <i class="fas fa-bars"></i> 
                                             </a>
                                     	</td>
+                                    	
+                                    	</c:if>
+                                    	
+                                    	<c:if test="${Users.role == 'Lawyer' || Users.role == 'Admin'}">	
+														
+										<td class="text-center">
+											
+										</td>
+										<td>
+								          
+                                    	</td>
+                                    	
+                                    	</c:if>
+                                    	
 										<td class="text-center"><a
 											href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-primary "> <i class="fa fa-th-list"></i>
