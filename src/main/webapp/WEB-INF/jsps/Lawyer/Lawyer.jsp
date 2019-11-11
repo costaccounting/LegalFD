@@ -26,7 +26,7 @@
 
 </head>
 <body>
-	
+
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
@@ -90,9 +90,8 @@
 				<nav
 					class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2">
 
-					<br>
-					<a href="#" class="navbar-brand"><span class="pl-2 h2">Dashboard
-					</span></a>
+					<br> <a href="#" class="navbar-brand"><span
+						class="pl-2 h2">Dashboard </span></a>
 					<button class="navbar-toggler" data-toggle="collapse"
 						data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -154,6 +153,7 @@
 									<th>Role</th>
 									<th>Edit User</th>
 									<th>Upload Document</th>
+									<th>Case Request</th>
 									<th>User Details</th>
 
 								</tr>
@@ -171,6 +171,37 @@
 											class="btn btn-outline-primary "> <i
 												class="fas fa-pencil-alt "></i>
 										</a></td>
+
+										<c:if test="${Users.role == 'Client'}">
+
+											<td class="text-center"><a
+												href="<c:url value="/details/${Users.email}/${Useremail}"/>"
+												class="btn btn-outline-primary "> <i
+													class="fa fa-upload"></i>
+											</a></td>
+											<td class="text-center"><a
+												href="/customerRequest/${Users.email}/${Useremail}"
+												class="btn btn-outline-primary"> <i class="fas fa-bars"></i>
+											</a></td>
+
+										</c:if>
+
+										<c:if
+											test="${Users.role == 'Lawyer' || Users.role == 'Admin'}">
+
+											<td class="text-center"><a
+												href="<c:url value="/uploadingDocLawyer/${Users.email}/${Useremail}"/>"
+												class="btn btn-outline-dark disabled"> <i
+													class="fa fa-upload"></i>
+											</a></td>
+											<td class="text-center"><a
+												href="/customerRequest/${Users.email}/${Useremail}"
+												class="btn btn-outline-dark disabled"> <i
+													class="fas fa-bars"></i>
+											</a></td>
+
+										</c:if>
+
 										<td class="text-center"><a
 											href="<c:url value="/details/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-primary "> <i class="fa fa-upload"></i>
@@ -178,8 +209,9 @@
 										</a></td>
 										<td class="text-center"><a
 											href="<c:url value="/application/${Users.email}/${Useremail}"/>"
-											class="btn btn-outline-primary "> <i class="fa fa-th-list"></i>
-												
+											class="btn btn-outline-primary "> <i
+												class="fa fa-th-list"></i>
+
 										</a></td>
 									</tr>
 								</c:forEach>
