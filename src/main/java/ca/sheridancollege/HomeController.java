@@ -632,7 +632,7 @@ public class HomeController {
 //-----------------******* Edit User STOP *********---------------------------------
 
 
-//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
+//-----------------********	Edit User & UPDATE Function Role & Data -- 	START********---------------------------------
 			
 	@RequestMapping("/editPassword/{userEmail}")
 	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
