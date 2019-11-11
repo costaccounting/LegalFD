@@ -32,7 +32,7 @@
 
 
 
-	<nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+	<nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: black">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i
 					class="fas fa-balance-scale"> </i> LegalFD</span></a>
@@ -43,7 +43,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
 
-					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}"
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
@@ -76,17 +76,19 @@
 
 	<br>
 
-	<div class="card-header mx-5 p-3 text-light bg-dark">
-		<div class="d-flex bd-highlight">
+	<div class="card-header mx-5 p-3 text-light" style="background-color: black">
+		
 
-			<h2 class=" flex-grow-1 bd-highlight">
+			<h2 >
 				<i class="fas fa-file-alt"></i> General Application Information Form
+				<div class="float-right">
+				<a href="/dashboard/${Useremail}" class="btn btn-primary "
+					id="submit"> <i class="fas fa-arrow-left"></i> Back To Dashboard
+				</a>
+			</div>
 			</h2>
 
-			<a href="/dashboard/${Useremail}" class="btn btn-light bd-highlight " id="submit"> <i
-				class="fas fa-arrow-left"></i> Back To Dashboard
-			</a>
-		</div>
+		
 	</div>
 
 	<br>

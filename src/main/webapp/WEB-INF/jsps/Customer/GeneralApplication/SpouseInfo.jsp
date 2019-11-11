@@ -34,7 +34,8 @@
 
 
 
-	<nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+	<nav class="navbar navbar-expand-xl navbar-dark sticky-top"
+		style="background-color: black">
 		<div class="container" id="navContainer">
 			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i
 					class="fas fa-balance-scale"> </i> LegalFD</span></a>
@@ -45,7 +46,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
 
-					<li class="nav-item px-2"><a href="/ClientSide/${Useremail}"
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
 					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
@@ -78,17 +79,20 @@
 
 	<br>
 
-	<div class="card-header mx-5 p-3 text-light bg-dark">
-		<div class="d-flex bd-highlight">
+	<div class="card-header mx-5 p-3 text-light"
+		style="background-color: black">
 
-			<h2 class=" flex-grow-1 bd-highlight">
-				<i class="fas fa-file-alt"></i> General Application Information Form
-			</h2>
 
-			<a href="/dashboard/${Useremail}" class="btn btn-light bd-highlight " id="submit"> <i
-				class="fas fa-arrow-left"></i> Back To Dashboard
-			</a>
-		</div>
+		<h2>
+			<i class="fas fa-file-alt"></i> General Application Information Form
+
+			<div class="float-right">
+				<a href="/dashboard/${Useremail}" class="btn btn-primary "
+					id="submit"> <i class="fas fa-arrow-left"></i>  Back To Dashboard
+				</a>
+			</div>
+		</h2>
+
 	</div>
 
 	<br>
@@ -103,10 +107,12 @@
 		
 		
  -->
- 
- <div class="progress">
-            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" style="width:33.34%;">35%</div>
-        </div>
+
+		<div class="progress">
+			<div
+				class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+				style="width: 33.34%;">35%</div>
+		</div>
 		<br>
 		<h3>Spouse Information</h3>
 		<br>
@@ -222,7 +228,7 @@
 				<!-- <button type="submit" class="btn btn-primary mb-2 ml-sm-4">Add</button> -->
 
 			</div>
-			<input type="submit" class="btn btn-primary" value="Save"/>
+			<input type="submit" class="btn btn-primary" value="Save" />
 		</form:form>
 		<br> <br>
 
@@ -233,17 +239,23 @@
 						class="sr-only">Previous</span>
 				</a></li>
 				<li class="page-item "><a class="page-link"
-					href="/navclientInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Client Information">1</a></li>
+					href="/navclientInfo/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Client Information">1</a></li>
 				<li class="page-item active"><a class="page-link"
-					href="/navspouseInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Spouse Information">2</a></li>
+					href="/navspouseInfo/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Spouse Information">2</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navmaritalInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Marital Information">3</a></li>
+					href="/navmaritalInfo/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Marital Information">3</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Information">4</a></li>
+					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Matrimonial Information">4</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navchildren/${Useremail}" data-toggle="tooltip" data-placement="top" title="Children Information">5</a></li>
+					href="/navchildren/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Children Information">5</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navchildExpense/${Useremail}" data-toggle="tooltip" data-placement="top" title="Child Expenses">6</a></li>
+					href="/navchildExpense/${Useremail}" data-toggle="tooltip"
+					data-placement="top" title="Child Expenses">6</a></li>
 				<li class="page-item"><a class="page-link"
 					href="/navmaritalInfo/${Useremail}"> <span>&raquo;</span> <span
 						class="sr-only">Next</span>
@@ -274,7 +286,7 @@
 
 
 	<script>
-	$('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
 	</script>
 </body>
 </html>
