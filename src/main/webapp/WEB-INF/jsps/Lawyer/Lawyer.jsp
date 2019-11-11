@@ -154,6 +154,7 @@
 									<th>Role</th>
 									<th>Edit User</th>
 									<th>Upload Document</th>
+									<th>Case Request</th>
 									<th>User Details</th>
 
 								</tr>
@@ -176,11 +177,17 @@
 											class="btn btn-outline-primary "> <i class="fa fa-upload"></i>
 												
 										</a></td>
+										<td>
+								            <a href="/customerRequest/${Users.email}/${Useremail}" class="btn btn-outline-dark">
+                                               <i class="fas fa-bars"></i> 
+                                            </a>
+                                    	</td>
 										<td class="text-center"><a
 											href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-primary "> <i class="fa fa-th-list"></i>
 												
-										</a></td>
+											</a>
+										</td>
 									</tr>
 								</c:forEach>
 
