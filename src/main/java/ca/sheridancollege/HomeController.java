@@ -372,6 +372,7 @@ public class HomeController {
 	@RequestMapping("/register1")
 	public String goRegister(Model model, @ModelAttribute RegisterUser registerUser) {
 		
+			
 			if(dao.addUser(registerUser)==true) {
 				model.addAttribute("message", "You have Successfully Created your Account");
 				model.addAttribute("successMessage", "Please Login in with your credentials");
@@ -495,7 +496,7 @@ public class HomeController {
 	@RequestMapping("/caseRequest/{Useremail}")
 	public String goCaseRequest(Model model, @PathVariable String Useremail) {
 	
-		if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) {
+		if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer") ) {
 			
 			List<PayAmount> payAmount = dao.getPayAmount();
 			
@@ -506,7 +507,7 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			return "NewClientRequest";
+			return "ClientRequest";
 			}
 			else {
 				model.addAttribute("logOutMess", "You DO NOT hold privileges to Edit Form Price");
@@ -523,8 +524,8 @@ public class HomeController {
 
 //-----------------********		NAVIGATION TO Case Request (Customer) -- Start	********---------------------------------
 
-		@RequestMapping("/customerRequest/{Useremail}")
-		public String goCustomerRequest(Model model, @PathVariable String Useremail) {
+		@RequestMapping("/customerRequest/{Useremail}/{SessionEmail}")
+		public String goCustomerRequest(Model model, @PathVariable String Useremail, @PathVariable String SessionEmail) {
 		
 			if((dao.getRole(Useremail).get(0)).equals("Client")) {
 				
@@ -532,10 +533,10 @@ public class HomeController {
 				
 				model.addAttribute("payAmount", payAmount);
 				
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
+				model.addAttribute("Useremail", SessionEmail);
 				
 				return "/Customer/CustomerRequest";
 				}
@@ -1486,7 +1487,7 @@ public class HomeController {
 		return fileinfo;
 	}
 
-			
+					
 //-----------------File View and Add --	END---------------------------------
 
 	
