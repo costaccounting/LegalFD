@@ -205,7 +205,7 @@
 								//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
 								//System.out.println(listitem);
 								if( listitem[0].equals(f.getName()) ){
-									out.print("<td><input type='checkbox' id='sel' class='sel' name='"+ f.getName() + "'/></td>");
+									out.print("<td><input type='checkbox' id='sel' class='sel' name='"+ f.getName() + "' value='"+ f.getName() + "'/></td>");
 									out.print("<td>" + listitem[3] + "</td>");
 									out.print("<td>" +
 										"<form method='POST' action='/download'>"+
@@ -227,12 +227,17 @@
 					
 				%>
 			</table>
-			<div id="formDelete"></div>
-			<input type="button" onClick="processDelete()" value="Delete selected files" />
+			<div id="formDelete">
+				<form id="submitForm" method="Post" action="/deleteFileAdmin/${presentDirectory}">
+					<input type="hidden" id="Useremail" name="Useremail" value="${Useremail}"/>
+					<input type="hidden" id="hiddenInp" name="hiddenInp"/>
+					<input type="button" onClick="processDelete()" value="Delete selected files" />
+				</form>
+			</div>
 			<span class="border-top my-3"></span>
 			<h2>Add file</h2>
 			<form method="POST"
-				action="/uploadLawyer/<c:out value= "${presentDirectory}" />"
+				action="/upload/<c:out value= "${presentDirectory}" />"
 				enctype="multipart/form-data">
 				<input type="hidden" name="Useremail" value="${Useremail}" />
 				<input type="file" name="file" type="button"
@@ -270,7 +275,6 @@
 		}
 		
 		function processDelete(){
-			document.getElementById("formDelete").innerHTML = '<form id="submitForm" method="Post" action="/deleteFileLawyer/${presentDirectory}" /><input type="hidden" id="Useremail" name="Useremail" value="${Useremail}"/><input type="hidden" id="hiddenInp" name="hiddenInp"/><input type="submit" value="Delete selected files" /></form>';
 			var selected = new Array();
 			var boxes = document.getElementsByClassName("sel");
 			for (var i=0;i<boxes.length;i++) {
@@ -279,7 +283,7 @@
 				   selected.push(box.value);
 			   }
 			}
-			
+			alert("in process: "+ selected);
 			document.getElementById("hiddenInp").value = selected;
 			document.getElementById("submitForm").submit();
 			

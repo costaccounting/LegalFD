@@ -1261,32 +1261,7 @@ public class HomeController {
 			
 	  
 	}
-	@RequestMapping(value = "/uploadingDocLawyer/{folder_name}/{Useremail}")
-	public String getFilesFromLawyer(
-			Model model,
-			@PathVariable("folder_name") String folderName, @PathVariable String Useremail,	
-			HttpServletResponse response) 	
-	{
-		
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-		model.addAttribute("filelist", filelist);
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", folderName);
-		
-		// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-				// Needed for Customer JSP EL tags
-		
-		
-		return  "Lawyer/uploadingDoc";
-			
-	  
-	}
+	
 	@PostMapping("/upload/{folder_name}") // //new annotation since 4.3
     public String singleFileUpload(
     		Model model,
@@ -1319,7 +1294,9 @@ public class HomeController {
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
 	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
 			
-						
+	    String firstNameStore = dao.getFirstName(useremail).get(0);
+		
+		model.addAttribute("firstName", firstNameStore);				
 		model.addAttribute("fileinfo", fileinfo);
 		model.addAttribute("Useremail", useremail);
 		model.addAttribute("presentDirectory", folderName);
@@ -1376,62 +1353,12 @@ public class HomeController {
 		
         return "Customer/uploadDocument";
     }
-	@PostMapping("/uploadLawyer/{folder_name}") // //new annotation since 4.3
-    public String singleFileUploadLawyer(
-    		Model model,
-    		@RequestParam("file") MultipartFile file,
-    		@RequestParam("Useremail") String Useremail,
-    		RedirectAttributes redirectAttributes,
-    		@PathVariable("folder_name") String folderName) throws IOException 
-    		
-	{
-
-		String firstName = dao.getFirstName(Useremail).get(0);
 		
-		//adding a file
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
-        }
-
-        // Get the file and save it somewhere
-		try {				
-			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, firstName);		
-			model.addAttribute("message",				
-			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-			e.printStackTrace();		
-			model.addAttribute("message",		
-			        "Your file wasn't uploaded");		
-		}
-		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-			
-						
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", folderName);
-		model.addAttribute("filelist", filelist);
-		System.out.println(fileinfo);
-		
-		// Regular Customer JSP EL tags needed code
-		String firstNameStore = dao.getFirstName(folderName).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		// Needed for Customer JSP EL tags
-
-		
-        return "Lawyer/uploadingDoc";
-    }
 	@PostMapping("/deleteFileAdmin/{folder_name}")
-	  public String deleteFileAdmin(
+	  public String deleteFile(
 	    		Model model,
 	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
-	    		@RequestParam(required=false, name="Useremail") String Useremail,
+	    		@RequestParam(required=true, name="Useremail") String Useremail,
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 	    		
@@ -1450,10 +1377,9 @@ public class HomeController {
 			
 			model.addAttribute("presentDirectory", folderName);
 			model.addAttribute("filelist", filelist);
-			System.out.println(fileinfo);
 			
 			// Regular Customer JSP EL tags needed code
-			String firstNameStore = dao.getFirstName(folderName).get(0);
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
@@ -1462,45 +1388,8 @@ public class HomeController {
 			
 	        return "Admin/Files";
 	    }
-
-	@PostMapping("/deleteFileLawyer/{folder_name}")
-	  public String deleteFileLawyer(
-	    		Model model,
-	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
-	    		@RequestParam(required=false, name="Useremail") String Useremail,
-	    		RedirectAttributes redirectAttributes,
-	    		@PathVariable("folder_name") String folderName) throws IOException 
-	    		
-		{
-
-			for(String name : selectedChecks) {
-				dao.deleteFile(name, folderName);
-			}
-			
-			// showing the list of file in the folder
-			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-				
-							
-			model.addAttribute("fileinfo", fileinfo);
-			
-			model.addAttribute("presentDirectory", folderName);
-			model.addAttribute("filelist", filelist);
-			System.out.println(fileinfo);
-			
-			// Regular Customer JSP EL tags needed code
-			String firstNameStore = dao.getFirstName(folderName).get(0);
-			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			// Needed for Customer JSP EL tags
-
-			
-	        return "Lawyer/uploadingDoc";
-	    }
 	
-	
-	@RequestMapping(value = "/download", method = RequestMethod.POST )
+		@RequestMapping(value = "/download", method = RequestMethod.POST )
 	public void FileSystemResource (
 			
 			Model model,
@@ -1542,6 +1431,7 @@ public class HomeController {
 		
 		
 	}
+	
 	@RequestMapping("/goToCustomerUpload/{folder_name}") // //new annotation since 4.3
     public String goToUploadCustomer(
     		Model model,
@@ -1586,6 +1476,7 @@ public class HomeController {
 					
 				} catch (Exception e) {
 					e.printStackTrace();
+					fileinfo.add(new String[] {f.getName(), "", "" , "" } );
 				}	
 			}
 		}catch (Exception ex){

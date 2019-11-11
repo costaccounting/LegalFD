@@ -645,6 +645,9 @@ public class Dao {
 			} catch (HibernateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				return null;
+			} catch (Exception ex) {
+				return null;
 			}
 			return info;
 		}
