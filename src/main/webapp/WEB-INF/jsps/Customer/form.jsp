@@ -119,8 +119,8 @@
 							<li class="nav-item"><a class="nav-link pl-4"
 								href="/document/${Useremail}">Legal Documents</span></a></li>
 							<li class="nav-item"><a class="nav-link pl-4"
-								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
-
+								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li><br><br>
+							<li class="nav-item"><a class="nav-link pl-4" href="#"><i class="	fas fa-envelope"></i> Email Us</a> </li>
 						</ul>
 
 					</div>
