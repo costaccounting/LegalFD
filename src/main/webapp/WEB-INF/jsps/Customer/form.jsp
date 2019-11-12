@@ -23,10 +23,9 @@
 
 
 <title>Client Form</title>
+
 </head>
 <body>
-
-
 
 
 	<div type="hidden" name="email" value="${Useremail}"></div>
