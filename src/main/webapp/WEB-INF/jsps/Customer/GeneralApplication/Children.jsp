@@ -115,17 +115,13 @@
 
 	<div class="container">
 
-		<!-- <div class="progress">
-			<div class="progress-bar bg-dark" style="width: 83.34%;"></div>
-		</div> -->
 <div class="progress">
             <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" style="width:83.34%;">80%</div>
         </div>
 		<br>
 		<h3>Children Information</h3>
 		<br>
-		<form:form action="/children/${Useremail}" method="get"
-			modelAttribute="children">
+		<form:form action="/children/${Useremail}" method="post" modelAttribute="children">
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
