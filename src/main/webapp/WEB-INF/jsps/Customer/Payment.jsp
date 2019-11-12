@@ -2,9 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +34,11 @@
 
 
 
-	<nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: black">
+	<nav class="navbar navbar-expand-xl navbar-dark sticky-top"
+		style="background-color: black">
 		<div class="container" id="navContainer">
-			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i class="fas fa-balance-scale">
-			</i> LegalFD</span></a>
+			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i
+					class="fas fa-balance-scale"> </i> LegalFD</span></a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
@@ -48,13 +49,28 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${countClient}</span>
+					</a>
+						<div class="dropdown-menu">
+							<c:set var="count_noti" value="${fn:length(clientList)}" />
+
+							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
+								${notiList[count_noti-i]}
+								<a href="/deleteNotification/${i}/${Useremail}"> <i
+									class="fa fa-times-circle"></i>
+								</a>
+								<br>
+							</c:forEach>
+						</div></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="/paymentPage/${Useremail}"
-						class="nav-link active"> <i class="fa fa-shopping-cart"></i> Cart
+						class="nav-link active"> <i class="fa fa-shopping-cart"></i>
+							Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
@@ -76,65 +92,66 @@
 		</div>
 	</nav>
 
-<br>
+	<br>
 
 	<div class="card-header mx-5 p-3 text-light bg-primary">
-	<div class="d-flex bd-highlight">
+		<div class="d-flex bd-highlight">
 
-		<h2 class=" flex-grow-1 bd-highlight">Payment</h2>
+			<h2 class=" flex-grow-1 bd-highlight">Payment</h2>
 
-		<a href="<c:url value="/dashboard/${Useremail}"/>"
-			class="btn btn-light bd-highlight " id="submit"> <i class="fas fa-arrow-left"></i>
-			Back To Dashboard
-		</a>
+			<a href="<c:url value="/dashboard/${Useremail}"/>"
+				class="btn btn-light bd-highlight " id="submit"> <i
+				class="fas fa-arrow-left"></i> Back To Dashboard
+			</a>
 		</div>
 	</div>
-	
+
 	<br>
-	
-<div class="container">
-	<table class="table table-striped">
-		<c:set var="totalPrice" value="${0.0}" />
-		<thead class="thead-dark">
-		<tr>
-		
-			<th>Document Category</th>
-			<th>Form Type</th>
-			<th>Amount</th>
-			<th>Remove Item</th>
 
-		</tr>
-
-		</thead>
-		<tbody>
-
-			<c:forEach var="pay" items="${paymentData}">
+	<div class="container">
+		<table class="table table-striped">
+			<c:set var="totalPrice" value="${0.0}" />
+			<thead class="thead-dark">
 				<tr>
 
-					<td>${pay.documentType}</td>
-					<td>${pay.formType}</td>
-					<td>${pay.documentAmount}</td>
-
-					<td>
-						<a href="/deletePayment/${Useremail}/${pay.id}" class="btn btn-secondary"> 
-							<i class="fa fa-times-circle"></i>
-						</a>
-					</td>
-					<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
+					<th>Document Category</th>
+					<th>Form Type</th>
+					<th>Amount</th>
+					<th>Remove Item</th>
 
 				</tr>
-			</c:forEach>
-			<tr>
-				<td></td>
-				<td><b> Total Amount: </b></td>
-								
-				<td><b> $CAD <fmt:formatNumber type="number" maxFractionDigits="2" minIntegerDigits="2" minFractionDigits="2" value="${totalPrice}"/> </b></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
 
-</div>
+			</thead>
+			<tbody>
+
+				<c:forEach var="pay" items="${paymentData}">
+					<tr>
+
+						<td>${pay.documentType}</td>
+						<td>${pay.formType}</td>
+						<td>${pay.documentAmount}</td>
+
+						<td><a href="/deletePayment/${Useremail}/${pay.id}"
+							class="btn btn-secondary"> <i class="fa fa-times-circle"></i>
+						</a></td>
+						<c:set var="totalPrice" value="${totalPrice + pay.documentAmount}" />
+
+					</tr>
+				</c:forEach>
+				<tr>
+					<td></td>
+					<td><b> Total Amount: </b></td>
+
+					<td><b> $CAD <fmt:formatNumber type="number"
+								maxFractionDigits="2" minIntegerDigits="2" minFractionDigits="2"
+								value="${totalPrice}" />
+					</b></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
 
 
 	<div class="container py-5">
@@ -157,13 +174,15 @@
 						<!-- Credit card form content -->
 						<div class="tab-content">
 							<input type="radio" name="pay" value="paypal"> <b>Paypal</b><br>
-							<input type="radio" name="pay" value="debit"> <b>DebitCard</b><br> 
-							<input type="radio" name="pay" value="credit" checked> <b>Credit Card</b>
+							<input type="radio" name="pay" value="debit"> <b>DebitCard</b><br>
+							<input type="radio" name="pay" value="credit" checked> <b>Credit
+								Card</b>
 							<!-- credit card info-->
 							<div id="nav-tab-card" class="tab-pane fade show active">
-								<br>
-								<input type="submit" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm" value="Confirm">
-								
+								<br> <input type="submit"
+									class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"
+									value="Confirm">
+
 							</div>
 						</div>
 					</div>
@@ -184,10 +203,7 @@
 		crossorigin="anonymous"></script>
 
 
-	<script>
-		// Get the current year for the copyright
-		$('#year').text(new Date().getFullYear());
-	</script>
+
 
 </body>
 </html>
