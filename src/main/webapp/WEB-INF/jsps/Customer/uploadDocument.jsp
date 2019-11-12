@@ -124,7 +124,7 @@
 							<li class="nav-item"><a class="nav-link pl-4 "
 								href="/document/${Useremail}">Legal Documents</span></a></li>
 							<li class="nav-item"><a class="nav-link pl-4 active"
-								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
+								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li><br><br>
 							<li class="nav-item"><a class="nav-link pl-4" href="#"><i
 									class="	fas fa-envelope"></i> Email Us</a></li>
 						</ul>
@@ -156,6 +156,7 @@
 						<table class="table table-striped">
 							<thead class="thead-dark">
 								<tr>
+									<th></th>
 									<th>Name</th>
 									<th>Action</th>
 									<th>Uploaded By</th>
@@ -171,6 +172,7 @@
 									out.print("<tr>");
 
 									if (f.isDirectory()) {
+										out.print("<td></td>");
 										out.print("<td>" + f.getName() + "</td>");
 										out.print("<td><a href='files/" + f.getName() + "'>Next</a></td>");
 										out.print("<td></td>");
@@ -178,9 +180,9 @@
 
 									} else if (f.isFile()) {
 										for (String[] listitem : list) {
-											//System.out.println("matching = " + listitem[0] + "," + f.getName() + " :" + listitem[0].equals(f.getName()) );
-											System.out.println(listitem);
 											if (listitem[0].equals(f.getName())) {
+												out.print("<td><input type='checkbox' id='sel' class='sel' name='" + f.getName()
+												+ "' value='" + f.getName() + "'/></td>");
 												out.print("<td>" + listitem[3] + "</td>");
 												out.print("<td>" + "<form method='POST' action='/download'>"
 														+ "<input type='hidden' name='filename' value='" + f.getName() + "'/>"
@@ -200,6 +202,18 @@
 							%>
 						</table>
 						<span class="border-top my-3"></span>
+						<div id="formDelete">
+							<form id="submitForm" method="Post"
+								action="/deleteFileUser/${presentDirectory}">
+								<input type="hidden" id="Useremail" name="Useremail"
+									value="${Useremail}" />
+								<input type="hidden" id="hiddenInp"
+									name="hiddenInp" /> 
+									<input type="button"
+									class="btn btn-primary" onClick="processDelete()"
+									value="Delete selected files" />
+							</form>
+						</div>
 						<h2>Add file</h2>
 						<form method="POST"
 							action="/uploadCustomer/<c:out value= "${presentDirectory}" />"
@@ -262,6 +276,20 @@
 	<script>
 		document.querySelector("#file-upload").onchange = function() {
 			document.querySelector("#file-name").textContent = this.files[0].name;
+		}
+		function processDelete() {
+			var selected = new Array();
+			var boxes = document.getElementsByClassName("sel");
+			for (var i = 0; i < boxes.length; i++) {
+				var box = boxes[i];
+				if (box.checked) {
+					selected.push(box.value);
+				}
+			}
+			alert("in process: " + selected);
+			document.getElementById("hiddenInp").value = selected;
+			document.getElementById("submitForm").submit();
+
 		}
 	</script>
 

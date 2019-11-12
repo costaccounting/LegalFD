@@ -674,6 +674,37 @@ public class Dao {
 		}
 		
 	}
+	public boolean deleteFile(String filename, String dir, String deleterName) {
+		Session session = sessionFactory.openSession();
+		
+		try {
+			session.beginTransaction();
+			
+			Query query1 = session.createQuery("SELECT cf.uploadedBy FROM ClientFile cf WHERE cf.modifiedFileName =:modifiedFileName");
+			query1.setParameter("modifiedFileName", filename);
+			
+			String name = ( (List<String>) query1.getResultList() ).get(0);
+			
+			session.getTransaction().commit();
+			session.close();
+			if(name.equals(  getFirstName(deleterName).get(0)  )) {
+			
+				File f = getFile(filename, dir);
+				f.delete();
+				return true;
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			session.close();
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	
+		
+	}
+
 
 	
 

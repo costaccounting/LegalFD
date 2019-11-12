@@ -1387,6 +1387,37 @@ public class HomeController {
 			
 	        return "Admin/Files";
 	    }
+	@PostMapping("/deleteFileUser/{folder_name}")
+	  public String deleteFileUser(Model model,
+	    		@RequestParam(required=false, name="hiddenInp") String[] selectedChecks,
+	    		@RequestParam(required=true, name="Useremail") String Useremail,
+	    		RedirectAttributes redirectAttributes,
+	    		@PathVariable("folder_name") String folderName) throws IOException 
+		{
+			for(String name : selectedChecks) {
+				
+				dao.deleteFile(name, folderName, Useremail);
+			}
+			
+			// showing the list of file in the folder
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+							
+			model.addAttribute("fileinfo", fileinfo);
+			
+			model.addAttribute("presentDirectory", folderName);
+			model.addAttribute("filelist", filelist);
+			
+			// Code to required to go to other pages
+			model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+	        return "Customer/uploadDocument";
+	    }
 	
 	@RequestMapping(value = "/download", method = RequestMethod.POST )
 	public void FileSystemResource (Model model, HttpServletRequest request, HttpServletResponse response,
