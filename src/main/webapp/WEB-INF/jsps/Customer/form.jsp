@@ -81,7 +81,7 @@
 								class="fas fa-cog"></i> Settings
 							</a>
 							<a href="/customerRequest/${Useremail}/${Useremail}" class="dropdown-item"> <i
-								class="fas fa-cog"></i> Customer Request
+								class="fas fa-cog"></i> Your Request
 							</a>
 						</div></li>
 
