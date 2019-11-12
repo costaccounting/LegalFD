@@ -83,7 +83,7 @@
 				<i class="fas fa-file-alt"></i> General Application Information Form
 				<div class="float-right">
 				<a href="/dashboard/${Useremail}" class="btn btn-primary "
-					id="submit"> <i class="fas fa-arrow-left"></i> Back To Dashboard
+					id="submit"> <i class="fas fa-arrow-left"></i> Back
 				</a>
 			</div>
 			</h2>
