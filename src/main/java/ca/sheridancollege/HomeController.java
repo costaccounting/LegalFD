@@ -333,7 +333,7 @@ public class HomeController {
 
 	
 	
-//-----------------********		REGISTER   START	********---------------------------------
+//----------------- 		REGISTER   START	 ---------------------------------
 	
 	@RequestMapping("/register1")
 	public String goRegister(Model model, @ModelAttribute RegisterUser registerUser) {
@@ -367,10 +367,10 @@ public class HomeController {
 		
 	}// end of method
 
-//-----------------********		REGISTER   END	********---------------------------------
+//----------------- 		REGISTER   END	 ---------------------------------
 	
 	
-//-----------------********		LOGIN	START	********---------------------------------
+//----------------- 		LOGIN	START	 ---------------------------------
 	
 	@RequestMapping("/login")
 	public String goLogin(Model model, @RequestParam String email, @RequestParam String password) {
@@ -453,11 +453,11 @@ public class HomeController {
 		}
 		
 	}
-//-----------------********		LOGIN	END		********---------------------------------
+//----------------- 		LOGIN	END		 ---------------------------------
 	
 	
 	
-//-----------------********		NAVIGATION TO Case Request (Admin and Lawyer) -- Start	********---------------------------------
+//----------------- 		NAVIGATION TO Case Request (Admin and Lawyer) -- Start	 ---------------------------------
 
 	@RequestMapping("/caseRequest/{Useremail}")
 	public String goCaseRequest(Model model, @PathVariable String Useremail) {
@@ -487,10 +487,10 @@ public class HomeController {
 		
 	}
 	
-//-----------------********		NAVIGATION TO Case Request (Admin and Lawyer) -- End	********---------------------------------
+//----------------- 		NAVIGATION TO Case Request (Admin and Lawyer) -- End	 ---------------------------------
 
 
-//-----------------********		NAVIGATION TO Case Request (ALL) -- Start	********---------------------------------
+//----------------- 		NAVIGATION TO Case Request (ALL) -- Start	 ---------------------------------
 
 		@RequestMapping("/customerRequest/{Useremail}/{SessionEmail}")
 		public String goCustomerRequest(Model model, @PathVariable String Useremail, @PathVariable String SessionEmail) {
@@ -514,17 +514,17 @@ public class HomeController {
 				}
 		}
 		
-//-----------------********		NAVIGATION TO Case Request (ALL) -- End	********---------------------------------
+//----------------- 		NAVIGATION TO Case Request (ALL) -- End	 ---------------------------------
 
 	
-//-----------------********		NAVIGATION TO Document Edit for Admin Side Start	********---------------------------------
+//----------------- 		NAVIGATION TO Document Edit for Admin Side Start	 ---------------------------------
 	
 		
 
-//-----------------********		NAVIGATION TO Document Edit for Admin Side End	********---------------------------------
+//----------------- 		NAVIGATION TO Document Edit for Admin Side End	 ---------------------------------
 
 
-//-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START********---------------------------------
+//----------------- 		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START ---------------------------------
 			
 				@RequestMapping("/application/{email}/{Useremail}")
 				public String goViewClientInfo(Model model, @PathVariable String email ,@PathVariable String Useremail) {
@@ -563,11 +563,11 @@ public class HomeController {
 					
 				}
 
-//-----------------********		NAVIGATION TO View Client General Application Info for Lawyer and Admin  START ********---------------------------------
+//----------------	NAVIGATION TO View Client General Application Info for Lawyer and Admin  START -------------
 
 			
 		
-//-----------------********	Edit User & UPDATE Function Role & Data - 	START********---------------------------------
+//-----------------	Edit User & UPDATE Function Role & Data - 	START -----------------------------
 	
 		@RequestMapping("/editUser/{sessionEmail}/{userEmail}")
 		public String goEditUserInDB(Model model, @PathVariable String sessionEmail, @PathVariable String userEmail, @RequestParam String userFirstName, String userLastName,String role) {
@@ -629,10 +629,10 @@ public class HomeController {
 			}
 		}
 		
-//-----------------******* Edit User STOP *********---------------------------------
+//-----------------  Edit User STOP  -------------------------------
 
 
-//-----------------********	Edit User & UPDATE Function Role & Data -- 	START********---------------------------------
+//----------------- 	Edit User & UPDATE Function Role & Data -- 	START ---------------------------------
 			
 	@RequestMapping("/editPassword/{userEmail}")
 	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
@@ -663,11 +663,11 @@ public class HomeController {
 					}
 				}
 				
-//-----------------******* Edit User STOP *********---------------------------------
+//-----------------  Edit User STOP  ---------------------------------
 
 		
 		
-//-----------------******* Delete User START *********---------------------------------
+//-----------------  Delete User START  ---------------------------------
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	
 	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail) {
 		
@@ -705,10 +705,10 @@ public class HomeController {
 		}
 	}
 	
-//-----------------******* Delete User END *********---------------------------------
+//---------------- Delete User END  --------------------------------
 	
 
-//-----------------******* Delete Payment for User -- START *********---------------------------------
+//----------------  Delete Payment for User -- START  --------------------------------
 
 	@RequestMapping(value = "/deletePayment/{Useremail}/{id}")	
 	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail) {
@@ -728,16 +728,11 @@ public class HomeController {
 		return "Customer/Payment";
 	}
 	
-//-----------------******* Delete Payment for User -- END *********---------------------------------
+//---------------  Delete Payment for User -- END  --------------------------------
 
+		
 	
-	
-
-	
-//-----------------*******End OF New Customer Side UI*********---------------------------------
-
-	
-//-----------------*******Legal Form -- START*********---------------------------------
+//----------------- Legal Form -- START ---------------------------------
 	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
 	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm) {
 			
@@ -778,10 +773,10 @@ public class HomeController {
 			
 			return "Customer/Payment";
 	}
-//-----------------*******Legal Form -- END*********---------------------------------
+//----------------- Legal Form -- END --------------------------------
 	
 	
-//-----------------*******Documents -- START*********---------------------------------	
+//----------------- Documents  START --------------------------------	
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
 			
@@ -823,10 +818,10 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 
-//-----------------*******Documents -- END *********---------------------------------
+//------------- Documents END -------------------------------
 	
 	
-//-----------------******* Redirect Third Party Pay START *********---------------------------------
+//-------------- Redirect Third Party Pay START -------------------------------
 	
 	@RequestMapping("/pay/{Useremail}/{amount}")
 	public String goConfirmPayment(Model model, @PathVariable String Useremail, @PathVariable String amount) {
@@ -897,10 +892,10 @@ public class HomeController {
 			return "Customer/Payment";
 	}
 	
-//-----------------********* Redirect Third Party Pay END*******---------------------------------
+//------------- Redirect Third Party Pay END-------------------------------
 
 	
-//-----------------********* General Registration Form  START *******---------------------------------
+//------------- General Registration Form  START ----------------------------
 
 	@RequestMapping("/generalApplication/{Useremail}")	
 	public String goGeneralApplication(Model model, @PathVariable String Useremail) {
@@ -1062,9 +1057,9 @@ public class HomeController {
 				}
 // Sixth Class Saving Data to DAO method __ END		
 				
-//-----------------********* General Registration Form  END *******---------------------------------
+//------- General Registration Form  END --------------------------------
 
-//-----------------******* Admin Editing Document and Form Price... START *********---------------------------------
+//------- Admin Editing Document and Form Price... START --------------------------------
 				
 				@RequestMapping("/editDocPrice/{Useremail}")
 				public String goAdminEditPrice(Model model, @PathVariable String Useremail) {
@@ -1149,7 +1144,7 @@ public class HomeController {
 					}
 				}
 				
-//-----------------********* Admin Editing Document and Form Price... END *******---------------------------------
+//----------- Admin Editing Document and Form Price... END ----------
 
 	
 //----************************************ ABOVE this PARAS Code  **************************---------------------------------
