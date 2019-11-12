@@ -54,7 +54,7 @@
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="/paymentPage/${Useremail}"
-						class="nav-link "> <i class="fa fa-shopping-cart"></i> Cart
+						class="nav-link active"> <i class="fa fa-shopping-cart"></i> Cart
 					</a></li>
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i

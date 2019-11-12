@@ -122,6 +122,8 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
+			model.addAttribute("cartCount", pay.size());
+			
 			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
@@ -804,8 +806,9 @@ public class HomeController {
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		model.addAttribute("paymentData", pay);
 		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("cartCount", pay.size());
 		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -848,8 +851,8 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
-
-
+			model.addAttribute("cartCount", pay.size());
+			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
@@ -872,6 +875,7 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
+			model.addAttribute("cartCount", pay.size());
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
@@ -890,6 +894,8 @@ public class HomeController {
 		
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		model.addAttribute("paymentData", pay);
+		
+		model.addAttribute("cartCount", pay.size());
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
@@ -957,15 +963,14 @@ public class HomeController {
 			dao.deleteUserPayment(i);
 		}
 		
+		model.addAttribute("cartCount", pay.size());
 		
 		// Required code for Payment.jsp
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
 			model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
-		
 			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
 			
 			
