@@ -33,7 +33,6 @@ public class GeneralFormDao {
 		
 		childExpensesList= query.getResultList();
 		
-		
 		session.getTransaction().commit();
 		session.close();
 		
@@ -59,7 +58,6 @@ public class GeneralFormDao {
 			
 			children= query.getResultList();
 			
-			
 			session.getTransaction().commit();
 			session.close();
 			
@@ -83,7 +81,6 @@ public class GeneralFormDao {
 			query.setParameter("userEmail", userEmail);
 			
 			clientInfoList= query.getResultList();
-			
 			
 			session.getTransaction().commit();
 			session.close();
@@ -109,7 +106,6 @@ public class GeneralFormDao {
 			
 			martialInfoList= query.getResultList();
 			
-			
 			session.getTransaction().commit();
 			session.close();
 			
@@ -133,7 +129,6 @@ public class GeneralFormDao {
 			query.setParameter("userEmail", userEmail);
 			
 			matrimonialHomeList= query.getResultList();
-			
 			
 			session.getTransaction().commit();
 			session.close();
@@ -159,7 +154,6 @@ public class GeneralFormDao {
 					
 					spouseInfoList= query.getResultList();
 					
-					
 					session.getTransaction().commit();
 					session.close();
 					
@@ -183,6 +177,7 @@ public class GeneralFormDao {
 					
 					//session.save(childExpenses);
 					
+					
 					ChildExpenses childExp = (ChildExpenses) session.get(ChildExpenses.class, email);
 					childExp.setMedical(childExpenses.getMedical());
 					childExp.setEducational(childExpenses.getEducational());
@@ -202,6 +197,8 @@ public class GeneralFormDao {
 					
 					ClientInfo client = (ClientInfo) session.get(ClientInfo.class, email);
 					
+					if(client != null)
+					{
 					client.setFullLegalName(clientInfo.getFullLegalName());
 					client.setDateOfBirth(clientInfo.getDateOfBirth());
 					client.setCitizenship(clientInfo.getCitizenship());
@@ -225,7 +222,10 @@ public class GeneralFormDao {
 					client.setEmployerAddress(clientInfo.getEmployerAddress());
 					client.setAnnualIncome(clientInfo.getAnnualIncome());
 					client.setIncomeOtherSource(clientInfo.getIncomeOtherSource());
-					
+					}
+					else if(client == null){
+						session.save(clientInfo);
+					}
 					
 					
 					session.getTransaction().commit();
@@ -239,6 +239,8 @@ public class GeneralFormDao {
 					
 					Children child = (Children) session.get(Children.class, email);
 					
+					if(child != null) 
+					{
 					child.setChildName1(children.getChildName1());
 					child.setDobChild1(children.getDobChild1());
 					child.setLivingChild1(children.getLivingChild1());
@@ -262,7 +264,10 @@ public class GeneralFormDao {
 					child.setLivingChild2(children.getLivingChild4());
 					child.setGradeChild2(children.getGradeChild4());
 					child.setSchoolChild2(children.getSchoolChild4());
-				
+					}
+					else if(child == null){
+						session.save(children);
+					}
 					
 					session.getTransaction().commit();
 					session.close();
@@ -275,6 +280,8 @@ public class GeneralFormDao {
 					
 					MartialInfo martial = (MartialInfo) session.get(MartialInfo.class, email);
 					
+					if(martial != null)
+					{
 					martial.setMarriageDate(martialInfo.getMarriageDate());
 					martial.setMarriagePlace(martialInfo.getMarriagePlace());
 					martial.setCohabitationDate(martialInfo.getCohabitationDate());
@@ -284,6 +291,10 @@ public class GeneralFormDao {
 					martial.setRelevantDate(martialInfo.getRelevantDate());
 					martial.setSafetyConcerns(martialInfo.getSafetyConcerns());
 					martial.setSpouseCriminalRecord(martialInfo.getSpouseCriminalRecord());
+					}
+					else if(martial == null){
+						session.save(martialInfo);
+					}
 					
 					session.getTransaction().commit();
 					session.close();
@@ -296,6 +307,8 @@ public class GeneralFormDao {
 					
 					MatrimonialHome matrimonial = (MatrimonialHome) session.get(MatrimonialHome.class, email);
 					
+					if(matrimonial != null)
+					{
 					matrimonial.setFirstAddress(matrimonialHome.getFirstAddress());
 					matrimonial.setFirstTitle(matrimonialHome.getFirstTitle());
 					matrimonial.setFirstValue(matrimonialHome.getFirstValue());
@@ -308,6 +321,10 @@ public class GeneralFormDao {
 					
 					matrimonial.setExcludePropertyClient(matrimonialHome.getExcludePropertyClient());
 					matrimonial.setExcludePropertySpouse(matrimonialHome.getExcludePropertySpouse());
+					}
+					else if(matrimonial == null){
+						session.save(matrimonialHome);
+					}
 					
 					session.getTransaction().commit();
 					session.close();
@@ -320,6 +337,8 @@ public class GeneralFormDao {
 					
 					SpouseInfo spouse = (SpouseInfo) session.get(SpouseInfo.class, email);
 					
+					if(spouse != null)
+					{
 					spouse.setSpouseName(spouseInfo.getSpouseName());
 					spouse.setSpouseDateOfBirth(spouseInfo.getSpouseDateOfBirth());
 					spouse.setSpousePlaceOfBirth(spouseInfo.getSpousePlaceOfBirth());
@@ -343,7 +362,11 @@ public class GeneralFormDao {
 					spouse.setSpouseEmployerAddress(spouseInfo.getSpouseEmployerAddress());
 					spouse.setSpouseAnnualIncome(spouseInfo.getSpouseAnnualIncome());
 					spouse.setSpouseIncomeOtherSource(spouseInfo.getSpouseIncomeOtherSource());
-										
+					}
+					else if(spouse == null){
+						session.save(spouseInfo);
+					}	
+					
 					session.getTransaction().commit();
 					session.close();
 				}
@@ -374,81 +397,81 @@ public class GeneralFormDao {
 
 // ------------*********	Delete Rows for Child Expense - End	*******---------------								
 
-			// ------------*********	Delete Rows for Children - Start	*******---------------					
+// ------------*********	Delete Rows for Children - Start	*******---------------					
 
-						public void deleteChildren(String email){
-						Session session = sessionFactory.openSession();
-						session.beginTransaction();
+			public void deleteChildren(String email){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 								
-						Children child = (Children) session.get(Children.class, email);
-						session.delete(child);
+			Children child = (Children) session.get(Children.class, email);
+			session.delete(child);
 							
-						session.getTransaction().commit();
-						session.close();
-					}
+			session.getTransaction().commit();
+			session.close();
+			}
 
-			// ------------*********	Delete Rows for Children - End	*******---------------								
+// ------------*********	Delete Rows for Children - End	*******---------------								
 
-						// ------------*********	Delete Rows for ClientInfo - Start	*******---------------					
+// ------------*********	Delete Rows for ClientInfo - Start	*******---------------					
 
-						public void deleteClientInfo(String email){
-						Session session = sessionFactory.openSession();
-						session.beginTransaction();
+			public void deleteClientInfo(String email){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 								
-						ClientInfo clientInfo = (ClientInfo) session.get(ClientInfo.class, email);
-						session.delete(clientInfo);
+			ClientInfo clientInfo = (ClientInfo) session.get(ClientInfo.class, email);
+			session.delete(clientInfo);
 							
-						session.getTransaction().commit();
-						session.close();
-					}
+			session.getTransaction().commit();
+			session.close();
+			}
 
-			// ------------*********	Delete Rows for ClientInfo - End	*******---------------								
+// ------------*********	Delete Rows for ClientInfo - End	*******---------------								
 
 						
-	 	// ------------*********	Delete Rows for MartialInfo - Start	*******---------------					
+// ------------*********	Delete Rows for MartialInfo - Start	*******---------------					
 
-						public void deleteMartialInfo(String email){
-						Session session = sessionFactory.openSession();
-						session.beginTransaction();
+			public void deleteMartialInfo(String email){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 								
-						MartialInfo martialInfo = (MartialInfo) session.get(MartialInfo.class, email);
-						session.delete(martialInfo);
+			MartialInfo martialInfo = (MartialInfo) session.get(MartialInfo.class, email);
+			session.delete(martialInfo);
 							
-						session.getTransaction().commit();
-						session.close();
-					}
+			session.getTransaction().commit();
+			session.close();
+			}
 
-			// ------------*********	Delete Rows for MartialInfo - End	*******---------------								
+// ------------*********	Delete Rows for MartialInfo - End	*******---------------								
 
-					 	// ------------*********	Delete Rows for MatrimonialHome - Start	*******---------------					
+// ------------*********	Delete Rows for MatrimonialHome - Start	*******---------------					
 
-						public void deleteMatrimonialHome(String email){
-						Session session = sessionFactory.openSession();
-						session.beginTransaction();
+			public void deleteMatrimonialHome(String email){
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
 								
-						MatrimonialHome matrimonialHome = (MatrimonialHome) session.get(MatrimonialHome.class, email);
-						session.delete(matrimonialHome);
-							
-						session.getTransaction().commit();
-						session.close();
-					}
+				MatrimonialHome matrimonialHome = (MatrimonialHome) session.get(MatrimonialHome.class, email);
+				session.delete(matrimonialHome);
+						
+				session.getTransaction().commit();
+				session.close();
+			}
 
-			// ------------*********	Delete Rows for MatrimonialHome - End	*******---------------								
+// ------------*********	Delete Rows for MatrimonialHome - End	*******---------------								
 
-					 	// ------------*********	Delete Rows for SpouseInfo - Start	*******---------------					
+// ------------*********	Delete Rows for SpouseInfo - Start	*******---------------					
 
-						public void deleteSpouseInfo(String email){
-						Session session = sessionFactory.openSession();
-						session.beginTransaction();
+			public void deleteSpouseInfo(String email){
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
 								
-						SpouseInfo spouseInfo = (SpouseInfo) session.get(SpouseInfo.class, email);
-						session.delete(spouseInfo);
+				SpouseInfo spouseInfo = (SpouseInfo) session.get(SpouseInfo.class, email);
+				session.delete(spouseInfo);
 							
-						session.getTransaction().commit();
-						session.close();
-					}
+				session.getTransaction().commit();
+				session.close();
+			}
 
-			// ------------*********	Delete Rows for SpouseInfo - End	*******---------------								
+// ------------*********	Delete Rows for SpouseInfo - End	*******---------------								
 
 						
 										
