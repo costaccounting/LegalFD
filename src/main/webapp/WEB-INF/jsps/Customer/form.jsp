@@ -45,25 +45,24 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link active">Home</a></li>
 
-					<li class="nav-item px-2 dropdown mr-3">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
-							<span class="notification">Notification</span> 
-							<span class="badge text-dark bg-light">${countClient}</span>
-						</a>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${countClient}</span>
+					</a>
 						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(clientList)}" />
-							
+
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
 								<div class="float-right">
-								<a href="/deleteNotification/${i}/${Useremail}"> 
-									<i class="fa fa-times-circle"></i>
-								</a>
+									<a href="/deleteNotification/${i}/${Useremail}"> <i
+										class="fa fa-times-circle"></i>
+									</a>
 								</div>
 								<div class="dropdown-divider"></div>
 							</c:forEach>
-						</div>
-					</li>
+						</div></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -77,12 +76,11 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> 
-							<a href="/settings/${Useremail}" class="dropdown-item"> <i
+							</a> <a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
-							</a>
-							<a href="/customerRequest/${Useremail}/${Useremail}" class="dropdown-item"> <i
-								class="	fas fa-sticky-note"></i> Your Request
+							</a> <a href="/customerRequest/${Useremail}/${Useremail}"
+								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
+								Your Request
 							</a>
 						</div></li>
 
@@ -119,8 +117,11 @@
 							<li class="nav-item"><a class="nav-link pl-4"
 								href="/document/${Useremail}">Legal Documents</span></a></li>
 							<li class="nav-item"><a class="nav-link pl-4"
-								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li><br><br>
-							<li class="nav-item"><a class="nav-link pl-4" href="#"><i class="	fas fa-envelope"></i> Email Us</a> </li>
+								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
+							<br>
+							<br>
+							<li class="nav-item"><a class="nav-link pl-4" href="#"><i
+									class="	fas fa-envelope"></i> Email Us</a></li>
 						</ul>
 
 					</div>
@@ -152,8 +153,9 @@
 							<div class="card-header ">
 								<h5>
 									<a href="#collapse1" data-parent="#accordion"
-										data-toggle="collapse" style="color: #000" data-toggle="tooltip" data-placement="right" title="Hooray!"> Divorce
-										(simple/joint) </a>
+										data-toggle="collapse" style="color: #000"
+										data-toggle="tooltip" data-placement="right" title="Hooray!">
+										Divorce (simple/joint) </a>
 								</h5>
 							</div>
 							<div id="collapse1" class="collapse">
@@ -621,8 +623,7 @@
 				</div>
 				<br>
 				<div class="float-right mr-5 pb-3 ">
-					<input class="btn btn-primary " type="submit" value="Submit" /> 
-					<input
+					<input class="btn btn-primary " type="submit" value="Submit" /> <input
 						class="btn btn-primary " type="button" onclick="myFunction()"
 						value="Clear" />
 				</div>
@@ -668,7 +669,6 @@
 	</div> -->
 
 	<script>
-	
 		function myFunction() {
 
 			var items = document.getElementsByName('legalForm');
@@ -678,15 +678,13 @@
 			}
 
 		}
-		
-		 
 	</script>
-	
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
+
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
 
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
