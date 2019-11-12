@@ -177,15 +177,20 @@ public class GeneralFormDao {
 					
 					//session.save(childExpenses);
 					
-					
 					ChildExpenses childExp = (ChildExpenses) session.get(ChildExpenses.class, email);
+					
+					if(childExp != null)
+					{
 					childExp.setMedical(childExpenses.getMedical());
 					childExp.setEducational(childExpenses.getEducational());
 					childExp.setPostEducational(childExpenses.getPostEducational());
 					childExp.setDaycare(childExpenses.getDaycare());
 					childExp.setExtraCurricular(childExpenses.getExtraCurricular());
 					childExp.setOthers(childExpenses.getOthers());
-					
+					}
+					else if(childExp == null){
+						session.save(childExpenses);
+					}
 					session.getTransaction().commit();
 					session.close();
 				}
