@@ -68,8 +68,13 @@ public class HomeController {
 		RegisterUser reg = dao.getUser(email); 
 		model.addAttribute("userInfo", reg);
 		
+		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
+		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		String role = dao.getRole(Useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -84,6 +89,8 @@ public class HomeController {
 		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		String role = dao.getRole(Useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 				
@@ -101,6 +108,8 @@ public class HomeController {
 		model.addAttribute("count", dao.getList().size());
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		String role = dao.getRole(Useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 				
@@ -249,7 +258,8 @@ public class HomeController {
 			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
 				
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
+				String role = dao.getRole(Useremail).get(0);
+				model.addAttribute("role", role);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
@@ -278,7 +288,8 @@ public class HomeController {
 						String firstNameStore = dao.getFirstName(Useremail).get(0);			
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
-											
+						String role = dao.getRole(Useremail).get(0);
+						model.addAttribute("role", role);					
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
@@ -291,7 +302,8 @@ public class HomeController {
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail );
-											
+						String role = dao.getRole(Useremail).get(0);
+						model.addAttribute("role", role);					
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
@@ -343,7 +355,9 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);			
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-									
+				String role = dao.getRole(Useremail).get(0);
+				model.addAttribute("role", role);
+				
 				model.addAttribute("notiList", notification);
 				model.addAttribute("count", dao.getList().size());
 									
@@ -359,7 +373,9 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
-									
+				String role = dao.getRole(Useremail).get(0);
+				model.addAttribute("role", role);
+				
 				model.addAttribute("notiList", notification);
 				model.addAttribute("count", dao.getList().size());
 									

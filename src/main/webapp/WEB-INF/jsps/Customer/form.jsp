@@ -3,6 +3,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +46,22 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
+					<li class="nav-item px-2 dropdown mr-3">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
+							<span class="notification">Notification</span> 
+							<span class="badge text-dark bg-light">${count}</span>
+						</a>
+						<div class="dropdown-menu">
+							<c:set var="count_noti" value="${fn:length(clientList)}" />
+							
+							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
+								${notiList[count_noti-i]}
+								<a href="/deleteNotification/${i}/${Useremail}"> 
+									<i class="fa fa-times-circle"></i>
+								</a>
+								<br>
+							</c:forEach>
+						</div>
 					</li>
 				</ul>
 

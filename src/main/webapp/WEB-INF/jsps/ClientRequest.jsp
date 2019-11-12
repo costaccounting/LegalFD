@@ -52,7 +52,7 @@
 						</a>
 						<div class="dropdown-menu">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
-							
+				
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
 								<a href="/deleteNotification/${i}/${Useremail}"> 
@@ -123,6 +123,17 @@
 								href="/caseRequest/${Useremail}">Client Requests</a></li>
 								<li class="nav-item"><a class="nav-link pl-4"
 								href="/editDocPrice/${Useremail}">Manage Price</a></li>
+
+							</c:if>
+							
+							<c:if test="${role == 'Client'}">
+								<li class="nav-item"><a class="nav-link pl-4 active"
+								href="/form/${Useremail}"> Legal Forms</a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/document/${Useremail}">Legal Documents</span></a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
+
 
 							</c:if>
 							

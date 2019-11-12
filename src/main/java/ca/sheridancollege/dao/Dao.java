@@ -33,6 +33,7 @@ public class Dao {
 	private static String location_string = "client_files";
 
 	static ArrayList<String> list = new ArrayList<String>();
+	static ArrayList<String> clientList = new ArrayList<String>();
 	
 	
 	SessionFactory sessionFactory = new Configuration().
@@ -40,12 +41,24 @@ public class Dao {
 
 
 
+//-----------************* Admin and Lawyer Notification *****************-----
+
 	public ArrayList<String> getList() {
 		return list;
 	}
 
 	public static void setList(ArrayList<String> list) {
 		Dao.list = list;
+	}
+
+//-----------************* Client Notification *****************-----
+	
+	public static ArrayList<String> getClientList() {
+		return clientList;
+	}
+
+	public static void setClientList(ArrayList<String> clientList) {
+		Dao.clientList = clientList;
 	}
 	
 //-----------------------------------------------------------******************************------------------------------------	
@@ -661,6 +674,8 @@ public class Dao {
 		}
 		
 	}
+
+	
 
 
 		
