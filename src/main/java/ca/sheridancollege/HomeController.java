@@ -589,6 +589,8 @@ public class HomeController {
 				model.addAttribute("payAmount", payAmount);
 				
 				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
+				String role = dao.getRole(Useremail).get(0);
+				model.addAttribute("role", role);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", SessionEmail);
 				
@@ -933,27 +935,20 @@ public class HomeController {
 		String requestDoc;
 		for(Payment list : pay) {
 			
-			
 			if(!list.getFormType().equals("")) {
 				requestDoc = list.getFormType();
-				
 				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
-				
 				dao.addPayAmount(payAmount);
 			}
-				
 		}
 		
 		for(Payment list : pay) {
 			if(list.getFormType().equals(null) || list.getFormType().equals("") || list.getFormType().equals(" ")) {
 				requestDoc = list.getDocumentType();
-				
 				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
-				
 				dao.addPayAmount(payAmount);
 			}
 		}
-		
 		
 		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
 		
