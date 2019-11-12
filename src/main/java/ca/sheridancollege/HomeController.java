@@ -394,7 +394,10 @@ public class HomeController {
 		}
 //-------- 	Remove Notification __ STOP  -----------		
 					
+// ---------- Navigation to chat -----------------------
 		
+	
+// ---------- Navigation to chat end -----------------------		
 //***************___Navigation between Pages -- END******************
 	
 
