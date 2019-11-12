@@ -88,7 +88,7 @@
 
 			<div class="float-right">
 				<a href="/dashboard/${Useremail}" class="btn btn-primary "
-					id="submit"> <i class="fas fa-arrow-left"></i>  Back
+					id="submit"> <i class="fas fa-arrow-left"></i>  Back To Dashboard
 				</a>
 			</div>
 		</h2>
