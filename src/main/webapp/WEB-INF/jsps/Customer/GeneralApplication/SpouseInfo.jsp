@@ -119,13 +119,7 @@
 
 	<div class="container">
 
-		<!-- <div class="progress">
-			<div class="progress-bar bg-dark" style="width: 33.34%;"></div>
-		</div>
-		
-		
- -->
-
+	
 		<div class="progress">
 			<div
 				class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
@@ -134,8 +128,7 @@
 		<br>
 		<h3>Spouse Information</h3>
 		<br>
-		<form:form action="/spouseInfo/${Useremail}" method="get"
-			modelAttribute="spouseInfo">
+		<form:form action="/spouseInfo/${Useremail}" method="post" modelAttribute="spouseInfo">
 
 			<form:hidden path="userEmail" value="${Useremail}" />
 			<div class="row">

@@ -129,7 +129,7 @@
 			</aside>
 			<main class="col bg-faded py-3">
 
-			<form action="/legalDocumentFormMulti/${Useremail}" id="myForm">
+			<form action="/legalDocumentFormMulti/${Useremail}" id="myForm" method="post">
 
 
 				<div class="container mr-5 pt-3 pl-5" id="">

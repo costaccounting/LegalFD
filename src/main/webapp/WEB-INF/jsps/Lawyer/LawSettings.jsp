@@ -132,7 +132,7 @@
 	<div class="container">
 
 
-		<form action="/editPassword/${Useremail}">
+		<form action="/editPassword/${Useremail}" method="post">
 
 			<div class="form-group">
 				<label for="name">User Email:</label> <input class="form-control"

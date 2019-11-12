@@ -70,7 +70,7 @@
               <div class="card-body">
                 <h3>Sign Up</h3>
                 <br>
-                <form action="/register1" method="get" modelAttribute="registerUser">
+                <form action="/register1" method="post" modelAttribute="registerUser">
 	  		  
                    		  <div class="form-group">
 	                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required>

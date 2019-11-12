@@ -126,8 +126,7 @@
 		<br>
 		<h3>Client Information</h3>
 		<br>
-		<form:form action="/clientInfo/${Useremail}" method="get"
-			modelAttribute="clientInfo">
+		<form:form action="/clientInfo/${Useremail}" method="post" modelAttribute="clientInfo">
 
 			<form:hidden path="userEmail" value="${Useremail}" />
 			<div class="row">
