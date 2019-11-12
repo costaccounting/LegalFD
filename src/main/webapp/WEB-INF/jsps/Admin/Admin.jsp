@@ -35,59 +35,55 @@
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
 		style="background-color: black">
 		<div class="container">
-			<a href="#" class="navbar-brand"><span class="mb-0 h1">
-			<i class="fas fa-balance-scale"> </i> LegalFD</span>
-			</a>
+			<a href="#" class="navbar-brand"><span class="mb-0 h1"> <i
+					class="fas fa-balance-scale"> </i> LegalFD
+			</span> </a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
-					
-					<li class="nav-item px-2">
-						<a href="/dashboard/${Useremail}" class="nav-link ">Home</a>
-					</li>
 
-					<li class="nav-item px-2 dropdown mr-3">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
-							<span class="notification">Notification</span> 
-							<span class="badge text-dark bg-light">${count}</span>
-						</a>
+					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
+						class="nav-link ">Home</a></li>
+
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${count}</span>
+					</a>
 						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
-							
+
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${i}/${Useremail}"> 
-									<i class="fa fa-times-circle"></i>
+								<a href="/deleteNotification/${i}/${Useremail}"> <i
+									class="fa fa-times-circle"></i>
 								</a>
 								<div class="dropdown-divider"></div>
 							</c:forEach>
-						</div>
-					</li>
-					
+						</div></li>
+
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown mr-3">
-						<a href="#"
-							class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-								class="fas fa-user"></i> Welcome ${firstName}
-						</a>
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
 						<div class="dropdown-menu">
 
-							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> 
-								<i class="fas fa-cog"></i> Settings
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Settings
 							</a>
-						</div>
-					</li>
+						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link ">
-							<i class="fa fa-power-off"></i> Log Out</a>	
-					</li>
-					
+						<a href="${logoutUrl}" class="nav-link "> <i
+							class="fa fa-power-off"></i> Log Out
+					</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -230,7 +226,7 @@
 
 										<td class="text-center"><a
 											href="/deleteAdmin/${Users.email}/${Useremail}"
-											class="btn btn-outline-primary"> <i class="fas fa-trash"></i>
+											class="btn btn-outline-danger"> <i class="fas fa-trash"></i>
 										</a></td>
 									</tr>
 								</c:forEach>
