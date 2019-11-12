@@ -1,16 +1,4 @@
-@charset "ISO-8859-1";
 
-
-/*body{
-  margin: 0;
-  font-family: sans-serif;
-}
-*/
-
- 
-.container {
-  position: relative;
-}
 /* Bottom right text */
 .main {
   position: absolute;
@@ -24,10 +12,8 @@
 
 
 body{
-  background-image: url("../img/pic.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../img/pic.jpg");
+  
 }
 
 .heading{
