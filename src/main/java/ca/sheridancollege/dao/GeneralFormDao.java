@@ -258,17 +258,17 @@ public class GeneralFormDao {
 					child.setGradeChild2(children.getGradeChild2());
 					child.setSchoolChild2(children.getSchoolChild2());
 					
-					child.setChildName2(children.getChildName3());
-					child.setDobChild2(children.getDobChild3());
-					child.setLivingChild2(children.getLivingChild3());
-					child.setGradeChild2(children.getGradeChild3());
-					child.setSchoolChild2(children.getSchoolChild3());
+					child.setChildName3(children.getChildName3());
+					child.setDobChild3(children.getDobChild3());
+					child.setLivingChild3(children.getLivingChild3());
+					child.setGradeChild3(children.getGradeChild3());
+					child.setSchoolChild3(children.getSchoolChild3());
 					
-					child.setChildName2(children.getChildName4());
-					child.setDobChild2(children.getDobChild4());
-					child.setLivingChild2(children.getLivingChild4());
-					child.setGradeChild2(children.getGradeChild4());
-					child.setSchoolChild2(children.getSchoolChild4());
+					child.setChildName4(children.getChildName4());
+					child.setDobChild4(children.getDobChild4());
+					child.setLivingChild4(children.getLivingChild4());
+					child.setGradeChild4(children.getGradeChild4());
+					child.setSchoolChild4(children.getSchoolChild4());
 					}
 					else if(child == null){
 						session.save(children);
