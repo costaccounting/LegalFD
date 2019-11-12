@@ -103,7 +103,7 @@
 			<th>Amount</th>
 			<th>Remove Item</th>
 
-			</tr>
+		</tr>
 
 		</thead>
 		<tbody>
@@ -157,14 +157,12 @@
 						<!-- Credit card form content -->
 						<div class="tab-content">
 							<input type="radio" name="pay" value="paypal"> <b>Paypal</b><br>
-							<input type="radio" name="pay" value="debit"> <b>Debit
-								Card</b><br> <input type="radio" name="pay" value="credit">
-							<b>Credit Card</b>
+							<input type="radio" name="pay" value="debit"> <b>DebitCard</b><br> 
+							<input type="radio" name="pay" value="credit" checked> <b>Credit Card</b>
 							<!-- credit card info-->
 							<div id="nav-tab-card" class="tab-pane fade show active">
 								<br>
 								<input type="submit" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm" value="Confirm">
-									
 								
 							</div>
 						</div>

@@ -97,6 +97,9 @@ public class HomeController {
 		model.addAttribute("userInfo", reg);
 		
 		// Code to required to go to other pages
+		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
+		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
@@ -262,21 +265,20 @@ public class HomeController {
 //-------- 	Navigation to Document Price Edit __ END  -----------	
 
 		
-//-------- 	Dashboard __ STOP  -----------					
+//-------- 	Dash board __ START  -----------					
 			@RequestMapping("/dashboard/{Useremail}")
 			public String goDashbaord(Model model, @PathVariable String Useremail) {
 				
 				try {	
 					if((dao.getRole(Useremail).get(0)).equals("Admin"))
 					{
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						
 						model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 						model.addAttribute("user", new RegisterUser());
 						
+						String firstNameStore = dao.getFirstName(Useremail).get(0);			
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+											
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
@@ -284,29 +286,27 @@ public class HomeController {
 					}
 					else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
 					{
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 						
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail );
-						
+											
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
-						model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 						return "Lawyer/Lawyer";
 					}
 					else if((dao.getRole(Useremail).get(0)).equals("Client")) {
 						
-						List<LawyerDocEdit> docPrice = dao.getDocPrice();
-						
+						List<LawyerDocEdit> docPrice = dao.getDocPrice();				
 						model.addAttribute("listOfAllForms", docPrice);
+											
+						String firstNameStore = dao.getFirstName(Useremail).get(0);			
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
 						
-					String firstNameStore = dao.getFirstName(Useremail).get(0);
-					
-					model.addAttribute("firstName", firstNameStore);
-					model.addAttribute("Useremail", Useremail);
-					
-					return "Customer/form";
+						return "Customer/form";
 					}
 					else {
 						model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
@@ -323,9 +323,77 @@ public class HomeController {
 					return "index";
 				}
 			}
-//-------- 	Dashboard __ STOP  -----------		
+//-------- 	Dash board __ STOP  -----------		
 				
-		
+
+//-------- 	Remove Notification  __ START  -----------					
+		@RequestMapping("/deleteNotification/{id}/{Useremail}")
+		public String removeNotification(Model model, @PathVariable int id, @PathVariable String Useremail) {
+							
+		try {	
+			if((dao.getRole(Useremail).get(0)).equals("Admin"))
+			{
+				
+				List<String> notification = dao.getList();
+				notification.remove(id-1);
+				
+				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
+				model.addAttribute("user", new RegisterUser());
+				
+				String firstNameStore = dao.getFirstName(Useremail).get(0);			
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+									
+				model.addAttribute("notiList", notification);
+				model.addAttribute("count", dao.getList().size());
+									
+				return "Admin/Admin";
+			}
+			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
+			{
+				List<String> notification = dao.getList();
+				notification.remove(id-1);
+				
+				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
+				
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail );
+									
+				model.addAttribute("notiList", notification);
+				model.addAttribute("count", dao.getList().size());
+									
+				return "Lawyer/Lawyer";
+			}
+			else if((dao.getRole(Useremail).get(0)).equals("Client")) 
+			{
+				
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();				
+				model.addAttribute("listOfAllForms", docPrice);
+									
+				String firstNameStore = dao.getFirstName(Useremail).get(0);			
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+								
+				return "Customer/form";
+			}
+			else {
+				model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
+				model.addAttribute("registerUser", new RegisterUser());
+									
+				return "index";
+			}
+			}// Try End
+			catch (Exception e) {
+								
+				model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+				model.addAttribute("registerUser", new RegisterUser());
+								
+				return "index";
+			}// Catch End 
+		}
+//-------- 	Remove Notification __ STOP  -----------		
+					
 		
 //***************___Navigation between Pages -- END******************
 	
@@ -468,9 +536,11 @@ public class HomeController {
 			
 			model.addAttribute("payAmount", payAmount);
 			
+			model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			String role = dao.getRole(Useremail).get(0);
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("role", role);
 			model.addAttribute("Useremail", Useremail);
@@ -1070,10 +1140,11 @@ public class HomeController {
 						
 						model.addAttribute("listOfAllForms", docPrice);
 						
+						model.addAttribute("notiList", dao.getList());
+						model.addAttribute("count", dao.getList().size());
 						
 						// Regular Customer JSP EL tags needed code
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
 						// Needed for Customer JSP EL tags
@@ -1109,6 +1180,9 @@ public class HomeController {
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
 							model.addAttribute("listOfAllForms", docPrice);
 						
+							model.addAttribute("notiList", dao.getList());
+							model.addAttribute("count", dao.getList().size());
+							
 							// Code to required to go to other pages
 							String firstNameStore = dao.getFirstName(Useremail).get(0);
 							model.addAttribute("firstName", firstNameStore);
@@ -1121,16 +1195,15 @@ public class HomeController {
 							// Required code to go back to DocumentEdit
 							
 							List<LawyerDocEdit> docPrice = dao.getDocPrice();
-							
 							model.addAttribute("listOfAllForms", docPrice);
 							
+							model.addAttribute("notiList", dao.getList());
+							model.addAttribute("count", dao.getList().size());
 							
-							// Regular Customer JSP EL tags needed code
+							// Code to required to go to other pages
 							String firstNameStore = dao.getFirstName(Useremail).get(0);
-							
 							model.addAttribute("firstName", firstNameStore);
 							model.addAttribute("Useremail", Useremail);
-							// Needed for Customer JSP EL tags
 							
 							return "Admin/DocumentEdit";
 						}
@@ -1151,8 +1224,6 @@ public class HomeController {
 
 	
 	
-				
-				
 				
 	
 
@@ -1175,13 +1246,13 @@ public class HomeController {
 		
 		model.addAttribute("presentDirectory", folderName);
 		
-		// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-				// Needed for Customer JSP EL tags
+		// Code to required to go to other pages
+		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
 		
+		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", Useremail);
 		
 		return  "Admin/Files";
 			
@@ -1219,15 +1290,18 @@ public class HomeController {
 		// showing the list of file in the folder
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
 	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-			
-	    String firstNameStore = dao.getFirstName(useremail).get(0);
 		
-		model.addAttribute("firstName", firstNameStore);				
-		model.addAttribute("fileinfo", fileinfo);
-		model.addAttribute("Useremail", useremail);
+	    model.addAttribute("fileinfo", fileinfo);
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
+	    
+		// Code to required to go to other pages
+	    model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
 		
+	    String firstNameStore = dao.getFirstName(useremail).get(0);
+		model.addAttribute("firstName", firstNameStore);	
+		model.addAttribute("Useremail", useremail);
 		
         return "Admin/Files";
     }
@@ -1267,11 +1341,10 @@ public class HomeController {
 		model.addAttribute("presentDirectory", folderName);
 		model.addAttribute("filelist", filelist);
 		
-		// Regular Customer JSP EL tags needed code
+		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(folderName).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
-		// Needed for Customer JSP EL tags
 		
         return "Customer/uploadDocument";
     }
@@ -1296,11 +1369,13 @@ public class HomeController {
 			model.addAttribute("presentDirectory", folderName);
 			model.addAttribute("filelist", filelist);
 			
-			// Regular Customer JSP EL tags needed code
+			// Code to required to go to other pages
+			model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			// Needed for Customer JSP EL tags
 			
 	        return "Admin/Files";
 	    }

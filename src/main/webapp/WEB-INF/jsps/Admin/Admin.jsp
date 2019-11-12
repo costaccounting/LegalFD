@@ -59,6 +59,9 @@
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
+								<a href="/deleteNotification/${i}/${Useremail}"> 
+									<i class="fa fa-times-circle"></i>
+								</a>
 								<br>
 							</c:forEach>
 						</div>
@@ -67,21 +70,24 @@
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item dropdown mr-3"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-							class="fas fa-user"></i> Welcome ${firstName}
-					</a>
+					<li class="nav-item dropdown mr-3">
+						<a href="#"
+							class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+								class="fas fa-user"></i> Welcome ${firstName}
+						</a>
 						<div class="dropdown-menu">
 
-							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i
-								class="fas fa-cog"></i> Settings
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> 
+								<i class="fas fa-cog"></i> Settings
 							</a>
-						</div></li>
+						</div>
+					</li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link "><i
-							class="fa fa-power-off"></i> Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link ">
+							<i class="fa fa-power-off"></i> Log Out</a>	
+					</li>
+					
 				</ul>
 			</div>
 		</div>

@@ -62,21 +62,24 @@
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item dropdown mr-3"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-							class="fas fa-user"></i> Welcome ${firstName}
-					</a>
+					<li class="nav-item dropdown mr-3">
+						<a href="#"
+							class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+								class="fas fa-user"></i> Welcome ${firstName}
+						</a>
 						<div class="dropdown-menu">
 
-							<a href="/settings/${Useremail}" class="dropdown-item"> <i
-								class="fas fa-cog"></i> Settings
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> 
+								<i class="fas fa-cog"></i> Settings
 							</a>
-						</div></li>
+						</div>
+					</li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link "><i
-							class="fa fa-power-off"></i> Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link ">
+							<i class="fa fa-power-off"></i> Log Out</a>	
+					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -102,7 +105,7 @@
 						<ul
 							class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
 							<br>
-							<li class="nav-item"><a class="nav-link pl-4 active"
+							<li class="nav-item"><a class="nav-link pl-4"
 								href="/dashboard/${Useremail}"> Manage Users</a></li>
 							<li class="nav-item"><a class="nav-link pl-4"
 								href="/caseRequest/${Useremail}">Client Requests </span></a></li>
