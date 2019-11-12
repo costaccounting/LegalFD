@@ -832,11 +832,10 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
+
+
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
@@ -857,10 +856,8 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
+			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -879,9 +876,6 @@ public class HomeController {
 		model.addAttribute("paymentData", pay);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			

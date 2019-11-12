@@ -127,8 +127,8 @@
 			<tr>
 				<td></td>
 				<td><b> Total Amount: </b></td>
-				
-				<td><b> <fmt:formatNumber type="number" maxFractionDigits="2" value="${totalPrice}"/> </b></td>
+								
+				<td><b> $CAD <fmt:formatNumber type="number" maxFractionDigits="2" minIntegerDigits="2" minFractionDigits="2" value="${totalPrice}"/> </b></td>
 				<td></td>
 			</tr>
 		</tbody>

@@ -55,6 +55,9 @@
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
+								<a href="/deleteNotification/${i}/${Useremail}"> 
+									<i class="fa fa-times-circle"></i>
+								</a>
 								<br>
 							</c:forEach>
 						</div>
@@ -150,9 +153,6 @@
 							<div class="input-group">
 								<input type="text" class="form-control" id="myInput"
 									placeholder="Search Users..." onkeyup="myFunction()">
-
-
-								<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
 							</div>
 						</div>
 					</div>
