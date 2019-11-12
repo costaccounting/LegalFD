@@ -37,85 +37,7 @@
 
 
 <title>Settings</title>
-<style>
-.navbar-brand {
-	font-size: xx-large;
-	margin-right: 30px;
-}
 
-#navContainer {
-	width: 2200px;
-}
-
-#newLi a.active {
-	background-color: #555;
-	color: white;
-}
-
-#newLi a:hover {
-	background-color: #555;
-	color: white;
-}
-
-#newUl {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 20%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
-}
-
-#newLi a {
-	display: block;
-	color: #000;
-	padding: 8px 16px;
-	text-decoration: none;
-	text-align: center;
-}
-
-#navbarbrand {
-	display: block;
-	text-align: center;
-	color: white;
-	padding: 5px 16px;
-	text-decoration: none;
-	font-size: xx-large;
-}
-
-#cardBody {
-	margin-bottom: 80px;
-	margin-top: 120px;
-	margin-left: 80px;
-}
-
-#newContainer {
-	background-color: lightgray;
-	padding: 1px;
-	margin-left: 300px;
-	width: 70%;
-	height: 70%;
-	opacity: 0.8;
-	border-radius: 15px;
-}
-
-#cardHeader {
-	background-color: #555;
-	color: white;
-	width: 100%;
-}
-
-#card2 {
-	margin-left: 180px;
-	margin-top: 120px;
-}
-
-#buttons {
-	margin-left: 530px;
-}
-</style>
 </head>
 
 <body>
@@ -143,7 +65,7 @@
 							class="notification">Notification</span> <span
 							class="badge text-dark bg-light">${count}</span>
 					</a>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
 
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
@@ -151,7 +73,7 @@
 								<a href="/deleteNotification/${i}/${Useremail}"> <i
 									class="fa fa-times-circle"></i>
 								</a>
-								<br>
+								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div></li>
 
@@ -185,53 +107,8 @@
 
 
 
-	<%-- <div class="card-header mx-5 p-3 text-light bg-primary">
-	<div class="d-flex bd-highlight">
-
-		<h2 class="fas fa-pencil-alt">Edit your Information</h2>
-<br>
-<br>
-		<a href="<c:url value="/dashboard/${Useremail}"/>"
-			class="btn btn-light bd-highlight " id="submit" style="float: right;"> <i class="fas fa-arrow-left"></i>
-			Back To Dashboard
-		</a>
-		</div>
-</div>
 	
-	<br>
-
-			<div class="container">
-                <div class="card" id="cardForm">
-                    <div class="card-header">
-                        
-                        <form action="/editPassword/${Useremail}">
-                            
-                            <div class="form-group">
-                                <label for="name">User Email:</label>
-                                <input class="form-control" type="text" name="userEmail" value="${Useremail}" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">First Name:</label>
-                                <input class="form-control" type="text" name="userFirstName" value="${userInfo.firstName}">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Last Name:</label>
-                                <input class="form-control" type="text" name="userLastName" value="${userInfo.lastName}">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">New Password:</label>
-                                <input class="form-control" type="text" name="userNewPassword" value="${userInfo.password}">
-                            </div>
-                          
-                          
-                    		<input class="btn btn-success" type="submit"value="Save Changes">
-              	      </form>
-					  </div>                  
-                  </div>
-                </div>
-                      
-            --%>
-
+           
 	<br>
 
 	<div class="card-header mx-5 p-3 text-light bg-primary">

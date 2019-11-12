@@ -50,7 +50,7 @@
 							<span class="notification">Notification</span> 
 							<span class="badge text-dark bg-light">${countClient}</span>
 						</a>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(clientList)}" />
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
@@ -60,7 +60,7 @@
 									<i class="fa fa-times-circle"></i>
 								</a>
 								</div>
-								<br>
+								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div>
 					</li>
