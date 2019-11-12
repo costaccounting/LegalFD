@@ -49,7 +49,7 @@
 					<li class="nav-item px-2 dropdown mr-3">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
 							<span class="notification">Notification</span> 
-							<span class="badge text-dark bg-light">${count}</span>
+							<span class="badge text-dark bg-light">${countClient}</span>
 						</a>
 						<div class="dropdown-menu">
 							<c:set var="count_noti" value="${fn:length(clientList)}" />

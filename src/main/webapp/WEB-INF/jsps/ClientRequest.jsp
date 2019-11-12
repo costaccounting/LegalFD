@@ -134,7 +134,6 @@
 								<li class="nav-item"><a class="nav-link pl-4"
 									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 
-
 							</c:if>
 							
 						</ul>

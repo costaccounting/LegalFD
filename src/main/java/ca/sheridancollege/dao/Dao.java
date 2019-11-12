@@ -53,7 +53,7 @@ public class Dao {
 
 //-----------************* Client Notification *****************-----
 	
-	public static ArrayList<String> getClientList() {
+	public ArrayList<String> getClientList() {
 		return clientList;
 	}
 
