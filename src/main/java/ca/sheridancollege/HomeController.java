@@ -69,7 +69,12 @@ public class HomeController {
 		model.addAttribute("userInfo", reg);
 		
 		// Code to required to go to other pages
+		model.addAttribute("notiList", dao.getList());
+		model.addAttribute("count", dao.getList().size());
+		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		String role = dao.getRole(Useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -615,11 +620,16 @@ public class HomeController {
 						model.addAttribute("matrimonialHome", generalDao.getMatrimonialHome(email));
 						model.addAttribute("spouseInfo", generalDao.getSpouseInfo(email));
 						
+						model.addAttribute("clientFirstName", clientFirstName);
+						
 						// Necessary code to send to JSP
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
+						String role = dao.getRole(Useremail).get(0);
+						model.addAttribute("role", role);
 						
-						model.addAttribute("clientFirstName", clientFirstName);
+						model.addAttribute("notiList", dao.getList());
+						model.addAttribute("count", dao.getList().size());
 						
 						return "ViewData";
 						}
@@ -789,7 +799,6 @@ public class HomeController {
 		model.addAttribute("paymentData", pay);
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -825,7 +834,6 @@ public class HomeController {
 			dao.addPayment(new Payment(Useremail, doc, form, price));
 		}
 			
-			
 			List<LawyerDocEdit> docPrice = dao.getDocPrice();
 			model.addAttribute("listOfAllForms", docPrice);
 			
@@ -834,9 +842,6 @@ public class HomeController {
 			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
@@ -858,9 +863,6 @@ public class HomeController {
 			model.addAttribute("paymentData", pay);
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -1251,6 +1253,8 @@ public class HomeController {
 		model.addAttribute("count", dao.getList().size());
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		String role = dao.getRole(Useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -1300,6 +1304,8 @@ public class HomeController {
 		model.addAttribute("count", dao.getList().size());
 		
 	    String firstNameStore = dao.getFirstName(useremail).get(0);
+	    String role = dao.getRole(useremail).get(0);
+		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);	
 		model.addAttribute("Useremail", useremail);
 		
