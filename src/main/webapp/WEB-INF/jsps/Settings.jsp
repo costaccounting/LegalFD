@@ -129,7 +129,7 @@
 			</div>
 			<div class="form-group">
 				<label for="name">New Password:</label> <input class="form-control"
-					type="text" name="userNewPassword" value="${userInfo.password}">
+					type="password" name="userNewPassword" value="${userInfo.password}">
 			</div>
 
 
