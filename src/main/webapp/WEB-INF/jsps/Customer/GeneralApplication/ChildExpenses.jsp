@@ -102,10 +102,10 @@
 			<h2>
 				<i class="fas fa-file-alt"></i> General Application Information Form
 				<div class="float-right">
-				<a href="/dashboard/${Useremail}" class="btn btn-primary "
-					id="submit"> <i class="fas fa-arrow-left"></i>  Back To Dashboard
-				</a>
-			</div>
+					<a href="/dashboard/${Useremail}" class="btn btn-primary "
+						id="submit"> <i class="fas fa-arrow-left"></i>  Back To Dashboard
+					</a>
+				</div>
 			</h2>
 
 		
@@ -116,11 +116,6 @@
 
 
 	<div class="container">
-<!-- 
-		<div class="progress">
-			<div class="progress-bar bg-dark" style="width: 100%;"></div>
-		</div> -->
-		
 		<div class="progress">
             <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" style="width:100%;">100%</div>
         </div>

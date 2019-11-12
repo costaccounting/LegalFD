@@ -1040,9 +1040,11 @@ public class HomeController {
 // Third Class Saving Data to DAO method	
 				@RequestMapping("/clientInfo/{Useremail}")	
 				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
-					//synchronized (ClientInfo.class) {
+					
+					
+					synchronized (ClientInfo.class) {
 						generalDao.addClientInfo(clientInfo, Useremail);
-					//}
+					}
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));

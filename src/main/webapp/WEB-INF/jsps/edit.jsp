@@ -151,7 +151,7 @@
 
 					<div class="card p-4 " style="height: 570px" id="cardForm">
 
-						<form action="/editUser/${Useremail}/${userInfo.email}">
+						<form action="/editUser/${Useremail}/${userInfo.email}" method="post">
 							<div class="form-group">
 								<label for="name">User Email:</label> <input
 									class="form-control" type="text" name="userEmail"
