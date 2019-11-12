@@ -18,31 +18,17 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <title>Main Page - Legal FD</title>
-  <style>
-  #signInUp{
-  margin-left: 380px;
-  }
-  #cardBody{
-  background-color: mediumslateblue;
-  opacity: 0.8;
-  }
-  .navbar {
-  border-bottom: #7b68ee 3px solid;
-  opacity: 0.8;
-}
-.navbar-brand{
-font-size: 30px;
-}
-  </style>
+ 
 </head>
 
 
-<body data-spy="scroll" data-target="#main-nav" id="home">
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+<body >
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="main-nav" style="background-color: black;">
     <div class="container">
     
     
-      <a href="#" class="navbar-brand"><i class="fas fa-balance-scale"></i>LegalFD</a>
+        <a href="#" class="navbar-brand" ><span class="mb-0 h1"><i class="fas fa-balance-scale">
+          </i> LegalFD</span></a>
      
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -75,11 +61,11 @@ font-size: 30px;
     <div class="dark-overlay">
      
       <div class="home-inner container">
-        <div class="row">
-         
-          <div class="col-lg-4"  id="signInUp">
         
-            <div class="card text-center card-form" id="cardBody">
+          <div class="row centered-form center-block">
+          <div class="container col-md-5 col-md-offset-1 ">
+        
+            <div class="card text-center card-form bg-primary " >
               <div class="card-body">
                 <h3>Sign In</h3>
                 <br>
@@ -124,28 +110,6 @@ font-size: 30px;
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
 
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
 
-    // Init Scrollspy
-    $('body').scrollspy({ target: '#main-nav' });
-
-    // Smooth Scrolling
-    $("#main-nav a").on('click', function (event) {
-      if (this.hash !== "") {
-        event.preventDefault();
-
-        const hash = this.hash;
-
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function () {
-
-          window.location.hash = hash;
-        });
-      }
-    });
-  </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.io.File"%>
 <!DOCTYPE html>
@@ -25,10 +26,9 @@
 
 <style>
 .custom-file-upload {
-   
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer; 
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
 }
 </style>
 </head>
@@ -55,8 +55,24 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${countClient}</span>
+					</a>
+						<div class="dropdown-menu p-3">
+							<c:set var="count_noti" value="${fn:length(clientList)}" />
+
+							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
+								${notiList[count_noti-i]}
+								<div class="float-right">
+									<a href="/deleteNotification/${i}/${Useremail}"> <i
+										class="fa fa-times-circle"></i>
+									</a>
+								</div>
+								<div class="dropdown-divider"></div>
+							</c:forEach>
+						</div></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -109,7 +125,8 @@
 								href="/document/${Useremail}">Legal Documents</span></a></li>
 							<li class="nav-item"><a class="nav-link pl-4 active"
 								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
-
+							<li class="nav-item"><a class="nav-link pl-4" href="#"><i
+									class="	fas fa-envelope"></i> Email Us</a></li>
 						</ul>
 
 					</div>
@@ -121,7 +138,7 @@
 
 
 			<div class="container mr-5 pt-3 pl-5" style="height: 590px">
-				<div class="card " >
+				<div class="card ">
 					<div class="card-header text-light" style="background-color: black">
 
 						<h2>
@@ -238,7 +255,7 @@
 
 
 	</main>
-	
+
 
 
 

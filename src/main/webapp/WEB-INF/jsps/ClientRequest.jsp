@@ -50,12 +50,15 @@
 							<span class="notification">Notification</span> 
 							<span class="badge text-dark bg-light">${count}</span>
 						</a>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
-							
+				
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<br>
+								<a href="/deleteNotification/${i}/${Useremail}"> 
+									<i class="fa fa-times-circle"></i>
+								</a>
+								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div>
 					</li>
@@ -123,6 +126,16 @@
 
 							</c:if>
 							
+							<c:if test="${role == 'Client'}">
+								<li class="nav-item"><a class="nav-link pl-4 active"
+								href="/form/${Useremail}"> Legal Forms</a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/document/${Useremail}">Legal Documents</span></a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
+
+							</c:if>
+							
 						</ul>
 
 					</div>
@@ -150,9 +163,6 @@
 							<div class="input-group">
 								<input type="text" class="form-control" id="myInput"
 									placeholder="Search Users..." onkeyup="myFunction()">
-
-
-								<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
 							</div>
 						</div>
 					</div>

@@ -50,12 +50,15 @@
 							<span class="notification">Notification</span> 
 							<span class="badge text-dark bg-light">${count}</span>
 						</a>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu p-3">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<br>
+								<a href="/deleteNotification/${i}/${Useremail}"> 
+									<i class="fa fa-times-circle"></i>
+								</a>
+								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div>
 					</li>
@@ -105,10 +108,22 @@
 						<ul
 							class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
 							<br>
-							<li class="nav-item"><a class="nav-link pl-4"
+							<c:if test="${role == 'Lawyer'}">
+								<li class="nav-item"><a class="nav-link pl-4 active"
+									href="/dashboard/${Useremail}"> Manage Users</a></li>
+								<li class="nav-item"><a class="nav-link pl-4 "
+									href="/caseRequest/${Useremail}">Client Requests </a></li>
+							</c:if>
+							
+							<c:if test="${role == 'Admin'}">
+								<li class="nav-item"><a class="nav-link pl-4 active" 
 								href="/dashboard/${Useremail}"> Manage Users</a></li>
-							<li class="nav-item"><a class="nav-link pl-4"
-								href="/caseRequest/${Useremail}">Client Requests </span></a></li>
+								<li class="nav-item"><a class="nav-link pl-4 "
+								href="/caseRequest/${Useremail}">Client Requests</a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+								href="/editDocPrice/${Useremail}">Manage Price</a></li>
+
+							</c:if>
 
 						</ul>
 
