@@ -68,13 +68,8 @@ public class HomeController {
 		RegisterUser reg = dao.getUser(email); 
 		model.addAttribute("userInfo", reg);
 		
-		model.addAttribute("notiList", dao.getList());
-		model.addAttribute("count", dao.getList().size());
-		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		String role = dao.getRole(Useremail).get(0);
-		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
@@ -89,8 +84,6 @@ public class HomeController {
 		
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		String role = dao.getRole(Useremail).get(0);
-		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 				
@@ -108,8 +101,6 @@ public class HomeController {
 		model.addAttribute("count", dao.getList().size());
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		String role = dao.getRole(Useremail).get(0);
-		model.addAttribute("role", role);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 				
@@ -122,15 +113,10 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
-			model.addAttribute("cartCount", pay.size());
-			
 			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -146,9 +132,6 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
-				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
 	
@@ -161,10 +144,7 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);				
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+				
 		return "Customer/GeneralApplication/SpouseInfo";
 	}
 	
@@ -177,10 +157,7 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+				
 		return "Customer/GeneralApplication/MaritalInfo";
 	}
 	
@@ -193,10 +170,7 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);				
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+				
 		return "Customer/GeneralApplication/MatrimonialHome";
 	}
 	
@@ -209,9 +183,6 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);						
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
 		
 		return "Customer/GeneralApplication/Children";
 	}
@@ -227,9 +198,6 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 			
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
 		return "Customer/GeneralApplication/ChildExpenses";
 	}
 //------ Navigation to General Application Client Side __ END  ------		
@@ -243,9 +211,6 @@ public class HomeController {
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/document";
 		}
@@ -263,9 +228,6 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/form";
 				}
@@ -287,8 +249,7 @@ public class HomeController {
 			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
 				
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				String role = dao.getRole(Useremail).get(0);
-				model.addAttribute("role", role);
+				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
@@ -317,8 +278,7 @@ public class HomeController {
 						String firstNameStore = dao.getFirstName(Useremail).get(0);			
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
-						String role = dao.getRole(Useremail).get(0);
-						model.addAttribute("role", role);					
+											
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
@@ -331,8 +291,7 @@ public class HomeController {
 						String firstNameStore = dao.getFirstName(Useremail).get(0);
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail );
-						String role = dao.getRole(Useremail).get(0);
-						model.addAttribute("role", role);					
+											
 						model.addAttribute("notiList", dao.getList());
 						model.addAttribute("count", dao.getList().size());
 						
@@ -346,9 +305,6 @@ public class HomeController {
 						String firstNameStore = dao.getFirstName(Useremail).get(0);			
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
-						
-						model.addAttribute("clientList", dao.getClientList());
-						model.addAttribute("countClient", dao.getClientList().size());
 						
 						return "Customer/form";
 					}
@@ -387,9 +343,7 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);			
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-				String role = dao.getRole(Useremail).get(0);
-				model.addAttribute("role", role);
-				
+									
 				model.addAttribute("notiList", notification);
 				model.addAttribute("count", dao.getList().size());
 									
@@ -405,9 +359,7 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail );
-				String role = dao.getRole(Useremail).get(0);
-				model.addAttribute("role", role);
-				
+									
 				model.addAttribute("notiList", notification);
 				model.addAttribute("count", dao.getList().size());
 									
@@ -415,8 +367,6 @@ public class HomeController {
 			}
 			else if((dao.getRole(Useremail).get(0)).equals("Client")) 
 			{
-				List<String> cliNoti = dao.getClientList();
-				cliNoti.remove(id-1);
 				
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();				
 				model.addAttribute("listOfAllForms", docPrice);
@@ -425,9 +375,6 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 								
-				model.addAttribute("clientList", cliNoti);
-				model.addAttribute("countClient", cliNoti.size());
-				
 				return "Customer/form";
 			}
 			else {
@@ -447,10 +394,7 @@ public class HomeController {
 		}
 //-------- 	Remove Notification __ STOP  -----------		
 					
-// ---------- Navigation to chat -----------------------
 		
-	
-// ---------- Navigation to chat end -----------------------		
 //***************___Navigation between Pages -- END******************
 	
 
@@ -535,9 +479,6 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", email );
 				model.addAttribute("UserPassword", password );
-				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/form";
 			}
@@ -630,16 +571,8 @@ public class HomeController {
 				model.addAttribute("payAmount", payAmount);
 				
 				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
-				String role = dao.getRole(Useremail).get(0);
-				model.addAttribute("role", role);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", SessionEmail);
-				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
-				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "/Customer/CustomerRequest";
 				}
@@ -855,16 +788,12 @@ public class HomeController {
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		model.addAttribute("paymentData", pay);
 		
-		model.addAttribute("cartCount", pay.size());
-		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
+		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
 		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
-		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
 		
 		return "Customer/Payment";
 	}
@@ -903,16 +832,14 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
-			model.addAttribute("cartCount", pay.size());
-			
 			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
-			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -930,14 +857,12 @@ public class HomeController {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
-			model.addAttribute("cartCount", pay.size());
-			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -953,14 +878,12 @@ public class HomeController {
 		List<Payment> pay = dao.getPaymentInfo(Useremail);
 		model.addAttribute("paymentData", pay);
 		
-		model.addAttribute("cartCount", pay.size());
-		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -994,20 +917,27 @@ public class HomeController {
 		String requestDoc;
 		for(Payment list : pay) {
 			
+			
 			if(!list.getFormType().equals("")) {
 				requestDoc = list.getFormType();
+				
 				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+				
 				dao.addPayAmount(payAmount);
 			}
+				
 		}
 		
 		for(Payment list : pay) {
 			if(list.getFormType().equals(null) || list.getFormType().equals("") || list.getFormType().equals(" ")) {
 				requestDoc = list.getDocumentType();
+				
 				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+				
 				dao.addPayAmount(payAmount);
 			}
 		}
+		
 		
 		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
 		
@@ -1017,18 +947,17 @@ public class HomeController {
 			dao.deleteUserPayment(i);
 		}
 		
-		model.addAttribute("cartCount", pay.size());
 		
 		// Required code for Payment.jsp
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
 			model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
+		
 			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -1054,8 +983,6 @@ public class HomeController {
 		
 		// 	For Backup if Needed in case of emergency	
 		
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
@@ -1081,9 +1008,6 @@ public class HomeController {
 						model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
 				// Needed for Customer JSP EL tags
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
-						
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
 // First Class Saving Data to DAO method __ END
@@ -1107,9 +1031,6 @@ public class HomeController {
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
 					// Needed for Customer JSP EL tags
 					
-					model.addAttribute("clientList", dao.getClientList());
-					model.addAttribute("countClient", dao.getClientList().size());
-							
 					return "Customer/GeneralApplication/Children";
 		}
 // Second Class Saving Data to DAO method __ END
@@ -1133,9 +1054,6 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
 							// Needed for Customer JSP EL tags
 							
-									model.addAttribute("clientList", dao.getClientList());
-									model.addAttribute("countClient", dao.getClientList().size());
-									
 							return "Customer/GeneralApplication/ClientInfo";
 				}
 // Third Class Saving Data to DAO method __ END
@@ -1159,9 +1077,6 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
 							// Needed for Customer JSP EL tags
 							
-									model.addAttribute("clientList", dao.getClientList());
-									model.addAttribute("countClient", dao.getClientList().size());
-									
 							return "Customer/GeneralApplication/MaritalInfo";
 				}
 // Fourth Class Saving Data to DAO method __ END				
@@ -1185,9 +1100,6 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
 							// Needed for Customer JSP EL tags
 							
-									model.addAttribute("clientList", dao.getClientList());
-									model.addAttribute("countClient", dao.getClientList().size());
-									
 							return "Customer/GeneralApplication/MatrimonialHome";
 				}
 // Fifth Class Saving Data to DAO method __ END				
@@ -1211,9 +1123,6 @@ public class HomeController {
 									model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
 							// Needed for Customer JSP EL tags
 							
-									model.addAttribute("clientList", dao.getClientList());
-									model.addAttribute("countClient", dao.getClientList().size());
-									
 							return "Customer/GeneralApplication/SpouseInfo";
 				}
 // Sixth Class Saving Data to DAO method __ END		
@@ -1437,9 +1346,6 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
         return "Customer/uploadDocument";
     }
 		
@@ -1532,9 +1438,6 @@ public class HomeController {
 				model.addAttribute("Useremail", folderName);
 				// Needed for Customer JSP EL tags
 		
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
-				
         return "Customer/uploadDocument";
     }
 
