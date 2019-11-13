@@ -132,7 +132,7 @@
 				<form:input type="text" class="form-control mb-2 col"
 					path="firstAddress" />
 				<label class="mb-2 col">Address:</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
 					path="secondAddress" />
 
 
@@ -142,18 +142,18 @@
 				<form:input type="text" class="form-control mb-2 col"
 					path="firstTitle" />
 				<label class="mb-2 col">Name(s) on Title:</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
 					path="secondTitle" />
 
 
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col">Value:</label> $
+				<label class="mb-2 col">Value:($CAD)</label>
 				<form:input type="text" class="form-control mb-2 col"
 					path="firstValue" />
-				<label class="mb-2 col">Value:</label> $
-				<form:input type="text" class="form-control mb-2 col"
+				<label class="mb-2 col">Value:($CAD)</label>
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
 					path="secondValue" />
 
 
@@ -161,11 +161,11 @@
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col">Mortgage:</label> $
+				<label class="mb-2 col">Mortgage:($CAD)</label>
 				<form:input type="text" class="form-control mb-2 col"
 					path="firstMortgage" />
-				<label class="mb-2 col">Mortgage:</label> $
-				<form:input type="text" class="form-control mb-2 col"
+				<label class="mb-2 col">Mortgage:($CAD)</label>
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
 					path="secondMortgage" />
 
 
