@@ -120,14 +120,14 @@
 							class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
 							<br>
 							<c:if test="${role == 'Lawyer'}">
-								<li class="nav-item"><a class="nav-link pl-4 active"
+								<li class="nav-item"><a class="nav-link pl-4 "
 									href="/dashboard/${Useremail}"> Manage Users</a></li>
 								<li class="nav-item"><a class="nav-link pl-4 "
 									href="/caseRequest/${Useremail}">Client Requests </a></li>
 							</c:if>
 							
 							<c:if test="${role == 'Admin'}">
-								<li class="nav-item"><a class="nav-link pl-4 active"
+								<li class="nav-item"><a class="nav-link pl-4 "
 								href="/dashboard/${Useremail}"> Manage Users</a></li>
 								<li class="nav-item"><a class="nav-link pl-4 "
 								href="/caseRequest/${Useremail}">Client Requests</a></li>
@@ -137,11 +137,11 @@
 							</c:if>
 							
 							<c:if test="${role == 'Client'}">
-							<li class="nav-item"><a class="nav-link pl-4 active"
+							<li class="nav-item"><a class="nav-link pl-4 "
 								href="/dashboard/${Useremail}"> Legal Forms</a></li>
 							<li class="nav-item"><a class="nav-link pl-4"
 								href="/document/${Useremail}">Legal Documents</span></a></li>
-							<li class="nav-item"><a class="nav-link pl-4"
+							<li class="nav-item"><a class="nav-link pl-4 active"
 								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 							</c:if>
 							
