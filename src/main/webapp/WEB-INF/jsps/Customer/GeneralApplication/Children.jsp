@@ -218,74 +218,80 @@
 		<br>
 		<h3>Children Information</h3>
 		<br>
-		<form:form action="/children/${Useremail}" method="post"
-			modelAttribute="children">
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Date Of Birth</th>
-							<th>Living With</th>
-							<th>Grade</th>
-							<th>School</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="childName1" /></th>
-							<th><form:input type="date" class="form-control mb-2 "
-									path="dobChild1" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="livingChild1" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="gradeChild1" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="schoolChild1" /></th>
 
-						</tr>
-						<tr>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="childName2" /></th>
-							<th><form:input type="date" class="form-control mb-2 "
-									path="dobChild2" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="livingChild2" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="gradeChild2" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="schoolChild2" /></th>
 
-						</tr>
-						<tr>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="childName3" /></th>
-							<th><form:input type="date" class="form-control mb-2 "
-									path="dobChild3" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="livingChild3" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="gradeChild3" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="schoolChild3" /></th>
 
-						</tr>
-						<tr>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="childName4" /></th>
-							<th><form:input type="date" class="form-control mb-2 "
-									path="dobChild4" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="livingChild4" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="gradeChild4" /></th>
-							<th><form:input type="text" class="form-control mb-2 "
-									path="schoolChild4" /></th>
+		<form:form action="/children/${Useremail}" method="post" modelAttribute="children">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date Of Birth</th>
+						<th>Living With</th>
+						<th>Grade</th>
+						<th>School</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<form:hidden path="userEmail" value="${Useremail}" />
+					</tr>
+					<tr>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="childName1" /></th>
+						<th><form:input type="date" class="form-control mb-2 "
+								path="dobChild1" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="livingChild1" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="gradeChild1" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="schoolChild1" /></th>
 
-						</tr>
-					</tbody>
-				</table>
+					</tr>
+					<tr>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="childName2" /></th>
+						<th><form:input type="date" class="form-control mb-2 "
+								path="dobChild2" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="livingChild2" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="gradeChild2" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="schoolChild2" /></th>
+
+					</tr>
+					<tr>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="childName3" /></th>
+						<th><form:input type="date" class="form-control mb-2 "
+								path="dobChild3" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="livingChild3" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="gradeChild3" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="schoolChild3" /></th>
+
+					</tr>
+					<tr>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="childName4" /></th>
+						<th><form:input type="date" class="form-control mb-2 "
+								path="dobChild4" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="livingChild4" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="gradeChild4" /></th>
+						<th><form:input type="text" class="form-control mb-2 "
+								path="schoolChild4" /></th>
+
+					</tr>
+				</tbody>
+			</table>
+
 			</div>
 			<input type="submit" class="btn btn-primary" value="Save" />
 
