@@ -1389,9 +1389,9 @@ public class HomeController {
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
 		// Code for Notification at Customer side
-		String Useremail = folderName;
-		String role = dao.getRole(Useremail).get(0);
-		String firstName = dao.getFirstName(Useremail).get(0);
+		
+		String role = dao.getRole(folderName).get(0);
+		String firstName = dao.getFirstName(folderName).get(0);
 		
 		System.out.println("Test o/p ->" + folderName);
 		System.out.println("Test o/p ->" + role);
@@ -1399,7 +1399,7 @@ public class HomeController {
 		
 		if(role.equals("Client")) 
 		{
-			dao.getList().add(firstName + "(" + Useremail + ")" + " Uploaded new files");
+			dao.getList().add(" Uploaded new files" + firstName + "(" + folderName + ")");
 		}
 		else if(role.equals("Lawyer") || role.equals("Admin"))
 		{
