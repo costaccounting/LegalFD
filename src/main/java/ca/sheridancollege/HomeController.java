@@ -1393,21 +1393,12 @@ public class HomeController {
 		String role = dao.getRole(folderName).get(0);
 		String firstName = dao.getFirstName(folderName).get(0);
 		
-		System.out.println("Test o/p ->" + folderName);
-		System.out.println("Test o/p ->" + role);
-		System.out.println("Test o/p ->" + firstName);
-		
 		if(role.equals("Client")) 
 		{
-			dao.getList().add("Uploaded new files" + firstName + "(" + folderName + ")");
-		}
-		else if(role.equals("Lawyer") || role.equals("Admin"))
-		{
-			//dao.getClientList().add("Lawyer has sent you new Documents");
-			
+			dao.getList().add(firstName + "(" + folderName + ")" + "Uploaded new files");
 		}
 		else {
-			System.out.println("Something went wrong at line: 1337 HomeController");
+			System.out.println("Something went wrong at line: 1405 HomeController");
 		}
 		//adding a file
         if (file.isEmpty()) {
