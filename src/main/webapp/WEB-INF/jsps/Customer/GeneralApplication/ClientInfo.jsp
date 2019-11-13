@@ -234,7 +234,7 @@
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Citizenship" path="citizenship" />
 				<label class="mb-2 col">Place of Birth:</label>
-				<form:input type="date" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Place of Birth" path="placeOfBirth" />
 
 			</div>
@@ -314,14 +314,14 @@
 				<label class="mb-2 col">Current Employeer Address:</label>
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Address" path="employerAddress" />
-				<label class="mb-2 col">Annual Income from Employment:</label>
+				<label class="mb-2 col">Annual Income from Employment:($CAD)</label>
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Income" path="annualIncome" />
 
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col-md-3">Income from another source:</label>
+				<label class="mb-2 col-md-3">Income from another source:($CAD)</label>
 				<form:input path="incomeOtherSource" type="text"
 					class="form-control mb-2 col-md-3" placeholder="Income" />
 				

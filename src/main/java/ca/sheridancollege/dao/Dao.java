@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;		
 import java.nio.file.Path;		
 import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -528,8 +531,19 @@ public class Dao {
 	public boolean createFolder(RegisterUser user) {		
 			String path = getUsersHomeDir() + File.separator + location_string + File.separator + user.getEmail() ;		
 					
-		    try {		
-				if (new File(path).mkdirs()) {		
+		    try {
+		    	File f = new File(path);
+				if (f.mkdirs()) {	
+					f.setExecutable(false, false);
+					try {
+						Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-rw-");
+						FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
+						
+						Files.createFile(Paths.get(path), permissions);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				    return true;		
 				}		
 			} catch (Exception e) {		
@@ -542,7 +556,20 @@ public class Dao {
 		String path = getUsersHomeDir() + File.separator + location_string + File.separator + useremail ;		
 				
 	    try {		
-			if (new File(path).mkdirs()) {		
+	    	File f = new File(path);
+			if (f.mkdirs()) {	
+				f.setExecutable(false, false);
+				
+				try {
+					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-rw-");
+					FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
+					
+					Files.createFile(Paths.get(path), permissions);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			    return true;		
 			}		
 		} catch (Exception e) {		
@@ -596,7 +623,23 @@ public class Dao {
 				String modifiedFileName = uploader + "-" + date + "-" + file.getOriginalFilename();
 				Path path = Paths.get(dir + File.separator+ modifiedFileName);		
 						
+				try {
+					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-r--r--");
+					FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
+					
+					Files.createFile(path, permissions);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					File f = path.toFile();
+					f.setExecutable(false);
+					f.setReadable(true);
+					
+					
+				}
 				Files.write(path, bytes);	
+				
+				
 				addFileRecord(file.getOriginalFilename(), modifiedFileName , dir , uploader ,  dtf2.format(now));
 				return true;		
 			} catch (IOException e) {		

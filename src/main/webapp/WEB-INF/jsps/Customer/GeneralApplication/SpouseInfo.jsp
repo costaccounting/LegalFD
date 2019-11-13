@@ -237,7 +237,7 @@
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Citizenship" path="spouseCitizenship" />
 				<label class="mb-2 col">Place of Birth:</label>
-				<form:input type="date" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Place of Birth" path="spousePlaceOfBirth" />
 
 			</div>
@@ -318,14 +318,14 @@
 				<label class="mb-2 col">Current Employeer Address:</label>
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Address" path="spouseEmployerAddress" />
-				<label class="mb-2 col">Annual Income from Employment:</label>
+				<label class="mb-2 col">Annual Income from Employment:($CAD)</label>
 				<form:input type="text" class="form-control mb-2 col"
 					placeholder="Income" path="spouseAnnualIncome" />
 
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col-md-3">Income from another source:</label>
+				<label class="mb-2 col-md-3">Income from another source:($CAD)</label>
 				<form:input path="spouseIncomeOtherSource" type="text"
 					class="form-control mb-2 col-md-3 " placeholder="Income" />
 				<!-- <button type="submit" class="btn btn-primary mb-2 ml-sm-4">Add</button> -->
