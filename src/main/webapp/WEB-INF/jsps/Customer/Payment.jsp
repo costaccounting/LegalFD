@@ -47,7 +47,7 @@
 				<ul class="navbar-nav">
 
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
-						class="nav-link ">Home</a></li>
+						class="nav-link active">Home</a></li>
 
 					<li class="nav-item px-2 dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
@@ -59,9 +59,11 @@
 
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${i}/${Useremail}"> <i
-									class="fa fa-times-circle"></i>
-								</a>
+								<div class="float-right">
+									<a href="/deleteNotification/${i}/${Useremail}"> <i
+										class="fa fa-times-circle"></i>
+									</a>
+								</div>
 								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div></li>

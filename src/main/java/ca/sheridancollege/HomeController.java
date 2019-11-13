@@ -123,6 +123,9 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
+			
 			return "Customer/Payment";
 	}
 	
@@ -137,6 +140,9 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
+				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
 	
@@ -149,7 +155,10 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);				
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-				
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
+		
 		return "Customer/GeneralApplication/SpouseInfo";
 	}
 	
@@ -162,7 +171,10 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-				
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
+		
 		return "Customer/GeneralApplication/MaritalInfo";
 	}
 	
@@ -175,7 +187,10 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);				
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-				
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
+		
 		return "Customer/GeneralApplication/MatrimonialHome";
 	}
 	
@@ -188,6 +203,9 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);						
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
 		
 		return "Customer/GeneralApplication/Children";
 	}
@@ -202,7 +220,10 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(Useremail).get(0);				
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
-			
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
+		
 		return "Customer/GeneralApplication/ChildExpenses";
 	}
 //------ Navigation to General Application Client Side __ END  ------		
@@ -216,6 +237,9 @@ public class HomeController {
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
+			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/document";
 		}
@@ -233,6 +257,9 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
+				
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/form";
 				}
@@ -311,6 +338,9 @@ public class HomeController {
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
 						
+						model.addAttribute("clientList", dao.getClientList());
+						model.addAttribute("countClient", dao.getClientList().size());
+						
 						return "Customer/form";
 					}
 					else {
@@ -379,7 +409,10 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(Useremail).get(0);			
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-								
+				
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
+				
 				return "Customer/form";
 			}
 			else {
@@ -485,6 +518,9 @@ public class HomeController {
 				model.addAttribute("Useremail", email );
 				model.addAttribute("UserPassword", password );
 				
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
+				
 				return "Customer/form";
 			}
 			else if((dao.userExist(email, password).get(0)).equals("Lawyer"))
@@ -578,6 +614,9 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", SessionEmail);
+				
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "/Customer/CustomerRequest";
 				}
@@ -804,6 +843,9 @@ public class HomeController {
 		
 		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
 		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
+		
 		return "Customer/Payment";
 	}
 	
@@ -846,6 +888,9 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
 			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
+			
 			return "Customer/Payment";
 	}
 //----------------- Legal Form -- END --------------------------------
@@ -866,6 +911,9 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
+			
 			return "Customer/Payment";
 	}
 
@@ -881,11 +929,11 @@ public class HomeController {
 		model.addAttribute("paymentData", pay);
 		
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			
-			
-			
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
+			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -960,6 +1008,8 @@ public class HomeController {
 		
 			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
 			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
 			
 			return "Customer/Payment";
 	}
@@ -978,13 +1028,11 @@ public class HomeController {
 		
 		// Regular Customer JSP EL tags needed code
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
-		// Needed for Customer JSP EL tags
 		
-		// 	For Backup if Needed in case of emergency	
-		
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
@@ -1000,15 +1048,15 @@ public class HomeController {
 		
 				// Regular Code to send to General Application sos that Forms will work properly
 				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-				// Needed in order to work with general application form
 				
 				// Regular Customer JSP EL tags needed code
-						String firstNameStore = dao.getFirstName(Useremail).get(0);
-						
-						model.addAttribute("firstName", firstNameStore);
-						model.addAttribute("Useremail", Useremail);
-						model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
-				// Needed for Customer JSP EL tags
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
+
+				model.addAttribute("clientList", dao.getClientList());
+				model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
@@ -1023,15 +1071,16 @@ public class HomeController {
 			
 					// Regular Code to send to General Application sos that Forms will work properly
 					model.addAttribute("children", (generalDao.getChildren(Useremail)));
-					// Needed in order to work with general application form
 					
 					// Regular Customer JSP EL tags needed code
-							String firstNameStore = dao.getFirstName(Useremail).get(0);
+					String firstNameStore = dao.getFirstName(Useremail).get(0);
 							
-							model.addAttribute("firstName", firstNameStore);
-							model.addAttribute("Useremail", Useremail);
-							model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
-					// Needed for Customer JSP EL tags
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", Useremail);
+					model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
+
+					model.addAttribute("clientList", dao.getClientList());
+					model.addAttribute("countClient", dao.getClientList().size());
 					
 					return "Customer/GeneralApplication/Children";
 		}
@@ -1048,15 +1097,16 @@ public class HomeController {
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
-									String firstNameStore = dao.getFirstName(Useremail).get(0);
+							String firstNameStore = dao.getFirstName(Useremail).get(0);
 									
-									model.addAttribute("firstName", firstNameStore);
-									model.addAttribute("Useremail", Useremail);
-									model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
-							// Needed for Customer JSP EL tags
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
+							model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
+
+							model.addAttribute("clientList", dao.getClientList());
+							model.addAttribute("countClient", dao.getClientList().size());
 							
 							return "Customer/GeneralApplication/ClientInfo";
 				}
@@ -1071,15 +1121,15 @@ public class HomeController {
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
-							// Needed in order to work with general application form
-							
+
 							// Regular Customer JSP EL tags needed code
-									String firstNameStore = dao.getFirstName(Useremail).get(0);
-									
-									model.addAttribute("firstName", firstNameStore);
-									model.addAttribute("Useremail", Useremail);
-									model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
-							// Needed for Customer JSP EL tags
+							String firstNameStore = dao.getFirstName(Useremail).get(0);
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
+							model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
+
+							model.addAttribute("clientList", dao.getClientList());
+							model.addAttribute("countClient", dao.getClientList().size());
 							
 							return "Customer/GeneralApplication/MaritalInfo";
 				}
@@ -1094,15 +1144,15 @@ public class HomeController {
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
-							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
-									String firstNameStore = dao.getFirstName(Useremail).get(0);
-									
-									model.addAttribute("firstName", firstNameStore);
-									model.addAttribute("Useremail", Useremail);
-									model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
-							// Needed for Customer JSP EL tags
+							String firstNameStore = dao.getFirstName(Useremail).get(0);		
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
+							model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
+
+							model.addAttribute("clientList", dao.getClientList());
+							model.addAttribute("countClient", dao.getClientList().size());
 							
 							return "Customer/GeneralApplication/MatrimonialHome";
 				}
@@ -1117,15 +1167,15 @@ public class HomeController {
 					
 							// Regular Code to send to General Application sos that Forms will work properly
 							model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
-							// Needed in order to work with general application form
 							
 							// Regular Customer JSP EL tags needed code
-									String firstNameStore = dao.getFirstName(Useremail).get(0);
-									
-									model.addAttribute("firstName", firstNameStore);
-									model.addAttribute("Useremail", Useremail);
-									model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
-							// Needed for Customer JSP EL tags
+							String firstNameStore = dao.getFirstName(Useremail).get(0);		
+							model.addAttribute("firstName", firstNameStore);
+							model.addAttribute("Useremail", Useremail);
+							model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
+
+							model.addAttribute("clientList", dao.getClientList());
+							model.addAttribute("countClient", dao.getClientList().size());
 							
 							return "Customer/GeneralApplication/SpouseInfo";
 				}
@@ -1320,9 +1370,22 @@ public class HomeController {
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
-
+		// Code for Notification at Customer side
+		String Useremail = folderName;
+		String role = dao.getRole(Useremail).get(0);
+		String firstName = dao.getRole(Useremail).get(0);
 		
-		String firstName = dao.getFirstName(folderName).get(0);
+		if(role.equals("Client")) 
+		{
+			dao.getClientList().add("Lawyer has sent you new Documents");
+		}
+		else if(role.equals("Lawyer") || role.equals("Admin"))
+		{
+			dao.getList().add(firstName + "(" + Useremail + ")" + " Uploaded new files");
+		}
+		else {
+			System.out.println("Something went wrong at line: 1337 HomeController");
+		}
 		//adding a file
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -1353,6 +1416,9 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(folderName).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
+		
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
 		
         return "Customer/uploadDocument";
     }
@@ -1416,6 +1482,9 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
+			model.addAttribute("clientList", dao.getClientList());
+			model.addAttribute("countClient", dao.getClientList().size());
+			
 	        return "Customer/uploadDocument";
 	    }
 	
@@ -1471,11 +1540,12 @@ public class HomeController {
 		System.out.println(fileinfo);
 		
 		// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(folderName).get(0);
-				
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", folderName);
-				// Needed for Customer JSP EL tags
+		String firstNameStore = dao.getFirstName(folderName).get(0);		
+		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("Useremail", folderName);
+
+		model.addAttribute("clientList", dao.getClientList());
+		model.addAttribute("countClient", dao.getClientList().size());
 		
         return "Customer/uploadDocument";
     }
