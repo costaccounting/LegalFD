@@ -1006,7 +1006,7 @@ public class HomeController {
 			
 			model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
 		
-			dao.getList().add("New Case Request from: "+firstNameStore + "(" + Useremail + ")" );
+			dao.getList().add("New Request: "+firstNameStore + "(" + Useremail + ")" );
 			
 			model.addAttribute("clientList", dao.getClientList());
 			model.addAttribute("countClient", dao.getClientList().size());
