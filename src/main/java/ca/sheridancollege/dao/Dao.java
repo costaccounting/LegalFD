@@ -536,7 +536,7 @@ public class Dao {
 				if (f.mkdirs()) {	
 					f.setExecutable(false, false);
 					try {
-						Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-------");
+						Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-rw-");
 						FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
 						
 						Files.createFile(Paths.get(path), permissions);
@@ -561,7 +561,7 @@ public class Dao {
 				f.setExecutable(false, false);
 				
 				try {
-					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-------");
+					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-rw-");
 					FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
 					
 					Files.createFile(Paths.get(path), permissions);
