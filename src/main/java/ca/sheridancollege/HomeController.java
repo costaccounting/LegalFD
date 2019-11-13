@@ -1325,18 +1325,17 @@ public class HomeController {
 	{
 
 		String Useremail = folderName;
-		String role = dao.getRole(Useremail).get(0);
-		String firstName = dao.getRole(Useremail).get(0);
+		
+		String role = dao.getRole(useremail).get(0);
+		String firstName = dao.getFirstName(useremail).get(0);
+		String firstNameCustomer = dao.getFirstName(Useremail).get(0);
 		
 		System.out.println("Test o/p ->" + folderName);
 		System.out.println("Test o/p ->" + role);
+		System.out.println("Test o/p ->" + firstNameCustomer);
 		System.out.println("Test o/p ->" + firstName);
 		
-		if(role.equals("Client")) 
-		{
-			//dao.getList().add(firstName + "(" + Useremail + ")" + " Uploaded new files");
-		}
-		else if(role.equals("Lawyer") || role.equals("Admin"))
+		if(role.equals("Lawyer") || role.equals("Admin"))
 		{
 			dao.getClientList().add("Lawyer has sent you new Documents");
 			
@@ -1376,7 +1375,7 @@ public class HomeController {
 		
 	    String firstNameStore = dao.getFirstName(useremail).get(0);
 	
-		model.addAttribute("role", role);
+		model.addAttribute("role", dao.getRole(useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);	
 		model.addAttribute("Useremail", useremail);
 		
@@ -1392,7 +1391,7 @@ public class HomeController {
 		// Code for Notification at Customer side
 		String Useremail = folderName;
 		String role = dao.getRole(Useremail).get(0);
-		String firstName = dao.getRole(Useremail).get(0);
+		String firstName = dao.getFirstName(Useremail).get(0);
 		
 		System.out.println("Test o/p ->" + folderName);
 		System.out.println("Test o/p ->" + role);
@@ -1472,6 +1471,7 @@ public class HomeController {
 			model.addAttribute("count", dao.getList().size());
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			model.addAttribute("role", dao.getRole(Useremail).get(0));
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
@@ -1568,6 +1568,7 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(folderName).get(0);		
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
+		model.addAttribute("role", dao.getRole(folderName).get(0));
 
 		model.addAttribute("clientList", dao.getClientList());
 		model.addAttribute("countClient", dao.getClientList().size());
