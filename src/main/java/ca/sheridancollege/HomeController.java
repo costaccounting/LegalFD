@@ -1399,7 +1399,7 @@ public class HomeController {
 		
 		if(role.equals("Client")) 
 		{
-			dao.getList().add(" Uploaded new files" + firstName + "(" + folderName + ")");
+			dao.getList().add("Uploaded new files" + firstName + "(" + folderName + ")");
 		}
 		else if(role.equals("Lawyer") || role.equals("Admin"))
 		{
