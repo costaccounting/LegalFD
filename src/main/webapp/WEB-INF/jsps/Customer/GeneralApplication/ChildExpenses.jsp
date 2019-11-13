@@ -147,7 +147,7 @@
 			</div>
 
 			<div class="row">
-				<label class="mb-2 col">Post-secondary Educational Expenses:</label>
+				<label class="mb-2 col">Post-secondary Educational Expenses:($CAD)</label>
 				$
 				<form:input type="text" class="form-control mb-2 col"
 					path="postEducational" />
@@ -175,7 +175,7 @@
 
 			</div>
 			<div class="row">
-				<label class="mb-2 col">Other Expenses:</label>
+				<label class="mb-2 col">Other Expenses:($CAD)</label>
 				<form:input type="text" class="form-control mb-2 col" path="others" />
 
 
