@@ -170,6 +170,10 @@
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
 							</a>
+							<a href="/customerRequest/${Useremail}/${Useremail}"
+								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
+								Your Request
+							</a>
 						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
