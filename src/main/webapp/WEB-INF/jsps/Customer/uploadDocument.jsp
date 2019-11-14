@@ -298,13 +298,16 @@
 		function processDelete() {
 			var selected = new Array();
 			var boxes = document.getElementsByClassName("sel");
+			if(boxes.length==0){
+				alert("Please select checkbox(ex) for the files that you wish to delete");
+			}
 			for (var i = 0; i < boxes.length; i++) {
 				var box = boxes[i];
 				if (box.checked) {
 					selected.push(box.value);
 				}
 			}
-			alert("in process: " + selected);
+			
 			document.getElementById("hiddenInp").value = selected;
 			document.getElementById("submitForm").submit();
 

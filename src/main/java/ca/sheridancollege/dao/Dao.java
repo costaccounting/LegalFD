@@ -624,7 +624,7 @@ public class Dao {
 				Path path = Paths.get(dir + File.separator+ modifiedFileName);		
 						
 				try {
-					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-r--r--");
+					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-r--");
 					FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
 					
 					Files.createFile(path, permissions);
