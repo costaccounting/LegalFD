@@ -41,15 +41,14 @@
 </head>
 
 <body>
+
+
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
-
-
-
-	<nav class="navbar navbar-expand-xl navbar-dark sticky-top"
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
 		style="background-color: black">
-		<div class="container" id="navContainer">
-			<a href="#" class="navbar-brand "><span class="mb-0 h1"><i
+		<div class="container">
+			<a href="#" class="navbar-brand"><span class="mb-0 h1"><i
 					class="fas fa-balance-scale"> </i> LegalFD</span></a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
@@ -60,6 +59,7 @@
 
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
+
 					<li class="nav-item px-2 dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
 							class="notification">Notification</span> <span
@@ -76,86 +76,149 @@
 								<div class="dropdown-divider"></div>
 							</c:forEach>
 						</div></li>
-
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="/generalApplication/${Useremail}" class="dropdown-item">
-								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
-								Settings
+
+							<a href="/Lawsettings/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link "><i
-							class="fa fa-power-off"></i> Log Out</a></li>
+						<a href="${logoutUrl}" class="nav-link "> <i
+							class="fa fa-power-off"></i> Log Out
+					</a></li>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<br>
+
+
+	<div class="container-fluid ">
+		<div class="row min-vh-100">
+			<aside class="col-12 col-md-2 p-0 bg-primary">
+				<nav
+					class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2">
+
+					<br> <a href="#" class="navbar-brand"><span
+						class="pl-2 h2">Dashboard </span></a>
+					<button class="navbar-toggler" data-toggle="collapse"
+						data-target="#navbarCollapse">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse">
+
+						<ul
+							class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
+							<br>
+							<c:if test="${role == 'Lawyer'}">
+								<li class="nav-item"><a class="nav-link pl-4 active"
+									href="/dashboard/${Useremail}"> Manage Users</a></li>
+								<li class="nav-item"><a class="nav-link pl-4 "
+									href="/caseRequest/${Useremail}">Client Requests </a></li>
+							</c:if>
+
+							<c:if test="${role == 'Admin'}">
+								<li class="nav-item"><a class="nav-link pl-4 active"
+									href="/dashboard/${Useremail}"> Manage Users</a></li>
+								<li class="nav-item"><a class="nav-link pl-4 "
+									href="/caseRequest/${Useremail}">Client Requests</a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/editDocPrice/${Useremail}">Manage Price</a></li>
+
+							</c:if>
+
+						</ul>
+
+					</div>
+				</nav>
+			</aside>
+			<main class="col bg-faded py-3">
 
 
 
 
+			<div class="container mr-5 pt-3 pl-5">
+				<div class="card-header text-light rounded "
+					style="background-color: black" id="cardHeader">
 
-	
-           
-	<br>
+					<h2>
+						<i class="	fa fa-list-alt "></i> Edit User
 
-	<div class="card-header mx-5 p-3 text-light bg-primary">
+					</h2>
+				</div>
+
+				<div id="accordion">
 
 
-		<h2 class=" fas fa-edit "> Edit Information</h2>
-		<div class="float-right">
 
-			<a href="<c:url value="/dashboard/${Useremail}"/>"
-				class="btn btn-light  " id="submit"> <i
-				class="fas fa-arrow-left"></i> Back
-			</a>
+					<div class="card p-4 " style="height: 570px" id="cardForm">
+
+						<form action="/editPassword/${Useremail}" method="post">
+
+							<div class="form-group">
+								<label for="name">User Email:</label> <input
+									class="form-control" type="text" name="userEmail"
+									value="${Useremail}" disabled>
+							</div>
+							<div class="form-group">
+								<label for="name">First Name:</label> <input
+									class="form-control" type="text" name="userFirstName"
+									value="${userInfo.firstName}">
+							</div>
+							<div class="form-group">
+								<label for="name">Last Name:</label> <input class="form-control"
+									type="text" name="userLastName" value="${userInfo.lastName}">
+							</div>
+							<div class="form-group">
+								<label for="name">New Password:</label> <input
+									class="form-control" type="password" name="userNewPassword"
+									value="${userInfo.password}">
+							</div>
+							<div class="float-right">
+
+								<input class="btn btn-primary float-right" type="submit"
+									value="Save">
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
 		</div>
 
+		</main>
+
 
 	</div>
 
-	<br>
 
 
-	<div class="container">
 
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+</body>
 
-		<form action="/editPassword/${Useremail}" method="post">
-
-			<div class="form-group">
-				<label for="name">User Email:</label> <input class="form-control"
-					type="text" name="userEmail" value="${Useremail}" disabled>
-			</div>
-			<div class="form-group">
-				<label for="name">First Name:</label> <input class="form-control"
-					type="text" name="userFirstName" value="${userInfo.firstName}">
-			</div>
-			<div class="form-group">
-				<label for="name">Last Name:</label> <input class="form-control"
-					type="text" name="userLastName" value="${userInfo.lastName}">
-			</div>
-			<div class="form-group">
-				<label for="name">New Password:</label> <input class="form-control"
-					type="password" name="userNewPassword" value="${userInfo.password}">
-			</div>
-
-
-			<input class="btn btn-primary float-right" type="submit" value="Save">
-		</form>
-
-	</div>
 
 </body>
 </html>
+
