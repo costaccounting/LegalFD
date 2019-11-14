@@ -21,11 +21,104 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/file.css">
 <title>Client Document</title>
+<style>
 
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+	background-color: #555;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	position: sticky;
+	bottom: 23px;
+	right: 28px;
+	border-radius: 50%;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+	resize: none;
+	min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+	background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+}
+</style>
 
 </head>
 
 <body>
+
+<div class="chat-popup " id="myForm">
+
+
+
+		<form action="mailto:shahriya?body='This is only a test!'"
+			method="GET" class="form-container" >
+			<h1>Chat</h1>
+			<div class="form-group">
+				<label for="name">About:</label> <input name="subject" type="text"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="name">Description:</label>
+				<textarea name="body" class="form-control" rows=5></textarea>
+			</div>
+
+
+
+			<input class="btn btn-primary btn-block" type="submit" value="Send">
+			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	</div>
 	<div type="hidden" name="email" value="${Useremail}"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black">
@@ -50,7 +143,7 @@
 							<c:set var="count_noti" value="${fn:length(clientList)}" />
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
-								${notiList[count_noti-i]}
+								${clientList[count_noti-i]}
 								<div class="float-right">
 								<a href="/deleteNotification/${i}/${Useremail}"> 
 									<i class="fa fa-times-circle"></i>
@@ -76,6 +169,10 @@
 							</a> 
 							<a href="/settings/${Useremail}" class="dropdown-item"> <i class="fas fa-cog"></i>
 								Settings
+							</a>
+							<a href="/customerRequest/${Useremail}/${Useremail}"
+								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
+								Your Request
 							</a>
 						</div></li>
 
@@ -109,9 +206,9 @@
                                             <a class="nav-link pl-4 active" href="/document/${Useremail}">Legal Documents</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link pl-4" href="/goToCustomerUpload/${Useremail}">Upload Documents</a><br><br>
+                                            <a class="nav-link pl-4" href="/goToCustomerUpload/${Useremail}">Upload Documents</a>
                                         </li>
-                                        <li class="nav-item"><a class="nav-link pl-4" href="#"><i class="	fas fa-envelope"></i> Email Us</a> </li>
+                                       
                                     </ul>
                                
                             </div>
@@ -162,6 +259,21 @@
                                       
 
                       </main>
+                      
+                      <button class="open-button float-right bg-primary" onclick="openForm()">
+		<i class="fas fa-envelope"></i>
+	</button>
+	
+
+	<script>
+		function openForm() {
+			document.getElementById("myForm").style.display = "block";
+		}
+
+		function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+		}
+	</script>
                   </div>
              
                             

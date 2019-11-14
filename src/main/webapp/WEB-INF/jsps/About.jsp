@@ -17,7 +17,7 @@
 
 		<nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: black;">
 		<div class="container">
-			<a href="signIn.html" class="navbar-brand"><span class="mb-0 h1">
+			<a href="#" class="navbar-brand"><span class="mb-0 h1">
 				<i class="fas fa-balance-scale"> </i> LegalFD</span>
 				</a>
 		 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">

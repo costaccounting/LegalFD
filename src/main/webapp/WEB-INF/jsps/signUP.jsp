@@ -28,8 +28,9 @@
     <div class="container">
     
     
-        <a href="#" class="navbar-brand" ><span class="mb-0 h1"><i class="fas fa-balance-scale">
-          </i> LegalFD</span></a>
+        <a href="#" class="navbar-brand"><span class="mb-0 h1">
+				<i class="fas fa-balance-scale"> </i> LegalFD</span>
+				</a>
      
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -57,20 +58,48 @@
     </div>
   </nav>
 
-  <!-- HOME SECTION -->
-  <header id="home-section">
-    <div class="dark-overlay">
-     
-      <div class="home-inner container">
-        
-          <div class="row centered-form center-block">
-          <div class="container col-md-5 col-md-offset-1 ">
-        
-            <div class="card text-center card-form bg-primary " >
-              <div class="card-body">
-                <h3>Sign Up</h3>
-                <br>
-                <form action="/register1" method="post" modelAttribute="registerUser">
+ <header id="home-section">
+		<div class="dark-overlay">
+			<div class="home-inner container">
+				<div class="row">
+					<div class="col-lg-8 d-none d-lg-block">
+						<h1 class="display-4">
+							<strong></strong> <strong></strong>
+						</h1>
+						<div class="d-flex">
+							<div class="p-4 align-self-start">
+								<i class="fas fa-check fa-2x"></i>
+							</div>
+							<div class="p-4 align-self-end">Lorem ipsum dolor sit, amet
+								consectetur adipisicing elit. Sed, tempore iusto in minima
+								facere dolorem!</div>
+						</div>
+
+						<div class="d-flex">
+							<div class="p-4 align-self-start">
+								<i class="fas fa-check fa-2x"></i>
+							</div>
+							<div class="p-4 align-self-end">Lorem ipsum dolor sit, amet
+								consectetur adipisicing elit. Sed, tempore iusto in minima
+								facere dolorem!</div>
+						</div>
+
+						<div class="d-flex">
+							<div class="p-4 align-self-start">
+								<i class="fas fa-check fa-2x"></i>
+							</div>
+							<div class="p-4 align-self-end">Lorem ipsum dolor sit, amet
+								consectetur adipisicing elit. Sed, tempore iusto in minima
+								facere dolorem!</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="card bg-primary text-center card-form">
+							<div class="card-body">
+								<h3>Sign Up</h3>
+								<br>
+								<form action="/register1" method="post" modelAttribute="registerUser">
 	  		  
                    		  <div class="form-group">
 	                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required>
@@ -90,17 +119,16 @@
                   
                   <p align="center" style="color:red; font-size: 1.5em;">${RegErrMess}</p>
               </form>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+								
 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
   
-
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
