@@ -42,10 +42,6 @@
 			</button>
 
 
-
-
-
-
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 				<ul class="navbar-nav ml-auto">
