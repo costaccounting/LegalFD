@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.io.File"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +26,9 @@
 </head>
 <body>
 
-<div type="hidden" name="email" value="${Useremail}"></div>
+	<div type="hidden" name="email" value="${Useremail}"></div>
 
-<!--------------------------- Nav Bar Start --------------------------------------------->
+	<!--------------------------- Nav Bar Start --------------------------------------------->
 
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
 		style="background-color: black">
@@ -41,21 +45,43 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2"><a href="#" class="nav-link">Notification</a>
-					</li>
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${countClient}</span>
+					</a>
+						<div class="dropdown-menu p-3">
+							<c:set var="count_noti" value="${fn:length(clientList)}" />
+
+							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
+								${clientList[count_noti-i]}
+								<div class="float-right">
+									<a href="/deleteNotification/${i}/${Useremail}"> <i
+										class="fa fa-times-circle"></i>
+									</a>
+								</div>
+								<div class="dropdown-divider"></div>
+							</c:forEach>
+						</div></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					
+
 					<li class="nav-item dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
 							class="fas fa-user"></i> Welcome ${firstName}
 					</a>
 						<div class="dropdown-menu">
-							 <a href="/settings/${Useremail}" class="dropdown-item"> <i
+							<a href="/generalApplication/${Useremail}" class="dropdown-item">
+								<i class="fas fa-user-circle"></i> Profile
+							</a> <a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
+							</a> <a href="/customerRequest/${Useremail}/${Useremail}"
+								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
+								Your Request
 							</a>
 						</div></li>
+
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
 						<a href="${logoutUrl}" class="nav-link "><i
@@ -64,46 +90,129 @@
 			</div>
 		</div>
 	</nav>
-<br>
-<br>
-<br>
-<!--------------------------- Nav Bar End --------------------------------------------->	
 
-<div class="container" id="newContainer">
-		<div class="card-header text-light rounded" style="background-color: black" id="cardHeader">
 
-			<h2>
-				<i class="fas fa-users"></i>Your Case Request
-			</h2>
+	<div class="container-fluid ">
+		<div class="row min-vh-100">
+			<aside class="col-12 col-md-2 p-0 bg-primary">
+				<nav
+					class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start py-2">
 
-		</div>
-		<div id="accordion">
-			
+					<br> <a href="#" class="navbar-brand"><span
+						class="pl-4 h2">Services </span></a>
+					<button class="navbar-toggler" data-toggle="collapse"
+						data-target="#navbarCollapse">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-			<div class="card" id="cardForm">
-				<div class="card-header">
-					<h5>
-						<a href="#collapse1" data-parent="#accordion"
-							data-toggle="collapse" style="color: #000"> ${payAmount[0].email} || ${payAmount[0].amount} || ${payAmount[0].timePayment}</a>
-					</h5>
-				</div>
-					
-				<div id="collapse1" class="collapse">
-					<div class="card-body table-responsive">
-						<ul>
-						<c:forEach var="list" items="${payAmount}">
-							<li> ${list.requestedDocs} </li>
-						</c:forEach>			
-						</ul>		
-					
+					<div class="collapse navbar-collapse">
+
+
+						<c:if test="${role == 'Client'}">
+							<li class="nav-item"><a class="nav-link pl-4 "
+								href="/dashboard/${Useremail}"> Legal Forms</a></li>
+							<li class="nav-item"><a class="nav-link pl-4"
+								href="/document/${Useremail}">Legal Documents</span></a></li>
+							<li class="nav-item"><a class="nav-link pl-4 active"
+								href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
+
+
+						</c:if>
+						<c:if test="${role == 'Lawyer'}">
+							<li class="nav-item"><a class="nav-link pl-4 "
+								href="/dashboard/${Useremail}"> Manage Users</a></li>
+							<li class="nav-item"><a class="nav-link pl-4 "
+								href="/caseRequest/${Useremail}">Client Requests </a></li>
+						</c:if>
+
+						<c:if test="${role == 'Admin'}">
+							<li class="nav-item"><a class="nav-link pl-4 "
+								href="/dashboard/${Useremail}"> Manage Users</a></li>
+							<li class="nav-item"><a class="nav-link pl-4 "
+								href="/caseRequest/${Useremail}">Client Requests</a></li>
+							<li class="nav-item"><a class="nav-link pl-4"
+								href="/editDocPrice/${Useremail}">Manage Price</a></li>
+
+						</c:if>
+
 					</div>
-				</div>		
-						
+				</nav>
+			</aside>
+			<main class="col bg-faded py-3">
+
+
+
+
+			<div class="container mr-5 pt-3 pl-5"  style="height: 590px">
+				<div class="card-header text-light rounded"
+					style="background-color: black"  >
+
+					<h2>
+						<i class="fas fa-sticky-note"></i> Recent Requests
+						<div class="float-right">
+							<a href="<c:url value="/dashboard/${Useremail}"/>"
+								class="btn btn-primary  " id="submit"> <i
+								class="fas fa-arrow-left"></i> Back
+							</a>
+						</div>
+					</h2>
+				</div>
+
+				<div id="accordion">
+
+					<div class="card" id="cardForm"  >
+						<div class="card-header">
+							<h5>
+								<a href="#collapse1" data-parent="#accordion"
+									data-toggle="collapse" style="color: #000"><span
+									class="float-left">Email: ${payAmount[0].email} </span>
+									<div class="text-right">Amount: ${payAmount[0].amount}</div> <span
+									class="text-right">Date and Time:
+										${payAmount[0].timePayment}</span></a>
+							</h5>
+						</div>
+
+						<div id="collapse1" class="collapse">
+							<div class="card-body table-responsive">
+								<ul class="list-group list-group-flush mb-5">
+									<c:forEach var="list" items="${payAmount}">
+										<li class="list-group-item">${list.requestedDocs}</li>
+
+									</c:forEach>
+								</ul>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
 			</div>
+			</main>
+
+
+
+
 		</div>
+		<button class="open-button float-right bg-primary"
+			onclick="openForm()">
+			<i class="fas fa-envelope"></i>
+		</button>
+
+
+		<script>
+			function openForm() {
+				document.getElementById("myForm").style.display = "block";
+			}
+
+			function closeForm() {
+				document.getElementById("myForm").style.display = "none";
+			}
+		</script>
 	</div>
 
-<script>
+
+
+	<script>
 		function myFunction() {
 			var input, filter, table, tr, td, i, txtValue;
 			input = document.getElementById("myInput");
