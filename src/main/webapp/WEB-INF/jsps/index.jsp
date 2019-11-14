@@ -32,8 +32,9 @@
 		<div class="container">
 
 
-			<a href="#" class="navbar-brand"><span class="mb-0 h1"><i
-					class="fas fa-balance-scale"> </i> LegalFD</span></a>
+			<a href="#" class="navbar-brand"><span class="mb-0 h1">
+				<i class="fas fa-balance-scale"> </i> LegalFD</span>
+				</a>
 
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
