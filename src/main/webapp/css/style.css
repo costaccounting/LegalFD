@@ -6,11 +6,14 @@ body {
   background: #333;
   color: #fff;
 }
-
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.8;
+}
 
 
 #home-section {
-  background: url(../img/home.png);
+  background: url(../img/pic.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
