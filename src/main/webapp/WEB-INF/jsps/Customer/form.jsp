@@ -93,6 +93,7 @@
 .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
 }
+
 </style>
 
 </head>
@@ -141,10 +142,10 @@
 
 					<li class="nav-item px-2 dropdown mr-3"><a href="#"
 						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
-							class="notification">Notification</span> <span
-							class="badge text-dark bg-light">${countClient}</span>
+							class="notification">Notification</span>  <span
+							class="badge text-dark bg-light">${countClient}</span><span class="caret"></span>
 					</a>
-						<div class="dropdown-menu p-3">
+						<div class="dropdown-menu p-3 " style=" width: 350px">
 							<c:set var="count_noti" value="${fn:length(clientList)}" />
 
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
