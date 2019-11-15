@@ -123,8 +123,20 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
 	}
@@ -140,9 +152,18 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
-				
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
 				return "Customer/GeneralApplication/ClientInfo";
 	}
 	
@@ -156,9 +177,18 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
 		return "Customer/GeneralApplication/SpouseInfo";
 	}
 	
@@ -172,9 +202,18 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
 		return "Customer/GeneralApplication/MaritalInfo";
 	}
 	
@@ -188,9 +227,18 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
 		return "Customer/GeneralApplication/MatrimonialHome";
 	}
 	
@@ -204,9 +252,18 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
 		return "Customer/GeneralApplication/Children";
 	}
 	
@@ -221,9 +278,18 @@ public class HomeController {
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", Useremail);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
-		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
 		return "Customer/GeneralApplication/ChildExpenses";
 	}
 //------ Navigation to General Application Client Side __ END  ------		
@@ -238,9 +304,18 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
-			
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
 			return "Customer/document";
 		}
 		
@@ -258,8 +333,23 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
+				
+				//model.addAttribute("clientList", dao.getClientList());
+				//model.addAttribute("countClient", dao.getClientList().size());
 				
 				return "Customer/form";
 				}
@@ -338,8 +428,20 @@ public class HomeController {
 						model.addAttribute("firstName", firstNameStore);
 						model.addAttribute("Useremail", Useremail);
 						
-						model.addAttribute("clientList", dao.getClientList());
-						model.addAttribute("countClient", dao.getClientList().size());
+						ArrayList<String> clientList = dao.getClientList();
+						ArrayList<String> list = new ArrayList<String>();				
+						for(int i=0; i < clientList.size(); i++)
+						{
+							if (clientList.get(i).indexOf(Useremail) != -1) {
+								list.add(clientList.get(i));
+								System.out.println("Noti Test o/p -> " + clientList.get(i));
+								System.out.println("Noti Test o/p -> " + list);
+								System.out.println("Noti Test o/p -> " + list.size());
+								
+							}
+						}
+						model.addAttribute("clientList", list);
+						model.addAttribute("countClient", list.size());
 						
 						return "Customer/form";
 					}
@@ -370,7 +472,8 @@ public class HomeController {
 			{
 				
 				List<String> notification = dao.getList();
-				notification.remove(id-1);
+				//notification.remove(id-1);
+				notification.remove(id);
 				
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
 				model.addAttribute("user", new RegisterUser());
@@ -402,6 +505,8 @@ public class HomeController {
 			}
 			else if((dao.getRole(Useremail).get(0)).equals("Client")) 
 			{
+				List<String> notifiClient = dao.getClientList();
+				notifiClient.remove(id-1);
 				
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();				
 				model.addAttribute("listOfAllForms", docPrice);
@@ -410,8 +515,20 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
 				
 				return "Customer/form";
 			}
@@ -430,6 +547,7 @@ public class HomeController {
 				return "index";
 			}// Catch End 
 		}
+	
 //-------- 	Remove Notification __ STOP  -----------		
 					
 		
@@ -518,8 +636,20 @@ public class HomeController {
 				model.addAttribute("Useremail", email );
 				model.addAttribute("UserPassword", password );
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(email) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
 				
 				return "Customer/form";
 			}
@@ -615,8 +745,20 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", SessionEmail);
 				
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
 				
 				return "/Customer/CustomerRequest";
 				}
@@ -843,8 +985,20 @@ public class HomeController {
 		
 		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(Useremail) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
 		
 		return "Customer/Payment";
 	}
@@ -888,8 +1042,20 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			// Needed for Customer JSP EL tags
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
 	}
@@ -911,8 +1077,20 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
 	}
@@ -932,8 +1110,20 @@ public class HomeController {
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
 	}
@@ -1008,8 +1198,20 @@ public class HomeController {
 		
 			dao.getList().add("New Request: "+firstNameStore + "(" + Useremail + ")" );
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
 	}
@@ -1031,8 +1233,20 @@ public class HomeController {
 				model.addAttribute("firstName", firstNameStore);
 				model.addAttribute("Useremail", Useremail);
 		
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
 				
 				return "Customer/GeneralApplication/ClientInfo";
 	}
@@ -1055,8 +1269,20 @@ public class HomeController {
 				model.addAttribute("Useremail", Useremail);
 				model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
 
-				model.addAttribute("clientList", dao.getClientList());
-				model.addAttribute("countClient", dao.getClientList().size());
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+						System.out.println("Noti Test o/p -> " + clientList.get(i));
+						System.out.println("Noti Test o/p -> " + list);
+						System.out.println("Noti Test o/p -> " + list.size());
+						
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
 				
 				return "Customer/GeneralApplication/ChildExpenses";
 	}
@@ -1079,8 +1305,20 @@ public class HomeController {
 					model.addAttribute("Useremail", Useremail);
 					model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
 
-					model.addAttribute("clientList", dao.getClientList());
-					model.addAttribute("countClient", dao.getClientList().size());
+					ArrayList<String> clientList = dao.getClientList();
+					ArrayList<String> list = new ArrayList<String>();				
+					for(int i=0; i < clientList.size(); i++)
+					{
+						if (clientList.get(i).indexOf(Useremail) != -1) {
+							list.add(clientList.get(i));
+							System.out.println("Noti Test o/p -> " + clientList.get(i));
+							System.out.println("Noti Test o/p -> " + list);
+							System.out.println("Noti Test o/p -> " + list.size());
+							
+						}
+					}
+					model.addAttribute("clientList", list);
+					model.addAttribute("countClient", list.size());
 					
 					return "Customer/GeneralApplication/Children";
 		}
@@ -1105,8 +1343,20 @@ public class HomeController {
 							model.addAttribute("Useremail", Useremail);
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Client(Your) Info Data");
 
-							model.addAttribute("clientList", dao.getClientList());
-							model.addAttribute("countClient", dao.getClientList().size());
+							ArrayList<String> clientList = dao.getClientList();
+							ArrayList<String> list = new ArrayList<String>();				
+							for(int i=0; i < clientList.size(); i++)
+							{
+								if (clientList.get(i).indexOf(Useremail) != -1) {
+									list.add(clientList.get(i));
+									System.out.println("Noti Test o/p -> " + clientList.get(i));
+									System.out.println("Noti Test o/p -> " + list);
+									System.out.println("Noti Test o/p -> " + list.size());
+									
+								}
+							}
+							model.addAttribute("clientList", list);
+							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/ClientInfo";
 				}
@@ -1128,8 +1378,20 @@ public class HomeController {
 							model.addAttribute("Useremail", Useremail);
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Martial Info Data");
 
-							model.addAttribute("clientList", dao.getClientList());
-							model.addAttribute("countClient", dao.getClientList().size());
+							ArrayList<String> clientList = dao.getClientList();
+							ArrayList<String> list = new ArrayList<String>();				
+							for(int i=0; i < clientList.size(); i++)
+							{
+								if (clientList.get(i).indexOf(Useremail) != -1) {
+									list.add(clientList.get(i));
+									System.out.println("Noti Test o/p -> " + clientList.get(i));
+									System.out.println("Noti Test o/p -> " + list);
+									System.out.println("Noti Test o/p -> " + list.size());
+									
+								}
+							}
+							model.addAttribute("clientList", list);
+							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/MaritalInfo";
 				}
@@ -1151,8 +1413,20 @@ public class HomeController {
 							model.addAttribute("Useremail", Useremail);
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Matrimonial Home Information Data");
 
-							model.addAttribute("clientList", dao.getClientList());
-							model.addAttribute("countClient", dao.getClientList().size());
+							ArrayList<String> clientList = dao.getClientList();
+							ArrayList<String> list = new ArrayList<String>();				
+							for(int i=0; i < clientList.size(); i++)
+							{
+								if (clientList.get(i).indexOf(Useremail) != -1) {
+									list.add(clientList.get(i));
+									System.out.println("Noti Test o/p -> " + clientList.get(i));
+									System.out.println("Noti Test o/p -> " + list);
+									System.out.println("Noti Test o/p -> " + list.size());
+									
+								}
+							}
+							model.addAttribute("clientList", list);
+							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/MatrimonialHome";
 				}
@@ -1174,8 +1448,20 @@ public class HomeController {
 							model.addAttribute("Useremail", Useremail);
 							model.addAttribute("confirmationMessage", "Successfully Added/Changed Spouse Information Data");
 
-							model.addAttribute("clientList", dao.getClientList());
-							model.addAttribute("countClient", dao.getClientList().size());
+							ArrayList<String> clientList = dao.getClientList();
+							ArrayList<String> list = new ArrayList<String>();				
+							for(int i=0; i < clientList.size(); i++)
+							{
+								if (clientList.get(i).indexOf(Useremail) != -1) {
+									list.add(clientList.get(i));
+									System.out.println("Noti Test o/p -> " + clientList.get(i));
+									System.out.println("Noti Test o/p -> " + list);
+									System.out.println("Noti Test o/p -> " + list.size());
+									
+								}
+							}
+							model.addAttribute("clientList", list);
+							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/SpouseInfo";
 				}
@@ -1337,7 +1623,7 @@ public class HomeController {
 		
 		if(role.equals("Lawyer") || role.equals("Admin"))
 		{
-			dao.getClientList().add("Lawyer has sent you new Documents");
+			dao.getClientList().add("Lawyer has sent you new Documents " + folderName);
 			
 		}
 		else {
@@ -1395,7 +1681,7 @@ public class HomeController {
 		
 		if(role.equals("Client")) 
 		{
-			dao.getList().add(firstName + "(" + folderName + ")" + "Uploaded new files");
+			dao.getList().add(firstName + "(" + folderName + ")" + " uploaded new files");
 		}
 		else {
 			System.out.println("Something went wrong at line: 1405 HomeController");
@@ -1430,9 +1716,24 @@ public class HomeController {
 		String firstNameStore = dao.getFirstName(folderName).get(0);
 		model.addAttribute("firstName", firstNameStore);
 		model.addAttribute("Useremail", folderName);
+		model.addAttribute("role", role);
 		
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
+		
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(folderName) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
 		
         return "Customer/uploadDocument";
     }
@@ -1498,8 +1799,20 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			model.addAttribute("role", dao.getRole(Useremail).get(0));
 			
-			model.addAttribute("clientList", dao.getClientList());
-			model.addAttribute("countClient", dao.getClientList().size());
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(Useremail) != -1) {
+					list.add(clientList.get(i));
+					System.out.println("Noti Test o/p -> " + clientList.get(i));
+					System.out.println("Noti Test o/p -> " + list);
+					System.out.println("Noti Test o/p -> " + list.size());
+					
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
 			
 	        return "Customer/uploadDocument";
 	    }
@@ -1561,8 +1874,20 @@ public class HomeController {
 		model.addAttribute("Useremail", folderName);
 		model.addAttribute("role", dao.getRole(folderName).get(0));
 
-		model.addAttribute("clientList", dao.getClientList());
-		model.addAttribute("countClient", dao.getClientList().size());
+		ArrayList<String> clientList = dao.getClientList();
+		ArrayList<String> list = new ArrayList<String>();				
+		for(int i=0; i < clientList.size(); i++)
+		{
+			if (clientList.get(i).indexOf(folderName) != -1) {
+				list.add(clientList.get(i));
+				System.out.println("Noti Test o/p -> " + clientList.get(i));
+				System.out.println("Noti Test o/p -> " + list);
+				System.out.println("Noti Test o/p -> " + list.size());
+				
+			}
+		}
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
 		
         return "Customer/uploadDocument";
     }
