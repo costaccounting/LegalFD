@@ -55,7 +55,7 @@
 				
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${i}/${Useremail}"> 
+								<a href="/deleteNotification/${count_noti-i}/${Useremail}"> 
 									<i class="fa fa-times-circle"></i>
 								</a>
 								<div class="dropdown-divider"></div>
