@@ -100,26 +100,34 @@
 <body>
 
 
-	<div class="chat-popup " id="myForm">
+	<div class="chat-popup " id="myForm" >
 
 
 
 		<form action="mailto:shahriya?body='This is only a test!'"
-			method="GET" class="form-container" >
-			<h1>Chat</h1>
-			<div class="form-group">
-				<label for="name">About:</label> <input name="subject" type="text"
-					class="form-control" />
+			method="GET" class="form-container" style="width: 400px;">
+			<div>
+			<h1 class="float-left">Email Us
+			
+			
+			</h1>
+			<div class="float-right">
+			<a onclick="closeForm()"><i
+										class="fa fa-times-circle"></i></a>
 			</div>
-			<div class="form-group">
+			</div>
+			
+			<br>
+
+			
 				<label for="name">Description:</label>
-				<textarea name="body" class="form-control" rows=5></textarea>
-			</div>
+				<textarea name="body"  rows=5></textarea>
+			
 
 
 
 			<input class="btn btn-primary btn-block" type="submit" value="Send">
-			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+			
 		</form>
 	</div>
 
