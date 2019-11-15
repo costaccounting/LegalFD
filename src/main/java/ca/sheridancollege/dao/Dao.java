@@ -622,21 +622,18 @@ public class Dao {
 				byte[] bytes = file.getBytes();		
 				String modifiedFileName = uploader + "-" + date + "-" + file.getOriginalFilename();
 				Path path = Paths.get(dir + File.separator+ modifiedFileName);		
-						
-				try {
-					Set<PosixFilePermission> ownerWritable = PosixFilePermissions.fromString("rw-rw-r--");
-					FileAttribute<?> permissions = PosixFilePermissions.asFileAttribute(ownerWritable);
-					
-					Files.createFile(path, permissions);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					File f = path.toFile();
-					f.setExecutable(false);
-					f.setReadable(true);
-					
-					
-				}
+			/*
+			 * try { Set<PosixFilePermission> ownerWritable =
+			 * PosixFilePermissions.fromString("rw-rw-r--"); FileAttribute<?> permissions =
+			 * PosixFilePermissions.asFileAttribute(ownerWritable);
+			 * 
+			 * Files.createFile(path, permissions); } catch (Exception e) { // TODO
+			 * Auto-generated catch block e.printStackTrace(); File f = path.toFile();
+			 * f.setExecutable(false); f.setReadable(true);
+			 * 
+			 * 
+			 * }
+			 */
 				Files.write(path, bytes);	
 				
 				
