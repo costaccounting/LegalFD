@@ -52,12 +52,12 @@
 							class="notification">Notification</span> <span
 							class="badge text-dark bg-light">${count}</span>
 					</a>
-						<div class="dropdown-menu p-3">
+						<div class="dropdown-menu p-3" style=" width: 350px">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
 
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${i}/${Useremail}"> <i
+								<a href="/deleteNotification/${count_noti-i}/${Useremail}"> <i
 									class="fa fa-times-circle"></i>
 								</a>
 								<div class="dropdown-divider"></div>

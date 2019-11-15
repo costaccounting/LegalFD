@@ -50,12 +50,12 @@
 							<span class="notification">Notification</span> 
 							<span class="badge text-dark bg-light">${count}</span>
 						</a>
-						<div class="dropdown-menu p-3">
+						<div class="dropdown-menu p-3" style=" width: 350px">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
 				
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${i}/${Useremail}"> 
+								<a href="/deleteNotification/${count_noti-i}/${Useremail}"> 
 									<i class="fa fa-times-circle"></i>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -126,16 +126,6 @@
 
 							</c:if>
 							
-							<c:if test="${role == 'Client'}">
-								<li class="nav-item"><a class="nav-link pl-4 active"
-								href="/form/${Useremail}"> Legal Forms</a></li>
-								<li class="nav-item"><a class="nav-link pl-4"
-									href="/document/${Useremail}">Legal Documents</span></a></li>
-								<li class="nav-item"><a class="nav-link pl-4"
-									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
-
-							</c:if>
-							
 						</ul>
 
 					</div>
@@ -181,9 +171,10 @@
 								</tr>
 							</thead>
 							<tbody>
-
-								<c:forEach var="list" items="${payAmount}">
+								<c:set var="count" value="${fn:length(payAmount)}" />
+								<c:forEach var="i" begin="1" end="${count}" step="1">
 									<tr>
+										<c:set var="list" value="${payAmount[count-i]}" />
 										<td>${list.email}</td>
 										<td>${list.amount}</td>
 										<td>${list.timePayment}</td>

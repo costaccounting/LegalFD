@@ -98,26 +98,37 @@
 </style>
 </head>
 <body>
-<div class="chat-popup " id="myForm">
+<div class="chat-popup " id="myForm" >
 
 
 
-		<form action="mailto:shahriya?body='This is only a test!'"
-			method="GET" class="form-container" >
-			<h1>Chat</h1>
+		<form action="mailto:shahriya@gmail.com"
+			method="GET" class="form-container mb-3" >
+			<h1 class="float-left">Email Us
+			
+			
+			</h1>
+			<div class="float-right">
+			<a onclick="closeForm()"><i
+										class="fa fa-times-circle"></i></a>
+			</div>
+			
 			<div class="form-group">
-				<label for="name">About:</label> <input name="subject" type="text"
+				 <input name="subject" type="text" value="Case Query: ${Useremail }" hidden
 					class="form-control" />
 			</div>
-			<div class="form-group">
+			
+			<div class="form-group "><br>
 				<label for="name">Description:</label>
-				<textarea name="body" class="form-control" rows=5></textarea>
+				<textarea name="body" class="form-control w-100" rows=5></textarea>
 			</div>
+			
+			
 
 
 
 			<input class="btn btn-primary btn-block" type="submit" value="Send">
-			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+			
 		</form>
 	</div>
 
@@ -145,13 +156,13 @@
 							<span class="notification">Notification</span> 
 							<span class="badge text-dark bg-light">${countClient}</span>
 						</a>
-						<div class="dropdown-menu p-3">
+						<div class="dropdown-menu p-3" style=" width: 350px">
 							<c:set var="count_noti" value="${fn:length(clientList)}" />
 							
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${clientList[count_noti-i]}
 								<div class="float-right">
-								<a href="/deleteNotification/${i}/${Useremail}"> 
+								<a href="/deleteNotification/${count_noti-i}/${Useremail}"> 
 									<i class="fa fa-times-circle"></i>
 								</a>
 								</div>
@@ -172,8 +183,13 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> <a href="#" class="dropdown-item"> <i class="fas fa-cog"></i>
-								Settings
+							</a>
+							<a href="/settings/${Useremail}" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Settings
+							</a>
+							<a href="/customerRequest/${Useremail}/${Useremail}"
+								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
+								Your Request
 							</a>
 						</div></li>
 
