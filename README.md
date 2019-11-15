@@ -1,7 +1,7 @@
 # LegalFD
 
 
-Web App for them who represents them self in Family Court. It helps them to fill out necessary Legal Forms and Legal Document by avoiding the leagal fees.
+Web App for people who represents them self in Family Court. It helps them to fill out necessary Legal Forms and Legal Document by avoiding the leagal fees.
 
 ## Github Repo Link
 
