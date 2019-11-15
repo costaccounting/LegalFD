@@ -64,7 +64,26 @@ public class Dao {
 		Dao.clientList = clientList;
 	}
 	
-//-----------------------------------------------------------******************************------------------------------------	
+
+//---------------------------************** Below this PARAS Code  -- START  ********************------------------------------------	
+		
+		public List<String> userExist(String email, String password)			
+		{			
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
+				
+				Query query = session.createQuery("SELECT role from RegisterUser WHERE email =:email AND password =:password");
+				query.setParameter("email", email);
+				query.setParameter("password", password);
+				
+				List<String> checkUser = (List<String>) query.getResultList();
+
+				session.getTransaction().commit();
+				session.close();
+				
+				return checkUser;	
+		}
+//-----------------------------------------------------------*************	ADD	-- START	 *****************------------------------------------	
 	
 	public boolean addUser(RegisterUser register)
 	{
@@ -110,36 +129,17 @@ public class Dao {
 			session.getTransaction().commit();
 			session.close();	
 	}
+//-------------------------------------------*************	ADD	-- END	 *****************------------------------------------	
 	
-//-----------------------------------------------------------******************************------------------------------------	
 	
-	public List<String> userExist(String email, String password)			
-	{			
-			Session session = sessionFactory.openSession();
-			session.beginTransaction();
-			
-			Query query = session.createQuery("SELECT role from RegisterUser WHERE email =:email AND password =:password");
-			query.setParameter("email", email);
-			query.setParameter("password", password);
-			
-			List<String> checkUser = (List<String>) query.getResultList();
-
-			session.getTransaction().commit();
-			session.close();
-			
-			return checkUser;	
-	}
-	
-//-----------------------------------------------------------******************************------------------------------------	
+//-----------------------------------------------------------*************	GET DATA	-- START	 *****************------------------------------------	
 	
 	public List<String> getRole(String email){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		
 		Query query = session.createQuery("select role from RegisterUser where email =:email");
 		query.setParameter("email", email);
-		
 		
 		List<String> register = (List<String>) query.getResultList();
 		
@@ -154,7 +154,6 @@ public class Dao {
 	public List<String> getPassword(String email){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
 		
 		Query query = session.createQuery("select password from RegisterUser where email =:email");
 		query.setParameter("email", email);
@@ -172,8 +171,6 @@ public class Dao {
 		public List<String> getEmail(String email){
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-			
-			//Register register = session.get(Register.class, email, password);
 			
 			Query query = session.createQuery("select email from RegisterUser where email =:email");
 			query.setParameter("email", email);
@@ -193,8 +190,6 @@ public class Dao {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
-			//Register register = session.get(Register.class, email, password);
-			
 			Query query = session.createQuery("select firstName from RegisterUser where email =:email");
 			query.setParameter("email", email);
 			
@@ -211,8 +206,6 @@ public class Dao {
 		public List<String> getLastName(String email){
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-			
-			//Register register = session.get(Register.class, email, password);
 			
 			Query query = session.createQuery("select lastName from RegisterUser where email =:email");
 			query.setParameter("email", email);
@@ -231,12 +224,9 @@ public class Dao {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
-			//Register register = session.get(Register.class, email, password);
-			
 			Query query = session.createQuery("from RegisterUser where email != :email AND role != :role");
 			query.setParameter("email", email);
 			query.setParameter("role", "Admin");
-			
 			
 			List<String> register = (List<String>) query.getResultList();
 			
@@ -255,7 +245,6 @@ public class Dao {
 			Query query = session.createQuery("from RegisterUser where email != :email");
 			query.setParameter("email", email);
 			
-			
 			List<String> register = (List<String>) query.getResultList();
 			
 			session.getTransaction().commit();
@@ -265,40 +254,13 @@ public class Dao {
 		}
 		
 //-----------------------------------------------------------******************************------------------------------------	
-		public void deleteUser(String email) {
-			Session session = sessionFactory.openSession();
-			session.beginTransaction();
-			
-			RegisterUser register = (RegisterUser)session.get(RegisterUser.class, email);
-			session.delete(register);
-			
-			session.getTransaction().commit();
-			session.close();
-		}
 		
-//-----------------------------------------------------------******************************------------------------------------	
-		public boolean deleteUserPayment(int id) {
-			Session session = sessionFactory.openSession();
-			session.beginTransaction();
-			
-			
-			
-			Payment payment = (Payment)session.get(Payment.class, id);
-			session.delete(payment);
-			
-			session.getTransaction().commit();
-			session.close();
-			
-			return true;
-		}
 
 //-----------------------------------------------------------******************************------------------------------------	
 		
 		public List<Integer> getIDFromPayAmount(String email){
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-			
-			//Register register = session.get(Register.class, email, password);
 			
 			Query query = session.createQuery("select id from Payment where userEmail= :email");
 			query.setParameter("email", email);
@@ -312,60 +274,53 @@ public class Dao {
 		}
 		
 //-----------------------------------------------------------******************************------------------------------------	
-	
-		
-//-----------------------------------------------------------******************************------------------------------------	
-				
 		
 		public RegisterUser getUser(String email) {
-					Session session = sessionFactory.openSession();
-					session.beginTransaction();
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 					
-					RegisterUser register = (RegisterUser)session.get(RegisterUser.class, email);
+			RegisterUser register = (RegisterUser)session.get(RegisterUser.class, email);
 					
-					session.getTransaction().commit();
-					session.close();
+			session.getTransaction().commit();
+			session.close();
 					
-					return register;
+			return register;
 		}
 			
 //-----------------------------------------------------------******************************------------------------------------	
-				public List<LawyerDocEdit> getDocPrice() {
-					Session session = sessionFactory.openSession();
-					session.beginTransaction();
+		public List<LawyerDocEdit> getDocPrice() {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 					
-					List<LawyerDocEdit> docPrice;
+			List<LawyerDocEdit> docPrice;
 					
-					Query query = session.createQuery("from LawyerDocEdit");
-					docPrice= query.getResultList();
+			Query query = session.createQuery("from LawyerDocEdit");
+			docPrice= query.getResultList();
 					
+			session.getTransaction().commit();
+			session.close();
 					
-					session.getTransaction().commit();
-					session.close();
-					
-					return docPrice;
-				}
-				
+			return docPrice;
+		}
 
 //-----------------------------------------------------------******************************------------------------------------	
-				public List<PayAmount> getPayAmount() {
-				Session session = sessionFactory.openSession();
-				session.beginTransaction();
+		public List<PayAmount> getPayAmount() {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
 									
-				List<PayAmount> payAmount;
+			List<PayAmount> payAmount;
 								
-				Query query = session.createQuery("from PayAmount");
-				payAmount= query.getResultList();
+			Query query = session.createQuery("from PayAmount");
+			payAmount= query.getResultList();
 									
+			session.getTransaction().commit();
+			session.close();
 									
-				session.getTransaction().commit();
-				session.close();
-									
-				return payAmount;
-				}
+			return payAmount;
+		}
 
 //-----------------------------------------------------------******************************------------------------------------	
-			public List<PayAmount> getPayAmountCustomer(String email) {
+		public List<PayAmount> getPayAmountCustomer(String email) {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 													
@@ -376,27 +331,134 @@ public class Dao {
 			
 			payAmount= query.getResultList();
 													
-													
 			session.getTransaction().commit();
 			session.close();
 													
 			return payAmount;
-			}	
+		}	
+
 //-----------------------------------------------------------******************************------------------------------------	
-				public void editUserRole(String email, RegisterUser reg) {
-					//String firstName, String lastName, String role
-					Session session = sessionFactory.openSession();
-					session.beginTransaction();
+		
+		public List<Payment> getPaymentInfo(String email)
+		{
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+				
+			List<Payment> pay;
+				
+			Query query = session.createQuery("from Payment where userEmail =:email");
+			query.setParameter("email", email);
+				
+			pay= query.getResultList();
+				
+			session.getTransaction().commit();
+			session.close();
+				
+			return pay;
+		}
+
+//-----------------------------------------------------------******************************------------------------------------	
+
+		public String getFormInfo(int id)
+		{
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+				
+			String form;
+				
+			Query query = session.createQuery("select formType from LawyerDocEdit where id =:id");
+			query.setParameter("id", id);
+				
+			form= (String) query.getResultList().get(0);
+				
+			session.getTransaction().commit();
+			session.close();
+				
+			return form;
+		}
+		
+//-----------------------------------------------------------******************************------------------------------------	
+			
+		public String getDocumentInfo(int id)
+		{
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+				
+			String document;
+				
+			Query query = session.createQuery("select docType from LawyerDocEdit where id =:id");
+			query.setParameter("id", id);
+				
+			document= (String) query.getResultList().get(0);
+				
+			session.getTransaction().commit();
+			session.close();
+				
+			return document;
+		}
+
+//-----------------------------------------------------------*************	GET DATA	-- END	 *****************------------------------------------	
+			
+			
+//-----------------------------------------------------------*************	DELETE DATA	-- START	 *****************------------------------------------	
+			
+		public void deleteUser(String email) {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+				
+			RegisterUser register = (RegisterUser)session.get(RegisterUser.class, email);
+			session.delete(register);
+				
+			session.getTransaction().commit();
+			session.close();
+		}
+			
+//-----------------------------------------------------------******************************------------------------------------	
+		public boolean deleteUserPayment(int id) {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+				
+			Payment payment = (Payment)session.get(Payment.class, id);
+			session.delete(payment);
+				
+			session.getTransaction().commit();
+			session.close();
+				
+			return true;
+		}
+		
+//-----------------------------------------------------------******************************------------------------------------	
+		public void deleteOrderById(int id){
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+								
+			Payment pay = (Payment) session.get(Payment.class, id);
+			session.delete(pay);
+								
+			session.getTransaction().commit();
+			session.close();
+		}
+		
+//-----------------------------------------------------------*************	DELETE DATA	-- END	 *****************------------------------------------	
+		
+			
+			
+			
+//-----------------------------------------------------------*************	EDIT DATA	-- START	 *****************------------------------------------	
+			
+			public void editUserRole(String email, RegisterUser reg) {
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
 					
-					RegisterUser registredUser = (RegisterUser) session.get(RegisterUser.class, email);
+				RegisterUser registredUser = (RegisterUser) session.get(RegisterUser.class, email);
 					
-					registredUser.setFirstName(reg.getFirstName());
-					registredUser.setLastName(reg.getLastName());
-					registredUser.setRole(reg.getRole());
+				registredUser.setFirstName(reg.getFirstName());
+				registredUser.setLastName(reg.getLastName());
+				registredUser.setRole(reg.getRole());
 					
-					session.getTransaction().commit();
-					session.close();
-				}
+				session.getTransaction().commit();
+				session.close();
+			}
 	
 //-----------------------------------------------------------******************************------------------------------------	
 				public void editUser(RegisterUser reg) {
@@ -418,38 +480,7 @@ public class Dao {
 	
 //-----------------------------------------------------------******************************------------------------------------	
 				
-				public List<Payment> getPaymentInfo(String email)
-				{
-					Session session = sessionFactory.openSession();
-					session.beginTransaction();
-					
-					List<Payment> pay;
-					
-					Query query = session.createQuery("from Payment where userEmail =:email");
-					query.setParameter("email", email);
-					
-					pay= query.getResultList();
-					
-					session.getTransaction().commit();
-					session.close();
-					
-					return pay;
-				}
-	
-//-----------------------------------------------------------******************************------------------------------------	
-				public void deleteOrderById(int id){
-					Session session = sessionFactory.openSession();
-					session.beginTransaction();
-					
-					Payment pay = (Payment) session.get(Payment.class, id);
-					session.delete(pay);
-					
-					session.getTransaction().commit();
-					session.close();
-				}
-				
-//-----------------------------------------------------------******************************------------------------------------	
-				public boolean editFormPrice(int id, LawyerDocEdit lawPrice){
+						public boolean editFormPrice(int id, LawyerDocEdit lawPrice){
 					
 					//String firstName, String lastName, String role
 					Session session = sessionFactory.openSession();
@@ -467,66 +498,16 @@ public class Dao {
 					
 					return true;
 				}
-//-----------------------------------------------------------******************************------------------------------------	
+						
+//-----------------------------------------------------------*************	EDIT DATA	-- END	 *****************------------------------------------	
+			
+								
+//---------------------------************** Above this PARAS Code --	END	****************------------------------------------	
+								
 
-								
-								public String getFormInfo(int id)
-								{
-									Session session = sessionFactory.openSession();
-									session.beginTransaction();
-									
-									String form;
-									
-									Query query = session.createQuery("select formType from LawyerDocEdit where id =:id");
-									query.setParameter("id", id);
-									
-									form= (String) query.getResultList().get(0);
-									
-									session.getTransaction().commit();
-									session.close();
-									
-									return form;
-								}
-//-----------------------------------------------------------******************************------------------------------------	
-								
-								public String getDocumentInfo(int id)
-								{
-									Session session = sessionFactory.openSession();
-									session.beginTransaction();
-									
-									String document;
-									
-									Query query = session.createQuery("select docType from LawyerDocEdit where id =:id");
-									query.setParameter("id", id);
-									
-									document= (String) query.getResultList().get(0);
-									
-									session.getTransaction().commit();
-									session.close();
-									
-									return document;
-								}
-								
-//---------------------------************** Above this PARAS Code ****************------------------------------------	
-								
-		public List<String> validateUser(RegisterUser reg) {
-			List<String> err = new ArrayList<String>();
-			
-			ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
-			
-			Validator val = vf.getValidator();
-			
-			Set<ConstraintViolation<RegisterUser>> violationError = val.validate(reg);
-			
-			if(!violationError.isEmpty()) {
-				for(ConstraintViolation<RegisterUser> error: violationError) {
-					err.add(error.getPropertyPath() + ": :" + error.getMessage());
-				}
-			}
-			return err;
-		}
 
-//----------------------********** Below this PRODIP Code ********************------------------------------------	
+
+//---------------------------************** Below this PRODIP Code  -- START  ********************------------------------------------	
 		
 	public boolean createFolder(RegisterUser user) {		
 			String path = getUsersHomeDir() + File.separator + location_string + File.separator + user.getEmail() ;		
@@ -748,10 +729,8 @@ public class Dao {
 		
 	}
 
+//---------------------------************** Above this PRODIP Code --	END	****************------------------------------------	
 
-	
-
-
-		
+			
 
 }
