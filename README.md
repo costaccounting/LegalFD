@@ -47,6 +47,7 @@ Clone [Github Repository Link](https://github.com/costaccounting/LegalFD.git)
 * **List User** - List and Filter out user list.
 * **Delete User** - Delete any user including lawyers and clients.
 * **Upload Documents** - Upload prepared requested document to any client folder.
+* **Edit Form Price** - Admin can edit form price and enable sale symbol for more customer to use this as a promotion.
 
 ### Lawyer
 
@@ -64,4 +65,5 @@ Clone [Github Repository Link](https://github.com/costaccounting/LegalFD.git)
 
  ## Hosting Service
 
- We are using **AWS** as our hosting service. It has a in-build tool for database called Relational Database Service. For storing documents we are using **EC2** service.  
+ We are using **AWS** as our hosting service. 
+ **RDS** as Relational Database and **EC2** instance to run our **Spring Boot** project as well as to maintain and store files files.
