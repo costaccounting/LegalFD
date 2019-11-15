@@ -126,16 +126,6 @@
 
 							</c:if>
 							
-							<c:if test="${role == 'Client'}">
-								<li class="nav-item"><a class="nav-link pl-4 active"
-								href="/form/${Useremail}"> Legal Forms</a></li>
-								<li class="nav-item"><a class="nav-link pl-4"
-									href="/document/${Useremail}">Legal Documents</span></a></li>
-								<li class="nav-item"><a class="nav-link pl-4"
-									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
-
-							</c:if>
-							
 						</ul>
 
 					</div>
@@ -181,9 +171,10 @@
 								</tr>
 							</thead>
 							<tbody>
-
-								<c:forEach var="list" items="${payAmount}">
+								<c:set var="count" value="${fn:length(payAmount)}" />
+								<c:forEach var="i" begin="1" end="${count}" step="1">
 									<tr>
+										<c:set var="list" value="${payAmount[count-i]}" />
 										<td>${list.email}</td>
 										<td>${list.amount}</td>
 										<td>${list.timePayment}</td>
