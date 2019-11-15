@@ -103,7 +103,7 @@
 
 
 		<form action="mailto:shahriya@gmail.com"
-			method="GET" class="form-container mb-3" style="width: 400px">
+			method="GET" class="form-container mb-3" >
 			<h1 class="float-left">Email Us
 			
 			
@@ -117,10 +117,13 @@
 				 <input name="subject" type="text" value="Case Query: ${Useremail }" hidden
 					class="form-control" />
 			</div>
-			<div class="form-group float-left"><br>
+			
+			<div class="form-group "><br>
 				<label for="name">Description:</label>
-				<textarea name="body" class="form-control" rows=5></textarea>
+				<textarea name="body" class="form-control w-100" rows=5></textarea>
 			</div>
+			
+			
 
 
 
