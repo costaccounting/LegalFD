@@ -104,9 +104,8 @@
 
 
 
-		<form action="mailto:shahriya?body='This is only a test!'"
-			method="GET" class="form-container" style="width: 400px;">
-			<div>
+		<form action="mailto:shahriya@gmail.com"
+			method="GET" class="form-container mb-3" style="width: 400px">
 			<h1 class="float-left">Email Us
 			
 			
@@ -115,14 +114,15 @@
 			<a onclick="closeForm()"><i
 										class="fa fa-times-circle"></i></a>
 			</div>
+			
+			<div class="form-group">
+				 <input name="subject" type="text" value="Case Query: ${Useremail }" hidden
+					class="form-control" />
 			</div>
-			
-			<br>
-
-			
+			<div class="form-group float-left"><br>
 				<label for="name">Description:</label>
-				<textarea name="body"  rows=5></textarea>
-			
+				<textarea name="body" class="form-control" rows=5></textarea>
+			</div>
 
 
 
@@ -179,11 +179,9 @@
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
-							</a> 
-							<a href="/settings/${Useremail}" class="dropdown-item"> <i
+							</a> <a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
-							</a> 
-							<a href="/customerRequest/${Useremail}/${Useremail}"
+							</a> <a href="/customerRequest/${Useremail}/${Useremail}"
 								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
 								Your Request
 							</a>
