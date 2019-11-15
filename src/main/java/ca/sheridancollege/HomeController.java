@@ -564,20 +564,44 @@ public class HomeController {
 		
 			
 			if(dao.addUser(registerUser)==true) {
-				model.addAttribute("message", "You have Successfully Created your Account");
-				model.addAttribute("successMessage", "Please Login in with your credentials");
-				 
-				 
-				model.addAttribute("registerUser", new RegisterUser());
-				// Empty the field in form and sends it to register page
+				String Useremail = registerUser.getEmail();
 				
-				//create a folder for the user
-				if(dao.createFolder(registerUser))
-					System.out.println("folder created");
-				else
-					System.out.println("folder not created");
+				// Regular Code to send to General Application sos that Forms will work properly
+				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+				// Needed in order to work with general application form
 				
-				return "index";	
+				// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+				
+						ArrayList<String> clientList = dao.getClientList();
+						ArrayList<String> list = new ArrayList<String>();				
+						for(int i=0; i < clientList.size(); i++)
+						{
+							if (clientList.get(i).indexOf(Useremail) != -1) {
+								list.add(clientList.get(i));
+								System.out.println("Noti Test o/p -> " + clientList.get(i));
+								System.out.println("Noti Test o/p -> " + list);
+								System.out.println("Noti Test o/p -> " + list.size());
+								
+							}
+						}
+						model.addAttribute("clientList", list);
+						model.addAttribute("countClient", list.size());
+						
+						
+						//create a folder for the user
+						if(dao.createFolder(registerUser))
+							System.out.println("folder created");
+						else
+							System.out.println("folder not created");
+						
+						
+						return "Customer/GeneralApplication/ClientInfo";// Empty the field in form and sends it to register page
+				
+				
+				
 			}
 			else
 			{
