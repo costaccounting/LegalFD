@@ -472,7 +472,6 @@ public class HomeController {
 			{
 				
 				List<String> notification = dao.getList();
-				//notification.remove(id-1);
 				notification.remove(id);
 				
 				model.addAttribute("allData", dao.getDataForAdmin(Useremail));
@@ -490,7 +489,7 @@ public class HomeController {
 			else if((dao.getRole(Useremail).get(0)).equals("Lawyer"))
 			{
 				List<String> notification = dao.getList();
-				notification.remove(id-1);
+				notification.remove(id);
 				
 				model.addAttribute("allDataForLawyer", dao.getDataForLawyer(Useremail));
 				
@@ -506,7 +505,7 @@ public class HomeController {
 			else if((dao.getRole(Useremail).get(0)).equals("Client")) 
 			{
 				List<String> notifiClient = dao.getClientList();
-				notifiClient.remove(id-1);
+				notifiClient.remove(id);
 				
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();				
 				model.addAttribute("listOfAllForms", docPrice);
@@ -533,7 +532,7 @@ public class HomeController {
 				return "Customer/form";
 			}
 			else {
-				model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
+				model.addAttribute("loginMess", "You DO NOT hold privileges to Delete Notification");
 				model.addAttribute("registerUser", new RegisterUser());
 									
 				return "index";
