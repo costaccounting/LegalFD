@@ -255,7 +255,7 @@
 					</tr>
 					<tr>
 						<th><form:input type="text" class="form-control mb-2 "
-								path="childName1" /></th>
+								path="childName1" placeholder="First Child"/></th>
 						<th><form:input type="date" class="form-control mb-2 "
 								path="dobChild1" /></th>
 						<th><form:input type="text" class="form-control mb-2 "
@@ -268,7 +268,7 @@
 					</tr>
 					<tr>
 						<th><form:input type="text" class="form-control mb-2 "
-								path="childName2" /></th>
+								path="childName2" placeholder="Second Child"/></th>
 						<th><form:input type="date" class="form-control mb-2 "
 								path="dobChild2" /></th>
 						<th><form:input type="text" class="form-control mb-2 "
@@ -281,7 +281,7 @@
 					</tr>
 					<tr>
 						<th><form:input type="text" class="form-control mb-2 "
-								path="childName3" /></th>
+								path="childName3" placeholder="Third Child"/></th>
 						<th><form:input type="date" class="form-control mb-2 "
 								path="dobChild3" /></th>
 						<th><form:input type="text" class="form-control mb-2 "
@@ -294,7 +294,7 @@
 					</tr>
 					<tr>
 						<th><form:input type="text" class="form-control mb-2 "
-								path="childName4" /></th>
+								path="childName4" placeholder="Fourth Child"/></th>
 						<th><form:input type="date" class="form-control mb-2 "
 								path="dobChild4" /></th>
 						<th><form:input type="text" class="form-control mb-2 "
