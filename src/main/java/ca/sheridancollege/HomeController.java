@@ -26,14 +26,14 @@ public class HomeController {
 	
 //***************___Navigation between Pages -- START******************
 	
-	@RequestMapping("/error")
-	public String goError(Model model) {
-		model.addAttribute("registerUser", new RegisterUser());
-		
-		model.addAttribute("logOutMess", "You are trying to access things which are out of your limit");
-		
-		return "index";
-	}
+//	@RequestMapping("/error")
+//	public String goError(Model model) {
+//		model.addAttribute("registerUser", new RegisterUser());
+//		
+//		model.addAttribute("logOutMess", "You are trying to access things which are out of your limit");
+//		
+//		return "index";
+//	}
 	
 	@RequestMapping("/")
 	public String goHome(Model model) {
@@ -311,6 +311,7 @@ public class HomeController {
 			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("role", dao.getRole(Useremail).get(0));
 			model.addAttribute("Useremail", Useremail);
 			
 			ArrayList<String> clientList = dao.getClientList();
@@ -322,9 +323,12 @@ public class HomeController {
 					System.out.println("Noti Test o/p -> " + clientList.get(i));
 					System.out.println("Noti Test o/p -> " + list);
 					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
+			
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
+			
 			return "Customer/document";
 		}
 		
@@ -570,7 +574,7 @@ public class HomeController {
 	@RequestMapping("/register1")
 	public String goRegister(Model model, @ModelAttribute RegisterUser registerUser) {
 		
-			
+		try {
 			if(dao.addUser(registerUser)==true) {
 				String Useremail = registerUser.getEmail();
 				
@@ -613,13 +617,20 @@ public class HomeController {
 			}
 			else
 			{
-				model.addAttribute("mess", "Un-expected Error. Please Try Again");
+				model.addAttribute("message", "Un-expected Error. Please Try Again");
 				model.addAttribute("register", registerUser); 
 				// Stores the form inputed data and return back to register form
 				
 				return "index";	
 			}
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "You already have an account. Try contact the Admin to reset Password");
+			model.addAttribute("register", registerUser); 
+			// Stores the form inputed data and return back to register form
 			
+			return "index";	
+		}
 		
 	}// end of method
 

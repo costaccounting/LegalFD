@@ -116,11 +116,9 @@
 									<p align="center" style="font-size: 1.5em;">${loginMess}</p>
 									<p align="center" style="color: green; font-size: 1.5em;">${logOutMess}</p>
 
-									<p align="center" style="font-size: 1em;">${message}</p>
-									<p align="center" style="color: aquamarine; font-size: 1em;">${successMessage}</p>
-
-									<p align="center" style="color: aqua; font-size: 1.5em;">${mess}</p>
-
+									<p align="center" style="font-size: 1.5em;">${message}</p>
+									
+									
 									<br>
 									<br>
 								</form>

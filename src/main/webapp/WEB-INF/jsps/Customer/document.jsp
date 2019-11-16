@@ -113,7 +113,7 @@
 			</div>
 			
 			<div class="form-group">
-				 <input name="subject" type="text" value="Case Query: ${Useremail }" hidden
+				 <input name="subject" type="text" value="Case Query: ${Useremail}" hidden
 					class="form-control" />
 			</div>
 			
