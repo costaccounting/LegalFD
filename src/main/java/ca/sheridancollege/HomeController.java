@@ -786,6 +786,7 @@ public class HomeController {
 				
 				String firstNameStore = dao.getFirstName(SessionEmail).get(0);
 				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("role", dao.getRole(SessionEmail).get(0));
 				model.addAttribute("Useremail", SessionEmail);
 				
 				ArrayList<String> clientList = dao.getClientList();
