@@ -26,6 +26,15 @@ public class HomeController {
 	
 //***************___Navigation between Pages -- START******************
 	
+	@RequestMapping("/error")
+	public String goError(Model model) {
+		model.addAttribute("registerUser", new RegisterUser());
+		
+		model.addAttribute("logOutMess", "You are trying to access things which are out of your limit");
+		
+		return "index";
+	}
+	
 	@RequestMapping("/")
 	public String goHome(Model model) {
 		model.addAttribute("registerUser", new RegisterUser());
