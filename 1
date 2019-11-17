@@ -1,0 +1,18 @@
+● legalfd.service - Java Service
+   Loaded: loaded (/etc/systemd/system/legalfd.service; disabled; vendor preset: enabled)
+   Active: active (running) since Thu 2019-11-14 17:51:54 UTC; 53s ago
+ Main PID: 17316 (java)
+    Tasks: 31 (limit: 2286)
+   CGroup: /system.slice/legalfd.service
+           └─17316 /usr/bin/java -Xmx256m -jar /var/legalfd/app.jar --server.port=8085
+
+Nov 14 17:52:10 lawserver java[17316]: 2019-11-14 17:52:10.852  INFO 17316 --- [           main] .c.i.DriverManagerConnectionProviderImpl : HHH000115: Hibernate connection pool size: 20 (min=1)
+Nov 14 17:52:11 lawserver java[17316]: 2019-11-14 17:52:11.447  INFO 17316 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Nov 14 17:52:11 lawserver java[17316]: 2019-11-14 17:52:11.766  INFO 17316 --- [           main] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@24f870ee] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Nov 14 17:52:12 lawserver java[17316]: 2019-11-14 17:52:12.415  INFO 17316 --- [           main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+Nov 14 17:52:12 lawserver java[17316]: 2019-11-14 17:52:12.917  INFO 17316 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+Nov 14 17:52:13 lawserver java[17316]: 2019-11-14 17:52:13.699  INFO 17316 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+Nov 14 17:52:13 lawserver java[17316]: 2019-11-14 17:52:13.705  INFO 17316 --- [           main] c.s.LegalFdCapstoneApplication           : Started LegalFdCapstoneApplication in 16.433 seconds (JVM running for 18.646)
+Nov 14 17:52:24 lawserver java[17316]: 2019-11-14 17:52:24.613  INFO 17316 --- [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+Nov 14 17:52:24 lawserver java[17316]: 2019-11-14 17:52:24.618  INFO 17316 --- [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+Nov 14 17:52:24 lawserver java[17316]: 2019-11-14 17:52:24.673  INFO 17316 --- [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 49 ms

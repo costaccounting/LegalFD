@@ -1,0 +1,35 @@
+[Unit]
+Description=Spring boot application Service
+
+[Service]
+User=csadmin
+
+# Run commands
+WorkingDirectory=/home/csadmin/LegalFD 
+ExecStart=/usr/share/maven/bin/mvn spring-boot:run
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=always
+RestartSec=5
+
+
+# set permission for client_files
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /home/csadmin/client_files
+ExecStartPre=/bin/chown csadmin /home/csadmin/client_files
+ExecStartPre=/bin/chmod -R u=rwx,g=rw,o=r /home/csadmin/client_files
+
+# enable logging
+ExecStartPre=/bin/mkdir -p /var/log/legalfd
+ExecStartPre=/bin/chown syslog:adm /var/log/legalfd
+ExecStartPre=/bin/chmod 755 /var/log/legalfd
+ExecStartPre=/usr/bin/touch /var/log/legalfd/legalfd.log
+ExecStartPre=/bin/chown syslog:adm /var/log/legalfd/legalfd.log
+ExecStartPre=/bin/chmod 755 /var/log/legalfd/legalfd.log
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=${SVCNAME}
+
+[Install]
+WantedBy=multi-user.target
+
