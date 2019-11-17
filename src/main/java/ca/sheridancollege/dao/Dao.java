@@ -4,16 +4,23 @@ import ca.sheridancollege.beans.*;
 import java.util.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;		
 import java.nio.file.Path;		
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.persistence.*;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
@@ -724,6 +731,46 @@ public class Dao {
 		return false;
 	
 		
+	}
+	
+	
+	private String hashGenerator(String password) {
+		SecureRandom random = new SecureRandom();
+		byte[] salt = new byte[16];
+		random.nextBytes(salt);
+		byte[] hash = null;
+		String digest = null;
+		try {
+			KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+			hash = factory.generateSecret(spec).getEncoded();
+			
+			try { 
+				StringBuilder sb = new StringBuilder(2*hash.length); 
+				for(byte b : hash)
+				{ 
+					sb.append(String.format("%02x", b&0xff)); 
+					
+				} 
+				
+				digest = sb.toString();
+				
+			} 
+			catch (Exception ex) { 
+				ex.printStackTrace();
+				
+			} 
+			
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidKeySpecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return digest;
 	}
 
 //---------------------------************** Above this PRODIP Code --	END	****************------------------------------------	
