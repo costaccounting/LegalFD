@@ -275,6 +275,7 @@
 												<p>
 														LegalFD retains the right to make changes to its Affiliate
 														Program or other programs as it sees fit.<br>
+<<<<<<< HEAD
 													</p>
 													<p>Detailed Affiliate Program Terms and Conditions can be found 
 													   at Affiliate Program Terms and Conditions.</p>
@@ -292,6 +293,10 @@
 												<p></p>
 												<p></p>
 												</li>
+=======
+													</p></li>
+												<li></li>
+>>>>>>> 88f5320c7fc03ebd41c41696f32968de59861af1
 											</ol>
 										</div>
 										<div class="modal-footer">
@@ -476,8 +481,13 @@
 												and last name, email address, phone number, other payment
 												processing information and document creation data. LegalFD
 												will store such personal information until you delete that
+<<<<<<< HEAD
 												personal information through your “My Documents” or
 												“My Account” pages on our site, you formally request its
+=======
+												personal information through your “My Documents” or “My
+												Account” pages on our site, you formally request its
+>>>>>>> 88f5320c7fc03ebd41c41696f32968de59861af1
 												deletion or revoke your consent to its storage, or LegalFD
 												otherwise deletes that personal information in accordance
 												with its decisions or internal policies.
