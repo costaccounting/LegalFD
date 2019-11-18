@@ -32,7 +32,6 @@
 	cursor: pointer;
 }
 
-
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
 	background-color: #555;
@@ -107,37 +106,33 @@
 
 <body>
 
-<div class="chat-popup " id="myForm" >
+	<div class="chat-popup " id="myForm">
 
 
 
-		<form action="mailto:shahriya@gmail.com"
-			method="GET" class="form-container mb-3" >
-			<h1 class="float-left">Email Us
-			
-			
-			</h1>
+		<form action="mailto:shahriya@gmail.com" method="GET"
+			class="form-container mb-3">
+			<h1 class="float-left">Email Us</h1>
 			<div class="float-right">
-			<a onclick="closeForm()"><i
-										class="fa fa-times-circle"></i></a>
+				<a onclick="closeForm()"><i class="fa fa-times-circle"></i></a>
 			</div>
-			
+
 			<div class="form-group">
-				 <input name="subject" type="text" value="Case Query: ${Useremail }" hidden
-					class="form-control" />
+				<input name="subject" type="text" value="Case Query: ${Useremail }"
+					hidden class="form-control" />
 			</div>
-			
-			<div class="form-group "><br>
-				<label for="name">Description:</label>
+
+			<div class="form-group ">
+				<br> <label for="name">Description:</label>
 				<textarea name="body" class="form-control w-100" rows=5></textarea>
 			</div>
-			
-			
+
+
 
 
 
 			<input class="btn btn-primary btn-block" type="submit" value="Send">
-			
+
 		</form>
 	</div>
 
@@ -158,49 +153,45 @@
 					<li class="nav-item px-2"><a href="/dashboard/${Useremail}"
 						class="nav-link ">Home</a></li>
 
-					<li class="nav-item px-2 dropdown mr-3">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> 
-							<span class="notification">Notification</span> 
-							<span class="badge text-dark bg-light">${count}</span>
-						</a>
-						<div class="dropdown-menu p-3" style=" width: 350px">
+					<li class="nav-item px-2 dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <span
+							class="notification">Notification</span> <span
+							class="badge text-dark bg-light">${count}</span>
+					</a>
+						<div class="dropdown-menu p-3" style="width: 350px">
 							<c:set var="count_noti" value="${fn:length(notiList)}" />
-							
+
 							<c:forEach var="i" begin="1" end="${count_noti}" step="1">
 								${notiList[count_noti-i]}
-								<a href="/deleteNotification/${count_noti-i}/${Useremail}"> 
+								<a href="/deleteNotification/${count_noti-i}/${Useremail}">
 									<i class="fa fa-times-circle"></i>
 								</a>
 								<div class="dropdown-divider"></div>
 							</c:forEach>
-						</div>
-					</li>
+						</div></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown mr-3">
-						<a href="#"
-							class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
-								class="fas fa-user"></i> Welcome ${firstName}
-						</a>
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"> <i
+							class="fas fa-user"></i> Welcome ${firstName}
+					</a>
 						<div class="dropdown-menu">
 							<a href="/generalApplication/${Useremail}" class="dropdown-item">
 								<i class="fas fa-user-circle"></i> Profile
 							</a> <a href="/settings/${Useremail}" class="dropdown-item"> <i
 								class="fas fa-cog"></i> Settings
-							</a>
-							<a href="/customerRequest/${Useremail}/${Useremail}"
+							</a> <a href="/customerRequest/${Useremail}/${Useremail}"
 								class="dropdown-item"> <i class="	fas fa-sticky-note"></i>
 								Your Request
 							</a>
-						</div>
-					</li>
+						</div></li>
 
 					<li class="nav-item"><c:url var="logoutUrl" value="/logout" />
-						<a href="${logoutUrl}" class="nav-link ">
-							<i class="fa fa-power-off"></i> Log Out</a>	
-					</li>
-					
+						<a href="${logoutUrl}" class="nav-link "> <i
+							class="fa fa-power-off"></i> Log Out
+					</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -226,22 +217,15 @@
 						<ul
 							class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
 							<br>
-							<c:if test="${role == 'Lawyer'}">
-								<li class="nav-item"><a class="nav-link pl-4 "
-									href="/dashboard/${Useremail}"> Manage Users</a></li>
-								<li class="nav-item"><a class="nav-link pl-4 "
-									href="/caseRequest/${Useremail}">Client Requests </a></li>
-							</c:if>
 							
-							<c:if test="${role == 'Admin'}">
-								<li class="nav-item"><a class="nav-link pl-4 " 
-								href="/dashboard/${Useremail}"> Manage Users</a></li>
-								<li class="nav-item"><a class="nav-link pl-4 "
-								href="/caseRequest/${Useremail}">Client Requests</a></li>
+								<li class="nav-item"><a class="nav-link pl-4 active"
+									href="/form/${Useremail}"> Legal Forms</a></li>
 								<li class="nav-item"><a class="nav-link pl-4"
-								href="/editDocPrice/${Useremail}">Manage Price</a></li>
+									href="/document/${Useremail}">Legal Documents</a></li>
+								<li class="nav-item"><a class="nav-link pl-4"
+									href="/goToCustomerUpload/${Useremail}">Upload Documents</a></li>
 
-							</c:if>
+						
 
 						</ul>
 
@@ -262,7 +246,7 @@
 						<div class="float-right">
 							<a href="/dashboard/${Useremail}" class="btn btn-primary"> <i
 								class="fas fa-arrow-left"></i> Back
-							</a> 
+							</a>
 						</div>
 
 					</h2>
@@ -277,24 +261,26 @@
 						<form action="/editPassword/${Useremail}" method="post">
 
 							<div class="form-group">
-								<label for="name">User Email:</label> <input class="form-control"
-									type="text" name="userEmail" value="${Useremail}" disabled>
+								<label for="name">User Email:</label> <input
+									class="form-control" type="text" name="userEmail"
+									value="${Useremail}" disabled>
 							</div>
 							<div class="form-group">
-								<label for="name">First Name:</label> <input class="form-control"
-									type="text" name="userFirstName" value="${userInfo.firstName}">
+								<label for="name">First Name:</label> <input
+									class="form-control" type="text" name="userFirstName"
+									value="${userInfo.firstName}">
 							</div>
 							<div class="form-group">
 								<label for="name">Last Name:</label> <input class="form-control"
 									type="text" name="userLastName" value="${userInfo.lastName}">
 							</div>
 							<div class="form-group">
-								<label for="name">New Password:</label> <input class="form-control"
-									type="password" name="userNewPassword" value="${userInfo.password}">
+								<label for="name">New Password:</label> <input
+									class="form-control" type="password" name="userNewPassword"
+									value="${userInfo.password}">
 							</div>
-				<br>
-				
-							<input class="btn btn-primary float-right" type="submit" value="Save">
+							<br> <input class="btn btn-primary float-right"
+								type="submit" value="Save">
 						</form>
 
 					</div>
@@ -303,20 +289,21 @@
 		</div>
 
 		</main>
-	<button class="open-button float-right bg-primary" onclick="openForm()">
-		<i class="fas fa-envelope"></i>
-	</button>
-	
+		<button class="open-button float-right bg-primary"
+			onclick="openForm()">
+			<i class="fas fa-envelope"></i>
+		</button>
 
-	<script>
-		function openForm() {
-			document.getElementById("myForm").style.display = "block";
-		}
 
-		function closeForm() {
-			document.getElementById("myForm").style.display = "none";
-		}
-	</script>
+		<script>
+			function openForm() {
+				document.getElementById("myForm").style.display = "block";
+			}
+
+			function closeForm() {
+				document.getElementById("myForm").style.display = "none";
+			}
+		</script>
 
 
 

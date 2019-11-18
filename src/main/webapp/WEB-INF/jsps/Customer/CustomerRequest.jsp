@@ -213,8 +213,9 @@
 					</button>
 
 					<div class="collapse navbar-collapse">
-					<ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
 
+					<ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between ml-auto">
+					<br>
 						<c:if test="${role == 'Client'}">
 							<li class="nav-item"><a class="nav-link pl-4 "
 								href="/dashboard/${Useremail}"> Legal Forms</a></li>
@@ -241,6 +242,7 @@
 
 						</c:if>
 					</ul>
+
 					</div>
 				</nav>
 			</aside>
