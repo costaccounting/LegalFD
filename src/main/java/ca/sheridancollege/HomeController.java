@@ -73,7 +73,7 @@ public class HomeController {
 				
 	@RequestMapping("/edit/{email}/{Useremail}")
 	public String goEditUser(Model model, @PathVariable String email, @PathVariable String Useremail) {
-				
+		try {		
 		RegisterUser reg = dao.getUser(email); 
 		model.addAttribute("userInfo", reg);
 		
@@ -88,11 +88,18 @@ public class HomeController {
 		model.addAttribute("Useremail", Useremail);
 		
 		return "edit";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/settings/{Useremail}")
 	public String clientSettings(Model model, @PathVariable String Useremail) {
-		
+		try {
 		RegisterUser reg = dao.getUser(Useremail); 
 		model.addAttribute("userInfo", reg);
 		
@@ -103,11 +110,18 @@ public class HomeController {
 		model.addAttribute("Useremail", Useremail);
 				
 		return "Settings";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/Lawsettings/{Useremail}")
 	public String lawyerSetting(Model model, @PathVariable String Useremail) {
-		
+		try {
 		RegisterUser reg = dao.getUser(Useremail); 
 		model.addAttribute("userInfo", reg);
 		
@@ -121,11 +135,19 @@ public class HomeController {
 		model.addAttribute("Useremail", Useremail);
 				
 		return "Lawyer/LawSettings";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/paymentPage/{Useremail}")
 	public String goViewCart(Model model, @PathVariable String Useremail) {
 			
+		try {
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
@@ -146,12 +168,19 @@ public class HomeController {
 			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 //-------- 	Navigation to General Application Client Side __ START  -----------			
 	@RequestMapping("/navclientInfo/{Useremail}")	
 	public String navClientInfo(Model model, @PathVariable String Useremail) {
-		
+		try {
 				model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
 				
 				// Code to required to go to other pages
@@ -168,11 +197,19 @@ public class HomeController {
 					}
 				}
 				return "Customer/GeneralApplication/ClientInfo";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/navspouseInfo/{Useremail}")	
 	public String navSpouseInfo(Model model, @PathVariable String Useremail) {
-		
+		try {
+			
 		model.addAttribute("spouseInfo", (generalDao.getSpouseInfo(Useremail)));
 				
 		// Code to required to go to other pages
@@ -190,11 +227,19 @@ public class HomeController {
 			}
 		}
 		return "Customer/GeneralApplication/SpouseInfo";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/navmaritalInfo/{Useremail}")	
 	public String navMaritalInfo(Model model, @PathVariable String Useremail) {
 		
+		try {
 		model.addAttribute("maritalInfo", (generalDao.getMartialInfo(Useremail)));
 		
 		// Code to required to go to other pages
@@ -212,11 +257,19 @@ public class HomeController {
 			}
 		}
 		return "Customer/GeneralApplication/MaritalInfo";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/navmatrimonialHome/{Useremail}")	
 	public String navMatrimonialHome(Model model, @PathVariable String Useremail) {
-
+		
+		try {
 		model.addAttribute("matrimonialHome", (generalDao.getMatrimonialHome(Useremail)));
 
 		// Code to required to go to other pages
@@ -234,11 +287,19 @@ public class HomeController {
 			}
 		}
 		return "Customer/GeneralApplication/MatrimonialHome";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@RequestMapping("/navchildren/{Useremail}")	
 	public String navChildren(Model model, @PathVariable String Useremail) {
 
+		try {
 		model.addAttribute("children", (generalDao.getChildren(Useremail)));
 
 		// Code to required to go to other pages
@@ -256,12 +317,19 @@ public class HomeController {
 			}
 		}
 		return "Customer/GeneralApplication/Children";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	
 	@RequestMapping("/navchildExpense/{Useremail}")	
 	public String navChildExpenses(Model model, @PathVariable String Useremail) {
-		
+		try {
 		model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
 
 		// Code to required to go to other pages
@@ -279,6 +347,13 @@ public class HomeController {
 			}
 		}
 		return "Customer/GeneralApplication/ChildExpenses";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 //------ Navigation to General Application Client Side __ END  ------		
 	
@@ -286,7 +361,7 @@ public class HomeController {
 //-----	Navigation to Other Forms, Documents __ START  -----------		
 		@RequestMapping("/document/{Useremail}")
 		public String goDocumentPage(Model model, @PathVariable String Useremail) {
-			
+			try {
 			// Code to required to go to other pages
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
@@ -306,12 +381,19 @@ public class HomeController {
 			model.addAttribute("countClient", list.size());
 			
 			return "Customer/document";
+			}
+			catch (Exception e) {
+				model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
 		
 		
 		@RequestMapping("/form/{Useremail}")
 		public String goFormPage(Model model, @PathVariable String Useremail) {
-			
+			try {
 			if ((dao.getRole(Useremail).get(0)).equals("Client")) {
 				
 				List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -345,6 +427,13 @@ public class HomeController {
 					
 					return "index";
 				}
+			}
+			catch (Exception e) {
+				model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
 //-------- 	Navigation to Other Forms, Documents __ STOP  -----------	
 
@@ -352,7 +441,7 @@ public class HomeController {
 //-------- 	Navigation to Document Price Edit __ START  -----------		
 		@RequestMapping("/docEdit/{Useremail}")
 		public String goLegalDocumentEdit(Model model, @PathVariable String Useremail) {
-		
+		try {
 			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
 				
 				String firstNameStore = dao.getFirstName(Useremail).get(0);
@@ -368,6 +457,13 @@ public class HomeController {
 					
 					return "index";		
 				}
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 		}
 //-------- 	Navigation to Document Price Edit __ END  -----------	
 
@@ -427,7 +523,7 @@ public class HomeController {
 						return "Customer/form";
 					}
 					else {
-						model.addAttribute("loginMess", "You DO NOT hold privileges to View that Page");
+						model.addAttribute("message", "You DO NOT hold privileges to View that Page");
 						model.addAttribute("registerUser", new RegisterUser());
 						
 						return "index";
@@ -435,7 +531,7 @@ public class HomeController {
 				}
 				catch (Exception e) {
 					
-					model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+					model.addAttribute("message", "Sorry, but your Account got Deleted or Expired");
 					model.addAttribute("registerUser", new RegisterUser());
 					
 					return "index";
@@ -509,7 +605,7 @@ public class HomeController {
 				return "Customer/form";
 			}
 			else {
-				model.addAttribute("loginMess", "You DO NOT hold privileges to Delete Notification");
+				model.addAttribute("message", "You DO NOT hold privileges to Delete Notification");
 				model.addAttribute("registerUser", new RegisterUser());
 									
 				return "index";
@@ -517,7 +613,7 @@ public class HomeController {
 			}// Try End
 			catch (Exception e) {
 								
-				model.addAttribute("loginMess", "Sorry, but your Account got Deleted or Expired");
+				model.addAttribute("message", "Sorry, but your Account got Deleted or Expired");
 				model.addAttribute("registerUser", new RegisterUser());
 								
 				return "index";
@@ -602,13 +698,13 @@ public class HomeController {
 	@RequestMapping("/login")
 	public String goLogin(Model model, @RequestParam String email, @RequestParam String password) {
 		
-		
+		try {
 			if(dao.getEmail(email).isEmpty()==false){
 			
 			
 			if(dao.userExist(email, password).isEmpty() == true)
 			{
-				model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Details");
+				model.addAttribute("message", "Bad Credentials. Please Re-enter Your Details");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
@@ -670,21 +766,28 @@ public class HomeController {
 			
 			else 
 			{
-				model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+				model.addAttribute("message", "Bad Credentials. Please Re enter Your Password");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
 			}
-		}
-		else if(dao.getEmail(email).isEmpty()==true)
-		{
-			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
-			model.addAttribute("registerUser", new RegisterUser());
-			
-			return "index";
-		}
-		else {
-			model.addAttribute("loginMess", "Your Account DOES NOT Exists. Please Register First");
+			}
+			else if(dao.getEmail(email).isEmpty()==true)
+			{
+				model.addAttribute("message", "Your Account DOES NOT Exists. Please Register First");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
+			else {
+				model.addAttribute("message", "Your Account DOES NOT Exists. Please Register First");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
+		}// end of Try
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
 			model.addAttribute("registerUser", new RegisterUser());
 			
 			return "index";
@@ -700,6 +803,7 @@ public class HomeController {
 	@RequestMapping("/caseRequest/{Useremail}")
 	public String goCaseRequest(Model model, @PathVariable String Useremail) {
 	
+		try {
 		if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer") ) {
 			
 			List<PayAmount> payAmount = dao.getPayAmount();
@@ -724,6 +828,13 @@ public class HomeController {
 				return "index";
 				
 			}
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 		
 	}
 	
@@ -735,7 +846,7 @@ public class HomeController {
 		@RequestMapping("/customerRequest/{Useremail}/{SessionEmail}")
 		public String goCustomerRequest(Model model, @PathVariable String Useremail, @PathVariable String SessionEmail) {
 		
-				
+			try {	
 				List<PayAmount> payAmount = dao.getPayAmountCustomer(Useremail);
 				model.addAttribute("payAmount", payAmount);
 				
@@ -756,6 +867,13 @@ public class HomeController {
 				model.addAttribute("countClient", list.size());
 				
 				return "/Customer/CustomerRequest";
+			}
+			catch (Exception e) {
+				model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 				
 		}
 		
@@ -773,7 +891,7 @@ public class HomeController {
 			
 				@RequestMapping("/application/{email}/{Useremail}")
 				public String goViewClientInfo(Model model, @PathVariable String email ,@PathVariable String Useremail) {
-				
+				try {
 					if((dao.getRole(Useremail).get(0)).equals("Admin") || (dao.getRole(Useremail).get(0)).equals("Lawyer")) 
 						{
 	
@@ -810,6 +928,13 @@ public class HomeController {
 							return "index";
 							
 						}
+				}
+				catch (Exception e) {
+					model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
 					
 				}
 
@@ -865,14 +990,14 @@ public class HomeController {
 					return "Lawyer/Lawyer";
 				}
 				else {
-					model.addAttribute("loginMess", "Bad Credentials. Please Re enter Your Password");
+					model.addAttribute("message", "Bad Credentials. Please Re enter Your Password");
 					model.addAttribute("registerUser", new RegisterUser());
 					
 					return "index";
 				}
 			}// Try block closes
 			catch (Exception e) {
-				model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+				model.addAttribute("message", "OOPS, Something Broke at our Side. Please try again after some time.");
 				model.addAttribute("registerUser", new RegisterUser());
 				
 				return "index";
@@ -893,7 +1018,7 @@ public class HomeController {
 				RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
 				dao.editUser(regUser);
 						
-				model.addAttribute("confirmationMessage", "Your Information is modified successfully");
+				model.addAttribute("message", "Your Information is modified successfully");
 					
 				RegisterUser reg = dao.getUser(userEmail); 
 				model.addAttribute("userInfo", reg);
@@ -911,7 +1036,7 @@ public class HomeController {
 					RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
 					dao.editUser(regUser);
 							
-					model.addAttribute("confirmationMessage", "Your Information is modified successfully");
+					model.addAttribute("message", "Your Information is modified successfully");
 						
 					RegisterUser reg = dao.getUser(userEmail); 
 					model.addAttribute("userInfo", reg);
@@ -925,14 +1050,14 @@ public class HomeController {
 						return "/Lawyer/LawSettings";
 				}
 				else {
-					model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+					model.addAttribute("message", "OOPS, Something Broke at our Side. Please try again after some time.");
 					model.addAttribute("registerUser", new RegisterUser());
 					
 					return "index";
 				}
 					}// Try block closes
 					catch (Exception e) {
-						model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+						model.addAttribute("message", "OOPS, Something Broke at our Side. Please try again after some time.");
 						model.addAttribute("registerUser", new RegisterUser());
 						
 						return "index";
@@ -946,35 +1071,48 @@ public class HomeController {
 //-----------------  Delete User START  ---------------------------------
 	@RequestMapping(value = "/deleteAdmin/{email}/{Useremail}")	
 	public String deleteAdminSide(Model model, @PathVariable String email, @PathVariable String Useremail) {
-		
-		if((dao.getRole(Useremail).get(0)).equals("Admin")) {
+		try {
+			if((dao.getRole(Useremail).get(0)).equals("Admin")) {
+				
+			// Code Required to Delete all Data from other Tables as well
+			dao.deleteUser(email);
 			
-		// Code Required to Delete all Data from other Tables as well
-		dao.deleteUser(email);
-		/*dao.deleteUserPayment(email);
-		generalDao.deleteChildExpenses(email);
-		generalDao.deleteChildren(email);
-		generalDao.deleteClientInfo(email);
-		generalDao.deleteMartialInfo(email);
-		generalDao.deleteMatrimonialHome(email);
-		generalDao.deleteSpouseInfo(email);*/
-		// Code to delete other Dependency of that user
-		
-		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("notiList", dao.getList());
-		model.addAttribute("count", dao.getList().size());
-		
-		model.addAttribute("allData", dao.getDataForAdmin(Useremail));
-		model.addAttribute("message", "User Deleted Successfully");
-		return "Admin/Admin";
+			
+			List<Integer> listID = dao.getIDFromPayAmount(Useremail);
+			for(int i : listID) {
+				dao.deleteUserPayment(i);
+			}
+			
+			generalDao.deleteChildExpenses(email);
+			generalDao.deleteChildren(email);
+			generalDao.deleteClientInfo(email);
+			generalDao.deleteMartialInfo(email);
+			generalDao.deleteMatrimonialHome(email);
+			generalDao.deleteSpouseInfo(email);
+			// Code to delete other Dependency of that user
+			
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
+			model.addAttribute("allData", dao.getDataForAdmin(Useremail));
+			model.addAttribute("message", "User Deleted Successfully");
+			return "Admin/Admin";
+			}
+			else {
+				model.addAttribute("message", "Bad Credentials. Please Re-enter Your Login Credential");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
-		else {
-			model.addAttribute("loginMess", "Bad Credentials. Please Re-enter Your Login Credential");
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
 			model.addAttribute("registerUser", new RegisterUser());
 			
 			return "index";
@@ -989,69 +1127,17 @@ public class HomeController {
 	@RequestMapping(value = "/deletePayment/{Useremail}/{id}")	
 	public String deletePayment(Model model, @PathVariable int id, @PathVariable String Useremail) {
 		
-		dao.deleteOrderById(id);
-
-		List<Payment> pay = dao.getPaymentInfo(Useremail);
-		model.addAttribute("paymentData", pay);
-		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		model.addAttribute("requestMessage", "Your Legal Form have successfully Deleted from the Cart");
-		
-		ArrayList<String> clientList = dao.getClientList();
-		ArrayList<String> list = new ArrayList<String>();				
-		for(int i=0; i < clientList.size(); i++)
-		{
-			if (clientList.get(i).indexOf(Useremail) != -1) {
-				list.add(clientList.get(i));
-			}
-		}
-		model.addAttribute("clientList", list);
-		model.addAttribute("countClient", list.size());
-		
-		return "Customer/Payment";
-	}
+		try {
+			dao.deleteOrderById(id);
 	
-//---------------  Delete Payment for User -- END  --------------------------------
-
-		
-	
-//----------------- Legal Form -- START ---------------------------------
-	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
-	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm) {
-			
-		String doc;
-		String form;
-		String price;
-		
-		
-		for(int i=0; i <= legalForm.size()-1; i++)
-		{
-			String testForm = legalForm.get(i);
-			
-			int firstIndex = testForm.indexOf("^");
-			int secondIndex = testForm.indexOf("^", firstIndex + 1);
-			
-			doc = testForm.substring(0, firstIndex);
-			form = testForm.substring(firstIndex+1 , secondIndex);
-			price = testForm.substring(secondIndex+1, testForm.length());
-			
-			dao.addPayment(new Payment(Useremail, doc, form, price));
-		}
-			
-			List<LawyerDocEdit> docPrice = dao.getDocPrice();
-			model.addAttribute("listOfAllForms", docPrice);
-			
 			List<Payment> pay = dao.getPaymentInfo(Useremail);
 			model.addAttribute("paymentData", pay);
 			
-			// Regular Customer JSP EL tags needed code
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			model.addAttribute("firstName", firstNameStore);
 			model.addAttribute("Useremail", Useremail);
-			// Needed for Customer JSP EL tags
+			
+			model.addAttribute("message", "Your Legal Form have successfully Deleted from the Cart");
 			
 			ArrayList<String> clientList = dao.getClientList();
 			ArrayList<String> list = new ArrayList<String>();				
@@ -1065,6 +1151,74 @@ public class HomeController {
 			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+	}
+	
+//---------------  Delete Payment for User -- END  --------------------------------
+
+		
+	
+//----------------- Legal Form -- START ---------------------------------
+	@RequestMapping("/legalDocumentFormMulti/{Useremail}")
+	public String goLegalForm(Model model, @PathVariable String Useremail, @RequestParam List<String> legalForm) {
+		
+		try {
+		
+			String doc;
+			String form;
+			String price;
+			
+			for(int i=0; i <= legalForm.size()-1; i++)
+			{
+				String testForm = legalForm.get(i);
+				
+				int firstIndex = testForm.indexOf("^");
+				int secondIndex = testForm.indexOf("^", firstIndex + 1);
+				
+				doc = testForm.substring(0, firstIndex);
+				form = testForm.substring(firstIndex+1 , secondIndex);
+				price = testForm.substring(secondIndex+1, testForm.length());
+				
+				dao.addPayment(new Payment(Useremail, doc, form, price));
+			}
+				
+				List<LawyerDocEdit> docPrice = dao.getDocPrice();
+				model.addAttribute("listOfAllForms", docPrice);
+				
+				List<Payment> pay = dao.getPaymentInfo(Useremail);
+				model.addAttribute("paymentData", pay);
+				
+				// Regular Customer JSP EL tags needed code
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				// Needed for Customer JSP EL tags
+				
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
+				
+				return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 //----------------- Legal Form -- END --------------------------------
 	
@@ -1072,7 +1226,7 @@ public class HomeController {
 //----------------- Documents  START --------------------------------	
 	@RequestMapping("/bookOfAuth/{Useremail}")
 	public String goBookOfAuthority(Model model, @PathVariable String Useremail) {
-			
+		try {	
 			dao.addPayment(new Payment(Useremail, "Book of Authority", "", "50.00"));
 		
 			model.addAttribute("message", "Book of Authority requested Successfully");
@@ -1096,35 +1250,49 @@ public class HomeController {
 			model.addAttribute("countClient", list.size());
 			
 			return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 
 
 	@RequestMapping("/factum/{Useremail}")
 	public String goFactum(Model model, @PathVariable String Useremail) {
+		try {	
+			dao.addPayment(new Payment(Useremail, "Factum", "", "55.00"));
+				
+			model.addAttribute("message", "Factum requested Successfully");
 			
-		dao.addPayment(new Payment(Useremail, "Factum", "", "55.00"));
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			model.addAttribute("paymentData", pay);
 			
-		model.addAttribute("message", "Factum requested Successfully");
-		
-		List<Payment> pay = dao.getPaymentInfo(Useremail);
-		model.addAttribute("paymentData", pay);
-		
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			ArrayList<String> clientList = dao.getClientList();
-			ArrayList<String> list = new ArrayList<String>();				
-			for(int i=0; i < clientList.size(); i++)
-			{
-				if (clientList.get(i).indexOf(Useremail) != -1) {
-					list.add(clientList.get(i));
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+					}
 				}
-			}
-			model.addAttribute("clientList", list);
-			model.addAttribute("countClient", list.size());
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
+				
+				return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
 			
-			return "Customer/Payment";
+			return "index";
+		}
 	}
 
 //------------- Documents END -------------------------------
@@ -1135,80 +1303,87 @@ public class HomeController {
 	@RequestMapping("/pay/{Useremail}/{amount}")
 	public String goConfirmPayment(Model model, @PathVariable String Useremail, @PathVariable String amount) {
 		
-		
-		// To get Current Data
-		List<Payment> pay = dao.getPaymentInfo(Useremail);
-		
-		// To Convert Amount to 2 decimal places
-		double d = Double.parseDouble(amount);
-		String finalAmount = String.format("%.2f", d);
-		
-		
-		// Extract Current Date to Log Data
-				Date date = Calendar.getInstance().getTime();  
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
-				String strDate = dateFormat.format(date);  
-				// Extract Current Date to Log Data
-				
-				System.out.println(strDate);
-				
-				
-		String requestDoc;
-		for(Payment list : pay) {
+		try {
+			// To get Current Data
+			List<Payment> pay = dao.getPaymentInfo(Useremail);
+			
+			// To Convert Amount to 2 decimal places
+			double d = Double.parseDouble(amount);
+			String finalAmount = String.format("%.2f", d);
 			
 			
-			if(!list.getFormType().equals("")) {
-				requestDoc = list.getFormType();
+			// Extract Current Date to Log Data
+					Date date = Calendar.getInstance().getTime();  
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");  
+					String strDate = dateFormat.format(date);  
+					// Extract Current Date to Log Data
+					
+					System.out.println(strDate);
+					
+					
+			String requestDoc;
+			for(Payment list : pay) {
 				
-				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
 				
-				dao.addPayAmount(payAmount);
+				if(!list.getFormType().equals("")) {
+					requestDoc = list.getFormType();
+					
+					PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+					
+					dao.addPayAmount(payAmount);
+				}
+					
 			}
-				
-		}
-		
-		for(Payment list : pay) {
-			if(list.getFormType().equals(null) || list.getFormType().equals("") || list.getFormType().equals(" ")) {
-				requestDoc = list.getDocumentType();
-				
-				PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
-				
-				dao.addPayAmount(payAmount);
-			}
-		}
-		
-		
-		model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
-		
-		List<Integer> listID = dao.getIDFromPayAmount(Useremail);
-		
-		for(int i : listID) {
-			dao.deleteUserPayment(i);
-		}
-		
-		
-		// Required code for Payment.jsp
-			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
-			model.addAttribute("firstName", firstNameStore);
-			model.addAttribute("Useremail", Useremail);
-			
-			model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
-		
-			dao.getList().add("New Request: "+firstNameStore + "(" + Useremail + ")" );
-			
-			ArrayList<String> clientList = dao.getClientList();
-			ArrayList<String> list = new ArrayList<String>();				
-			for(int i=0; i < clientList.size(); i++)
-			{
-				if (clientList.get(i).indexOf(Useremail) != -1) {
-					list.add(clientList.get(i));
+			for(Payment list : pay) {
+				if(list.getFormType().equals(null) || list.getFormType().equals("") || list.getFormType().equals(" ")) {
+					requestDoc = list.getDocumentType();
+					
+					PayAmount payAmount = new PayAmount(Useremail, finalAmount, strDate, requestDoc);
+					
+					dao.addPayAmount(payAmount);
 				}
 			}
-			model.addAttribute("clientList", list);
-			model.addAttribute("countClient", list.size());
 			
-			return "Customer/Payment";
+			
+			model.addAttribute("message", "Request is processed, you will get your documents once the Lawyer contacts you");
+			
+			List<Integer> listID = dao.getIDFromPayAmount(Useremail);
+			
+			for(int i : listID) {
+				dao.deleteUserPayment(i);
+			}
+			
+			
+			// Required code for Payment.jsp
+				String firstNameStore = dao.getFirstName(Useremail).get(0);
+				
+				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("Useremail", Useremail);
+				
+				model.addAttribute("paymentData", dao.getPaymentInfo(Useremail));
+			
+				dao.getList().add("New Request: "+firstNameStore + "(" + Useremail + ")" );
+				
+				ArrayList<String> clientList = dao.getClientList();
+				ArrayList<String> list = new ArrayList<String>();				
+				for(int i=0; i < clientList.size(); i++)
+				{
+					if (clientList.get(i).indexOf(Useremail) != -1) {
+						list.add(clientList.get(i));
+					}
+				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
+				
+				return "Customer/Payment";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 //------------- Redirect Third Party Pay END-------------------------------
@@ -1219,79 +1394,16 @@ public class HomeController {
 	@RequestMapping("/generalApplication/{Useremail}")	
 	public String goGeneralApplication(Model model, @PathVariable String Useremail) {
 	
-		// Regular Code to send to General Application sos that Forms will work properly
-		model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
-		// Needed in order to work with general application form
-		
-		// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-		
-				ArrayList<String> clientList = dao.getClientList();
-				ArrayList<String> list = new ArrayList<String>();				
-				for(int i=0; i < clientList.size(); i++)
-				{
-					if (clientList.get(i).indexOf(Useremail) != -1) {
-						list.add(clientList.get(i));
-					}
-				}
-				model.addAttribute("clientList", list);
-				model.addAttribute("countClient", list.size());
-				
-				return "Customer/GeneralApplication/ClientInfo";
-	}
-	
-	
-// First Class Saving Data to DAO method	
-	@RequestMapping("/childExpense/{Useremail}")	
-	public String goChildExpenses(Model model, @PathVariable String Useremail, @ModelAttribute ChildExpenses childExpenses) {
-		
-		synchronized (ChildExpenses.class) {
-			generalDao.addChildExpenses(childExpenses, Useremail);
-		}
-		
-				// Regular Code to send to General Application sos that Forms will work properly
-				model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
-				
-				// Regular Customer JSP EL tags needed code
-				String firstNameStore = dao.getFirstName(Useremail).get(0);
-				model.addAttribute("firstName", firstNameStore);
-				model.addAttribute("Useremail", Useremail);
-				model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
-
-				ArrayList<String> clientList = dao.getClientList();
-				ArrayList<String> list = new ArrayList<String>();				
-				for(int i=0; i < clientList.size(); i++)
-				{
-					if (clientList.get(i).indexOf(Useremail) != -1) {
-						list.add(clientList.get(i));
-					}
-				}
-				model.addAttribute("clientList", list);
-				model.addAttribute("countClient", list.size());
-				
-				return "Customer/GeneralApplication/ChildExpenses";
-	}
-// First Class Saving Data to DAO method __ END
-	
-// Second Class Saving Data to DAO method	
-		@RequestMapping("/children/{Useremail}")	
-		public String goChildren(Model model, @PathVariable String Useremail, @ModelAttribute Children children) {
-			synchronized (Children.class) {
-				generalDao.addChildren(children, Useremail);
-			}
+		try {
+			// Regular Code to send to General Application sos that Forms will work properly
+			model.addAttribute("clientInfo", (generalDao.getclientInfoList(Useremail)));
+			// Needed in order to work with general application form
 			
-					// Regular Code to send to General Application sos that Forms will work properly
-					model.addAttribute("children", (generalDao.getChildren(Useremail)));
-					
-					// Regular Customer JSP EL tags needed code
+			// Regular Customer JSP EL tags needed code
 					String firstNameStore = dao.getFirstName(Useremail).get(0);
-							
 					model.addAttribute("firstName", firstNameStore);
 					model.addAttribute("Useremail", Useremail);
-					model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
-
+			
 					ArrayList<String> clientList = dao.getClientList();
 					ArrayList<String> list = new ArrayList<String>();				
 					for(int i=0; i < clientList.size(); i++)
@@ -1303,7 +1415,94 @@ public class HomeController {
 					model.addAttribute("clientList", list);
 					model.addAttribute("countClient", list.size());
 					
-					return "Customer/GeneralApplication/Children";
+					return "Customer/GeneralApplication/ClientInfo";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+	}
+	
+	
+// First Class Saving Data to DAO method	
+	@RequestMapping("/childExpense/{Useremail}")	
+	public String goChildExpenses(Model model, @PathVariable String Useremail, @ModelAttribute ChildExpenses childExpenses) {
+		
+		try {
+			synchronized (ChildExpenses.class) {
+				generalDao.addChildExpenses(childExpenses, Useremail);
+			}
+			
+					// Regular Code to send to General Application sos that Forms will work properly
+					model.addAttribute("childExpenses", (generalDao.getChildExpenses(Useremail)));
+					
+					// Regular Customer JSP EL tags needed code
+					String firstNameStore = dao.getFirstName(Useremail).get(0);
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", Useremail);
+					model.addAttribute("confirmationMessage", "Successfully Added/Changed Child Expenses Data");
+	
+					ArrayList<String> clientList = dao.getClientList();
+					ArrayList<String> list = new ArrayList<String>();				
+					for(int i=0; i < clientList.size(); i++)
+					{
+						if (clientList.get(i).indexOf(Useremail) != -1) {
+							list.add(clientList.get(i));
+						}
+					}
+					model.addAttribute("clientList", list);
+					model.addAttribute("countClient", list.size());
+					
+					return "Customer/GeneralApplication/ChildExpenses";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+	}
+// First Class Saving Data to DAO method __ END
+	
+// Second Class Saving Data to DAO method	
+		@RequestMapping("/children/{Useremail}")	
+		public String goChildren(Model model, @PathVariable String Useremail, @ModelAttribute Children children) {
+			try {	
+				synchronized (Children.class) {
+						generalDao.addChildren(children, Useremail);
+					}
+				
+						// Regular Code to send to General Application sos that Forms will work properly
+						model.addAttribute("children", (generalDao.getChildren(Useremail)));
+						
+						// Regular Customer JSP EL tags needed code
+						String firstNameStore = dao.getFirstName(Useremail).get(0);
+								
+						model.addAttribute("firstName", firstNameStore);
+						model.addAttribute("Useremail", Useremail);
+						model.addAttribute("confirmationMessage", "Successfully Added/Changed Children Data");
+	
+						ArrayList<String> clientList = dao.getClientList();
+						ArrayList<String> list = new ArrayList<String>();				
+						for(int i=0; i < clientList.size(); i++)
+						{
+							if (clientList.get(i).indexOf(Useremail) != -1) {
+								list.add(clientList.get(i));
+							}
+						}
+						model.addAttribute("clientList", list);
+						model.addAttribute("countClient", list.size());
+						
+						return "Customer/GeneralApplication/Children";
+			}
+			catch (Exception e) {
+				model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+				model.addAttribute("registerUser", new RegisterUser());
+				
+				return "index";
+			}
 		}
 // Second Class Saving Data to DAO method __ END
 	
@@ -1311,7 +1510,7 @@ public class HomeController {
 				@RequestMapping("/clientInfo/{Useremail}")	
 				public String goClientInfo(Model model, @PathVariable String Useremail, @ModelAttribute ClientInfo clientInfo) {
 					
-					
+					try {
 					synchronized (ClientInfo.class) {
 						generalDao.addClientInfo(clientInfo, Useremail);
 					}
@@ -1338,12 +1537,21 @@ public class HomeController {
 							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/ClientInfo";
+					}
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
 				}
 // Third Class Saving Data to DAO method __ END
 		
 // Fourth Class Saving Data to DAO method	
 				@RequestMapping("/maritalInfo/{Useremail}")	
 				public String goMartialInfo(Model model, @PathVariable String Useremail, @ModelAttribute MartialInfo martialInfo) {
+					
+					try {
 					synchronized (MartialInfo.class) {
 						generalDao.addMartialInfo(martialInfo, Useremail);
 					}
@@ -1369,12 +1577,21 @@ public class HomeController {
 							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/MaritalInfo";
+					}
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
 				}
 // Fourth Class Saving Data to DAO method __ END				
 
 // Fifth Class Saving Data to DAO method	
 				@RequestMapping("/matrimonialHome/{Useremail}")	
 				public String goMatrimonialHome(Model model, @PathVariable String Useremail, @ModelAttribute MatrimonialHome matrimonialHome) {
+					
+					try {
 					synchronized (MatrimonialHome.class) {
 						generalDao.addMatrimonialHome(matrimonialHome, Useremail);
 					}
@@ -1400,12 +1617,21 @@ public class HomeController {
 							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/MatrimonialHome";
+					}
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
 				}
 // Fifth Class Saving Data to DAO method __ END				
 		
 				// Sixth Class Saving Data to DAO method	
 				@RequestMapping("/spouseInfo/{Useremail}")	
 				public String goSpouseInfo(Model model, @PathVariable String Useremail, @ModelAttribute SpouseInfo spouseInfo) {
+					
+					try {
 					synchronized (SpouseInfo.class) {
 						generalDao.addSpouseInfo(spouseInfo, Useremail);
 					}
@@ -1431,6 +1657,13 @@ public class HomeController {
 							model.addAttribute("countClient", list.size());
 							
 							return "Customer/GeneralApplication/SpouseInfo";
+					}
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
 				}
 // Sixth Class Saving Data to DAO method __ END		
 				
@@ -1440,7 +1673,7 @@ public class HomeController {
 				
 				@RequestMapping("/editDocPrice/{Useremail}")
 				public String goAdminEditPrice(Model model, @PathVariable String Useremail) {
-					
+					try {
 						if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 							
 						List<LawyerDocEdit> docPrice = dao.getDocPrice();
@@ -1465,12 +1698,20 @@ public class HomeController {
 							
 							return "index";
 						}
+					}
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+						model.addAttribute("registerUser", new RegisterUser());
+						
+						return "index";
+					}
 				}
 				
 				@RequestMapping("/editForm")
 				public String goEditPriceForm(Model model, @RequestParam String Useremail, @RequestParam String id, @RequestParam String price, @RequestParam String sale) {
 					
-					
+					try {
+						
 					int idDB = Integer.parseInt(id);
 					double priceDB = Double.parseDouble(price);
 					
@@ -1478,50 +1719,58 @@ public class HomeController {
 					
 					if ((dao.getRole(Useremail).get(0)).equals("Admin")) {
 						
-						if (dao.editFormPrice(idDB, lawPrice) == true)
-						{	
-					
-							model.addAttribute("message", "Information Successfully Changed");
+							if (dao.editFormPrice(idDB, lawPrice) == true)
+							{	
 						
-							// Required code to go back to DocumentEdit
-							List<LawyerDocEdit> docPrice = dao.getDocPrice();
-							model.addAttribute("listOfAllForms", docPrice);
-						
-							model.addAttribute("notiList", dao.getList());
-							model.addAttribute("count", dao.getList().size());
+								model.addAttribute("message", "Information Successfully Changed");
 							
-							// Code to required to go to other pages
-							String firstNameStore = dao.getFirstName(Useremail).get(0);
-							model.addAttribute("firstName", firstNameStore);
-							model.addAttribute("Useremail", Useremail);
-						
-						return "Admin/DocumentEdit";
-						}
-						else {
-							model.addAttribute("message", "Information NOT Changed due to Error");
-							// Required code to go back to DocumentEdit
+								// Required code to go back to DocumentEdit
+								List<LawyerDocEdit> docPrice = dao.getDocPrice();
+								model.addAttribute("listOfAllForms", docPrice);
 							
-							List<LawyerDocEdit> docPrice = dao.getDocPrice();
-							model.addAttribute("listOfAllForms", docPrice);
-							
-							model.addAttribute("notiList", dao.getList());
-							model.addAttribute("count", dao.getList().size());
-							
-							// Code to required to go to other pages
-							String firstNameStore = dao.getFirstName(Useremail).get(0);
-							model.addAttribute("firstName", firstNameStore);
-							model.addAttribute("Useremail", Useremail);
+								model.addAttribute("notiList", dao.getList());
+								model.addAttribute("count", dao.getList().size());
+								
+								// Code to required to go to other pages
+								String firstNameStore = dao.getFirstName(Useremail).get(0);
+								model.addAttribute("firstName", firstNameStore);
+								model.addAttribute("Useremail", Useremail);
 							
 							return "Admin/DocumentEdit";
+							}
+							else {
+								model.addAttribute("message", "Information NOT Changed due to Error");
+								// Required code to go back to DocumentEdit
+								
+								List<LawyerDocEdit> docPrice = dao.getDocPrice();
+								model.addAttribute("listOfAllForms", docPrice);
+								
+								model.addAttribute("notiList", dao.getList());
+								model.addAttribute("count", dao.getList().size());
+								
+								// Code to required to go to other pages
+								String firstNameStore = dao.getFirstName(Useremail).get(0);
+								model.addAttribute("firstName", firstNameStore);
+								model.addAttribute("Useremail", Useremail);
+								
+								return "Admin/DocumentEdit";
+							}
+						}
+						else
+						{
+							model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
+							model.addAttribute("registerUser", new RegisterUser());
+									
+							return "index";
 						}
 					}
-					else
-					{
-						model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
+					catch (Exception e) {
+						model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
 						model.addAttribute("registerUser", new RegisterUser());
-								
+						
 						return "index";
 					}
+					
 				}
 				
 //----------- Admin Editing Document and Form Price... END ----------
@@ -1546,26 +1795,32 @@ public class HomeController {
 			HttpServletResponse response) 	
 	{
 		
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-		model.addAttribute("filelist", filelist);
-		model.addAttribute("fileinfo", fileinfo);
-		
-		model.addAttribute("presentDirectory", folderName);
-		
-		// Code to required to go to other pages
-		model.addAttribute("notiList", dao.getList());
-		model.addAttribute("count", dao.getList().size());
-		
-		String firstNameStore = dao.getFirstName(Useremail).get(0);
-		String role = dao.getRole(Useremail).get(0);
-		model.addAttribute("role", role);
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", Useremail);
-		
-		return  "Admin/Files";
+		try {
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+			model.addAttribute("filelist", filelist);
+			model.addAttribute("fileinfo", fileinfo);
 			
-	  
+			model.addAttribute("presentDirectory", folderName);
+			
+			// Code to required to go to other pages
+			model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
+			String firstNameStore = dao.getFirstName(Useremail).get(0);
+			String role = dao.getRole(Useremail).get(0);
+			model.addAttribute("role", role);
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", Useremail);
+			
+			return  "Admin/Files";
+		}	
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	}
 	
 	@PostMapping("/upload/{folder_name}") // //new annotation since 4.3
@@ -1576,58 +1831,65 @@ public class HomeController {
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
-
-		String Useremail = folderName;
-		
-		String role = dao.getRole(useremail).get(0);
-		String firstName = dao.getFirstName(useremail).get(0);
-		String firstNameCustomer = dao.getFirstName(Useremail).get(0);
-		
-		if(role.equals("Lawyer") || role.equals("Admin"))
-		{
-			dao.getClientList().add("Lawyer has sent you new Documents " + folderName);
+		try {
+			String Useremail = folderName;
 			
-		}
-		else {
-			System.out.println("Something went wrong at line: 1337 HomeController");
-		}
-		//adding a file
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
-        }
-
-        // Get the file and save it somewhere
-		try {				
-			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, firstName);		
-			model.addAttribute("message",				
-			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-			e.printStackTrace();		
-			model.addAttribute("message",		
-			        "Your file wasn't uploaded");		
-		}
-		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-		
-	    model.addAttribute("fileinfo", fileinfo);
-		model.addAttribute("presentDirectory", folderName);
-		model.addAttribute("filelist", filelist);
-	    
-		// Code to required to go to other pages
-	    model.addAttribute("notiList", dao.getList());
-		model.addAttribute("count", dao.getList().size());
-		
-	    String firstNameStore = dao.getFirstName(useremail).get(0);
+			String role = dao.getRole(useremail).get(0);
+			String firstName = dao.getFirstName(useremail).get(0);
+			String firstNameCustomer = dao.getFirstName(Useremail).get(0);
+			
+			if(role.equals("Lawyer") || role.equals("Admin"))
+			{
+				dao.getClientList().add("Lawyer has sent you new documents " + firstNameCustomer + "(" +folderName + ")");
+				
+			}
+			else {
+				System.out.println("Something went wrong at line: 1337 HomeController");
+			}
+			//adding a file
+	        if (file.isEmpty()) {
+	            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+	            return "redirect:uploadStatus";
+	        }
 	
-		model.addAttribute("role", dao.getRole(useremail).get(0));
-		model.addAttribute("firstName", firstNameStore);	
-		model.addAttribute("Useremail", useremail);
+	        // Get the file and save it somewhere
+			try {				
+				String dir = dao.getDirPath( folderName );
+				dao.addFile(file, dir, firstName);		
+				model.addAttribute("message",				
+				        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+			} catch (Exception e) {		
+				// TODO Auto-generated catch block		
+				e.printStackTrace();		
+				model.addAttribute("message",		
+				        "Your file wasn't uploaded");		
+			}
+			// showing the list of file in the folder
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+			
+		    model.addAttribute("fileinfo", fileinfo);
+			model.addAttribute("presentDirectory", folderName);
+			model.addAttribute("filelist", filelist);
+		    
+			// Code to required to go to other pages
+		    model.addAttribute("notiList", dao.getList());
+			model.addAttribute("count", dao.getList().size());
+			
+		    String firstNameStore = dao.getFirstName(useremail).get(0);
 		
-        return "Admin/Files";
+			model.addAttribute("role", dao.getRole(useremail).get(0));
+			model.addAttribute("firstName", firstNameStore);	
+			model.addAttribute("Useremail", useremail);
+			
+	        return "Admin/Files";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
     }
 	@PostMapping("/uploadCustomer/{folder_name}") // //new annotation since 4.3
     public String singleFileUploadCustomer(
@@ -1637,63 +1899,70 @@ public class HomeController {
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
 		// Code for Notification at Customer side
-		
-		String role = dao.getRole(folderName).get(0);
-		String firstName = dao.getFirstName(folderName).get(0);
-		
-		if(role.equals("Client")) 
-		{
-			dao.getList().add(firstName + "(" + folderName + ")" + " uploaded new files");
-		}
-		else {
-			System.out.println("Something went wrong at line: 1405 HomeController");
-		}
-		//adding a file
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
-        }
-
-        // Get the file and save it somewhere
-		try {				
-			String dir = dao.getDirPath( folderName );
-			dao.addFile(file, dir, firstName);		
-			model.addAttribute("message",				
-			        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
-		} catch (Exception e) {		
-			// TODO Auto-generated catch block		
-			e.printStackTrace();		
-			model.addAttribute("message",		
-			        "Your file wasn't uploaded");		
-		}
-		// showing the list of file in the folder
-		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
-	    List<String[]> fileinfo = compareWithFileDatabase(filelist);
-	    
-		model.addAttribute("fileinfo", fileinfo);
-		model.addAttribute("presentDirectory", folderName);
-		model.addAttribute("filelist", filelist);
-		
-		// Code to required to go to other pages
-		String firstNameStore = dao.getFirstName(folderName).get(0);
-		model.addAttribute("firstName", firstNameStore);
-		model.addAttribute("Useremail", folderName);
-		model.addAttribute("role", role);
-		
-		
-		ArrayList<String> clientList = dao.getClientList();
-		ArrayList<String> list = new ArrayList<String>();				
-		for(int i=0; i < clientList.size(); i++)
-		{
-			if (clientList.get(i).indexOf(folderName) != -1) {
-				list.add(clientList.get(i));
+		try {
+			String role = dao.getRole(folderName).get(0);
+			String firstName = dao.getFirstName(folderName).get(0);
+			
+			if(role.equals("Client")) 
+			{
+				dao.getList().add(firstName + "(" + folderName + ")" + " uploaded new files");
 			}
+			else {
+				System.out.println("Something went wrong at line: 1405 HomeController");
+			}
+			//adding a file
+	        if (file.isEmpty()) {
+	            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+	            return "redirect:uploadStatus";
+	        }
+	
+	        // Get the file and save it somewhere
+			try {				
+				String dir = dao.getDirPath( folderName );
+				dao.addFile(file, dir, firstName);		
+				model.addAttribute("message",				
+				        "You successfully uploaded '" + file.getOriginalFilename() + "'");				       
+			} catch (Exception e) {		
+				// TODO Auto-generated catch block		
+				e.printStackTrace();		
+				model.addAttribute("message",		
+				        "Your file wasn't uploaded");		
+			}
+			// showing the list of file in the folder
+			List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
+		    List<String[]> fileinfo = compareWithFileDatabase(filelist);
+		    
+			model.addAttribute("fileinfo", fileinfo);
+			model.addAttribute("presentDirectory", folderName);
+			model.addAttribute("filelist", filelist);
+			
+			// Code to required to go to other pages
+			String firstNameStore = dao.getFirstName(folderName).get(0);
+			model.addAttribute("firstName", firstNameStore);
+			model.addAttribute("Useremail", folderName);
+			model.addAttribute("role", role);
+			
+			
+			ArrayList<String> clientList = dao.getClientList();
+			ArrayList<String> list = new ArrayList<String>();				
+			for(int i=0; i < clientList.size(); i++)
+			{
+				if (clientList.get(i).indexOf(folderName) != -1) {
+					list.add(clientList.get(i));
+				}
+			}
+			model.addAttribute("clientList", list);
+			model.addAttribute("countClient", list.size());
+			
+			
+	        return "Customer/uploadDocument";
 		}
-		model.addAttribute("clientList", list);
-		model.addAttribute("countClient", list.size());
-		
-		
-        return "Customer/uploadDocument";
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
     }
 		
 	@PostMapping("/deleteFileAdmin/{folder_name}")
@@ -1703,6 +1972,9 @@ public class HomeController {
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 		{
+		
+		
+		try {
 			for(String name : selectedChecks) {
 				dao.deleteFile(name, folderName);
 			}
@@ -1726,6 +1998,14 @@ public class HomeController {
 			model.addAttribute("Useremail", Useremail);
 			
 	        return "Admin/Files";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
+		
 	    }
 	@PostMapping("/deleteFileUser/{folder_name}")
 	  public String deleteFileUser(Model model,
@@ -1734,6 +2014,7 @@ public class HomeController {
 	    		RedirectAttributes redirectAttributes,
 	    		@PathVariable("folder_name") String folderName) throws IOException 
 		{
+		try {
 			for(String name : selectedChecks) {
 				
 				dao.deleteFile(name, folderName, Useremail);
@@ -1769,6 +2050,13 @@ public class HomeController {
 			model.addAttribute("countClient", list.size());
 			
 	        return "Customer/uploadDocument";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
 	    }
 	
 	@RequestMapping(value = "/download", method = RequestMethod.POST )
@@ -1776,6 +2064,7 @@ public class HomeController {
             @RequestHeader String referer, @RequestParam("filename") String filename, 
             @RequestParam("foldername") String dirname) throws IOException  
     {
+		try {
 		// to prevent hotlinking a file
 		if(referer != null && !referer.isEmpty()) {
             //do nothing
@@ -1801,6 +2090,11 @@ public class HomeController {
         } 
         else {	
         }
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			
+		}
 	}
 	
 	@RequestMapping("/goToCustomerUpload/{folder_name}") // //new annotation since 4.3
@@ -1809,7 +2103,7 @@ public class HomeController {
     		RedirectAttributes redirectAttributes,
     		@PathVariable("folder_name") String folderName) throws IOException 
 	{
-
+		try {
 		//adding a file
        		// showing the list of file in the folder
 		List<File> filelist = dao.getFileList(dao.getDirPath(folderName));		
@@ -1841,6 +2135,13 @@ public class HomeController {
 		model.addAttribute("countClient", list.size());
 		
         return "Customer/uploadDocument";
+		}
+		catch (Exception e) {
+			model.addAttribute("message", "Opps, looks like something broke at our side OR you are requesting things which is out of your reach");
+			model.addAttribute("registerUser", new RegisterUser());
+			
+			return "index";
+		}
     }
 
 	private List<String[]> compareWithFileDatabase(List<File> filelist) {
