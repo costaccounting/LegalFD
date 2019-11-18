@@ -140,10 +140,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -169,10 +165,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				return "Customer/GeneralApplication/ClientInfo";
@@ -194,9 +186,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
@@ -219,9 +208,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
@@ -244,9 +230,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
@@ -269,9 +252,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
@@ -295,9 +275,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
@@ -322,9 +299,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
 				}
 			}
 			
@@ -354,10 +328,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
@@ -449,10 +419,6 @@ public class HomeController {
 						{
 							if (clientList.get(i).indexOf(Useremail) != -1) {
 								list.add(clientList.get(i));
-								System.out.println("Noti Test o/p -> " + clientList.get(i));
-								System.out.println("Noti Test o/p -> " + list);
-								System.out.println("Noti Test o/p -> " + list.size());
-								
 							}
 						}
 						model.addAttribute("clientList", list);
@@ -535,10 +501,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
@@ -595,10 +557,6 @@ public class HomeController {
 						{
 							if (clientList.get(i).indexOf(Useremail) != -1) {
 								list.add(clientList.get(i));
-								System.out.println("Noti Test o/p -> " + clientList.get(i));
-								System.out.println("Noti Test o/p -> " + list);
-								System.out.println("Noti Test o/p -> " + list.size());
-								
 							}
 						}
 						model.addAttribute("clientList", list);
@@ -687,10 +645,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(email) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
@@ -781,7 +735,6 @@ public class HomeController {
 		@RequestMapping("/customerRequest/{Useremail}/{SessionEmail}")
 		public String goCustomerRequest(Model model, @PathVariable String Useremail, @PathVariable String SessionEmail) {
 		
-			if((dao.getRole(SessionEmail).get(0)).equals("Client") || (dao.getRole(SessionEmail).get(0)).equals("Admin") || (dao.getRole(SessionEmail).get(0)).equals("Lawyer")) {
 				
 				List<PayAmount> payAmount = dao.getPayAmountCustomer(Useremail);
 				model.addAttribute("payAmount", payAmount);
@@ -797,23 +750,13 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
 				model.addAttribute("countClient", list.size());
 				
 				return "/Customer/CustomerRequest";
-				}
-				else {
-					model.addAttribute("logOutMess", "You DO NOT hold privileges to View this page");
-					model.addAttribute("registerUser", new RegisterUser());
-					
-					return "index";	
-				}
+				
 		}
 		
 //----------------- 		NAVIGATION TO Case Request (ALL) -- End	 ---------------------------------
@@ -945,10 +888,11 @@ public class HomeController {
 	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
 					
 		try {
-				
-			RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
-			dao.editUser(regUser);
-					
+				if(dao.getRole(userEmail).equals("Client"))
+				{
+				RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
+				dao.editUser(regUser);
+						
 				model.addAttribute("confirmationMessage", "Your Information is modified successfully");
 					
 				RegisterUser reg = dao.getUser(userEmail); 
@@ -960,7 +904,30 @@ public class HomeController {
 				model.addAttribute("Useremail", userEmail );
 				
 					return "Settings";
-				
+				}
+				else if(dao.getRole(userEmail).equals("Lawyer") || dao.getRole(userEmail).equals("Admin"))
+				{
+					RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
+					dao.editUser(regUser);
+							
+					model.addAttribute("confirmationMessage", "Your Information is modified successfully");
+						
+					RegisterUser reg = dao.getUser(userEmail); 
+					model.addAttribute("userInfo", reg);
+					
+					String firstNameStore = dao.getFirstName(userEmail).get(0);
+					
+					model.addAttribute("firstName", firstNameStore);
+					model.addAttribute("Useremail", userEmail );
+					
+						return "/Lawyer/LawSettings";
+				}
+				else {
+					model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
+					model.addAttribute("registerUser", new RegisterUser());
+					
+					return "index";
+				}
 					}// Try block closes
 					catch (Exception e) {
 						model.addAttribute("loginMess", "OOPS, Something Broke at our Side. Please try again after some time.");
@@ -1037,10 +1004,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(Useremail) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
-				
 			}
 		}
 		model.addAttribute("clientList", list);
@@ -1094,10 +1057,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -1129,10 +1088,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -1162,10 +1117,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -1250,10 +1201,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -1285,10 +1232,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
@@ -1321,10 +1264,6 @@ public class HomeController {
 				{
 					if (clientList.get(i).indexOf(Useremail) != -1) {
 						list.add(clientList.get(i));
-						System.out.println("Noti Test o/p -> " + clientList.get(i));
-						System.out.println("Noti Test o/p -> " + list);
-						System.out.println("Noti Test o/p -> " + list.size());
-						
 					}
 				}
 				model.addAttribute("clientList", list);
@@ -1357,10 +1296,6 @@ public class HomeController {
 					{
 						if (clientList.get(i).indexOf(Useremail) != -1) {
 							list.add(clientList.get(i));
-							System.out.println("Noti Test o/p -> " + clientList.get(i));
-							System.out.println("Noti Test o/p -> " + list);
-							System.out.println("Noti Test o/p -> " + list.size());
-							
 						}
 					}
 					model.addAttribute("clientList", list);
@@ -1395,10 +1330,6 @@ public class HomeController {
 							{
 								if (clientList.get(i).indexOf(Useremail) != -1) {
 									list.add(clientList.get(i));
-									System.out.println("Noti Test o/p -> " + clientList.get(i));
-									System.out.println("Noti Test o/p -> " + list);
-									System.out.println("Noti Test o/p -> " + list.size());
-									
 								}
 							}
 							model.addAttribute("clientList", list);
@@ -1430,10 +1361,6 @@ public class HomeController {
 							{
 								if (clientList.get(i).indexOf(Useremail) != -1) {
 									list.add(clientList.get(i));
-									System.out.println("Noti Test o/p -> " + clientList.get(i));
-									System.out.println("Noti Test o/p -> " + list);
-									System.out.println("Noti Test o/p -> " + list.size());
-									
 								}
 							}
 							model.addAttribute("clientList", list);
@@ -1465,10 +1392,6 @@ public class HomeController {
 							{
 								if (clientList.get(i).indexOf(Useremail) != -1) {
 									list.add(clientList.get(i));
-									System.out.println("Noti Test o/p -> " + clientList.get(i));
-									System.out.println("Noti Test o/p -> " + list);
-									System.out.println("Noti Test o/p -> " + list.size());
-									
 								}
 							}
 							model.addAttribute("clientList", list);
@@ -1500,10 +1423,6 @@ public class HomeController {
 							{
 								if (clientList.get(i).indexOf(Useremail) != -1) {
 									list.add(clientList.get(i));
-									System.out.println("Noti Test o/p -> " + clientList.get(i));
-									System.out.println("Noti Test o/p -> " + list);
-									System.out.println("Noti Test o/p -> " + list.size());
-									
 								}
 							}
 							model.addAttribute("clientList", list);
@@ -1662,11 +1581,6 @@ public class HomeController {
 		String firstName = dao.getFirstName(useremail).get(0);
 		String firstNameCustomer = dao.getFirstName(Useremail).get(0);
 		
-		System.out.println("Test o/p ->" + folderName);
-		System.out.println("Test o/p ->" + role);
-		System.out.println("Test o/p ->" + firstNameCustomer);
-		System.out.println("Test o/p ->" + firstName);
-		
 		if(role.equals("Lawyer") || role.equals("Admin"))
 		{
 			dao.getClientList().add("Lawyer has sent you new Documents " + folderName);
@@ -1771,10 +1685,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(folderName) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
-				
 			}
 		}
 		model.addAttribute("clientList", list);
@@ -1851,10 +1761,6 @@ public class HomeController {
 			{
 				if (clientList.get(i).indexOf(Useremail) != -1) {
 					list.add(clientList.get(i));
-					System.out.println("Noti Test o/p -> " + clientList.get(i));
-					System.out.println("Noti Test o/p -> " + list);
-					System.out.println("Noti Test o/p -> " + list.size());
-					
 				}
 			}
 			model.addAttribute("clientList", list);
@@ -1926,9 +1832,6 @@ public class HomeController {
 		{
 			if (clientList.get(i).indexOf(folderName) != -1) {
 				list.add(clientList.get(i));
-				System.out.println("Noti Test o/p -> " + clientList.get(i));
-				System.out.println("Noti Test o/p -> " + list);
-				System.out.println("Noti Test o/p -> " + list.size());
 				
 			}
 		}
