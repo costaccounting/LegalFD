@@ -886,9 +886,9 @@ public class HomeController {
 			
 	@RequestMapping("/editPassword/{userEmail}")
 	public String editPassword(Model model, @PathVariable String userEmail, @RequestParam String userFirstName,@RequestParam String userLastName, @RequestParam String userNewPassword) {
-					
+		
 		try {
-				if(dao.getRole(userEmail).equals("Client"))
+				if((dao.getRole(userEmail).get(0)).equals("Client"))
 				{
 				RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
 				dao.editUser(regUser);
@@ -901,11 +901,12 @@ public class HomeController {
 				String firstNameStore = dao.getFirstName(userEmail).get(0);
 				
 				model.addAttribute("firstName", firstNameStore);
+				model.addAttribute("role", dao.getRole(userEmail).get(0));
 				model.addAttribute("Useremail", userEmail );
 				
 					return "Settings";
 				}
-				else if(dao.getRole(userEmail).equals("Lawyer") || dao.getRole(userEmail).equals("Admin"))
+				else if((dao.getRole(userEmail).get(0)).equals("Lawyer") || (dao.getRole(userEmail).get(0)).equals("Admin"))
 				{
 					RegisterUser regUser = new RegisterUser(userEmail, userFirstName, userLastName, userNewPassword);
 					dao.editUser(regUser);
@@ -919,6 +920,7 @@ public class HomeController {
 					
 					model.addAttribute("firstName", firstNameStore);
 					model.addAttribute("Useremail", userEmail );
+					model.addAttribute("role", dao.getRole(userEmail).get(0));
 					
 						return "/Lawyer/LawSettings";
 				}
