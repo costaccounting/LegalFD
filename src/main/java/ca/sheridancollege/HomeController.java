@@ -99,6 +99,7 @@ public class HomeController {
 		// Code to required to go to other pages
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("role", dao.getRole(Useremail).get(0));
 		model.addAttribute("Useremail", Useremail);
 				
 		return "Settings";
@@ -116,6 +117,7 @@ public class HomeController {
 		
 		String firstNameStore = dao.getFirstName(Useremail).get(0);
 		model.addAttribute("firstName", firstNameStore);
+		model.addAttribute("role", dao.getRole(Useremail).get(0));
 		model.addAttribute("Useremail", Useremail);
 				
 		return "Lawyer/LawSettings";

@@ -105,9 +105,9 @@
 							<li class="nav-item"><a class="nav-link pl-4 "
 								href="/dashboard/${Useremail}"> Manage Users</a></li>
 							<li class="nav-item"><a class="nav-link pl-4"
-                href="/caseRequest/${Useremail}">Client Requests </span></a></li>
-                <li class="nav-item"><a class="nav-link pl-4 active"
-                  href="/editDocPrice/${Useremail}">Manage Price</a></li>
+				                href="/caseRequest/${Useremail}">Client Requests </span></a></li>
+				            <li class="nav-item"><a class="nav-link pl-4 active"
+				                href="/editDocPrice/${Useremail}">Manage Price</a></li>
 
 						</ul>
 
