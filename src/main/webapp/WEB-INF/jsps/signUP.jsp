@@ -131,7 +131,7 @@
 										class="btn btn-outline-light btn-block">
 
 
-									<p align="center" style="color: red; font-size: 1.5em;">${RegErrMess}</p>
+									<div  align="center" style="color: red; background-color: green;font-size: 1.5em;">${RegErrMess}</div>
 								</form>
 
 
