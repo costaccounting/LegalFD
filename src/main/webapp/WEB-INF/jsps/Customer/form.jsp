@@ -168,7 +168,8 @@
 								</div>
 								<div class="dropdown-divider"></div>
 							</c:forEach>
-						</div></li>
+						</div>
+					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">

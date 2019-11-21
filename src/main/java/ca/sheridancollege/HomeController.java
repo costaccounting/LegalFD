@@ -26,6 +26,7 @@ public class HomeController {
 	
 //***************___Navigation between Pages -- START******************
 	
+	
 //	@RequestMapping("/error")
 //	public String goError(Model model) {
 //		model.addAttribute("registerUser", new RegisterUser());
@@ -196,6 +197,10 @@ public class HomeController {
 						list.add(clientList.get(i));
 					}
 				}
+				model.addAttribute("clientList", list);
+				model.addAttribute("countClient", list.size());
+				
+				
 				return "Customer/GeneralApplication/ClientInfo";
 		}
 		catch (Exception e) {
@@ -226,6 +231,10 @@ public class HomeController {
 				
 			}
 		}
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
+		
 		return "Customer/GeneralApplication/SpouseInfo";
 		}
 		catch (Exception e) {
@@ -256,6 +265,11 @@ public class HomeController {
 				
 			}
 		}
+		
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
+		
 		return "Customer/GeneralApplication/MaritalInfo";
 		}
 		catch (Exception e) {
@@ -286,6 +300,11 @@ public class HomeController {
 				
 			}
 		}
+		
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
+		
 		return "Customer/GeneralApplication/MatrimonialHome";
 		}
 		catch (Exception e) {
@@ -316,6 +335,11 @@ public class HomeController {
 				
 			}
 		}
+		
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
+		
 		return "Customer/GeneralApplication/Children";
 		}
 		catch (Exception e) {
@@ -346,6 +370,11 @@ public class HomeController {
 				
 			}
 		}
+		
+		model.addAttribute("clientList", list);
+		model.addAttribute("countClient", list.size());
+		
+		
 		return "Customer/GeneralApplication/ChildExpenses";
 		}
 		catch (Exception e) {
