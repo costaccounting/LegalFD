@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -417,7 +416,8 @@
 												Policy</h5>
 											<button class="close" data-dismiss="modal">&times;</button>
 										</div>
-										<div class="modal-body" style="color: black">
+										
+								<div class="modal-body" style="color: black">
 
 											<h2>LegalFD Privacy Policy</h2>
 											<br>
@@ -434,7 +434,8 @@
 											<p>If you have any questions or problems with any aspect
 												of our privacy policy or its implementation, please contact
 												our privacy officer.</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>
 												<b>Security of your Personal Information</b>
 											</p>
@@ -451,11 +452,13 @@
 												enforce our privacy policies with our employees and any
 												breach of this policy will result in termination and the
 												pressing of criminal charges where there are grounds.</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>
 												<b>How we use your Personal Information</b>
 											</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>Your personal information will be used in order to
 												provide you with the requested products and services. This
 												includes the use of information for completing transactions
@@ -469,11 +472,13 @@
 												Site's users in general (such as we may inform third parties
 												about the number of registered users, number of unique
 												visitors, and the pages most frequently browsed).</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>
 												<b>Who we share your Personal Information with</b>
 											</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>We will NOT sell, trade or rent your name or personal
 												information to anyone else. We DO NOT sell, trade, rent or
 												provide outside access to our mailing list at all.</p>
@@ -489,34 +494,32 @@
 												using your personal information except to provide these
 												services and they are required to maintain the
 												confidentiality of your information.</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>
 												<b>Collection of your Personal Information</b>
 											</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>LegalFD only saves such personal information that is
 												necessary for you to access and use our services. This
 												personal information includes, but is not limited to, first
 												and last name, email address, phone number, other payment
 												processing information and document creation data. LegalFD
 												will store such personal information until you delete that
-												personal information through your "My Documents"Äù or
-												"My Account" pages on our site, you formally request its
-												personal information through your "ÄúMy Documents"Äù or "ÄúMy
-												Account" pages on our site, you formally request its
-												personal information through your ‚ÄúMy Documents‚Äù or ‚ÄúMy
-												Account‚Äù pages on our site, you formally request its
 												personal information through your ‚ÄúMy Documents‚Äù or ‚ÄúMy
 												Account‚Äù pages on our site, you formally request its
 												deletion or revoke your consent to its storage, or LegalFD
 												otherwise deletes that personal information in accordance
 												with its decisions or internal policies.
 											<p>
-												<br> <br>
+												<br>
+												<br>
 											<p>
 												<b>Document Preparation and Privacy of Information</b>
 											</p>
-											<br> <br>
+											<br>
+											<br>
 											<p>The information you provide when you prepare a
 												document on our website is held strictly confidential. For
 												your protection provide a valid email address that will not
@@ -527,6 +530,7 @@
 
 
 										</div>
+
 										<div class="modal-footer">
 											<button class="btn btn-secondary" data-dismiss="modal">Close</button>
 										</div>
