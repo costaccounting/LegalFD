@@ -101,6 +101,7 @@
 							<div class="card-body">
 								<h3>Sign Up</h3>
 								<br>
+
 								<form action="/register1" method="post"
 									modelAttribute="registerUser">
 
@@ -276,12 +277,42 @@
 												<li><b>Programs</b> <br>
 													<p>
 														LegalFD retains the right to make changes to its Affiliate
-														Program or other programs as it sees fit.<br> <<<<<<<
-														HEAD
+
+														Program or other programs as it sees fit.<br>
+
+
+														Program or other programs as it sees fit.<br> 
+														
+
 													</p>
 													<p>Detailed Affiliate Program Terms and Conditions can
 														be found at Affiliate Program Terms and Conditions.</p></li>
 												<li><b>Restrictions</b> <br>
+
+												<p>To the maximum extent allowable under applicable law, except as explicitly 
+												identified in these terms, you agree not to publish, re-publish, lend, licence, 
+												give away, look at the software source code, modify the software source code, post 
+												to an Internet web site, or use in an automated system any LegalFD Material nor 
+												will you utilize LegalFD Material in any way for the creation of an automated system
+												or website, nor will you allow or assist a third party to do so.</p>
+												
+												<p>You agree to only use LegalFD Material and the Site as a customer.</p>
+												<p>Licences granted are subject to these Terms, and are non-exclusive, non-transferable, and revocable.</p>
+												<p>The EULA document may be distributed on the internet without time limit by licensed LegalFD 
+												customers as part of a materially non-legal package adding significant value.</p>
+												<p>The rights granted under these Terms are granted to you only.</p>
+												<p>If you are an organization, a purchase allows one individual within your organization to 
+												exercise the rights granted by these Terms. If multiple individuals within your organization
+												require access, there must be a purchase for each individual. The appointed individual may not
+												be changed.</p>
+												<p>LegalFD retains the right to prohibit organizations, groups, or individuals, or yourself from
+												 using its websites or LegalFD Material or LegalFD Services at its discretion.</p>
+												
+												</li>
+												<li><b>Assignment</b> <br>
+												<p>This agreement cannot be assigned.</p>
+												</li>
+
 													<p>To the maximum extent allowable under applicable
 														law, except as explicitly identified in these terms, you
 														agree not to publish, re-publish, lend, licence, give
@@ -296,6 +327,7 @@
 													<p></p>
 													<p></p>
 													<p></p>
+
 												<li></li>
 											</ol>
 										</div>
@@ -468,10 +500,14 @@
 												and last name, email address, phone number, other payment
 												processing information and document creation data. LegalFD
 												will store such personal information until you delete that
-												personal information through your “My Documents” or “My
-												Account” pages on our site, you formally request its
-												personal information through your “My Documents” or “My
-												Account” pages on our site, you formally request its
+												personal information through your "My Documents" or
+												"My Account" pages on our site, you formally request its
+												personal information through your "My Documents" or "My
+												Account" pages on our site, you formally request its
+												personal information through your âMy Documentsâ or âMy
+												Accountâ pages on our site, you formally request its
+												personal information through your âMy Documentsâ or âMy
+												Accountâ pages on our site, you formally request its
 												deletion or revoke your consent to its storage, or LegalFD
 												otherwise deletes that personal information in accordance
 												with its decisions or internal policies.
@@ -496,17 +532,15 @@
 										</div>
 									</div>
 								</div>
-
-
-							</div>
 						</div>
 
 
 
 					</div>
 				</div>
+
 			</div>
-		</div>
+			</div>
 	</header>
 
 
