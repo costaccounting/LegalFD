@@ -1,64 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-    
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
- <title>Register your Account</title>
- 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<title>Register your Account</title>
+
 
 </head>
 
 
 
-<body >
-  <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="main-nav" style="background-color: black;">
-    <div class="container">
-    
-    
-        <a href="#" class="navbar-brand"><span class="mb-0 h1">
-				<i class="fas fa-balance-scale"> </i> LegalFD</span>
-				</a>
-     
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      
-      
-      
-        
-        
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-      
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-          	<c:url var = "url" value = "/signIn"></c:url>
-            <a href= "${url}" class="nav-link">Sign In</a>
-          </li>
-          <li class="nav-item">
-         
-            <a href="/about" class="nav-link">About</a>
-          </li>
-         
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark fixed-top"
+		id="main-nav" style="background-color: black;">
+		<div class="container">
 
- <header id="home-section">
+
+			<a href="#" class="navbar-brand"><span class="mb-0 h1"> <i
+					class="fas fa-balance-scale"> </i> LegalFD
+			</span> </a>
+
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+
+
+
+
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><c:url var="url" value="/signIn"></c:url>
+						<a href="${url}" class="nav-link">Sign In</a></li>
+					<li class="nav-item"><a href="/about" class="nav-link">About</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header id="home-section">
 		<div class="dark-overlay">
 			<div class="home-inner container">
 				<div class="row">
@@ -121,6 +123,8 @@
 									<div class="form-group">
 										<input type="password" name="password"
 											class="form-control form-control-lg" placeholder="Password"
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
 											required>
 									</div>
 
@@ -128,7 +132,7 @@
 										class="btn btn-outline-light btn-block">
 
 
-									<p align="center" style="color: red; font-size: 1.5em;">${RegErrMess}</p>
+									<div  align="center" style="color: red; background-color: green;font-size: 1.5em;">${RegErrMess}</div>
 								</form>
 
 
@@ -210,21 +214,21 @@
 													<br>Your Licence is valid for the country of the
 													document that you select when you purchase your Licence.
 													You will be charged in the currency of that country.<br>
-												<br>If you are not a party in transactions in which a
+													<br>If you are not a party in transactions in which a
 													Final Document is used or if you obtained the Final
 													Document under a free trial, you are not allowed to enter
 													into new transactions using the Final Document starting one
 													month after the expiry of the corresponding product access
-													time period.<br>
-												<br>To access products, you must provide credit card
-													details to LegalFD as required by the Site. LegalFD will
-													charge credit cards in accordance with displayed pricing in
-													return for access to products and lawful services and if
-													free trials are not cancelled before the specified time
-													period.<br>Subject to these Terms, if you are
-													evaluating the Site strictly as a potential customer or to
-													participate in our affiliate program, you are granted a
-													licence to evaluate the Site for that purpose only.
+													time period.<br> <br>To access products, you must
+													provide credit card details to LegalFD as required by the
+													Site. LegalFD will charge credit cards in accordance with
+													displayed pricing in return for access to products and
+													lawful services and if free trials are not cancelled before
+													the specified time period.<br>Subject to these Terms,
+													if you are evaluating the Site strictly as a potential
+													customer or to participate in our affiliate program, you
+													are granted a licence to evaluate the Site for that purpose
+													only.
 												</li>
 												<li><b>Legal Advice, Information and Decision
 														Making Responsibility</b><br>
@@ -232,15 +236,15 @@
 														LegalFD is not a law firm and does not provide Legal
 														Advice (as defined below). Your use of LegalFD Material or
 														any LegalFD Services does not create a solicitor-client
-														relationship between you and LegalFD.<br>
-														<br>You agree that all decisions you make on legal
-														matters are your full responsibility and you agree to
-														retain legal counsel licensed to practice in your
-														jurisdiction regarding any legal issue of enough
-														importance to reasonably require it. <br>You agree
-														that LegalFD does not provide Legal Advice. If you receive
-														any communication from LegalFD, its agents, its employees
-														or any other associated entity, which is Legal Advice, you
+														relationship between you and LegalFD.<br> <br>You
+														agree that all decisions you make on legal matters are
+														your full responsibility and you agree to retain legal
+														counsel licensed to practice in your jurisdiction
+														regarding any legal issue of enough importance to
+														reasonably require it. <br>You agree that LegalFD
+														does not provide Legal Advice. If you receive any
+														communication from LegalFD, its agents, its employees or
+														any other associated entity, which is Legal Advice, you
 														agree that it is <b>NOT</b> a communication authorized by
 														LegalFD and you agree to immediately delete and disregard
 														it.<br>Except as expressly provided in these Terms,
@@ -271,15 +275,20 @@
 															documents or legal procedures.</li>
 													</ol></li>
 												<li><b>Programs</b> <br>
-												<p>
+													<p>
 														LegalFD retains the right to make changes to its Affiliate
+
 														Program or other programs as it sees fit.<br>
 
+
+														Program or other programs as it sees fit.<br> 
+														
+
 													</p>
-													<p>Detailed Affiliate Program Terms and Conditions can be found 
-													   at Affiliate Program Terms and Conditions.</p>
-													</li>
+													<p>Detailed Affiliate Program Terms and Conditions can
+														be found at Affiliate Program Terms and Conditions.</p></li>
 												<li><b>Restrictions</b> <br>
+
 												<p>To the maximum extent allowable under applicable law, except as explicitly 
 												identified in these terms, you agree not to publish, re-publish, lend, licence, 
 												give away, look at the software source code, modify the software source code, post 
@@ -303,6 +312,22 @@
 												<li><b>Assignment</b> <br>
 												<p>This agreement cannot be assigned.</p>
 												</li>
+
+													<p>To the maximum extent allowable under applicable
+														law, except as explicitly identified in these terms, you
+														agree not to publish, re-publish, lend, licence, give
+														away, look at the software source code, modify the
+														software source code, post to an Internet web site, or use
+														in an automated system any LegalFD Material nor will you
+														utilize LegalFD Material in any way for the creation of an
+														automated system or website, nor will you allow or assist
+														a third party to do so.</p>
+
+													<p></p>
+													<p></p>
+													<p></p>
+													<p></p>
+
 												<li></li>
 											</ol>
 										</div>
@@ -327,8 +352,7 @@
 											<p>LegalFD DOES NOT provide any legal advice and users of
 												this web site should consult with their own lawyer for legal
 												advice.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>This web site (the "Site") is a general service that
 												provides legal information over the Internet. We are not a
 												law firm and our employees are not acting as your attorney.
@@ -344,8 +368,7 @@
 												interpreted or applied differently depending on your
 												location or situation, the information or use of documents
 												on the Site is not a substitute for the advice of a lawyer.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>Any guarantee on the Site is subject to our Terms and
 												Conditions. For the most part, our Terms and Conditions
 												specify that there is no guarantee or warranty and that we
@@ -357,14 +380,12 @@
 												of the Site is at your own risk. Refer to our Terms and
 												Conditions regarding details of any exceptions such as our
 												Quality Guarantee.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>While we have worked to make our Site and all the
 												features on our Site compatible with the most commonly used
 												browsers, we cannot represent or guarantee that every
 												feature will work with your browser.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>LegalFD does not endorse any content provided by any
 												linked sites, nor does it assume any responsibility for the
 												interpretation or application of any information originating
@@ -372,12 +393,10 @@
 												content contained in any advertising on the Site, nor does
 												it assume any responsibility for the quality or integrity of
 												such work.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>Use of our Site is governed by our Terms and
 												Conditions; refer to this document for more information.</p>
-											<br>
-											<br>
+											<br> <br>
 
 
 
@@ -415,8 +434,7 @@
 											<p>If you have any questions or problems with any aspect
 												of our privacy policy or its implementation, please contact
 												our privacy officer.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>
 												<b>Security of your Personal Information</b>
 											</p>
@@ -433,13 +451,11 @@
 												enforce our privacy policies with our employees and any
 												breach of this policy will result in termination and the
 												pressing of criminal charges where there are grounds.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>
 												<b>How we use your Personal Information</b>
 											</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>Your personal information will be used in order to
 												provide you with the requested products and services. This
 												includes the use of information for completing transactions
@@ -453,13 +469,11 @@
 												Site's users in general (such as we may inform third parties
 												about the number of registered users, number of unique
 												visitors, and the pages most frequently browsed).</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>
 												<b>Who we share your Personal Information with</b>
 											</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>We will NOT sell, trade or rent your name or personal
 												information to anyone else. We DO NOT sell, trade, rent or
 												provide outside access to our mailing list at all.</p>
@@ -475,13 +489,11 @@
 												using your personal information except to provide these
 												services and they are required to maintain the
 												confidentiality of your information.</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>
 												<b>Collection of your Personal Information</b>
 											</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>LegalFD only saves such personal information that is
 												necessary for you to access and use our services. This
 												personal information includes, but is not limited to, first
@@ -492,17 +504,19 @@
 												"My Account" pages on our site, you formally request its
 												personal information through your "ÄúMy Documents"Äù or "ÄúMy
 												Account" pages on our site, you formally request its
+												personal information through your ‚ÄúMy Documents‚Äù or ‚ÄúMy
+												Account‚Äù pages on our site, you formally request its
+												personal information through your ‚ÄúMy Documents‚Äù or ‚ÄúMy
+												Account‚Äù pages on our site, you formally request its
 												deletion or revoke your consent to its storage, or LegalFD
 												otherwise deletes that personal information in accordance
 												with its decisions or internal policies.
 											<p>
-												<br>
-												<br>
+												<br> <br>
 											<p>
 												<b>Document Preparation and Privacy of Information</b>
 											</p>
-											<br>
-											<br>
+											<br> <br>
 											<p>The information you provide when you prepare a
 												document on our website is held strictly confidential. For
 												your protection provide a valid email address that will not
@@ -518,44 +532,32 @@
 										</div>
 									</div>
 								</div>
+						</div>
 
-								<form action="/register1" method="post" modelAttribute="registerUser">
-	  		  
-                   		  <div class="form-group">
-	                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required>
-	                      </div>
-		                  <div class="form-group">
-		                    <input type="text" name="firstName" class="form-control form-control-lg" placeholder="First Name" required>
-		                  </div>
-		                  <div class="form-group">
-		                    <input type="text" name="lastName" class="form-control form-control-lg" placeholder="Last Name" required>
-		                  </div>
-		                  <div class="form-group">
-		                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
-		                  </div>
-                  
-                  <input type="submit" value="Sign Up" class="btn btn-outline-light btn-block">
-                  
-                  
-                  <p align="center" style="color:red; font-size: 1.5em;">${RegErrMess}</p>
-              </form>
-								
+
+
+					</div>
+				</div>
 
 			</div>
 			</div>
-	 		</div>
 	</header>
-  
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
+
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 
 
 </body>
 
- 
+
 </html>
