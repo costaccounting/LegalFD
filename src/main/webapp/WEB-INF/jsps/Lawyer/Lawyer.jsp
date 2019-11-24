@@ -206,14 +206,16 @@
 													class="fas fa-bars"></i>
 											</a></td>
 
-										</c:if>
 
-										<td class="text-center"><a
+											<td class="text-center"><a
 											href="<c:url value="/application/${Users.email}/${Useremail}"/>"
 											class="btn btn-outline-primary "> <i
 												class="fa fa-th-list"></i>
 
 										</a></td>
+										</c:if>
+
+										
 									</tr>
 								</c:forEach>
 

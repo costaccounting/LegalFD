@@ -1112,7 +1112,7 @@ public class HomeController {
 				dao.deleteUserPayment(i);
 			}
 			
-			
+			/*
 			generalDao.deleteChildExpenses(email);
 			System.out.println("Child Exp deleted");
 			generalDao.deleteChildren(email);
@@ -1126,7 +1126,7 @@ public class HomeController {
 			generalDao.deleteSpouseInfo(email);
 			System.out.println("Spouse Info");
 			// Code to delete other Dependency of that user
-			
+			*/
 			
 			String firstNameStore = dao.getFirstName(Useremail).get(0);
 			
