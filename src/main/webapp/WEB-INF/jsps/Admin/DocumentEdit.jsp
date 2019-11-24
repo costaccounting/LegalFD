@@ -170,7 +170,7 @@
 									<input class="form-control" type="text" name="price" value="${list.price}" style="width: 70px;">
 									</td>
 									<td>
-										<select class="form-control" name="sale" style="width:50px;">
+										<select class="form-control" name="sale" style="width:70px;">
                                     		<option>No</option>
                                     		<option>Yes</option>
                                 		</select>

@@ -250,7 +250,13 @@
                                         <div class="card-body">
                                           <h4 class="card-title">Book of Authority</h4>
                                           <h6 class="card-subtitle text-muted">Card subtitle</h6>
-                                          <p class="card-text"> Description About it - CAD$50</p>
+                                          <p class="card-text">These
+									books are treated by the courts as authoritative statements of
+									the law as it was at the time at which they were written, on
+									the authority of their authors alone. Consequently, they are
+									treated as authoritative statements of the law as it is at the
+									present time, unless it is shown that the law has changed, and
+									may be cited and relied on in court as such. - CAD$50</p>
                                           <a class="btn btn-outline-primary" href="/bookOfAuth/${Useremail}">Request</a>
                                         </div>
                                       </div>
@@ -259,8 +265,12 @@
                                         <div class="card-body">
                                           <h4 class="card-title">Factum</h4>
                                           <h6 class="card-subtitle text-muted">Card subtitle</h6>
-                                          <p class="card-text">Description About it - CAD$55</p>
-                                          <a class="btn btn-outline-primary" href="/factum/${Useremail}">Request</a>
+								<p class="card-text">The word factum is used in law to refer
+									to a litigant's written submissions, a core booklet of clear,
+									simple and concise argument. It is most often used in the
+									content of an appeal but may also be used to refer to written
+									submissions given to a lower court, of first instance. - CAD$55</p>
+								<a class="btn btn-outline-primary" href="/factum/${Useremail}">Request</a>
                                         </div>
                                       </div>
                                     </div>
