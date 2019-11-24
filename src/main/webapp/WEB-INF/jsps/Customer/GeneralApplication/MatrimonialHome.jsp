@@ -245,7 +245,7 @@
 				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstAddress" />
 				<label class="mb-2 col">Address:</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
+				<form:input type="text" placeholder="Second Home (Optional)" class="form-control mb-2 col" 
 					path="secondAddress" />
 
 			</div>
@@ -254,7 +254,7 @@
 				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstTitle" />
 				<label class="mb-2 col">Name(s) on Title:</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
+				<form:input type="text" placeholder="Second Home (Optional)" class="form-control mb-2 col" 
 					path="secondTitle" />
 			</div>
 
@@ -263,7 +263,7 @@
 				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstValue" />
 				<label class="mb-2 col">Value:($CAD)</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
+				<form:input type="text" placeholder="Second Home (Optional)" class="form-control mb-2 col" 
 					path="secondValue" />
 
 			</div>
@@ -273,7 +273,7 @@
 				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstMortgage" />
 				<label class="mb-2 col">Mortgage:($CAD)</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
+				<form:input type="text" placeholder="Second Home (Optional)" class="form-control mb-2 col" 
 					path="secondMortgage" />
 			</div>
 
