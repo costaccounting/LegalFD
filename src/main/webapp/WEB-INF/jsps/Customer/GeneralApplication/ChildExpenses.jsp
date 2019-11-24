@@ -259,7 +259,7 @@
 
 			<div class="row">
 				<label class="mb-2 col">Post-secondary Educational Expenses:($CAD)</label>
-				$
+				
 				<form:input type="text" class="form-control mb-2 col"
 					path="postEducational" />
 
