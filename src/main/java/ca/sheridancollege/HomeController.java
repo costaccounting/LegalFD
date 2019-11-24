@@ -1112,12 +1112,19 @@ public class HomeController {
 				dao.deleteUserPayment(i);
 			}
 			
-			//generalDao.deleteChildExpenses(email);
-			//generalDao.deleteChildren(email);
-			//generalDao.deleteClientInfo(email);
-			//generalDao.deleteMartialInfo(email);
-			//generalDao.deleteMatrimonialHome(email);
-			//sgeneralDao.deleteSpouseInfo(email);
+			
+			generalDao.deleteChildExpenses(email);
+			System.out.println("Child Exp deleted");
+			generalDao.deleteChildren(email);
+			System.out.println("Children deleted");
+			generalDao.deleteClientInfo(email);
+			System.out.println("Client Info");
+			generalDao.deleteMartialInfo(email);
+			System.out.println("Marital Info");
+			generalDao.deleteMatrimonialHome(email);
+			System.out.println("MArital Home");
+			generalDao.deleteSpouseInfo(email);
+			System.out.println("Spouse Info");
 			// Code to delete other Dependency of that user
 			
 			
