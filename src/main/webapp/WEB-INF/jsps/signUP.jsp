@@ -312,22 +312,91 @@
 												<p>This agreement cannot be assigned.</p>
 												</li>
 
-													<p>To the maximum extent allowable under applicable
-														law, except as explicitly identified in these terms, you
-														agree not to publish, re-publish, lend, licence, give
-														away, look at the software source code, modify the
-														software source code, post to an Internet web site, or use
-														in an automated system any LegalFD Material nor will you
-														utilize LegalFD Material in any way for the creation of an
-														automated system or website, nor will you allow or assist
-														a third party to do so.</p>
+												<li><b>Intellectual Property</b> <br>
+													<p>All copyright, trade marks (including its distinguishing guise and/or trade dress), and other 
+													intellectual property rights (registered and unregistered) of LegalFD Material belong to LegalFD
+													 and its suppliers. LegalFD reserves all of its rights in the LegalFD Material. Nothing in the 
+													 Terms grants you a right or licence to use any intellectual property rights owned or controlled
+													 by LegalFD or any other third party except as expressly provided in these Terms.
+													 </p>
+													
+													<p>In addition, LegalFD Material, contains information and intellectual property that is selected
+													 and organized by LegalFD and represents significant work made by LegalFD. Nothing in the Terms 
+													 should be construed as granting any licence or right to use any LegalFD Material or intellectual 
+													 property displayed or used in any LegalFD Material except as expressly provided in the Terms.
+													 </p>
+													<ul>
+													<li>You agree to the following:</li> <br>
+													<p>The LegalFD Material is the property of LegalFD and its suppliers;</p>
+													<p>You will not use the LegalFD Material for any purpose other than is expressly permitted in these Terms;</p>
+													<p>You will not distribute in any medium any LegalFD Material without LegalFD prior written authorization 
+													or as expressly provided these Terms.</p>
+													<p>any distribution or past distribution of any LegalFD Material that violates these Terms is subject to 
+													liquidated damages in an amount equal to that which would be payable by a copyright infringer for knowingly
+													copying a work, and based on each page of any website which uses LegalFD Material being a separate work
+													under the Copyright Act and each access of a page of a website by a customer being a separate publication
+													of a work.
+													</p>
+													<p>LegalFD shall have the right to represent its suppliers in any dispute.</p>
+													</ul>
+													
 
-													<p></p>
-													<p></p>
-													<p></p>
-													<p></p>
-
-												<li></li>
+												<li><b>LIMITED WARRANTIES</b></li><br>
+												
+												<p>Except as expressly provided in these Terms, to the maximum extent permitted under applicable law, LegalFD
+												 Material and LegalFD Services are provided "as is" without any kind of warranty.</p>
+												<p>You accept full responsibility for determining whether LegalFD Material and LegalFD Services are suitable
+												 for any particular purpose and for protecting yourself against any possible consequential damages.</p>
+												<p>LegalFD does not authenticate users' signatures or identities. LegalFD electronic signature functionality 
+												does not track IP addresses, include digital certificates, use a certification authority nor any other third
+												party verification. You accept full responsibility for determining whether an electronic signature is suitable 
+												for any particular purpose.</p>
+												<p>Except as expressly provided in these Terms, we are not responsible for any loss, injury, claim, liability,
+												 damage, or consequential damage related to your use of LegalFD Material and LegalFD Services, or for inaccessibility
+												 of LegalFD Material and LegalFD Services whether from errors or omissions in the content of LegalFD Material and 
+												 LegalFD Services or any other linked sites or for any other reason. Use of LegalFD Material and LegalFD Services 
+												 is at your own risk.</p>
+												<p>LegalFD does not represent or warrant that LegalFD Material, the Site or any linked sites are free of any 
+												harmful materials.</p>
+											
+												<li><b>Maximum Liability</b></li><br>
+												
+												<p>Except as expressly provided in these Terms, the maximum liability of LegalFD is the amount paid to LegalFD by
+												 the customer. The maximum liability of LegalFD for any LegalFD Services is the portion of the amount paid to
+												 LegalFD by the customer specifically for the LegalFD Services as calculated by LegalFD.
+												 </p>
+												 
+												 <li><b>Guarantees and Refunds</b></li><br>
+												 
+												 <p>All guarantees are subject to any limitations specified in any LegalFD Material. Guarantees are only available
+												  to customers who paid on the product before the guarantee is claimed and are not available on free promotions.
+												  For a guarantee to apply to a product, it must be explicitly promoted in LegalFD Material for that product at
+												  the time of payment. A customer is only entitled to one Guarantee claim relating to one Guarantee category of 
+												  one product. Should a customer accept a Guarantee related payment from LegalFD, they waive their right to any
+												  additional claims against LegalFD regarding any Guarantee unless otherwise agreed to in writing. LegalFD has no
+												  obligation to refund one time purchases.
+												  </p>
+												  
+												  <p>The following additional restrictions apply to the Guarantees payments for mistakes:</p>
+												  <p>The mistake must be in the wording of the legal document and not in other text;</p>
+												  <p>The customer was the first person to mention that mistake for that Guarantee category;</p>
+												  <p>Guarantees only apply to LegalFD mistakes, not to customer mistakes; and</p>
+												  <p>We are only required to pay a customer once for a mistake no matter how many mistakes 
+												  they may bring to our attention.
+												  </p>
+												  <ul>
+												  <li><b> Free Trial Refund Policy </b></li>
+												  <p>
+												  The terms and conditions of the offer will govern any free trials. LegalFD has no obligation
+												   to refund for free trials properly converted to paid product access.
+												  </p>
+												  
+												  <li><b> Annual Subscriptions and Renewals</b></li>
+												  
+												  <p>LegalFD has no obligation to refund renewals unless you notify us before your renewal date that you want to cancel.
+												   Annual subscriptions are subject to a refund within 30 days of initial purchase.</p>
+												  </ul>
+												  <p></p>
 											</ol>
 										</div>
 										<div class="modal-footer">
