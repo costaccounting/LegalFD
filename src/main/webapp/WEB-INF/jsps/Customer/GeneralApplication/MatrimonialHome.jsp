@@ -232,61 +232,56 @@
         </div>
 
 		<br>
-		<h3>Matrimonial Information</h3>
+		<h3>Matrimonial Home</h3>
 		<br>
 		<form:form action="/matrimonialHome/${Useremail}" method="post" modelAttribute="matrimonialHome">
 
 			<form:hidden path="userEmail" value="${Useremail}" />
+			
+			
+		
 			<div class="row">
 				<label class="mb-2 col">Address:</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstAddress" />
 				<label class="mb-2 col">Address:</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
 					path="secondAddress" />
 
-
 			</div>
 			<div class="row">
 				<label class="mb-2 col">Name(s) on Title:</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstTitle" />
 				<label class="mb-2 col">Name(s) on Title:</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
 					path="secondTitle" />
-
-
 			</div>
 
 			<div class="row">
 				<label class="mb-2 col">Value:($CAD)</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstValue" />
 				<label class="mb-2 col">Value:($CAD)</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
 					path="secondValue" />
-
-
 
 			</div>
 
 			<div class="row">
 				<label class="mb-2 col">Mortgage:($CAD)</label>
-				<form:input type="text" class="form-control mb-2 col"
+				<form:input type="text" class="form-control mb-2 col" placeholder="First Home"
 					path="firstMortgage" />
 				<label class="mb-2 col">Mortgage:($CAD)</label>
-				<form:input type="text" placeholder="Optional" class="form-control mb-2 col"
+				<form:input type="text" placeholder="Optional" class="form-control mb-2 col" placeholder="Second Home"
 					path="secondMortgage" />
-
-
-
 			</div>
 
-
+		
 			<div class="row">
 				<label class="mb-2 col-md-3">Received by client(during or after
 					marriage):</label>
-				<form:input type="text" class="form-control mb-2 col-md-3"
+				<form:input type="text" class="form-control mb-2 col-md-3" placeholder="Excluded Property" 
 					path="excludePropertyClient" />
 
 
@@ -294,7 +289,7 @@
 			<div class="row">
 				<label class="mb-2 col-md-3">Received by client's spouse(during
 					or after marriage):</label>
-				<form:input type="text" class="form-control mb-2 col-md-3"
+				<form:input type="text" class="form-control mb-2 col-md-3" placeholder="Excluded Property"  
 					path="excludePropertySpouse" />
 
 
@@ -316,7 +311,7 @@
 				<li class="page-item "><a class="page-link"
 					href="/navmaritalInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Marital Information">3</a></li>
 				<li class="page-item active"><a class="page-link"
-					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Information">4</a></li>
+					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Home">4</a></li>
 				<li class="page-item"><a class="page-link"
 					href="/navchildren/${Useremail}" data-toggle="tooltip" data-placement="top" title="Children Information">5</a></li>
 				<li class="page-item"><a class="page-link"

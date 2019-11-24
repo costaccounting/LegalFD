@@ -67,6 +67,7 @@
 						<h1 class="display-4">
 							<strong></strong> <strong></strong>
 						</h1>
+						<!-- 
 						<div class="d-flex">
 							<div class="p-4 align-self-start">
 								<i class="fas fa-check fa-2x"></i>
@@ -93,6 +94,7 @@
 								consectetur adipisicing elit. Sed, tempore iusto in minima
 								facere dolorem!</div>
 						</div>
+						 -->
 					</div>
 
 					<div class="col-lg-4">

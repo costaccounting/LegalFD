@@ -359,7 +359,7 @@
 				<li class="page-item"><a class="page-link"
 					href="/navmaritalInfo/${Useremail}" data-toggle="tooltip" data-placement="top" title="Marital Information">3</a></li>
 				<li class="page-item"><a class="page-link"
-					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Information">4</a></li>
+					href="/navmatrimonialHome/${Useremail}" data-toggle="tooltip" data-placement="top" title="Matrimonial Home">4</a></li>
 				<li class="page-item"><a class="page-link"
 					href="/navchildren/${Useremail}" data-toggle="tooltip" data-placement="top" title="Children Information">5</a></li>
 				<li class="page-item"><a class="page-link"
