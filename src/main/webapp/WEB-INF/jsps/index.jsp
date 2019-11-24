@@ -47,7 +47,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><c:url var="url" value="/register"></c:url>
 						<a href="${url}" class="nav-link">Sign Up</a></li>
-					<li class="nav-item"><a href="/about" class="nav-link">About</a>
+				<!-- 	<li class="nav-item"><a href="/about" class="nav-link">About</a>  -->
 					</li>
 
 				</ul>
