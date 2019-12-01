@@ -173,6 +173,28 @@
 										<td>${Users.lastName}</td>
 										<td>${Users.role}</td>
 										
+										<c:if test="${Users.role == 'Client'}">
+											<td class="text-center"><a
+												href="/edit/${Users.email}/${Useremail}"
+												class="btn btn-outline-primary "> <i
+													class="fas fa-pencil-alt"></i>
+											</a></td>
+											<td class="text-center"><a
+												href="/details/${Users.email}/${Useremail}"
+												class="btn btn-outline-primary"> <i class="fa fa-upload"></i>
+
+											</a></td>
+											<td class="text-center"><a
+												href="/application/${Users.email}/${Useremail}"
+												class="btn btn-outline-primary"> <i
+													class="fa fa-th-list"></i>
+
+											</a></td>
+											<td class="text-center"><a
+												href="/customerRequest/${Users.email}/${Useremail}"
+												class="btn btn-outline-primary"> <i class="fas fa-bars"></i>
+											</a></td>
+										</c:if>
 										
 										<c:if
 											test="${Users.role == 'Lawyer' || Users.role == 'Admin'}">
