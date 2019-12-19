@@ -69,4 +69,8 @@ Clone [Github Repository Link](https://github.com/costaccounting/LegalFD.git)
  ## Hosting Service
 
  We are using **AWS** as our hosting service. 
- **RDS** as Relational Database and **EC2** instance to run our **Spring Boot** project as well as to maintain and store uploaded files.
+ **RDS** as Relational Database (MySQL) and **EC2** instance to run our **Spring Boot** project as well as to maintain and store uploaded files.
+ 
+  ## Project Contributors
+  
+  
