@@ -73,4 +73,7 @@ Clone [Github Repository Link](https://github.com/costaccounting/LegalFD.git)
  
   ## Project Contributors
   
-  
+ * **Heet Thakkar** - QA Analyst. [LinkedIn Profile](https://www.linkedin.com/in/heet-thakkar/)
+ * **Prodip Mitra** - Cloud Infrastructure Administrator. [LinkedIn Profile](https://www.linkedin.com/in/prodipmitra/)
+ * **Riya Shah** - UI/UX Designer. [LinkedIn Profile](https://www.linkedin.com/in/riyashah07/)
+ * **Paras Patel** - Full Stack Developer. [LinkedIn Profile](https://www.linkedin.com/in/paras-patel-1103/)
